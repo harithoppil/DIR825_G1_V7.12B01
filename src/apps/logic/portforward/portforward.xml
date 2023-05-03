@@ -1,0 +1,18 @@
+
+<InternetGatewayDevice type="object">
+	<X_TWSZ-COM_PortForward type="object">
+		<X_TWSZ-COM_MaxPortForwardEntries type="unsignedInt" Writable="0">24</X_TWSZ-COM_MaxPortForwardEntries>
+		<PortForwardNumberOfEntries type="unsignedInt" Writable="0">0</PortForwardNumberOfEntries>
+		<PortForward type="object" MaxNode="X_TWSZ-COM_MaxPortForwardEntries" CurNode="PortForwardNumberOfEntries">
+			<i type="object">
+				<PortForwardEnabled type="boolean">0</PortForwardEnabled>
+				<TcpPortMap type="string"></TcpPortMap>
+				<UdpPortMap type="string"></UdpPortMap>
+				<InternalClient type="string(256)"></InternalClient>
+				<PortForwardDescription type="string(256)"></PortForwardDescription>
+				<PortForwardTime type="string">Always</PortForwardTime>
+				<X_TWSZ-COM_InBoundFilter type="string">allowall</X_TWSZ-COM_InBoundFilter>
+			</i>
+		</PortForward>
+	</X_TWSZ-COM_PortForward>
+</InternetGatewayDevice>

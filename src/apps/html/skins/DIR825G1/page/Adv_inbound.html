@@ -1,0 +1,133 @@
+﻿<div class="mainbody" id="mainbody">
+<div class="orangebox">
+<span id="Adv_inb001">
+	<h1>INBOUND FILTER</h1>
+	<p>The Inbound Filter option is an advanced method of controlling data received from the Internet. With this feature you can configure inbound data filtering rules that control data based on an IP address range.</p>
+	<p>Inbound Filters can be used for limiting access to a server on your network to a system or group of systems. Filter rules can be used with Virtual Server, Port Forwarding, or Remote Administration features.</p>
+</span>	
+</div>
+<div class="blackbox">
+	<h2 id="Adv_inb002">ADD INBOUND FILTER RULE</h2>
+	<table align="center">
+	<tr>
+		<td align="right"><span id="Adv_inb003">Name</span>&nbsp;:</td>
+		<td><input type="text" id="inbfdesc" size=20 maxlength="15"></td>
+	</tr>
+	<tr>
+		<td align="right"><span id="Adv_inb004">Action</span>&nbsp;:</td>
+		<td>
+			<select id="inbfact">
+				<option value="Allow" id="Adv_inb005">Allow</option>
+				<option value="Deny" id="Adv_inb006">Deny</option>
+			</select>
+		</td>
+	</tr>	
+	<tr>
+		<td align="right"><span id="Adv_inb007">Remote IP Range</span>&nbsp;:</td>
+		<td>
+			&nbsp;<span id="Adv_inb008">Enable</span>&nbsp;
+			<span id="Adv_inb009">Remote IP Start</span>&nbsp;&nbsp;&nbsp;&nbsp;
+			<span id="Adv_inb010">Remote IP End</span>&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>
+			&nbsp;&nbsp;&nbsp;<input type='checkbox' id='en_inbf1'>&nbsp;&nbsp;
+			<input type='text' id='inbf_startip1' value='0.0.0.0' size=16 maxlength='15'>
+			<input type='text' id='inbf_endip1' value='255.255.255.255' size=16 maxlength='15'>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>
+			&nbsp;&nbsp;&nbsp;<input type='checkbox' id='en_inbf2'>&nbsp;&nbsp;
+			<input type='text' id='inbf_startip2' value='0.0.0.0' size=16 maxlength='15'>
+			<input type='text' id='inbf_endip2' value='255.255.255.255' size=16 maxlength='15'>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>
+			&nbsp;&nbsp;&nbsp;<input type='checkbox' id='en_inbf3'>&nbsp;&nbsp;
+			<input type='text' id='inbf_startip3' value='0.0.0.0' size=16 maxlength='15'>
+			<input type='text' id='inbf_endip3' value='255.255.255.255' size=16 maxlength='15'>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>
+			&nbsp;&nbsp;&nbsp;<input type='checkbox' id='en_inbf4'>&nbsp;&nbsp;
+			<input type='text' id='inbf_startip4' value='0.0.0.0' size=16 maxlength='15'>
+			<input type='text' id='inbf_endip4' value='255.255.255.255' size=16 maxlength='15'>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>
+			&nbsp;&nbsp;&nbsp;<input type='checkbox' id='en_inbf5'>&nbsp;&nbsp;
+			<input type='text' id='inbf_startip5' value='0.0.0.0' size=16 maxlength='15'>
+			<input type='text' id='inbf_endip5' value='255.255.255.255' size=16 maxlength='15'>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>
+			&nbsp;&nbsp;&nbsp;<input type='checkbox' id='en_inbf6'>&nbsp;&nbsp;
+			<input type='text' id='inbf_startip6' value='0.0.0.0' size=16 maxlength='15'>
+			<input type='text' id='inbf_endip6' value='255.255.255.255' size=16 maxlength='15'>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>
+			&nbsp;&nbsp;&nbsp;<input type='checkbox' id='en_inbf7'>&nbsp;&nbsp;
+			<input type='text' id='inbf_startip7' value='0.0.0.0' size=16 maxlength='15'>
+			<input type='text' id='inbf_endip7' value='255.255.255.255' size=16 maxlength='15'>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>
+			&nbsp;&nbsp;&nbsp;<input type='checkbox' id='en_inbf8'>&nbsp;&nbsp;
+			<input type='text' id='inbf_startip8' value='0.0.0.0' size=16 maxlength='15'>
+			<input type='text' id='inbf_endip8' value='255.255.255.255' size=16 maxlength='15'>
+		</td>
+	</tr>
+	
+	</table>	
+	<div class="centerline">
+		<input type="button" id="inbfsubmit" value="Add" onclick="uiSubmit();">
+		<input type="button" id="inbfcancel" value="Cancel" onclick="uiPageRefresh();">
+	</div>
+</div>
+<div class="blackbox">
+	<h2 id="Adv_inb011">INBOUND FILTER RULES LIST</h2>
+	<table id="inbftable" class="general">
+		<tr>
+			<th width="30px" id="Adv_inb012">Name</th>
+			<th width="30px" id="Adv_inb013">Action</th>
+			<th width="200px" id="Adv_inb014">Remote IP Range</th>
+			<th width="15px"> </th>
+			<th width="15px"> </th>
+		</tr>
+	</table>
+	<div class="gap"></div>
+</div>
+<!-- End of Page Dependent Part. -->
+</div>
+<div id="help_hint" class="tips">
+<!-- Start of Help Depedent Part. -->
+<span id="Adv_inb015">
+<strong>Helpful Hints...</strong>
+<br/><br/>
+<p>&nbsp;&#149;&nbsp;&nbsp;Give each rule a <strong>Name</strong> that is meaningful to you.</p>
+<p>&nbsp;&#149;&nbsp;&nbsp;Each rule can either <strong>Allow</strong> or <strong>Deny</strong> access from the WAN.</p>
+<p>&nbsp;&#149;&nbsp;&nbsp;Up to eight ranges of WAN IP addresses can be controlled by each rule. The checkbox by each IP range can be used to disable ranges already defined.</p>
+<p>&nbsp;&#149;&nbsp;&nbsp;The starting and ending IP addresses are WAN-side address.</p>
+<p>&nbsp;&#149;&nbsp;&nbsp;Click the <strong>Add</strong> button to store a finished rule in the Rules List below.</p>
+<p>&nbsp;&#149;&nbsp;&nbsp;Click the <strong>Edit</strong> icon in the Rules List to change a rule.</p>
+<p>&nbsp;&#149;&nbsp;&nbsp;Click the <strong>Delete</strong> icon in the Rules List to permanently remove a rule.</p>
+</span>
+<p>&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpadv#InboundFilter"><span id="Adv_inb016">More</span>...</a></p>
+<!-- End of Help Dependent Part. -->

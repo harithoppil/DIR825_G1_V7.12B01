@@ -1,0 +1,20 @@
+
+<InternetGatewayDevice type="object">
+    <X_TWSZ-COM_USB3G type="object">
+	    <USB3GEnable type="boolean" Writable="1">1</USB3GEnable>
+	    <state type="unsignedInt" Writable="0">0</state>
+	    <StatusStr type="string" Writable="0" NeedSave="0">Sim card is not insert</StatusStr>
+	    <NeedPinCode type="boolean" Writable="0"></NeedPinCode>
+	    <EnterPinCode type="string" Writable="1"></EnterPinCode>
+	    <PinActSta type="unsignedInt" Writable="0"></PinActSta>
+	    <PinEnable type="boolean" Writable="0"></PinEnable>
+	    <PinChgEnable type="boolean" Writable="0"></PinChgEnable>
+	    <NeedPukCode type="boolean" Wirtable="0"></NeedPukCode>
+	    <EnterPukCode type="string" Writable="1"></EnterPukCode>
+	    <RemainPinTimes type="unsignedInt" Writable="0"></RemainPinTimes>
+	    <RemainPukTimes type="unsignedInt" Wirtable="0"></RemainPukTimes>
+	    <RemainChgPinTimes type="unsignedInt" Wirtable="0"></RemainChgPinTimes>
+	    <OldPinCode type="string" Wirtable="1"></OldPinCode>
+	    <NewPinCode type="string" Wirtable="1"></NewPinCode>
+    </X_TWSZ-COM_USB3G>
+</InternetGatewayDevice>

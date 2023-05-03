@@ -1,0 +1,114 @@
+KERNELDIR=$(KERNEL_DIR)
+ifndef CONFIG_MIPS_TC3262
+obj-m += tc3162l2mac.o
+endif
+
+obj-m += tc3162l2sar.o
+obj-m += tcledctrl.o
+obj-m += module_sel.o
+
+tc3162l2sar-objs := sar_tc3162l2.o
+ifeq ($(PURE_BRIDGE),1)
+tc3162l2mac-objs := dummy_mac.o
+obj-m += tc3162_udc.o
+else
+tc3162l2mac-objs := mac_tc3162l2.o
+endif
+
+CFLAGS+=-DDMA_API
+ifeq ($(TC3262),1)
+STRIP=mips-linux-uclibc-strip
+else
+STRIP=mips-linux-strip
+endif
+ifeq ($(TC3262_FPGA),1)
+CFLAGS+=-DTC3262_FPGA
+endif
+ifeq ($(SAR_VERIFY),1)
+CFLAGS+= -DSAR_VERIFY
+tc3162l2sar-objs += sar_verify.o
+endif
+
+CFLAGS+= -DL2_AUTOPVC
+tc3162l2sar-objs += autoPVC.o
+
+ifeq ($(PURE_BRIDGE),1)
+CFLAGS += -DPURE_BRIDGE
+endif
+
+ifeq ($(WSC_AP_SUPPORT), 1)
+CFLAGS += -DWSC_AP_SUPPORT
+endif
+
+ifeq ($(LED_WPSSPEC_COMPLY),1)
+CFLAGS += -DLED_WPSSPEC_COMPLY
+endif
+
+CFLAGS+=-DMII_INTERFACE
+CFLAGS+=-DLINUX_OS
+
+ifeq ($(TC2031_SUPPORT),1)
+#The orginal etherd root ci-cmd is changed to tce ci-cmd.
+#If you want to IOT test.We must to add -DTCPHY_DEBUG compiler option 
+CFLAGS+= -DTCPHY_SUPPORT -DTCPHY_1PORT -DWAN2LAN
+tc3162l2mac-objs += ../tcphy/tcetherphy.o tcethercmd.o  ../tcphy/tcconsole.o
+else
+#Default the mac driver is supported TC2206 Switch IC.
+CFLAGS+= -DTCPHY_SUPPORT -DTCPHY_4PORT -DWAN2LAN -DVPORT
+tc3162l2mac-objs += ../tcphy/tcetherphy.o tcethercmd.o ../tcphy/tcswitch.o ../tcphy/tcconsole.o
+endif
+
+ifneq ($(strip $(TCSUPPORT_LED_BTN_CHECK)),)
+CFLAGS+= -DTCSUPPORT_LED_BTN_CHECK
+endif
+ifneq ($(TCSUPPORT_AUTOBENCH),)
+CFLAGS+= -DTCPHY_DEBUG
+tc3162l2mac-objs  += ../auto_bench/mac_autobench.o
+endif
+
+ifeq ($(SAR_POLLING_MODE),1)
+CFLAGS+= -DSAR_POLLING
+endif
+
+ifeq ($(EEE_SUPPORT),1)
+CFLAGS+= -DEEE_SUPPORT -DTCPHY_SUPPORT -DTCPHY_1PORT
+tc3162l2mac-objs += ../tcphy/tcetherphy.o tcethercmd.o psm_verify.o 
+endif
+ifeq ($(CMD_API),1)
+CFLAGS+= -DCMD_API
+endif
+CFLAGS+= -DCWMP
+
+ifeq ($(TR068_LED),1)
+CFLAGS+= -DTR068_LED
+endif
+
+ifneq ($(TC_CFLAGS),)
+CFLAGS+=$(TC_CFLAGS)
+endif
+
+ifeq ($(WITHVOIP),1)
+CFLAGS += -DWITHVOIP
+endif
+
+all:
+#ifeq ($(SAR_VERIFY),1)
+#	cp tc3162l2sar.c sar.c
+#endif
+#ifeq ($(TC2031_SUPPORT),1)
+#	cp tc3162l2mac.c mac.c
+#endif
+	$(MAKE) -C $(KERNELDIR) M=`pwd` modules
+	$(STRIP) --strip-unneeded *.ko
+#	$(STRIP) --strip-unneeded tc3162l2sar.ko
+#	$(STRIP) --strip-unneeded tccicmd.ko	
+#	$(STRIP) --strip-unneeded tcledctrl.ko
+#ifneq ($(TC3262),1)
+#	$(STRIP) --strip-unneeded tc3162l2mac.ko
+#	$(STRIP) --strip-unneeded tc3162_udc.ko
+#	$(STRIP) --strip-unneeded tc3162_udc20.ko
+#endif
+
+clean:
+	$(MAKE) -C $(KERNELDIR) M=`pwd` clean
+

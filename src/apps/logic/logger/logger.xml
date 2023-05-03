@@ -1,0 +1,67 @@
+
+<InternetGatewayDevice type="object">
+	<X_TWSZ-COM_Logger type="object">
+		<LoggerEnabled type="boolean" Standard="0" Writable="1">1</LoggerEnabled>
+		<SysEvtlogEnabled type="boolean" Standard="0" Writable="1">1</SysEvtlogEnabled>
+		<DebugInfoLogEnabled type="boolean" Standard="0" Writable="1">1</DebugInfoLogEnabled>
+		<AttackLogEnabled type="boolean" Standard="0" Writable="1">1</AttackLogEnabled>
+		<DropDataEnabled type="boolean" Standard="0" Writable="1">1</DropDataEnabled>
+		<NoticeInfoLogEnable type="boolean" Standard="0" Writable="1">1</NoticeInfoLogEnable>
+		<LogTFTPServer type="string(64)" Standard="0" Writable="1"></LogTFTPServer>
+		<LogUploadTrigger type="boolean" Standard="0" Writable="1"></LogUploadTrigger>
+		<LogClearTrigger type="boolean" Standard="0" Writable="1" Cache="1"></LogClearTrigger>
+		<DebugLogEnabled type="boolean" Standard="0" Writable="1">1</DebugLogEnabled>
+		<DebugLogFileSize type="unsignedInt" Standard="0" Writable="1"></DebugLogFileSize>
+		<RemoteLogEnabled type="boolean" Standard="0" Writable="1">1</RemoteLogEnabled>
+		<RemotePort type="unsignedInt" Standard="0" Writable="1">514</RemotePort>
+		<RemoteLogger type="string(64)" Standard="0" Writable="1"></RemoteLogger>
+		<LogTypeSys type="unsignedInt" Standard="0" Writable="1">1</LogTypeSys>
+		<LogTypeSec type="unsignedInt" Standard="0" Writable="1">0</LogTypeSec>
+		<LogTypeStat type="unsignedInt" Standard="0" Writable="1">0</LogTypeStat>
+		<LogLevel type="object">
+			<LogTypeSys type="unsignedInt" Standard="0" Writable="1">1</LogTypeSys>
+		  <LogTypeSec type="unsignedInt" Standard="0" Writable="1">0</LogTypeSec>
+		  <LogTypeStat type="unsignedInt" Standard="0" Writable="1">0</LogTypeStat>
+			<Default type="string" Standard="0" Writable="1">Notice</Default>
+			<Ccp type="string" Standard="0" Writable="1">Notice</Ccp>
+			<Auth type="string" Standard="0" Writable="1">Notice</Auth>
+			<Igmp_proxy type="string" Standard="0" Writable="1">Notice</Igmp_proxy>
+			<Cmm type="string" Standard="0" Writable="1">Notice</Cmm>
+			<Lan type="string" Standard="0" Writable="1">Notice</Lan>
+			<Ipt type="string" Standard="0" Writable="1">Notice</Ipt>
+			<Ethlan type="string" Standard="0" Writable="1">Notice</Ethlan>
+			<Ethwan type="string" Standard="0" Writable="1">Notice</Ethwan>
+			<Pppoe type="string" Standard="0" Writable="1">Notice</Pppoe>
+			<Wlan type="string" Standard="0" Writable="1">Notice</Wlan>
+			<Tr069be type="string" Standard="0" Writable="1">Notice</Tr069be>
+			<Dgn type="string" Standard="0" Writable="1">Notice</Dgn>
+			<Dhcpr type="string" Standard="0" Writable="1">Notice</Dhcpr>
+			<Dhcps type="string" Standard="0" Writable="1">Notice</Dhcps>
+			<Timer type="string" Standard="0" Writable="1">Notice</Timer>
+			<Ipconn type="string" Standard="0" Writable="1">Notice</Ipconn>
+			<Firewall type="string" Standard="0" Writable="1">Notice</Firewall>
+			<AntiAttack type="string" Standard="0" Writable="1">Notice</AntiAttack>
+			<Snmpc type="string" Standard="0" Writable="1">Notice</Snmpc>
+			<Qos type="string" Standard="0" Writable="1">Notice</Qos>
+			<Sroute type="string" Standard="0" Writable="1">Notice</Sroute>
+			<Vdsl type="string" Standard="0" Writable="1">Notice</Vdsl>
+			<Dns type="string" Standard="0" Writable="1">Notice</Dns>
+			<Alg type="string" Standard="0" Writable="1">Notice</Alg>
+			<Wan type="string" Standard="0" Writable="1">Notice</Wan>
+			<Droute type="string" Standard="0" Writable="1">Notice</Droute>
+			<Sntp type="string" Standard="0" Writable="1">Notice</Sntp>
+			<Vlan type="string" Standard="0" Writable="1">Notice</Vlan>
+			<Usb_mass type="string" Standard="0" Writable="1">Notice</Usb_mass>
+			<Log type="string" Standard="0" Writable="1">Notice</Log>
+			<Ftpd type="string" Standard="0" Writable="1">Notice</Ftpd>
+			<NatPrio type="string" Standard="0" Writable="1">Notice</NatPrio>
+			<Wps type="string" Standard="0" Writable="1">Notice</Wps>
+			<Acl type="string" Standard="0" Writable="1">Notice</Acl>
+			<Upnp type="string" Standard="0" Writable="1">Notice</Upnp>
+			<Lsvlan type="string" Standard="0" Writable="1">Notice</Lsvlan>
+			<Portoff type="string" Standard="0" Writable="1">Notice</Portoff>
+			<Urlfilter type="string" Standard="0" Writable="1">Notice</Urlfilter>
+			<Devinfo type="string" Standard="0" Writable="1">Notice</Devinfo>
+		</LogLevel>
+	</X_TWSZ-COM_Logger>
+</InternetGatewayDevice>

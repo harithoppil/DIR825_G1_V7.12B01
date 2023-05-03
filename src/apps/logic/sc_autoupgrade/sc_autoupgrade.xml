@@ -1,0 +1,6 @@
+<InternetGatewayDevice type="object">
+	<X_SITCOM-COM_AUTOUPGRADE type="object">
+		<Enable type="boolean" Wirtable="1">1</Enable>
+		<FWAction type="string"  Writable="1">0</FWAction>
+	</X_SITCOM-COM_AUTOUPGRADE>
+</InternetGatewayDevice>

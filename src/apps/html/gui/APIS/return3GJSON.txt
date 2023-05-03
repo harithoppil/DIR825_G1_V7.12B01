@@ -1,0 +1,10 @@
+{	
+	"RETURN":{
+		"success": <? if eq "<?error found?>" "0"  `true`  `false` ?>
+   	},
+	"ThreeG":{
+		"Enable":<?if eq "<?get :InternetGatewayDevice.X_TWSZ-COM_USB3G.USB3GEnable?>" "1" `true` `false`?>,
+		"PINCode":"<?get :InternetGatewayDevice.X_TWSZ-COM_USB3G.EnterPinCode?>"
+	}
+
+}

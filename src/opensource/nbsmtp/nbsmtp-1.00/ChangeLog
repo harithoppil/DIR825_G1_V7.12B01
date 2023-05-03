@@ -1,0 +1,1769 @@
+2005-07-28 19:29  tag nbsmtp-1_00
+
+2005-07-28 19:29  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* base64.c (1.6), base64.h (1.2), fdutil.c (1.6), fdutil.h (1.3),
+	  fileconfig.c (1.18), fileconfig.h (1.6), hmac_md5.c (1.5), main.c
+	  (1.20), nbsmtp.c (1.142), nbsmtp.h (1.11), original.c (1.37),
+	  original.h (1.4), osx.c (1.7), osx.h (1.4), servinfo.h (1.7),
+	  smtp.c (1.13), smtp.h (1.10), util.c (1.25), util.h (1.9): Remove
+	  trailing spaces and fix a security bug in log_msg
+
+2005-06-17 15:34  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.35): add -pedantic
+
+2005-06-17 15:32  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* hmac_md5.c (1.4): clean-out
+
+2005-06-17 15:31  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.141): finally fix cram-md5
+
+2005-06-15 11:17  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.140): make sure challenge is NULL-ended, thus fixing
+	  CRAM-MD5
+
+2005-05-29 14:51  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.36): adding missing break; in parse_options (-c)
+
+2005-05-17 17:59  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.8 (1.11), original.c (1.35), util.c (1.24): add -c option
+
+2005-05-03 17:21  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.42): version bump
+
+2005-05-03 01:10  tag nbsmtp-0_99
+
+2005-05-03 01:10  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.8 (1.10), nbsmtprc.5 (1.8): Update dates on man pages
+
+2005-04-26 20:21  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* scripts/nbqueue (1.4): Allow using enviroment QUEUEDIR var
+
+2005-04-26 19:57  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* scripts/wrapper-nbsmtp (1.4): removing ${0} from _newaliases
+
+2005-04-25 15:00  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* scripts/wrapper-nbsmtp (1.3): supporting *.nbsmtp style 'callers'
+
+2005-04-20 18:31  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* scripts/nbqueue (1.3): Check/create QUEUEDIR
+
+2005-04-15 19:11  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* scripts/wrapper-nbsmtp (1.2): Add sendmail -I and mailq -q maps
+
+2005-04-15 19:11  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* scripts/nbqueue (1.2): Add brief comment
+
+2005-04-15 18:52  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbqueue (1.2), wrapper-nbsmtp (1.2), scripts/nbqueue (1.1),
+	  scripts/wrapper-nbsmtp (1.1): Moving scripts to scripts/
+
+2005-04-13 22:11  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbqueue (1.1), wrapper-nbsmtp (1.1): Add scripts to help queueing
+	  and wrapping
+
+2005-03-26 00:51  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.41): update copyright information
+
+2005-03-26 00:33  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.8 (1.9): fromaddr is not required anymore Update date
+
+2005-03-26 00:31  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtprc.5 (1.7): Update with new auth_mech scheme Category fix (
+	  8 -> 5 ) Date updated
+
+2005-03-14 00:08  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.34): Fix icon instalation on osx
+
+2005-03-12 20:50  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.40), nbsmtp.c (1.139): check for
+	  CRYPTO_cleanup_all_ex_data AFTER checking for ssl libs
+	  CRYPTO_CLEANUP_ALL_EX_DATA -> HAVE_CRYPTO_CLEANUP_ALL_EX_DATA
+
+2005-03-12 20:31  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.39), nbsmtp.c (1.138): avoid errors with
+	  CRYPTO_cleanup_all_ex_data and fixes a received: by header
+	  related problem
+
+2005-03-07 21:47  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.33), configure.in (1.38): Do not install icon if
+	  we are not in --enable-osx
+
+2005-03-04 13:41  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.32), configure.in (1.37): Move GROWLICONPATH to
+	  EXTRADEFS so linux won't be bothered
+
+2005-03-02 14:43  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.31), osx.c (1.6): Add icon support to the notify
+	  code
+
+2005-03-02 14:16  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp-growl.png (1.1): Add growl icon
+
+2005-02-13 01:52  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.36): Dont kill all CFLAGS, just strip
+	  optimizations and -fomit-frame-pointer
+
+2005-02-12 20:08  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.35): Honour CFLAGS if not in debug mode [
+	  gentoo-like thingy ]
+
+2005-01-30 12:11  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.137): Don't give credit on source code. Keep it
+	  clean. Credits are on nbsmtp.ferdyx.org
+
+2005-01-30 11:49  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.136): stetic chanes [ spaces -> tabs ] [ blank lines
+	  -> /dev/null ]
+
+2005-01-18 14:05  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.135): add travis credit
+
+2005-01-18 13:56  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.134): Read confirmation of mail beeing queued by the
+	  server
+
+2005-01-13 11:12  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.133): fixed compile error when compiling w/o ssl in
+	  nbsmtp_auth
+
+2005-01-06 17:29  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* util.c (1.23): fix a segfault when masking passwords
+
+2005-01-05 03:16  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* fileconfig.c (1.17), fileconfig.h (1.5): Add CHECK_VALUE macro
+	  and use it to check auth_mech values [ start discouraging 'p','l'
+	  and 'c' ]
+
+2005-01-04 17:38  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* hmac_md5.c (1.3): moronish typo fixed : -> ;
+
+2005-01-04 17:34  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* hmac_md5.c (1.2): adapt to code style [ add tabs instead of
+	  spaces merely ]
+
+2004-12-27 03:28  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* fileconfig.c (1.16), main.c (1.19), nbsmtp.c (1.132), nbsmtp.h
+	  (1.10), original.c (1.34): add cram-md5 support
+
+2004-12-27 03:28  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.8 (1.8), nbsmtprc.5 (1.6): Add cram-md5 comments
+
+2004-12-27 03:26  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.34): Add hmac_md5.c to EXTRASOURCES when ssl
+	  enabled
+
+2004-12-27 03:23  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* hmac_md5.c (1.1), hmac_md5.h (1.1): Add hmac_md5 code from
+	  RFC2104
+
+2004-12-27 03:18  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.30): Remove -pedantic
+
+2004-12-27 01:38  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* md5.c (1.4), md5.h (1.4): Will use OpenSSL implementation
+
+2004-12-27 01:23  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* md5.c (1.3), md5.h (1.3): Re-Adding md5 files
+
+2004-12-27 00:43  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* util.c (1.22): Replace passwords with a FIXED number of 'X'. [
+	  Increases security ]
+
+2004-12-26 01:41  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.33): replace the EXTRADEFS stuff with
+	  AC_DEFINE_UNQUOTED
+
+2004-12-24 13:17  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.8 (1.7), nbsmtprc.5 (1.5): update manpages with new
+	  logging scheme [ debug=3 and STDERR instead of STDOUT when
+	  debug>1 ]
+
+2004-12-24 13:16  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* util.c (1.21): Mask AUTH LOGIN password [ wasn't being masked ]
+	  Change -V and debug>1 to log to stderr [ change print_help to
+	  reflect this ]
+
+2004-12-24 13:14  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* smtp.c (1.12): Log every returning message from the server not
+	  just 'last response'
+
+2004-12-24 12:21  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* fdutil.c (1.5): Fix \brief file description
+
+2004-12-24 12:06  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* util.c (1.20), util.h (1.8): Don't need min no more
+
+2004-12-24 12:04  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* util.c (1.19): Only process the format if we are going to use it
+
+2004-12-24 02:28  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.32): check for VPRINTF (and vsnprinf implicitly)
+
+2004-12-24 01:56  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* util.c (1.18): Convert AUTH strings to XXXXXXXXX so that you
+	  won't have them in your logs and in your reports.
+
+2004-12-24 01:30  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* util.c (1.17): Strip \r and \n in log_msg also when logging to
+	  syslog
+
+2004-12-24 01:27  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.33): NULL -> '\0' so gcc won't complain
+
+2004-12-24 01:25  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* fileconfig.c (1.15), nbsmtp.c (1.131), original.c (1.32): use
+	  variable lists in log_msg where applicable to get rid of those
+	  asprintfs
+
+2004-12-24 01:25  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* main.c (1.18): Use the variable lists in log_msg and osx_notify
+
+2004-12-24 01:24  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* fdutil.c (1.4): Stop logging on fdutil
+
+2004-12-24 01:23  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* osx.c (1.5), osx.h (1.3): Make osx_notify support variable list
+
+2004-12-24 01:22  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* smtp.c (1.11): Prepend [->] to smtp_write log messages Prepend
+	  [<-] to smtp_read log messages
+
+2004-12-24 01:21  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* util.c (1.16): remove \r and \n before printing to stdout
+
+2004-12-24 00:47  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* util.c (1.15), util.h (1.7): Allow format and arguments on
+	  log_msg [ variable list ]
+
+2004-12-24 00:26  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.31): One address is a violation of -> One address
+	  violates
+
+2004-12-23 02:03  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.30): If fromaddr is not specified build up one:
+	  passwd->pw_name@serverinfo->domain
+
+2004-12-22 10:22  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* INSTALL (1.7): Typo fixed: libreries -> libraries
+
+2004-12-22 10:22  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.31): Version bump: 0.98-dev -> 0.99-cvs
+
+2004-12-22 01:54  tag nbsmtp-0_98
+
+2004-12-22 01:54  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* README.OSX (1.3): adding growlnotify info
+
+2004-12-21 18:29  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* README.OSX (1.2): typo fixed
+
+2004-12-21 18:10  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.29): Substituting optarg with strdup(optarg)
+
+2004-12-21 12:13  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* servinfo.h (1.6): Add a = NULL; to SERVINFO_RELEASE_OPTION
+
+2004-12-21 11:54  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* fileconfig.c (1.14): add path to Empty option message
+
+2004-12-21 11:36  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* main.c (1.17), nbsmtp.c (1.130), nbsmtp.h (1.9), original.c
+	  (1.28), smtp.c (1.10), smtp.h (1.9): Commit Guo-Rong Koh patch to
+	  fix some mem leaks and SSL cleanups
+
+2004-12-21 10:58  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.30): add crypto library to nbsmtp when adding ssl
+	  [ needed for X509_free ]
+
+2004-12-21 10:57  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.129): release server_cert
+
+2004-12-21 10:57  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* main.c (1.16): release servinfo members
+
+2004-12-02 23:25  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* main.c (1.15): add osx_notify support
+
+2004-12-02 23:25  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.29), configure.in (1.29): add EXTRADEFS support
+
+2004-12-02 23:24  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* osx.c (1.4), osx.h (1.2): add osx_notify (relays on growlnotify
+	  command-line tool)
+
+2004-11-29 21:30  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.27): add info if connect/socket fails and return 0
+	  if compiled with --enable-ipv6 (or --enable-inet6)
+
+2004-11-29 21:21  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* main.c (1.14): Add --version to the [really] dirty fix
+
+2004-11-29 21:08  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* md5.c (1.2), md5.h (1.2): remove md5 code... maybe sometime in
+	  future. I cant check it right now
+
+2004-11-29 21:07  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.28): Fix the quick hack of extrasources
+
+2004-11-29 14:21  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* md5.c (1.1), md5.h (1.1): Add md5 algorithm files (global.h is
+	  included in md5.h)
+
+2004-11-28 21:56  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.128), original.c (1.26): Fix return values and
+	  checking on nbsmtp_auth and greet_f (nbsmtp_ehlo or nbsmtp_helo)
+
+2004-11-27 18:47  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.127): Avoid extra idiot checking and add some
+	  comments
+
+2004-11-27 03:02  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.126), nbsmtp.h (1.8): add nbsmtp_data_body to improve
+	  performance on really big emails
+
+2004-11-24 09:24  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* main.c (1.13): Make 'nbsmtp --help' call print_help
+
+2004-11-21 19:31  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* main.c (1.12): print help if we were called with just -h (ej:
+	  nbsmtp -h)
+
+2004-11-21 19:28  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.125): Avoid segfault when compiled with ssl but not
+	  using ssl in nbsmtp_header
+
+2004-11-21 19:12  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* util.c (1.14): add OSX to the list of features in print_help
+
+2004-11-21 19:11  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* README.OSX (1.1): add readme for the osx module
+
+2004-11-21 18:58  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* fileconfig.c (1.13): if the location file is not found, read
+	  ~/.nbsmtp/default
+
+2004-11-21 18:52  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.25), fileconfig.c (1.12): use the
+	  SERVINFO_RELEASE_OPTION defined in servinfo.h to avoid possible
+	  memory leaks
+
+2004-11-21 18:51  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* servinfo.h (1.5): Added SERVINFO_RELEASE_OPTION macro to release
+	  string members if they are != NULL
+
+2004-11-20 15:16  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* osx.c (1.3): fix doxygen comment include osx.h
+
+2004-11-19 16:05  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.27): add the extrasource when --enable-osx
+
+2004-11-19 16:05  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.28): enable extrasources by configure script
+
+2004-11-19 15:44  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* fileconfig.c (1.11): add osx compatibility
+
+2004-11-19 15:43  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* osx.c (1.2): translate into english
+
+2004-11-19 12:58  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.26): enable osx module and solaris comp
+
+2004-11-19 12:45  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* osx.c (1.1), osx.h (1.1): first osx module commit
+
+2004-11-14 01:33  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* fileconfig.c (1.10): Make it portable if no strsep is found using
+	  strtok
+
+2004-11-14 00:53  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.25): Make configure check for strsep
+
+2004-11-14 00:53  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* fileconfig.c (1.9): only load userinfo if read_localconf is True
+
+2004-11-13 12:05  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.24): Checking correct return value of nbsmtp_auth
+	  in send_mail
+
+2004-11-13 02:09  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* INSTALL (1.6): create some coherence
+
+2004-11-13 02:08  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.24): INSTALL is no longer an AC_OUTPUT argument
+
+2004-11-13 02:07  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* INSTALL (1.5), INSTALL.in (1.2): Replace autoconf generated
+	  INSTALL with a generic 0.9X INSTALL file
+
+2004-11-12 13:50  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.23): Changing optimization from 02 to 0s
+
+2004-11-10 15:47  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.124): Add Authentication accepted log message
+
+2004-11-10 13:57  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* main.c (1.11): do not tell to activate debug to someone that has
+	  debug > 0
+
+2004-11-10 13:43  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.123): add more error reporting using
+	  smtp_last_message()
+
+2004-11-10 13:42  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* smtp.c (1.9): Add smtp_last_message() and the neccesary code to
+	  get it work
+
+2004-11-10 13:41  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* smtp.h (1.8): Add smtp_last_message and remove moronish comment
+
+2004-11-10 13:41  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.23): Added more log info.  Fix the address
+	  searching loop (got rid of bcc) Fix the return value checking of
+	  nbsmtp_{rcpts,data}
+
+2004-11-07 14:38  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.27): Removing leading space
+
+2004-10-25 10:40  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.22): Version: 0.98-dev
+
+2004-10-25 10:23  tag nbsmtp-0_97
+
+2004-10-25 10:23  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.21): Version: 0.97-dev -> 0.97
+
+2004-10-25 10:19  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.26): removing trailing /
+
+2004-10-17 14:05  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.122): fix brief comment
+
+2004-10-17 14:02  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.8 (1.6): add more locations of nbsmtprc and update date
+
+2004-10-17 14:02  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtprc.5 (1.4): update date
+
+2004-10-17 13:58  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtprc.5 (1.3): Add required to fromaddr and relayhost. Fix
+	  first para
+
+2004-10-17 13:55  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.25): Create directories before installing files
+
+2004-10-17 02:55  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* servinfo.h (1.4): Give bool_t enumeration a name (bool_e) this
+	  helps doxygen
+
+2004-10-17 01:49  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* util.c (1.13): Add debug to features compiled-in
+
+2004-10-17 01:44  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.20): Define HAVE_DEBUG if configured with
+	  --enable-debug
+
+2004-10-17 01:25  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* main.c (1.10): Send LOG_ERR messages if mail is not sent
+
+2004-10-17 01:21  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.121): added uid information to received: by header
+
+2004-10-17 01:16  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.120): add bit information to received: by header
+
+2004-10-16 14:25  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.119): Add nbsmtp_header function and improve
+	  received: by header
+
+2004-10-16 14:24  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.h (1.7): Encapsulate nbsmtp_sslinit and add nbsmtp_header
+
+2004-10-16 14:23  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.19): Make --enable-ipv6 an alias to
+	  --enable-inet6
+
+2004-10-08 18:41  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.118): Output some syslog info about recipients
+	  (accepted/rejected)
+
+2004-10-08 15:22  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.22): Fixing doxygen documentation on parse_mail
+
+2004-10-08 15:22  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* smtp.h (1.7): Removing stateLF_DOT from previous patch
+
+2004-10-08 15:10  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* main.c (1.9), original.c (1.21), original.h (1.3): Solving bug
+	  when reallocating rcpts
+
+2004-10-08 01:19  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* main.c (1.8), original.c (1.20): Bigger initial size for rcpts
+
+2004-10-08 00:57  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.19): Fixing recipient storage problem
+
+2004-09-29 08:33  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.18): Fix a warning in some MTAs because we didn't
+	  read '221 Bye' message
+
+2004-09-13 17:16  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* fileconfig.c (1.8): avoid segfault if an option has an empty
+	  value in nbsmtprc
+
+2004-09-12 20:58  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.8 (1.5), nbsmtprc.5 (1.2): bye bye lical. Thanks a lot for
+	  your good work
+
+2004-09-09 03:53  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.18): adding pwd.h header
+
+2004-09-06 18:18  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* util.c (1.12): aa
+
+2004-09-06 18:15  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.17): new fileconfig function (fileconfig_parse_all)
+	  performs all operations and fileconfig_parse calls so original
+	  doesn't even have to bother about parsing config files or setting
+	  paths
+
+2004-09-06 18:14  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* fileconfig.c (1.7), fileconfig.h (1.4): fileconfig_parse_all now
+	  performs several fileconfig_parse calls
+
+2004-08-26 12:53  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* util.c (1.11): Log messages (such as LOG_INFO and LOG_WARNING)
+	  were being ignored if debug = 0.
+
+2004-08-13 22:38  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.17): Version bump -> 0.97-dev
+
+2004-08-13 15:33  tag nbsmtp-0_96
+
+2004-08-13 15:33  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* util.c (1.10): Changing print_{usage,help} to fit new options
+
+2004-08-12 15:15  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.16): This should fix the potential bug in ARM due
+	  to the signedess of str member in string_t struct.
+
+2004-08-12 01:00  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.8 (1.4): Adding -n and -N options
+
+2004-08-12 00:57  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.15): Both config files are read unless -n or -N are
+	  passed:
+
+	  -n dont read local config file -N dont read system wide file
+
+2004-08-11 10:29  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* util.c (1.9): Fix a 'too few arguments' error when compiled with
+	  --disable-ssl --disable-inet6
+
+2004-08-11 10:18  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.14): Adding support for really long recipients,
+	  even some of those breaking RFC8281.
+
+2004-08-09 12:47  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* base64.c (1.5), fdutil.c (1.3), main.c (1.7), nbsmtp.c (1.117),
+	  original.c (1.13), smtp.c (1.8), util.c (1.8): Specifying if
+	  params ar in or out in Doxygen information.
+
+2004-08-09 12:46  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* fileconfig.c (1.6): Specifying if params ar in or out in Doxygen
+	  information. Also including the ENOENT check in the preceding if
+	  (fopen==NULL)
+
+2004-08-08 01:19  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* servinfo.h (1.3): Fixing bool_t type. Now False=0 and True=1 so
+	  you can use it as a real boolean in conditionals
+
+2004-08-07 18:42  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.24): Adding useful options to cvs2cl.pl in
+	  changelog target
+
+2004-08-07 18:36  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* AUTHORS (1.2): Fixing lical's name :P
+
+2004-08-07 18:35  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.23): Reorganizing the Makefile. Now it is
+	  'smaller' and 'smarter' :)
+
+2004-08-07 18:33  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.22): Using @INSTALL@ variable (from configure
+	  script).
+
+2004-08-07 18:26  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.16): Adding AC_PROG_INSTALL (needed for
+	  compatibility reasons)
+
+2004-08-07 18:25  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* install-sh (1.1): Adding a bsd compatible install script (needed
+	  for compatibility reasons)
+
+2004-08-07 18:11  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.21): Adding nbsmtprc man page to both install and
+	  uninstall targets
+
+2004-08-07 18:10  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.8 (1.3): Updating man page
+
+2004-08-07 18:10  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtprc.5 (1.1): Adding nbsmtprc man page
+
+2004-08-07 17:20  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.20): Typo fixed: sysconfdif -> sysconfdir
+
+2004-08-07 17:16  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* fileconfig.c (1.5): Clarifying some code and fixing the errno
+	  already set bug
+
+2004-08-07 03:54  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.19): Removing -pedantic-errors and -ansi, leaving
+	  -Wall and -pedantic hope this compiles in Slack and all of those
+	  weak systems...
+
+2004-08-06 19:35  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.12): Adding system-wide config file
+
+2004-08-06 19:35  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* fileconfig.c (1.4), fileconfig.h (1.3): Adding path to arguments
+
+2004-08-06 19:34  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.18): Adding SYSCONFDIR to CFLAGS
+
+2004-08-06 13:03  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* fileconfig.c (1.3): Delimiting SSL code and fixing a bug
+
+2004-08-06 12:54  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.11): #including fileconfig.h
+
+2004-08-06 12:44  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* fileconfig.c (1.2): Fixing all if's
+
+2004-08-06 12:44  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.17): Adding fileconfig to the list of modules
+
+2004-08-06 12:43  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* fileconfig.h (1.2): Fixing the macros and adding the extern int
+	  debug
+
+2004-08-06 12:42  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.10): Adding a flag to check for no options. In that
+	  case, parse config file
+
+2004-08-06 12:31  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* fileconfig.c (1.1), fileconfig.h (1.1): Adding fileconfig module
+	  which parses ~/.nbsmtprc
+
+2004-08-05 23:59  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.9): Adapted parse_options to parse the options in
+	  the Unix-way using getopt.
+
+	  We no longer free all auth vars, we just set them to (char)NULL
+
+2004-08-05 23:58  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.116): We no longer free servinfo->auth_{user,pass}
+	  since they point directly to argv[]
+
+2004-08-05 23:57  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* main.c (1.6): We no longer free serverinfo.domain .host and
+	  .fromaddr since they point directly to argv[]
+
+2004-08-05 13:05  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.15): Changed version -> 0.96-dev and added getopt
+	  to the check funcs
+
+2004-08-04 23:44  tag nbsmtp-0_95
+
+2004-08-04 23:44  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.8): Fixing a memory corruption
+
+2004-08-02 15:07  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.8 (1.2): Reorganize the options with or without arguments
+
+2004-08-01 23:42  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.16): Added man page to the install and uninstall
+	  targets
+
+2004-08-01 23:42  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.8 (1.1): Added nbsmtp man page ! HURRAY !
+
+2004-08-01 22:32  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Doxyfile.in (1.3): Changing man section from .8 to .3 which is
+	  the right one
+
+2004-08-01 03:57  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.15): Adding changelog target. It actually executes
+	  cvs2cl.pl script
+
+2004-08-01 03:47  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* AUTHORS (1.1), cvs2cl.pl (1.1): Adding script to generate
+	  ChangeLog file
+
+2004-08-01 03:44  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* cvslog2changelog.pl (1.2): Removing cvslog2changelog.pl, we will
+	  use cvs2cl.pl 'cause its better
+
+2004-07-31 02:45  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.14), mkchangelog.sh (1.3): Removing changelog
+	  stuff untill I fix some bugs
+
+2004-07-31 02:25  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* mkchangelog.sh (1.2): Fixing a stupid thing
+
+2004-07-31 02:16  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.13), cvslog2changelog.pl (1.1), mkchangelog.sh
+	  (1.1): Adding make changelog support
+
+2004-07-30 21:41  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* util.c (1.7): Last commit:
+
+		  Fixing doxygen info
+		  Adding support for -V (debug=2) [debugging to stdout]
+		  Rewriting print_help
+		  Removing inline keyword from min (we'd rather use a macro
+	  to do this...)
+
+	  This commit:
+
+		  Updating debug's doxygen info
+
+2004-07-30 21:34  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* util.h (1.6): Both commits (this one and last one): Remove inline
+	  keyword from min
+
+2004-07-30 20:20  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.7): According to RFC2821 (SMTP) the local-part of
+	  an address must be shorter than 65. So we assume no mail sender
+	  will generate any longer local-part.
+
+2004-07-30 19:52  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.6): Getting rid of a debug printf
+
+2004-07-30 19:46  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.5): Fixing three memory leaks in parse_mail by
+	  using a static temporal buffer.
+
+2004-07-29 16:30  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.115), smtp.c (1.7), smtp.h (1.6): Fix the double dot
+	  checking bug/patch
+
+2004-07-29 07:57  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* original.c (1.4), smtp.c (1.6), smtp.h (1.5), util.c (1.6),
+	  util.h (1.5): [no log message]
+
+2004-07-29 07:57  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.114): Casting some strings to make them ANSI
+	  compatible
+
+2004-07-29 07:57  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* main.c (1.5): Freeing rcpts
+
+2004-07-29 07:56  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.14): Improved the configure script, added
+	  --enable-debug and --enable-inet6
+
+2004-07-29 07:55  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* base64.c (1.4): Valid Doxygen info
+
+2004-07-29 07:55  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.12): Added -pedantic-errors and -ansi to CFLAGS
+
+2004-07-29 07:55  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Doxyfile.in (1.2): Changed TREEVIEW and GENERATING man pages
+
+2004-07-05 20:51  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* nbsmtp.c (1.113), smtp.c (1.5), smtp.h (1.4): Commiting Jiri
+	  VERUNEK <jiri@verunek.net> 's patch for \n.\n bug as it solves it
+	  ok.
+
+2004-06-29 10:35  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* main.c (1.4), original.c (1.3): I received a email suggesting
+	  adding those headers because it doesn't compile in gentoo
+
+2004-06-27 16:56  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.13): Setting version to 0.95-dev
+
+2004-06-27 16:40  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* main.c (1.3), nbsmtp.c (1.112): Freeing some SSL structures, it
+	  may have something to do with ricardo's bug
+
+2004-06-26 22:52  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* fdutil.c (1.2), fdutil.h (1.2), main.c (1.2), nbsmtp.c (1.111),
+	  nbsmtp.h (1.6), original.c (1.2), original.h (1.2), servinfo.h
+	  (1.2), smtp.c (1.4), smtp.h (1.3), util.c (1.5), util.h (1.4):
+	  Changing license text, mostly "This program..." -> "This is part
+	  of nbsmtp. nbsmtp is free software..."
+
+2004-06-05 20:40  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.11), main.c (1.1), nbsmtp.c (1.110): Adding main
+	  function to main.o module
+
+2004-06-05 20:33  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.10), nbsmtp.c (1.109), nbsmtp.h (1.5), original.c
+	  (1.1), original.h (1.1), util.c (1.4): Separating original
+	  functions into another module.
+
+2004-05-31 13:28  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.108), util.c (1.3), util.h (1.3): Putting print_help
+	  and print_usage in util.o
+
+2004-05-31 13:18  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* smtp.c (1.3): Removing the response's \param in smtp_okay
+
+2004-05-31 13:15  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.107), nbsmtp.h (1.4): ssl_init -> nbsmtp_sslinit
+
+2004-05-31 13:11  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.106), smtp.c (1.2), smtp.h (1.2): smtp_okay now
+	  doesn't need that stupid local_in_buf thus improving the memory
+	  usage.
+
+2004-05-28 14:32  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* servinfo.h (1.1), nbsmtp.h (1.3): Putting servinfo_t in a
+	  separate file to avoid problems
+
+2004-05-28 14:29  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.9): Adding more modules
+
+2004-05-28 14:28  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.105): Adapting nbsmtp.c to the las modularizing
+	  change
+
+2004-05-28 14:26  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* fdutil.c (1.1), fdutil.h (1.1): Adding fdutil module with fd_
+	  functions
+
+2004-05-28 14:26  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* smtp.c (1.1), smtp.h (1.1): Adding smtp module with smtp_
+	  functions
+
+2004-05-28 13:47  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.104), util.c (1.2), util.h (1.2): log_msg and
+	  arpadate fully goes to util.o
+
+2004-05-28 13:47  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.h (1.2): Adding OpenSSL header includes
+
+2004-05-28 13:46  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.8): Adding new modules
+
+2004-05-28 13:28  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* base64.h (1.1): Adding base64.c header file
+
+2004-05-28 13:21  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* base64.c (1.3): Changed /* to /** in first line so Doxygen will
+	  use that comment
+
+2004-05-28 13:21  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.103): Adapting to the modularization changes
+
+2004-05-28 13:19  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.h (1.1): Adding a header file for nbsmtp_* and servinfo_t
+	  related code
+
+2004-05-28 13:19  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* util.c (1.1), util.h (1.1): Adding util module with string_t and
+	  what we called "Type Functions"
+
+2004-05-28 12:35  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* base64.c (1.2): Adding Doxygen information
+
+2004-05-24 10:47  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.12): Setting version to 0.94-version
+
+2004-05-24 09:11  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.102): Checks for LOG_DEBUG before strdup the string
+	  in log_msg
+
+2004-05-13 22:06  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.11): Typo fixed: ddddoxygen -> doxygen
+
+2004-05-11 21:04  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.101): Creating nbsmtp_rcpts and nbsmtp_data. We
+	  definately need to change this... maybe creating modules: one for
+	  nbsmtp_ functions one for string functions, one for fd_
+	  functions...
+
+2004-05-10 20:11  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.7), configure.in (1.10): Improving doxygen
+	  handling
+
+2004-05-10 13:04  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.9): -lssl was beeing added twice
+
+2004-05-04 21:42  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.100): Finally got rid of that bzero.  I did it on
+	  1.91 revision, but was lost in the dinamic recipient allocation
+	  merge.
+
+2004-05-04 20:22  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.99): Created nbsmtp_{auth,ehlo,helo} works smoohtly
+	  on OSX
+
+2004-05-02 22:15  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.98): Changing linewrapping to 110 chars
+
+2004-05-02 11:34  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.97): Typo fixed: wheter -> wheter in Doxygen comments
+
+2004-05-01 21:21  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* nbsmtp.c (1.96): We finally got a code for dynamic recipient
+	  storage working both in Linux and MacOS.
+
+2004-04-27 23:08  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.95): Adding STARTTLS support. Works fine.
+
+	  Still having no problems with recipients, waiting some "linux
+	  feedback" i'll try it on a server later.
+
+2004-04-27 09:18  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.94): * Freeing *rcpts and all (string_t *)'s * Adding
+	  (%Z) in arpadate since all mailers seem to add it tough it is not
+	  required by RFC822 * Removing a 'for debug porposes' printf :D
+
+2004-04-27 08:57  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.93): This fixes the dinamic recipients allocation
+	  patch from lical. Now works from mutt and from command line for
+	  me in OSX
+
+2004-04-25 19:28  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* nbsmtp.c (1.92): Dynamic recipient allocation.
+
+2004-04-25 11:52  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.91): char *headers -> const char *const headers )--->
+	  'cause it is faster
+
+2004-04-24 22:29  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.90): bzero -> memset (fixing old task)
+
+2004-04-23 17:08  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.89): Using strcasestr instead of strstr to look for
+	  headers. And now *headers is a NULL terminated array.
+
+2004-04-23 15:45  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* nbsmtp.c (1.88): Created str_init(), str_free(), and used in
+	  main.
+
+2004-04-22 22:50  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.8): Improving configure script and cleanning it a
+	  bit more
+
+2004-04-22 00:00  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* INSTALL (1.4), INSTALL.in (1.1), configure.in (1.7): Adding
+	  INSTALL file to the VERSION automated list
+
+2004-04-21 23:45  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.6): Adding make doc. It actually calls doxygen (it
+	  should be in the path)
+
+2004-04-21 23:38  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Doxyfile (1.6), Doxyfile.in (1.1), configure.in (1.6), nbsmtp.c
+	  (1.87): Automatizing everything more. We had the version in three
+	  different places. Now everything is defined in configure.in:
+
+	  1) Doxyfile is generated on the fly 2) nbsmtp takes
+	  PACKAGE_VERSION from compile command line
+
+2004-04-20 18:57  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.86): Ooops, changing VERSION: 0.92-dev -> 0.93-dev
+
+2004-04-20 18:54  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.85): - Some LOG_DEBUG -> LOG_ERR and some LOG_ERR ->
+	  LOG_DEBUG since a user prefers to see "The password wasn't
+	  accepted" rather than seeing "Error in send_mail" - Getting rid
+	  of another static buffer - Improved verbosity when a recipient is
+	  not accepted by the server
+
+2004-04-03 23:42  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Doxyfile (1.5): Setting version to 0.92
+
+2004-04-03 00:09  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.84): Fixing a (not really) bug in arpadate. And
+	  making the received: by header better
+
+2004-04-02 00:24  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* INSTALL (1.3): Changed 0.91 for 0.92.
+
+2004-04-01 12:55  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.83): I'm moron... lical did allright deleting those
+	  lines
+
+2004-04-01 11:57  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.82): Giving Narf some better credits :D Thanks
+
+2004-04-01 11:14  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.81): Adding arpadate to generate a Date string in the
+	  RFC822 (ARPA Internet text). We send this string with a Received:
+	  header !! Hey ! all mails sent with nbsmtp will have our
+	  'personal mark'.
+
+	  Also freeing some strings from serverinfo before returning
+
+2004-04-01 09:29  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.80): Cleanning up some code I never liked ;)
+
+2004-04-01 08:41  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.79): Narf told me how to solve a bug (surprisly)
+	  found in log_msg !! that prevents nbSMTP from using SASL AUTHs in
+	  some mail servers (such terra.es)
+
+2004-04-01 08:11  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.78): After we free serverinfo->auth_{user,pass} we
+	  set them to (char)NULL
+
+2004-04-01 00:35  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* nbsmtp.c (1.77): Solved with string_t when parsing message
+	  (parse_mail). Strange beacuse it should not be failing anyway.
+	  Now it works.
+
+	  BUG: The program will not finish (i.e. return) when sending big
+	  messages (tested with 400k), but the message will be sent.
+
+2004-03-31 23:25  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.76): We need to free and also set auth_user and
+	  auth_pass to (char)NULL
+
+2004-03-31 19:32  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.75): Converting an else if to an else to prevent
+	  'strange' problems caused by 'almost imposible' situations.
+
+2004-03-31 17:58  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.74): This fixes the 'trailing character from last
+	  response' bug
+
+2004-03-31 17:37  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.73): Including an AUTH PLAIN authentication patch.
+	  Works perfectly
+
+2004-03-31 17:34  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.72): This is a farily better, simpler and more secure
+	  implementation since it doesn't use strcpy and strcat
+
+2004-03-31 09:15  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.71): If EHLO command failed, we try to send HELO
+	  command and continue with authentication. This feature was
+	  proposed by a nbSMTP user.
+
+2004-03-29 22:36  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.5): Adding AC_DEFINE(_GNU_SOURCE) since it
+	  generates a warning in Linux
+
+2004-03-29 22:23  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* INSTALL (1.2): Changing versions
+
+2004-03-29 22:20  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.4): Adding asprintf to AC_CHECK_FUNCS
+
+2004-03-29 22:02  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.70): Setting version to 0.91
+
+2004-03-29 21:51  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.69): Declaring min as an inline function and removing
+	  problematic doxygen comments in constants (#define's)
+
+2004-03-29 12:22  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.68): Replacing buff with local_tmp_buf in get_socket
+	  thus improving memory usage since I use now asprintf instead of
+	  using a static buffer
+
+2004-03-29 11:17  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.67): Clarifying min, fixing some typos. Using
+	  asprintf on send_mail thus removing static buffer
+	  (local_out_buf). And finally doxygen-commenting some macros and
+	  params we left in earlier commits. (works smoothly for me in OSX
+	  :)
+
+2004-03-29 00:37  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* nbsmtp.c (1.66): Created string_t. Now the program will work if
+	  headers are long and not depending on the value of MAX_MSG_LEN.
+
+2004-03-28 18:32  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.65): This finally works fine for me (no -1 in
+	  buffer_mail's memset)
+
+2004-03-28 18:28  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* nbsmtp.c (1.64): Fixing error in buffer_mail (sizeof(buffer))
+
+2004-03-28 17:40  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.63): Fixing the \n's in from header problem
+
+2004-03-28 17:02  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* nbsmtp.c (1.62): Solving possible bug in send_mail. Drop repeated
+	  cases in parse_mail
+
+2004-03-28 13:51  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.61): Created ssl_init to separate a little more SSL
+	  stuff from the rest of the code
+
+2004-03-28 12:56  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.60): Changing comments after lical changed how
+	  structs were being passed to functions.
+
+2004-03-28 03:54  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* nbsmtp.c (1.59): Passing serverinfo by reference everywhere.
+
+2004-03-28 01:49  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.58): This should fix the problem handling the
+	  'additional arguments' (-- ADDR)
+
+2004-03-28 01:06  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.57): "Finishing" with doxygen comments and replacing
+	  some @ with \ (you know... i got used to javadoc hehe)
+
+2004-03-28 00:58  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.56): Fixing some comments to make them
+	  doxygen-friendly
+
+2004-03-28 00:56  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Doxyfile (1.4): Deactivating PREPROCESING as it brokes comments
+	  into HAVE_SSL sections
+
+2004-03-28 00:46  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* nbsmtp.c (1.55): Fixing return values in parse_mail.
+
+2004-03-27 17:17  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Doxyfile (1.3): Changing doc to . since it creates an html
+	  directory
+
+2004-03-27 17:16  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Doxyfile (1.2): Improving the documentation generated
+
+2004-03-27 17:15  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.54): Adding some more doxygen comments
+
+2004-03-27 15:08  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.53): Adding doxygen in-code documentation
+
+2004-03-27 15:07  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Doxyfile (1.1): Adding doxygen configuration
+
+2004-03-27 13:06  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.52): Declaring smtp_okay as an inline function.
+	  should be faster
+
+2004-03-27 12:58  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.51): Setting authors to be a const char *const
+	  (constant pointer to a constant) 'cause it is faster workikng
+	  with them.
+
+2004-03-27 00:52  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* nbsmtp.c (1.50): Global variables put into main. Created
+	  servinfo_t struct to hold those.  Reading and processing headers
+	  first.
+
+	  Compiles cleanly (SSL too). At least plain mode works (Linux).
+
+	  BUG: When enabling -D, an additional char is added at the end of
+	  the message.
+
+2004-03-22 22:12  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* nbsmtp.c (1.49): Solving  bug in parse_mail.
+
+2004-03-22 19:57  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.48): Minor changes. Added some comments and
+	  clarifying the code.
+
+2004-03-15 22:36  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.47): Changing version from 0.9-dev to 0.9
+
+2004-03-15 22:21  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* INSTALL (1.1): INSTALL file for v0.9
+
+2004-03-15 21:13  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.46): We add close(sock) before returning from
+	  send_mail
+
+2004-03-15 21:09  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.45): I freed some strings we were using for logging
+	  info.
+
+2004-03-15 20:52  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* nbsmtp.c (1.44): Trying changes in smtp_write_data (working for
+	  me).
+
+2004-03-13 22:06  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.43): free'ing some more strings
+
+2004-03-13 20:41  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.42): free'ing a malloc in smtp_write
+
+2004-03-13 20:36  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.41): Fixing a SegFault
+
+2004-03-13 20:29  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.40): We check for \r & \n in smtp_write_data rather
+	  than in fd_putc since this uses less code and it is cleaner.
+
+2004-03-13 20:02  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.39): If we use tls/ssl but we don't get a -p flag, we
+	  set port to 465 (smtp-ssl default)
+
+2004-03-13 19:37  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.38): Fairly simpler implementation of
+	  smtp_write_data. Now it uses a pointers instead of accessing the
+	  array indexes
+
+2004-03-12 12:10  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.37): Adding options to print_usage. I still get Bus
+	  Error somewhere out of smtp_write_data. I'm thinking on a
+	  reimplementation.
+
+2004-03-12 00:28  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.36): Adding a maybe useful SASL (AUTH LOGIN)
+	  authentication. But it may not work. In some circumstances I get
+	  'Bus error'
+
+2004-03-12 00:23  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.5): Adding base64.c in SRCS
+
+2004-03-11 23:54  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* base64.c (1.1): Adding base64.c we need it for SASL
+	  authentication
+
+2004-03-11 23:41  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.4): Adding uninstall section
+
+2004-03-11 23:40  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* nbsmtp.c (1.35): log_msg function, not logging \r or \n
+
+2004-03-11 22:48  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.34): Fixed fd_putc, last one had severe problems when
+	  ssl compiled in but use_tls = False
+
+2004-03-11 22:24  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.33): Finally got rid of make_crlf and its ugly
+	  crlf_buffer. Rewrote fd_putc; I think this is a fairly simple
+	  implementation. Some code cleanning. Preparing for a stable
+	  release
+
+2004-03-11 21:24  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* nbsmtp.c (1.32): Solved different errors. Created
+	  smtp_data_write, fd_putc.  The program CURRENTLY WORKS :)
+
+2004-03-11 15:10  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* nbsmtp.c (1.31): Removed unnecesary "while". Variable
+	  "local_out_buf" is still needed to send protocol commands.
+
+2004-03-09 23:23  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.30): s/LOG_WARN,/LOG_WARNING,/g
+
+2004-03-09 23:22  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.29): Get rid of the REALLY UGLY while loops and
+	  adding some (maybe) useful logging messages
+
+2004-03-09 23:02  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.28): Now log_msg checks for debug to be 1. I think
+	  this is better
+
+2004-03-09 22:51  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* TODO (1.8): Get rid of TODO since it is better in the wiki see
+	  (http://nbsmtp.ferdyx.org/index.php/ToDo) for details
+
+2004-03-09 15:54  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* TODO (1.7): Added a task -> Add a Recived by: header
+
+2004-03-09 12:46  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* DOCS (1.1): Adding stuff that matters
+
+2004-03-08 21:34  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* nbsmtp.c (1.27): Now all the recipients are stored. But segfault
+	  somewhere out of parse_mail when using multiple recipients.
+
+2004-03-08 21:07  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* nbsmtp.c (1.26): In function pase_mail: added lines to try to
+	  process "Name" <address@...>
+
+2004-03-08 12:55  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.25): Following the RFC SMTP the correct syntax is
+	  COMMAND:<address> instead of COMMAND: <address>. My postfix is
+	  complaining about it.
+
+2004-03-08 12:30  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.24): parse_mali now checks for zero recipients
+
+2004-03-08 01:24  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* nbsmtp.c (1.23): Replaced buf with host in the last snprintf of
+	  get_socket.
+
+2004-03-07 22:58  Ricardo Cervera Navarro <ricardo@zonasiete.org>
+
+	* configure.in (1.3), nbsmtp.c (1.22): Added sys/param.h. Changed
+	  -h for -H in print_help function
+
+2004-03-07 21:02  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.21): lical found that we were missing some error
+	  catching at send_mail
+
+2004-03-07 17:19  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.20): he... my head is worse than i thought adding
+	  lical to the copyright notice
+
+2004-03-07 17:17  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.19): OMG ! lical is contributting with such good
+	  ideas and code.. he is an author.
+
+2004-03-07 17:11  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.18): If we have SSL support compiled-in but no -s
+	  flag specified, we also want info at syslog !!! (fixing :D)
+
+2004-03-07 17:07  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.17): We don't want to use SSL unless forced with -s
+
+2004-03-07 17:06  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.16): Make the patch for the malloc corruption smarter
+
+2004-03-07 16:58  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.15): Fix a possible malloc corruption when a message
+	  starts with some \n's
+
+2004-03-07 13:31  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.14): Changing version from 0.9 to 0.9-dev
+
+2004-03-07 13:27  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* TODO (1.6): Adding a new task (STARTTLS patch)
+
+2004-03-07 13:07  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.13): Fixing a possible buffer overflow
+
+2004-03-07 12:59  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* TODO (1.5): Updating TODO with new tasks
+
+2004-03-07 02:50  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* TODO (1.4): Updating TODO
+
+2004-03-07 00:07  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.12): -d flag is now optional. If we don't get it...
+	  we'll use machine's hostname
+
+2004-03-06 22:00  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.11): Fixing some style problems
+
+2004-03-06 21:35  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.10): Increasing messages passed to syslog /LOG_INFO/
+
+2004-03-06 20:42  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.9): Fixing some memset's
+
+2004-03-06 15:11  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* TODO (1.3): Adding a TODO task (if host is not passed as an
+	  argument try to use machines hostname)
+
+2004-03-06 15:11  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.8): Removing debug_level, it is not used any more
+
+2004-03-06 15:05  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.7): Arreglando el nbsmtp.. que se me habia olvidado
+	  una llave y separando parse_options del código
+
+2004-03-06 14:36  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* configure.in (1.2): Adaptando el configure.in a la realidad :D
+
+2004-03-06 14:01  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.6): Encapsulando más el código de SSL y añadiendo
+	  warnings
+
+2004-03-06 13:48  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.5): Encapsulando el código de SSL
+
+2004-03-05 22:17  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* TODO (1.2): Actualizando el TODO
+
+2004-03-05 22:09  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.4): Arreglando un comentario y cambios muy mayores en
+	  el antiguo commit
+
+2004-03-05 22:08  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* COPYING (1.1): Añadiendo la licencia
+
+2004-03-05 22:00  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.3), nbsmtp.c (1.3): Añadiendo el install
+
+2004-03-05 19:57  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.2): s/ssmtp/nbsmtp/g
+
+2004-03-05 17:49  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* nbsmtp.c (1.2): Añadidas funciones sobre smtp y de tratamiento de
+	  sockets
+
+2004-03-05 15:58  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* Makefile.in (1.1), configure.in (1.1), nbsmtp.c (1.1): Empezando
+	  la reescritura y preparando para posibles parches.
+
+2004-03-05 10:35  tag inicio
+
+2004-03-05 10:35  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* TODO (1.1.1.1): Iniciando el fork de nbsmtp
+
+2004-03-05 10:35  Fernando J. Pereda <ferdy@ferdyx.org>
+
+	* TODO (1.1): Initial revision
+

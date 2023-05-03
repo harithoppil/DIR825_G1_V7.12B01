@@ -1,0 +1,26 @@
+<InternetGatewayDevice type="object">
+	<WANDevice type="object" Writable="0" CurNode="WANDeviceNumberOfEntries">
+		<i type="object">
+			<WANConnectionDevice type="object" MaxNode="MAXWANConnectionNumberOfEntries" CurNode="WANConnectionNumberOfEntries">
+				<i type="object">
+					<WANPPPConnectionNumberOfEntries type="unsignedInt" Writable="0">0</WANPPPConnectionNumberOfEntries>
+					<WANPPPConnection type="object">
+						<i type="object">
+							<X_TWSZ-COM_VPN_NETMASK type="string(64)" Standard="0"></X_TWSZ-COM_VPN_NETMASK>
+							<X_TWSZ-COM_VPN_GATEWAY type="string(64)" Standard="0"></X_TWSZ-COM_VPN_GATEWAY>
+							<X_TWSZ-COM_VPN_SERVER type="string(64)" Standard="0"></X_TWSZ-COM_VPN_SERVER>
+							<X_TWSZ-COM_VPN_CLIENT type="string(64)" Standard="0"></X_TWSZ-COM_VPN_CLIENT>
+							<X_TWSZ-COM_VPN_INTERFACE_REF type="string(256)" Standard="0"></X_TWSZ-COM_VPN_INTERFACE_REF>
+							<X_TWSZ-COM_VPN_ADDR_MODE type="string(64)" Standard="0"></X_TWSZ-COM_VPN_ADDR_MODE>
+							<X_TWSZ-COM_VPN_DHCP_NETMASK type="string(64)" Standard="0"></X_TWSZ-COM_VPN_DHCP_NETMASK>
+							<X_TWSZ-COM_VPN_DHCP_GATEWAY type="string(64)" Standard="0"></X_TWSZ-COM_VPN_DHCP_GATEWAY>
+							<X_TWSZ-COM_VPN_DHCP_CLIENT type="string(64)" Standard="0"></X_TWSZ-COM_VPN_DHCP_CLIENT>
+							<X_TWSZ-COM_VPN_DHCP_INTERFACE_REF type="string(256)" Standard="0"></X_TWSZ-COM_VPN_DHCP_INTERFACE_REF>
+							<X_TWSZ-COM_VPN_DHCP_DNS type="string(64)" Standard="0"></X_TWSZ-COM_VPN_DHCP_DNS>
+						</i>
+					</WANPPPConnection>
+				</i>
+			</WANConnectionDevice>
+		</i>
+	</WANDevice>
+</InternetGatewayDevice>

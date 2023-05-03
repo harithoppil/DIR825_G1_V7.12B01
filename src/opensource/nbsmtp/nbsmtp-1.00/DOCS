@@ -1,0 +1,14 @@
+Stuff that may be useful
+========================
+
+* Simple Mail Transfer Protocol
+	- RFC2821
+	- ftp://ftp.rfc-editor.org/in-notes/rfc2821.txt
+
+* SMTP Service Extension for Secure SMTP over Transport Layer Security. 
+	- RFC3207 
+	- ftp://ftp.rfc-editor.org/in-notes/rfc3207.txt
+
+* SMTP Service Extension for Authentication
+	- RFC2554
+	- ftp://ftp.rfc-editor.org/in-notes/rfc2554.txt

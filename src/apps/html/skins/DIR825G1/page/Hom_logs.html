@@ -1,0 +1,80 @@
+﻿<div class="mainbody" id="mainbody">
+	<div class="orangebox">
+		<h1 id="LOGS001">View Log</h1>
+		<p id="LOGS002">
+		The View Log displays the activities occurring on the router.
+		</p>
+		<div class="gap"></div>
+		<p>
+			<input type="button" id="LOGS003" value="Save Settings" onclick="uiSubmit();" />
+			<input type="button" id="LOGS004" value="Don't Save Settings" onclick="Refresh();" />
+		</p>
+		<div class="gap"></div>
+	</div>
+
+	<div class="blackbox">
+		<h2 id="LOGS005">Save Log File</h2>
+		<p><span id="LOGS006">Save Log File To Local Hard Drive.</span><input name="save_log" value="Save" onclick="uiSave();" type="button" id="save"/></p>
+		<div class="gap"></div>
+	</div>
+
+	<div class="blackbox">
+		<h2 id="LOGS007">Log Type & Level</h2>
+		<table cellpadding="2" cellspacing="1" width="525">
+		<tbody>
+		<tr>
+			<td align="right"><span id="LOGS008">Log Type:</span></td>
+			<td align="left"><input type="radio" id="sysact" name="Type" onclick='OnClickChangeType();' modified="ignore" value="1"><span id="LOGS009">System</span></td>
+			<td align="left"><input type="radio" id="attack" name="Type" onclick='OnClickChangeType();' modified="ignore" value="2"><span id="LOGS010">Firewall &amp; Security</span></td>
+			<td align="left"><input type="radio" id="drop" name="Type" onclick='OnClickChangeType();' modified="ignore" value="3"><span id="LOGS011">Router Status</span></td>
+		</tr>
+		<tr>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td align="right"><span id="LOGS012">Log Level:</span></td>
+			<td align="left"><input type="radio" id="LOG_dbg" name="Level" value="1"><span id="LOGS013">Critical</span></td>
+			<td align="left"><input type="radio" id="LOG_warn" name="Level" value="2"><span id="LOGS014">Warning</span></td>
+			<td align="left"><input type="radio" id="LOG_info" name="Level" value="3"><span id="LOGS015">Information</span></td>
+		</tr>
+		</tbody></table>
+		<div class="gap"></div>
+	</div>
+
+	<div class="blackbox">
+		<h2 id="LOGS016">Log Files</h2>
+		<table cellpadding="1" cellspacing="1" border="0" width="525">
+		<tr>
+			<td align="left">
+			<div>
+				<input type=button value="First Page" id="fp"  onclick="OnClickToPage('1')">
+				<input type=button value="Last Page" id="lp"  onclick="OnClickToPage('0')">
+				<input type=button value="Previous" id="pp"  onclick="OnClickToPage('-1')">
+				<input type=button value="Next" id="np" onclick="OnClickToPage('+1')">
+				<input type=button value="Clear" id="clear" onclick="OnClickClear()">
+				<input type=button value='Link To Email Log Settings' id="submitp" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_email'">
+			</div>
+			</td>
+		</tr>
+		<tr><td class=l_tb><div id="sLog"></div></td></tr>
+		</table>
+	</div>
+	<!-- End of Page Dependent Part. -->
+	<form name="uiShowLog" id="uiShowLog" method="post" action="webupg">
+		<input type="hidden" value="" name="tokenid" id="tokenid">
+		<input type="hidden" name="name" value="ShowSysEvtLogFile" />
+	</form>
+	<form name="uiDownloadLog" id="uiDownloadLog" method="post" action="/cgi-bin/webupg">
+		<input type="hidden" value="" name="tokenid" id="tokenid1">
+		<input type="hidden" name="name" value="downloadSysEvtLogFile"/>
+	</form>
+</div>
+<div id="help_hint" class="tips">
+<!-- Start of Help Depedent Part. -->
+<strong id="LOGS017">Helpful Hints...</strong>
+<br/><br/>
+<p id="LOGS018">&nbsp;&#149;&nbsp;&nbsp;Click on the Save button to save log file to local hard drive which can later send to the network administrator for troubleshooting.You can also select what type of event you would like to be logged from Log Type &amp; Level.</p>
+<p id="LOGS019">&nbsp;&#149;&nbsp;&nbsp;Check the log frequently to detect unauthorized network usage.</p>
+<p id="LOGS020">&nbsp;&#149;&nbsp;&nbsp;You can also have the log mailed to you periodically. Refer to <a href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_email'>Tools -> EMail</a>.</p>
+<p id="LOGS021">&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpstatus#Logs">More...</a></p>
+<!-- End of Help Dependent Part. -->

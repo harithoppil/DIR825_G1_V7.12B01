@@ -1,0 +1,55 @@
+srcdir=@srcdir@
+prefix=@prefix@
+sysconfdir=@sysconfdir@
+exec_prefix=@exec_prefix@
+libexecdir=@libexecdir@
+doxygen=@doxygen@
+bindir=$(prefix)/bin
+mandir=$(prefix)/man
+iconpath=$(prefix)/nbsmtp-@PACKAGE_VERSION@
+INSTALL=@INSTALL@
+
+SRCS=nbsmtp.c base64.c util.c smtp.c fdutil.c original.c fileconfig.c@EXTRASRCS@ main.c
+
+OBJS=$(SRCS:.c=.o)
+
+CFLAGS=-Wall -pedantic @DEFS@ -DSYSCONFDIR=\"$(sysconfdir)\" @EXTRADEFS@ @CFLAGS@
+
+.PHONY: all clean distclean install doc uninstall changelog
+
+all: nbsmtp
+
+nbsmtp: $(OBJS)
+	$(CC) -o nbsmtp $(OBJS) @LIBS@
+
+clean:
+	$(RM) nbsmtp *.o core
+
+distclean: clean
+	$(RM) config.* Makefile
+
+install: nbsmtp
+	[ "x@OSXMODULE@" = "xyes" ] \
+	&& ( \
+		$(INSTALL) -d $(iconpath); \
+		$(INSTALL) nbsmtp-growl.png $(iconpath)/nbsmtp-growl.png; ) \
+	|| ( true )
+	$(INSTALL) -d $(bindir)
+	$(INSTALL) nbsmtp $(bindir)/nbsmtp
+	$(INSTALL) -d $(mandir)/man8
+	$(INSTALL) nbsmtp.8 $(mandir)/man8/nbsmtp.8
+	$(INSTALL) -d $(mandir)/man5
+	$(INSTALL) nbsmtprc.5 $(mandir)/man5/nbsmtprc.5
+
+doc:
+	@( [ ! -z $(doxygen) ] && $(doxygen) Doxyfile ) || echo "Doxygen wasn't found"
+
+uninstall:
+	$(RM) $(iconpath)/nbsmtp-growl.png
+	$(RM) $(bindir)/nbsmtp
+	$(RM) $(mandir)/man8/nbsmtp.8
+	$(RM) $(mandir)/man5/nbsmtprc.5
+
+changelog:
+	perl cvs2cl.pl -U AUTHORS -r -T
+	${EDITOR} ChangeLog

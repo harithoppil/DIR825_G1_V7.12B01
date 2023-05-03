@@ -1,0 +1,377 @@
+﻿<div class="mainbody" id="mainbody">
+<div class="orangebox">
+	<span id="Adv_routing6001">
+	<h1>ROUTING</h1>
+	<p>This Routing page allows you to specify custom routes that determine how data is moved around your network.</p>
+	</span>
+	<p>	<input type="button" value="Save Settings" onclick="uiSubmit();" id="Adv_routing6002"/>
+		<input type="button" value="Don't Save Settings" onclick="uiPageRefresh();" id="Adv_routing6003"/></p>
+</div>
+
+<div class="blackbox">
+    <h2 id="Adv_routing6004">10 -- ROUTE LIST</h2>
+
+	<div class="centerline" align="center">
+		<table id="" class="general">
+		<tr>
+			<td width="20" rowspan="2" class="centered">
+				<input id="enable_1" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="150px">
+				<span id="Adv_routing6005">Name</span><br>
+				<input id="dsc_1" type="text" size="26" maxlength="31" />
+			</td>
+			<td class="left" width="240px">
+				<span id="Adv_routing6006">Destination IPv6 / Prefix Length</span><br>
+				<input id="dest1_1" type="text" size="45" maxlength="64" /> /
+				<input id="dest2_1" type="text" size="6" maxlength="64" />
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_routing6007">Metric</span><br>
+				<input id="metric_1" type="text" size="9" maxlength="12" />
+			</td>
+			<td>
+				<span id="Adv_routing6008">Interface</span><br>
+				<select id="inf_1" style="width: 90px" onchange="OnChangeinf(1)">
+					<option value="NULL" id="Adv_routing6009">NULL</option>
+					<option value="LAN-4" id="Adv_routing6010">LAN</option>
+					<option value="WAN-4" id="Adv_routing6011">WAN</option>
+					<!--option value="PD">LAN(DHCP-PD)</option-->
+				</select>
+			</td>
+			<td>
+			<span id="Adv_routing6012">Gateway</span><br>
+			<input id=gateway_1 type="text" size="45" maxlength="64">
+			</td>
+		</tr>
+
+		<tr>
+			<td width="20" rowspan="2" class="centered">
+				<input id="enable_2" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="150px">
+				<span id="Adv_routing6013">Name</span><br>
+				<input id="dsc_2" type="text" size="26" maxlength="31" />
+			</td>
+			<td class="left" width="240px">
+				<span id="Adv_routing6014">Destination IPv6 / Prefix Length</span><br>
+				<input id="dest1_2" type="text" size="45" maxlength="64" /> /
+				<input id="dest2_2" type="text" size="6" maxlength="64" />
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_routing6015">Metric</span><br>
+				<input id="metric_2" type="text" size="9" maxlength="12" />
+			</td>
+			<td>
+				<span id="Adv_routing6016">Interface</span><br>
+				<select id="inf_2" style="width: 90px" onchange="OnChangeinf(2)">
+					<option value="NULL" id="Adv_routing6017">NULL</option>
+					<option value="LAN-4" id="Adv_routing6018">LAN</option>
+					<option value="WAN-4" id="Adv_routing6019">WAN</option>
+					<!--option value="PD">LAN(DHCP-PD)</option-->
+				</select>
+			</td>
+			<td>
+			<span id="Adv_routing6020">Gateway</span><br>
+			<input id=gateway_2 type="text" size="45" maxlength="64">
+			</td>
+		</tr>
+
+		<tr>
+			<td width="20" rowspan="2" class="centered">
+				<input id="enable_3" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="150px">
+				<span id="Adv_routing6021">Name</span><br>
+				<input id="dsc_3" type="text" size="26" maxlength="31" />
+			</td>
+			<td class="left" width="240px">
+				<span id="Adv_routing6022">Destination IPv6 / Prefix Length</span><br>
+				<input id="dest1_3" type="text" size="45" maxlength="64" /> /
+				<input id="dest2_3" type="text" size="6" maxlength="64" />
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_routing6023">Metric</span><br>
+				<input id="metric_3" type="text" size="9" maxlength="12" />
+			</td>
+			<td>
+				<span id="Adv_routing6024">Interface</span><br>
+				<select id="inf_3" style="width: 90px" onchange="OnChangeinf(3)">
+					<option value="NULL" id="Adv_routing6025">NULL</option>
+					<option value="LAN-4" id="Adv_routing6026">LAN</option>
+					<option value="WAN-4" id="Adv_routing6027">WAN</option>
+					<!--option value="PD">LAN(DHCP-PD)</option-->
+				</select>
+			</td>
+			<td>
+			<span id="Adv_routing6028">Gateway</span><br>
+			<input id=gateway_3 type="text" size="45" maxlength="64">
+			</td>
+		</tr>
+
+		<tr>
+			<td width="20" rowspan="2" class="centered">
+				<input id="enable_4" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="150px">
+				<span id="Adv_routing6029">Name</span><br>
+				<input id="dsc_4" type="text" size="26" maxlength="31" />
+			</td>
+			<td class="left" width="240px">
+				<span id="Adv_routing6030">Destination IPv6 / Prefix Length</span><br>
+				<input id="dest1_4" type="text" size="45" maxlength="64" /> /
+				<input id="dest2_4" type="text" size="6" maxlength="64" />
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_routing6031">Metric</span><br>
+				<input id="metric_4" type="text" size="9" maxlength="12" />
+			</td>
+			<td>
+				<span id="Adv_routing6032">Interface</span><br>
+				<select id="inf_4" style="width: 90px" onchange="OnChangeinf(4)">
+					<option value="NULL" id="Adv_routing6033">NULL</option>
+					<option value="LAN-4" id="Adv_routing6034">LAN</option>
+					<option value="WAN-4" id="Adv_routing6035">WAN</option>
+					<!--option value="PD">LAN(DHCP-PD)</option-->
+				</select>
+			</td>
+			<td>
+			<span id="Adv_routing6036">Gateway</span><br>
+			<input id=gateway_4 type="text" size="45" maxlength="64">
+			</td>
+		</tr>
+
+		<tr>
+			<td width="20" rowspan="2" class="centered">
+				<input id="enable_5" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="150px">
+				<span id="Adv_routing6037">Name</span><br>
+				<input id="dsc_5" type="text" size="26" maxlength="31" />
+			</td>
+			<td class="left" width="240px">
+				<span id="Adv_routing6038">Destination IPv6 / Prefix Length</span><br>
+				<input id="dest1_5" type="text" size="45" maxlength="64" /> /
+				<input id="dest2_5" type="text" size="6" maxlength="64" />
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_routing6039">Metric</span><br>
+				<input id="metric_5" type="text" size="9" maxlength="12" />
+			</td>
+			<td>
+				<span id="Adv_routing6040">Interface</span><br>
+				<select id="inf_5" style="width: 90px" onchange="OnChangeinf(5)">
+					<option value="NULL" id="Adv_routing6041">NULL</option>
+					<option value="LAN-4" id="Adv_routing6042">LAN</option>
+					<option value="WAN-4" id="Adv_routing6043">WAN</option>
+					<!--option value="PD">LAN(DHCP-PD)</option-->
+				</select>
+			</td>
+			<td>
+			<span id="Adv_routing6044">Gateway</span><br>
+			<input id=gateway_5 type="text" size="45" maxlength="64">
+			</td>
+		</tr>
+
+		<tr>
+			<td width="20" rowspan="2" class="centered">
+				<input id="enable_6" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="150px">
+				<span id="Adv_routing6045">Name</span><br>
+				<input id="dsc_6" type="text" size="26" maxlength="31" />
+			</td>
+			<td class="left" width="240px">
+				<span id="Adv_routing6046">Destination IPv6 / Prefix Length</span><br>
+				<input id="dest1_6" type="text" size="45" maxlength="64" /> /
+				<input id="dest2_6" type="text" size="6" maxlength="64" />
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_routing6047">Metric</span><br>
+				<input id="metric_6" type="text" size="9" maxlength="12" />
+			</td>
+			<td>
+				<span id="Adv_routing6048">Interface</span><br>
+				<select id="inf_6" style="width: 90px" onchange="OnChangeinf(6)">
+					<option value="NULL" id="Adv_routing6049">NULL</option>
+					<option value="LAN-4" id="Adv_routing6050">LAN</option>
+					<option value="WAN-4" id="Adv_routing6051">WAN</option>
+					<!--option value="PD">LAN(DHCP-PD)</option-->
+				</select>
+			</td>
+			<td>
+			<span id="Adv_routing6052">Gateway</span><br>
+			<input id=gateway_6 type="text" size="45" maxlength="64">
+			</td>
+		</tr>
+
+		<tr>
+			<td width="20" rowspan="2" class="centered">
+				<input id="enable_7" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="150px">
+				<span id="Adv_routing6053">Name</span><br>
+				<input id="dsc_7" type="text" size="26" maxlength="31" />
+			</td>
+			<td class="left" width="240px">
+				<span id="Adv_routing6054">Destination IPv6 / Prefix Length</span><br>
+				<input id="dest1_7" type="text" size="45" maxlength="64" /> /
+				<input id="dest2_7" type="text" size="6" maxlength="64" />
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_routing6055">Metric</span><br>
+				<input id="metric_7" type="text" size="9" maxlength="12" />
+			</td>
+			<td>
+				<span id="Adv_routing6056">Interface</span><br>
+				<select id="inf_7" style="width: 90px" onchange="OnChangeinf(7)">
+					<option value="NULL" id="Adv_routing6057">NULL</option>
+					<option value="LAN-4" id="Adv_routing6058">LAN</option>
+					<option value="WAN-4" id="Adv_routing6059">WAN</option>
+					<!--option value="PD">LAN(DHCP-PD)</option-->
+				</select>
+			</td>
+			<td>
+			<span id="Adv_routing6060">Gateway</span><br>
+			<input id=gateway_7 type="text" size="45" maxlength="64">
+			</td>
+		</tr>
+
+		<tr>
+			<td width="20" rowspan="2" class="centered">
+				<input id="enable_8" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="150px">
+				<span id="Adv_routing6061">Name</span><br>
+				<input id="dsc_8" type="text" size="26" maxlength="31" />
+			</td>
+			<td class="left" width="240px">
+				<span id="Adv_routing6062">Destination IPv6 / Prefix Length</span><br>
+				<input id="dest1_8" type="text" size="45" maxlength="64" /> /
+				<input id="dest2_8" type="text" size="6" maxlength="64" />
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_routing6063">Metric</span><br>
+				<input id="metric_8" type="text" size="9" maxlength="12" />
+			</td>
+			<td>
+				<span id="Adv_routing6064">Interface</span><br>
+				<select id="inf_8" style="width: 90px" onchange="OnChangeinf(8)">
+					<option value="NULL" id="Adv_routing6065">NULL</option>
+					<option value="LAN-4" id="Adv_routing6066">LAN</option>
+					<option value="WAN-4" id="Adv_routing6067">WAN</option>
+					<!--option value="PD">LAN(DHCP-PD)</option-->
+				</select>
+			</td>
+			<td>
+			<span id="Adv_routing6068">Gateway</span><br>
+			<input id=gateway_8 type="text" size="45" maxlength="64">
+			</td>
+		</tr>
+
+		<tr>
+			<td width="20" rowspan="2" class="centered">
+				<input id="enable_9" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="150px">
+				<span id="Adv_routing6069">Name</span><br>
+				<input id="dsc_9" type="text" size="26" maxlength="31" />
+			</td>
+			<td class="left" width="240px">
+				<span id="Adv_routing6070">Destination IPv6 / Prefix Length</span><br>
+				<input id="dest1_9" type="text" size="45" maxlength="64" /> /
+				<input id="dest2_9" type="text" size="6" maxlength="64" />
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_routing6071">Metric</span><br>
+				<input id="metric_9" type="text" size="9" maxlength="12" />
+			</td>
+			<td>
+				<span id="Adv_routing6072">Interface</span><br>
+				<select id="inf_9" style="width: 90px" onchange="OnChangeinf(9)">
+					<option value="NULL" id="Adv_routing6073">NULL</option>
+					<option value="LAN-4" id="Adv_routing6074">LAN</option>
+					<option value="WAN-4" id="Adv_routing6075">WAN</option>
+					<!--option value="PD">LAN(DHCP-PD)</option-->
+				</select>
+			</td>
+			<td>
+			<span id="Adv_routing6076">Gateway</span><br>
+			<input id=gateway_9 type="text" size="45" maxlength="64">
+			</td>
+		</tr>
+
+		<tr>
+			<td width="20" rowspan="2" class="centered">
+				<input id="enable_10" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="150px">
+				<span id="Adv_routing6077">Name</span><br>
+				<input id="dsc_10" type="text" size="26" maxlength="31" />
+			</td>
+			<td class="left" width="240px">
+				<span id="Adv_routing6078">Destination IPv6 / Prefix Length</span><br>
+				<input id="dest1_10" type="text" size="45" maxlength="64" /> /
+				<input id="dest2_10" type="text" size="6" maxlength="64" />
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_routing6079">Metric</span><br>
+				<input id="metric_10" type="text" size="9" maxlength="12" />
+			</td>
+			<td>
+				<span id="Adv_routing6080">Interface</span><br>
+				<select id="inf_10" style="width: 90px" onchange="OnChangeinf(10)">
+					<option value="NULL" id="Adv_routing6081">NULL</option>
+					<option value="LAN-4" id="Adv_routing6082">LAN</option>
+					<option value="WAN-4" id="Adv_routing6083">WAN</option>
+					<!--option value="PD">LAN(DHCP-PD)</option-->
+				</select>
+			</td>
+			<td>
+			<span id="Adv_routing6084">Gateway</span><br>
+			<input id=gateway_10 type="text" size="45" maxlength="64">
+			</td>
+		</tr>
+
+
+		</table>
+	</div>
+	<div class="gap"></div>
+</div>
+<p><input type="button" value="Save Settings" onclick="uiSubmit();" id="Adv_routing6085"/>
+<input type="button" value="Don't Save Settings" onclick="uiPageRefresh();" id="Adv_routing6086"/></p>
+<!-- End of Page Dependent Part. -->
+</div>
+<div id="help_hint" class="tips">
+<!-- Start of Help Depedent Part. -->
+<span id="Adv_routing6087">
+	<strong>Helpful Hints...</strong>
+	<br/><br/>
+	<p>&nbsp;&#149;&nbsp;&nbsp;Each route has a check box next to it, check this box if you want the route to be enabled.</p>
+	<p>&nbsp;&#149;&nbsp;&nbsp;The name field allows you to specify a name for identification of this route, e.g. 'Network 2'</p>
+	<p>&nbsp;&#149;&nbsp;&nbsp;The destination IPv6 address is the address of the host or network you wish to reach.</p>
+	<p>&nbsp;&#149;&nbsp;&nbsp;The prefix length field identifies the portion of the destination IP in use.</p>
+	<p>&nbsp;&#149;&nbsp;&nbsp;The gateway IP address is the IP address of the router, if any, used to reach the specified destination.</p>
+</span>
+	<p>&nbsp;&#149;&nbsp;&nbsp;<a href=
+	"/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpadv#IPv6Routing"><span id = "Adv_routing6088">More</span></a></p>

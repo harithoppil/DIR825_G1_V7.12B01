@@ -1,0 +1,47 @@
+
+<InternetGatewayDevice type="object">
+	<X_TWSZ-COM_IGMPProxy type="object" Writable="0">
+		<Enabled type="boolean" Writable="1">1</Enabled>
+		<Version type="unsignedInt">3</Version>		
+		<LANPathName type="string" Writable="1">InternetGatewayDevice.LANDevice.1</LANPathName>
+		<Enable_PassThrough type="unsignedInt">0</Enable_PassThrough>
+		<Enable_FastLeaving type="unsignedInt">0</Enable_FastLeaving>
+		<GQ_Interval	type="unsignedInt">150</GQ_Interval>
+		<GQ_Response_Interval	type="unsignedInt">20</GQ_Response_Interval>
+		<MQ_Interval	type="unsignedInt">325</MQ_Interval>
+		<MQ_Response_Interval	type="unsignedInt">20</MQ_Response_Interval>
+		<MQ_Count	type="unsignedInt">3</MQ_Count>
+		<LQ_Interval	type="unsignedInt">20</LQ_Interval>
+		<LQ_Count	type="unsignedInt">3</LQ_Count>
+		<IGMPTableNumberOfEntries type="unsignedInt" Writable="0">0</IGMPTableNumberOfEntries>
+		<IGMPTable type="object" MaxNode="IGMPTableNumberOfEntries" CurNode="IGMPTableNumberOfEntries" >
+			<i type="object">
+				<GroupAddress type="string"></GroupAddress>
+				<Interface type="string"></Interface>
+				<State type="string"></State>
+			</i>
+		</IGMPTable>
+	</X_TWSZ-COM_IGMPProxy>
+	<LANDevice type="object" Writable="0" CurNode="LANDeviceNumberOfEntries">
+		<i type="object">
+			<X_TWSZ-COM_IGMPSnoop type="object">
+				  <Enabled type="boolean" Writable="1">1</Enabled>
+					<LastMemberQueryInterval type="unsignedInt" Writable="1">200000</LastMemberQueryInterval>
+					<HostTimeout type="unsignedInt" Writable="1">3000000</HostTimeout>
+					<MrouterTimeout type="unsignedInt" Writable="1">1</MrouterTimeout>
+					<LeaveTimeout type="unsignedInt" Writable="1">0</LeaveTimeout>
+					<MaxGroups type="unsignedInt" Writable="1">100</MaxGroups>
+			</X_TWSZ-COM_IGMPSnoop>
+		</i>
+	</LANDevice>
+	<WANDevice type="object" Writable="0" CurNode="WANDeviceNumberOfEntries">
+		<i type="object">
+			<WANConnectionDevice type="object" MaxNode="MAXWANConnectionNumberOfEntries" CurNode="WANConnectionNumberOfEntries">
+				<i type="object">
+					<X_TWSZ-COM_IGMPEnabled type="boolean" Writable="1">0</X_TWSZ-COM_IGMPEnabled>
+					<IGMPVersion type="unsignedInt" Writable="1">0</IGMPVersion>
+				</i>
+			</WANConnectionDevice>
+		</i>
+	</WANDevice>
+</InternetGatewayDevice>

@@ -1,0 +1,115 @@
+######################################
+
+config APPS_HTML
+	bool 'HTML'
+	default y
+	depends on APPS
+	select APPS_WEB
+	#select APPS_HTML_PAGE_system_msg
+  	help
+      	  HTML Pages
+######################################
+menu "Languages"
+	depends on APPS_HTML
+
+	menu "All Supported Languages"
+		depends on APPS_HTML
+
+		config APPS_HTML_LANG_SUPPORT_en_us
+			bool 'English'
+			default y
+			help
+				Support English Language.
+
+		config APPS_HTML_LANG_SUPPORT_zh_cn
+			bool 'Chinse'
+			default y
+			help
+				Support Chinse Language.
+
+	endmenu
+
+	choice
+		prompt "Default language"
+		default APPS_HTML_LANG_DEFAULT_zh_cn
+		depends on APPS_HTML
+
+		config APPS_HTML_LANG_DEFAULT_en_us
+			bool 'English'
+			select APPS_HTML_LANG_SUPPORT_en_us
+			help
+				English as default language.
+
+		config APPS_HTML_LANG_DEFAULT_zh_cn
+			bool 'Chinese'
+			select APPS_HTML_LANG_SUPPORT_zh_cn
+			help
+				Chinese as default language
+	endchoice
+
+
+
+endmenu
+######################################
+menu "Web Style"
+	depends on APPS_HTML
+	choice
+		prompt "All Supported Style"
+		default APPS_HTML_WEB_STYLE_Blue
+		depends on APPS_HTML
+
+		config APPS_HTML_WEB_STYLE_DLINK_AC750
+			bool 'dlink_AC750'
+			help
+				Web DLINK AC750 style			
+						
+		config APPS_HTML_WEB_STYLE_DLINK_AC750_DIR815D1
+			bool 'dlink_AC750D_DIR815D1'
+			help
+				Web DLINK AC750 DIR815D1 style	
+
+		config APPS_HTML_WEB_STYLE_SITECOM
+			bool 'Sitecom'
+			help
+				Web  Sitecom  style
+
+		config APPS_HTML_WEB_STYLE_ACT
+			bool 'ACT'
+			help
+				Web  ACT  style
+	endchoice
+	
+	choice
+		prompt "Default Style"
+		default APPS_HTML_WEB_STYLE_DEFAULT_Blue
+		depends on APPS_HTML
+
+		config APPS_HTML_WEB_STYLE_DEFAULT_DLINK_AC750
+			bool 'dlink_AC750'
+			select APPS_HTML_WEB_STYLE_DLINK_AC750
+			help
+				Dlink AC750 as default style
+
+		config APPS_HTML_WEB_STYLE_DEFAULT_SITECOM
+			bool 'Sitecom'
+			help
+				Web  Sitecom  style
+		
+		config APPS_HTML_WEB_STYLE_DEFAULT_ACT
+			bool 'ACT'
+			help
+				Web  ACT  style
+	endchoice
+	
+	config APPS_HTML_WEB_LOGIN_WIZARD
+			bool 'telefonica login wizard'
+			default n
+			help
+				 telefonica's request when logging in the CPE ,  pop out a specific wizard page
+				 
+	
+endmenu
+
+
+
+

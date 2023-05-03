@@ -1,0 +1,5 @@
+1 wizard,*,
+2 wizard,*,
+3 wizard,*,
+4 wizard,*,
+9 reg,returnDevicesJSON.txt,logIn,returnSessionJSON.txt,config.json.txt,returnPasswordJSON.txt,returnJSON.txt,returnWifiJSON.txt,returnWelcomeInfoJSON.txt,returnInternetJSON.txt,alert,web_access_forbidden,

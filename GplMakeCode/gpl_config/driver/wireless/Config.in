@@ -1,0 +1,8 @@
+menuconfig DRIVERS_WLAN
+	bool 'Wireless drivers'
+	default n
+	depends DRIVERS
+	help
+		Wireless device driver module
+
+#source src/driver/wireless/realtek/Config.in

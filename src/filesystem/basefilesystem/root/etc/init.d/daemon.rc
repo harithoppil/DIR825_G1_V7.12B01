@@ -1,0 +1,45 @@
+#!/bin/sh
+
+
+openssl genrsa -rand /var/randpriv -out /var/mini_httpd_priv.pem -des3 -passout pass:"QaZWsX741852" 1024
+
+openssl req -new -x509 -days 3650 -set_serial 001122334455001122334455 -key /var/mini_httpd_priv.pem -nodes -config /etc/mini_httpd.cnf -batch -out /var/mini_httpd_server.pem -passin pass:"QaZWsX741852"
+
+openssl rsa -in /var/mini_httpd_priv.pem -out /var/mini_httpd_serkey.pem -passin pass:"QaZWsX741852"
+
+cp /var/mini_httpd_server.pem /var/mini_httpd.pem
+
+cat /var/mini_httpd_serkey.pem >> /var/mini_httpd.pem
+
+#if [ "${HTTPS}" = "yes" ]; then
+    /usr/sbin/mini_httpd -d /usr/www -c '/cgi-bin/*' -u root -S -E /var/mini_httpd.pem -T utf-8
+#else
+#    /usr/sbin/mini_httpd -d /usr/www -c '/cgi-bin/*' -u root -T utf-8
+#fi
+
+if [ -x /usr/bin/pc ]; then
+  /usr/bin/pc &
+fi
+
+if [ -x /usr/bin/btn ]; then
+  /usr/bin/btn &
+fi
+
+if [ -x /usr/bin/mon ]; then
+  /usr/bin/mon &
+fi
+
+#/usr/sbin/telnetd &
+
+#if [ -x /usr/sbin/inetd ]; then
+#  /usr/sbin/inetd &
+#fi
+
+#if  [ -a /usr/bin/ELMon ]; then
+#/usr/bin/ELMon &
+#fi
+
+if [ -x /usr/sbin/dropbear ]; then
+  /usr/sbin/dropbear &
+fi
+

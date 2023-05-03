@@ -1,0 +1,553 @@
+﻿<style>
+/* The CSS is only for this page.
+ * Notice:
+ *	If the items are few, we put them here,
+ *	If the items are a lot, please put them into the file, htdocs/web/css/$TEMP_MYNAME.css.
+ */
+.tzselect
+{
+	font-family: Tahoma, Helvetica, Geneva, Arial, sans-serif;
+	font-size: 10px;
+}
+.timebox
+{
+	padding: 0 10px 10px 10px;
+	width:   525px;
+}
+.timebox_item
+{
+  font-family: Arial, Helvetica, sans-serif;
+}
+td.timebox_item select
+{
+  font-size: 10px;
+  width:     55px;
+}
+</style>
+<div class="mainbody" id="mainbody">
+<div class="orangebox">
+		<h1 id="TIME001">Time AND DATE</h1>
+		<p id="TIME002">The Time and Date Configuration option allows you to configure, update, and maintain the correct time on the internal system clock. From this section you can set the time zone you are in and set the NTP (Network Time Protocol) Server. Daylight Saving can also be configured to adjust the time when needed.</p>
+		<p><input type="button" id="TIME003" value="Save Settings" onclick="uiSubmit();" />
+			<input type="button"id="TIME004" value="Don't Save Settings" onclick="uiPageRefresh();" /></p>
+	</div>
+	<div class="blackbox">
+		<h2 id="TIME005">Time and Date Configuration</h2>
+		<div class="textinput">
+			<span class="name" id="TIME006">Time</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_time"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="TIME007">Time Zone</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<select id="timezone" class="tzselect" style="width:98%">
+				<option value="1" id="TIME008">(GMT-12:00) International Date Line West</option>
+				<option value="2" id="TIME009">(GMT-11:00) Midway Island</option>
+				<option value="3" id="TIME010">(GMT-10:00) Hawaii</option>
+				<option value="4" id="TIME011">(GMT-09:00) Alaska</option>
+				<option value="5" id="TIME012">(GMT-08:00) Pacific Time (US &amp; Canada), Tijuana</option>
+				<option value="6" id="TIME013">(GMT-07:00) Arizona</option>
+				<option value="7" id="TIME014">(GMT-07:00) Chihuahua, La Paz, Mazatlan</option>
+				<option value="8" id="TIME015">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+				<option value="9" id="TIME016">(GMT-06:00) Central America</option>
+				<option value="10" id="TIME017">(GMT-06:00) Central Time (US &amp; Canada)</option>
+				<option value="11" id="TIME018">(GMT-06:00) Guadalajara, Mexico City, Monterrey</option>
+				<option value="12" id="TIME019">(GMT-06:00) Saskatchewan</option>
+				<option value="13" id="TIME020">(GMT-05:00) Bogota, Lima, Quito,Indiana (East)</option>
+				<option value="14" id="TIME021">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+				<option value="15" id="TIME022">(GMT-04:30) Caracas</option>
+				<option value="16" id="TIME023">(GMT-04:00) Georgetown, La Paz</option>
+				<option value="17" id="TIME024">(GMT-04:00) Atlantic Time (Canada)</option>
+				<option value="18" id="TIME025">(GMT-04:00) Santiago</option>
+				<option value="19" id="TIME026">(GMT-03:30) Newfoundland</option>
+				<option value="20" id="TIME027">(GMT-03:00) Brasilia</option>
+				<option value="21" id="TIME028">(GMT-03:00) Buenos Aires</option>
+				<option value="22" id="TIME029">(GMT-03:00) Greenland</option>
+				<option value="23" id="TIME030">(GMT-02:00) Mid-Atlantic</option>
+				<option value="24" id="TIME031">(GMT-01:00) Azores</option>
+				<option value="25" id="TIME032">(GMT-01:00) Cape Verde Is.</option>
+				<option value="26" id="TIME033">(GMT) Casablanca, Monrovia</option>
+				<option value="27" id="TIME034">(GMT) Greenwich Mean Time : Dublin, Edinburgh, Lisbon, London</option>
+				<option value="28" id="TIME035">(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</option>
+				<option value="29" id="TIME036">(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</option>
+				<option value="30" id="TIME037">(GMT+01:00) Brussels, Copenhagen, Madrid, Paris</option>
+				<option value="31" id="TIME038">(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb</option>
+				<option value="32" id="TIME039">(GMT+01:00) West Central Africa</option>
+				<option value="33" id="TIME040">(GMT+02:00) Athens, Istanbul, Minsk</option>
+				<option value="34" id="TIME041">(GMT+02:00) Bucharest</option>
+				<option value="35" id="TIME042">(GMT+02:00) Cairo</option>
+				<option value="36" id="TIME043">(GMT+02:00) Harare, Pretoria</option>
+				<option value="37" id="TIME044">(GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius</option>
+				<option value="38" id="TIME045">(GMT+02:00) Jerusalem</option>
+				<option value="39" id="TIME046">(GMT+03:00) Baghdad</option>
+				<option value="40" id="TIME047">(GMT+03:00) Kuwait, Riyadh</option>
+				<option value="41" id="TIME048">(GMT+03:00) Nairobi</option>
+				<option value="42" id="TIME049">(GMT+03:30) Tehran</option>
+				<option value="43" id="TIME050">(GMT+04:00) Abu Dhabi, Muscat</option>
+				<option value="44" id="TIME051">(GMT+04:00) Baku, Tbilisi, Yerevan</option>
+				<option value="45" id="TIME052">(GMT+04:00) Moscow, St. Petersburg, Volgograd</option>
+				<option value="46" id="TIME053">(GMT+04:30) Kabul</option>
+				<option value="47" id="TIME054">(GMT+05:00) Islamabad, Karachi, Tashkent</option>
+				<option value="48" id="TIME055">(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</option>
+				<option value="49" id="TIME056">(GMT+05:30) Sri Jayawardenepura</option>
+				<option value="50" id="TIME057">(GMT+05:45) Kathmandu</option>
+				<option value="51" id="TIME058">(GMT+06:00) Astana, Dhaka</option>
+				<option value="52" id="TIME059">(GMT+06:00) Ekaterinburg</option>
+				<option value="53" id="TIME060">(GMT+06:30) Rangoon</option>
+				<option value="54" id="TIME061">(GMT+07:00) Almaty, Novosibirsk</option>
+				<option value="55" id="TIME062">(GMT+07:00) Bangkok, Hanoi, Jakarta</option>
+				<option value="56" id="TIME063">(GMT+08:00) Krasnoyarsk</option>
+				<option value="57" id="TIME064">(GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi</option>
+				<option value="58" id="TIME065">(GMT+08:00) Kuala Lumpur, Singapore</option>
+				<option value="59" id="TIME066">(GMT+08:00) Perth</option>
+				<option value="60" id="TIME067">(GMT+08:00) Taipei</option>
+				<option value="61" id="TIME068">(GMT+08:00) Ulaan Bataar</option>
+				<option value="62" id="TIME069">(GMT+09:00) Irkutsk</option>
+				<option value="63" id="TIME070">(GMT+09:00) Osaka, Sapporo, Tokyo</option>
+				<option value="64" id="TIME071">(GMT+09:00) Seoul</option>
+				<option value="65" id="TIME072">(GMT+09:30) Adelaide</option>
+				<option value="66" id="TIME073">(GMT+09:30) Darwin</option>
+				<option value="67" id="TIME074">(GMT+10:00) Brisbane</option>
+				<option value="68" id="TIME075">(GMT+10:00) Canberra, Melbourne, Sydney</option>
+				<option value="69" id="TIME076">(GMT+10:00) Guam, Port Moresby</option>
+				<option value="70" id="TIME077">(GMT+10:00) Hobart</option>
+				<option value="71" id="TIME078">(GMT+10:00) Yakutsk</option>
+				<option value="72" id="TIME079">(GMT+11:00) Solomon Is., New Caledonia</option>
+				<option value="73" id="TIME080">(GMT+11:00) Vladivostok</option>
+				<option value="74" id="TIME081">(GMT+12:00) Magadan</option>
+				<option value="75" id="TIME082">(GMT+12:00) Auckland, Wellington</option>
+				<option value="76" id="TIME083">(GMT+12:00) Fiji, Kamchatka, Marshall Is.</option>
+				<option value="77" id="TIME084">(GMT+13:00) Nuku'alofa</option>
+				<option value="78" id="TIME085">(GMT+13:00) Samoa</option>
+
+				</select>
+			</span>
+		</div>				
+		<div class="textinput">
+			<span class="name" id="TIME086">Enable Daylight Saving</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input type="checkbox"	id="daylight" onclick="DaylightSetEnable();"/>&nbsp;			
+			</span>
+		</div>	
+		<div class="textinput">
+			<span class="name" id="TIME087">Daylight Saving Offset</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<select id="daylight_offset">								
+					<option value="-02:00">-02:00</option>
+					<option value="-01:30">-01:30</option>
+					<option value="-01:00">-01:00</option>
+					<option value="-00:30">-00:30</option>
+					<option value="+00:30">+00:30</option>
+					<option value="+01:00">+01:00</option>
+					<option value="+01:30">+01:30</option>
+					<option value="+02:00">+02:00</option>
+				</select>	    	
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="TIME088">Daylight Saving Dates</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<table>
+					<tbody>
+					<tr align="center">
+						<td>&nbsp;</td>
+						<td id="TIME089">Month</td>
+						<td id="TIME090">Week</td>
+						<td id="TIME091">Day of Week</td>
+						<td id="TIME092">Time</td>
+					</tr>
+					<tr align="center">
+						<td align="left" id="TIME093">DST Start&nbsp;</td>
+						<td>
+							<select id="daylight_sm" onchange="TimeShowChange_S('M')">							
+								<option value=0 id="TIME135">Jan</option>
+								<option value=1 id="TIME136">Feb</option>
+								<option value=2 id="TIME137">Mar</option>
+								<option value=3 id="TIME138">Apr</option>
+								<option value=4 id="TIME139">May</option>
+								<option value=5 id="TIME140">Jun</option>
+								<option value=6 id="TIME141">Jul</option>
+								<option value=7 id="TIME142">Aug</option>
+								<option value=8 id="TIME143">Sep</option>
+								<option value=9 id="TIME144">Oct</option>
+								<option value=10 id="TIME145">Nov</option>
+								<option value=11 id="TIME146">Dec</option>
+							</select>
+						</td>
+						<td>
+							<select id="daylight_sw" onchange="TimeShowChange_S('W')">								
+							</select>
+						</td>
+						<td>
+							<select id="daylight_sd">			
+							</select>
+						</td>
+						<td>											
+							<select id="daylight_st" >
+									<option value="0">12 am</option>
+									<option value="1">1 am</option>
+									<option value="2">2 am</option> 
+									<option value="3">3 am</option> 
+									<option value="4">4 am</option> 
+									<option value="5">5 am</option> 
+									<option value="6">6 am</option> 
+									<option value="7">7 am</option> 
+									<option value="8">8 am</option> 
+									<option value="9">9 am</option> 
+									<option value="10">10 am</option> 
+									<option value="11">11 am</option> 
+									<option value="12">12 pm</option> 
+									<option value="13">1 pm</option> 
+									<option value="14">2 pm</option> 
+									<option value="15">3 pm</option> 
+									<option value="16">4 pm</option> 
+									<option value="17">5 pm</option> 
+									<option value="18">6 pm</option> 
+									<option value="19">7 pm</option> 
+									<option value="20">8 pm</option> 
+									<option value="21">9 pm</option> 
+									<option value="22">10 pm</option> 
+									<option value="23">11 pm</option>
+							</select>						
+						</td>
+					</tr>					
+					<tr align="center">
+						<td align="left" id="TIME094">DST End&nbsp;</td>
+						<td>
+							<select id="daylight_em" onChange="TimeShowChange_E('M')">							
+								<option value=0 id="TIME123">Jan</option>
+								<option value=1 id="TIME124">Feb</option>
+								<option value=2 id="TIME125">Mar</option>
+								<option value=3 id="TIME126">Apr</option>
+								<option value=4 id="TIME127">May</option>
+								<option value=5 id="TIME128">Jun</option>
+								<option value=6 id="TIME129">Jul</option>
+								<option value=7 id="TIME130">Aug</option>
+								<option value=8 id="TIME131">Sep</option>
+								<option value=9 id="TIME132">Oct</option>
+								<option value=10 id="TIME133">Nov</option>
+								<option value=11 id="TIME134">Dec</option>
+							</select>
+						</td>
+						<td>
+							<select id="daylight_ew" onChange="TimeShowChange_E('W')">								
+							</select>
+						</td>
+						<td>
+							<select id="daylight_ed">			
+							</select>
+						</td>
+						<td>
+							<select id="daylight_et">
+								<option value="0">12 am</option>
+								<option value="1">1 am</option>
+								<option value="2">2 am</option> 
+								<option value="3">3 am</option> 
+								<option value="4">4 am</option> 
+								<option value="5">5 am</option> 
+								<option value="6">6 am</option> 
+								<option value="7">7 am</option> 
+								<option value="8">8 am</option> 
+								<option value="9">9 am</option> 
+								<option value="10">10 am</option> 
+								<option value="11">11 am</option> 
+								<option value="12">12 pm</option> 
+								<option value="13">1 pm</option> 
+								<option value="14">2 pm</option> 
+								<option value="15">3 pm</option> 
+								<option value="16">4 pm</option> 
+								<option value="17">5 pm</option> 
+								<option value="18">6 pm</option> 
+								<option value="19">7 pm</option> 
+								<option value="20">8 pm</option> 
+								<option value="21">9 pm</option> 
+								<option value="22">10 pm</option> 
+								<option value="23">11 pm</option>
+							</select>		
+						</td>
+					</tr>					
+					</tbody>
+				</table>
+			</span>		
+		</div>
+		<div class="gap"></div>
+		<div class="gap"></div>
+		<br>	 	
+		<br>
+		<br>
+		<br>	
+		<br>		
+	</div>
+	<div class="blackbox">
+		<h2 id="TIME095">Automatic Time and Date Configuration</h2>
+		<p><input name="ntp_enable" id="ntp_enable" onclick="OnClickNtpEnb();" type="checkbox">
+						<span id="TIME096">Automatically synchronize with D-Link's Internet time server</span></p>
+		<div class="textinput">
+			<span class="name" id="TIME097">NTP Server Used</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<select id="ntp_server">
+					<option value="" id="TIME098">Select NTP Server</option>
+					<option value="ntp1.dlink.com">ntp1.dlink.com</option>
+					<option value="ntp.dlink.com.tw">ntp.dlink.com.tw</option>
+				</select>
+				<input id="ntp_sync" type="button" value="Update Now" onclick="OnClickNTPSync()" style="display:none;">
+			</span>
+		</div>
+		<p id=sync_msg></P>
+		<div class="gap"></div>
+	</div>
+
+
+	<div class="blackbox">
+		<h2 id="TIME099">Set the Time and Date Manually</h2>
+
+		<table class="timebox">
+		<tbody>
+		<tr>
+			<td id="TIME100">Year</td>
+			<td class="timebox_item">
+			  <select id="year" onchange="createDays()">
+			  <option value=2009>2009</option>
+	<option value=2010>2010</option>
+	<option value=2011>2011</option>
+	<option value=2012>2012</option>
+	<option value=2013>2013</option>
+	<option value=2014>2014</option>
+	<option value=2015>2015</option>
+	<option value=2016>2016</option>
+	<option value=2017>2017</option>
+	<option value=2018>2018</option>
+	<option value=2019>2019</option>
+	<option value=2020>2020</option>
+	<option value=2021>2021</option>
+	<option value=2022>2022</option>
+	<option value=2023>2023</option>
+	<option value=2024>2024</option>
+	<option value=2025>2025</option>
+	<option value=2026>2026</option>
+	<option value=2027>2027</option>
+	<option value=2028>2028</option>
+	<option value=2029>2029</option>
+	<option value=2030>2030</option>
+	<option value=2031>2031</option>
+	<option value=2032>2032</option>
+	<option value=2033>2033</option>
+	<option value=2034>2034</option>
+	<option value=2035>2035</option>
+	<option value=2036>2036</option>
+	<option value=2037>2037</option>
+	</select>
+			</td>
+			<td id="TIME101">Month</td>
+			<td class="timebox_item">
+				<select id="month" onchange="createDays()">
+					<option value=01 id="TIME111">Jan</option>
+					<option value=02 id="TIME112">Feb</option>
+					<option value=03 id="TIME113">Mar</option>
+					<option value=04 id="TIME114">Apr</option>
+					<option value=05 id="TIME115">May</option>
+					<option value=06 id="TIME116">Jun</option>
+					<option value=07 id="TIME117">Jul</option>
+					<option value=08 id="TIME118">Aug</option>
+					<option value=09 id="TIME119">Sep</option>
+					<option value=10 id="TIME120">Oct</option>
+					<option value=11 id="TIME121">Nov</option>
+					<option value=12 id="TIME122">Dec</option>
+				</select>
+			</td>
+			<td id="TIME102">Day</td>
+			<td class="timebox_item">
+				<select id="day"></select>
+			</td>
+		</tr>
+		<tr>
+			<td id="TIME103">Hour</td>
+			<td class="timebox_item">
+				<select id="hour"><option value=0>00</option>
+	<option value=01>1</option>
+	<option value=02>2</option>
+	<option value=03>3</option>
+	<option value=04>4</option>
+	<option value=05>5</option>
+	<option value=06>6</option>
+	<option value=07>7</option>
+	<option value=08>8</option>
+	<option value=09>9</option>
+	<option value=10>10</option>
+	<option value=11>11</option>
+	<option value=12>12</option>
+	<option value=13>13</option>
+	<option value=14>14</option>
+	<option value=15>15</option>
+	<option value=16>16</option>
+	<option value=17>17</option>
+	<option value=18>18</option>
+	<option value=19>19</option>
+	<option value=20>20</option>
+	<option value=21>21</option>
+	<option value=22>22</option>
+	<option value=23>23</option>
+	</select>
+			</td>
+			<td id="TIME104">Minute</td>
+			<td class="timebox_item">
+				<select id="minute"><option value=00>0</option>
+	<option value=01>1</option>
+	<option value=02>2</option>
+	<option value=03>3</option>
+	<option value=04>4</option>
+	<option value=05>5</option>
+	<option value=06>6</option>
+	<option value=07>7</option>
+	<option value=08>8</option>
+	<option value=09>9</option>
+	<option value=10>10</option>
+	<option value=11>11</option>
+	<option value=12>12</option>
+	<option value=13>13</option>
+	<option value=14>14</option>
+	<option value=15>15</option>
+	<option value=16>16</option>
+	<option value=17>17</option>
+	<option value=18>18</option>
+	<option value=19>19</option>
+	<option value=20>20</option>
+	<option value=21>21</option>
+	<option value=22>22</option>
+	<option value=23>23</option>
+	<option value=24>24</option>
+	<option value=25>25</option>
+	<option value=26>26</option>
+	<option value=27>27</option>
+	<option value=28>28</option>
+	<option value=29>29</option>
+	<option value=30>30</option>
+	<option value=31>31</option>
+	<option value=32>32</option>
+	<option value=33>33</option>
+	<option value=34>34</option>
+	<option value=35>35</option>
+	<option value=36>36</option>
+	<option value=37>37</option>
+	<option value=38>38</option>
+	<option value=39>39</option>
+	<option value=40>40</option>
+	<option value=41>41</option>
+	<option value=42>42</option>
+	<option value=43>43</option>
+	<option value=44>44</option>
+	<option value=45>45</option>
+	<option value=46>46</option>
+	<option value=47>47</option>
+	<option value=48>48</option>
+	<option value=49>49</option>
+	<option value=50>50</option>
+	<option value=51>51</option>
+	<option value=52>52</option>
+	<option value=53>53</option>
+	<option value=54>54</option>
+	<option value=55>55</option>
+	<option value=56>56</option>
+	<option value=57>57</option>
+	<option value=58>58</option>
+	<option value=59>59</option>
+	</select>
+			</td>
+			<td id="TIME105">Second</td>
+			<td class="timebox_item">
+				<select id="second"><option value=00>0</option>
+	<option value=01>1</option>
+	<option value=02>2</option>
+	<option value=03>3</option>
+	<option value=04>4</option>
+	<option value=05>5</option>
+	<option value=06>6</option>
+	<option value=07>7</option>
+	<option value=08>8</option>
+	<option value=09>9</option>
+	<option value=10>10</option>
+	<option value=11>11</option>
+	<option value=12>12</option>
+	<option value=13>13</option>
+	<option value=14>14</option>
+	<option value=15>15</option>
+	<option value=16>16</option>
+	<option value=17>17</option>
+	<option value=18>18</option>
+	<option value=19>19</option>
+	<option value=20>20</option>
+	<option value=21>21</option>
+	<option value=22>22</option>
+	<option value=23>23</option>
+	<option value=24>24</option>
+	<option value=25>25</option>
+	<option value=26>26</option>
+	<option value=27>27</option>
+	<option value=28>28</option>
+	<option value=29>29</option>
+	<option value=30>30</option>
+	<option value=31>31</option>
+	<option value=32>32</option>
+	<option value=33>33</option>
+	<option value=34>34</option>
+	<option value=35>35</option>
+	<option value=36>36</option>
+	<option value=37>37</option>
+	<option value=38>38</option>
+	<option value=39>39</option>
+	<option value=40>40</option>
+	<option value=41>41</option>
+	<option value=42>42</option>
+	<option value=43>43</option>
+	<option value=44>44</option>
+	<option value=45>45</option>
+	<option value=46>46</option>
+	<option value=47>47</option>
+	<option value=48>48</option>
+	<option value=49>49</option>
+	<option value=50>50</option>
+	<option value=51>51</option>
+	<option value=52>52</option>
+	<option value=53>53</option>
+	<option value=54>54</option>
+	<option value=55>55</option>
+	<option value=56>56</option>
+	<option value=57>57</option>
+	<option value=58>58</option>
+	<option value=59>59</option>
+	</select>
+			</td>
+		</tr>	
+		<tr>				
+			<td colspan="5">
+				<br>			
+				<span class="value">			
+					<input type="button" id="manual_sync"  value="Sync. your computer's time settings" onclick="setComputerTime();">
+				</span>
+			</td>
+			<td colspan="1">&nbsp;</td>		
+		</tr>
+		<tr>
+			<td colspan="6" id=sync_pc_msg></td>
+		</tr>
+		</tbody>
+		</table>
+		<div class="gap"></div> 
+	</div>
+	<p><input type="button" id="TIME106" value="Save Settings" onclick="uiSubmit();" />
+		<input type="button" id="TIME107" value="Don't Save Settings" onclick="uiPageRefresh();" /></p>
+	<!-- End of Page Dependent Part. -->
+</div>
+<div id="help_hint" class="tips">
+<!-- Start of Help Depedent Part. -->
+<strong id="TIME108">Helpful Hints...</strong>
+<br/><br/>
+<p id="TIME109">&nbsp;&#149;&nbsp;&nbsp;Either enter the time manually by clicking the <strong>Sync. Your Computers Time Settings</strong> button, or use the <strong>Automatic Time Configuration</strong> option to have your router synchronize with a time server on the Internet</p>
+<p id="TIME110">&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helptool#Time">More...</a></p>
+<!-- End of Help Dependent Part. -->

@@ -1,0 +1,7 @@
+<InternetGatewayDevice type="object">
+	<X_TWSZ-COM_WAN_MIRROR type="object">
+		<MirrorEnable type="boolean" Writable="1">1</MirrorEnable>
+		<LanInterface type="string" Writable="1"></LanInterface>
+		<Direction type="string" Writable="1">3</Direction>
+    </X_TWSZ-COM_WAN_MIRROR>
+</InternetGatewayDevice>

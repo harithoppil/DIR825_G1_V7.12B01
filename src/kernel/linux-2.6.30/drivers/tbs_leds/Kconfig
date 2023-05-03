@@ -1,0 +1,181 @@
+
+menu "LED driver for TBS"
+
+config TBS_LED
+	bool "TBS LED Driver Support"
+	default y
+	help
+	  Say Y to enable TBS LED driver framwork.  This allows to control LEDS.
+
+
+comment "LED Triggers"
+
+config LED_TRIGGER_ON
+	bool "LED trigger ON"
+	depends on TBS_LED
+	default y
+	help
+	  This option enables ON trigger support for the TBS LED driver framework.
+	  If unsure, say Y.
+
+config LED_TRIGGER_OFF
+	bool "LED trigger OFF"
+	depends on TBS_LED
+	default y
+	help
+	  This option enables OFF trigger support for the TBS LED driver framework.
+	  If unsure, say Y.
+
+config LED_TRIGGER_FLASH
+	bool "LED trigger FLASH(2Hz)"
+	depends on TBS_LED
+	default y
+	help
+	  This option enables FLASH trigger support for the TBS LED driver framework.
+	  If unsure, say Y.
+
+config LED_TRIGGER_FLASH_4HZ
+	bool "LED trigger FLASH(4Hz)"
+	depends on TBS_LED
+	default y
+	help
+	  This option enables FLASH trigger support for the TBS LED driver framework.
+	  If unsure, say Y.
+
+config LED_TRIGGER_DATAFLASH
+	bool "LED trigger DATA FLASH"
+	depends on TBS_LED
+	default y
+	help
+	  This option enables DATA FLASH trigger support for the TBS LED driver framework.
+	  The LED will be on 0.1 second and then be off 0.1 second,but NO LOOP.
+	  If unsure, say Y.
+
+config LED_TRIGGER_WPS_INPROGRESS
+	bool "LED trigger: WPS In Progress"
+	depends on TBS_LED
+	default y
+	help
+	  This option enables WPS in progress trigger support for the TBS LED driver framework.
+	  The LED will be on 0.2 second and then be off 0.1 second.
+	  If unsure, say Y.
+
+config LED_TRIGGER_WPS_ERROR
+	bool "LED trigger: WPS Error"
+	depends on TBS_LED
+	default y
+	help
+	  This option enables WPS in progress trigger support for the TBS LED driver framework.
+	  The LED will be on 0.1 second and then be off 0.1 second.
+	  If unsure, say Y.	 
+	  
+config LED_TRIGGER_WPS_OVERLAP
+	bool "LED trigger: WPS Session Overlap"
+	depends on TBS_LED
+	default y
+	help
+	  This option enables WPS in progress trigger support for the TBS LED driver framework.
+	  If unsure, say Y.
+
+config LED_TRIGGER_WPS_SUCCESS
+	bool "LED trigger: WPS Success"
+	depends on TBS_LED
+	default y
+	help
+	  This option enables WPS in progress trigger support for the TBS LED driver framework.
+	  The LED will be on 300 second and then be off,but NO LOOP.
+	  If unsure, say Y.
+
+    
+comment "LED Device"
+
+config LED_AR7130
+	tristate "LED support for the AR7130"
+	depends on TBS_LED && MACH_AR7100
+    default n
+	help
+	  This option enables support leds for the AR7130.
+
+config LED_AMAZON_SE
+	tristate "LED support for the AMAZON_SE"
+	depends on TBS_LED && AMAZON_SE
+
+    default n
+	help
+	  This option enables support leds for the Infineon Amazon-SE.
+
+config LED_RT3052
+	tristate "LED support for the RT3052"
+	depends on TBS_LED && RT3052
+
+    default n
+	help
+	  This option enables support leds for the Ralink rt3052.
+	  
+config LED_VX180
+	tristate "LED support for the Vx180"
+	depends on TBS_LED && FUSIV_VX180
+
+    default n
+	help
+	  This option enables support leds for the IKANOS Vx180.
+
+config LED_RTL8672
+	tristate "LED support for the RTL8672"
+	depends on TBS_LED && RTL8672
+
+    default n
+	help
+	  This option enables support leds for the realtek RTL8672.
+
+config LED_RTL8196C
+	bool "LED support for the RTL8196C"
+	depends on TBS_LED && RTL_8196C
+    default n
+	help
+	  This option enables support leds for the realtek RTL8196C.
+
+config LED_RTL8196E
+	bool "LED support for the RTL8196E"
+	depends on TBS_LED && RTL_8196E
+    default n
+	help
+	  This option enables support leds for the realtek RTL8196E.
+	  
+config LED_RTL8196D
+	bool "LED support for the RTL8196D"
+	depends on TBS_LED && RTL_8196D
+    default n
+	help
+	  This option enables support leds for the realtek RTL8196D.
+	  
+config LED_RTL8197D
+	bool "LED support for the RTL8197D"
+	depends on TBS_LED && RTL_8197D
+    default n
+	help
+	  This option enables support leds for the realtek RTL8197D.
+
+config LED_RTL8197DL
+    bool "LED support for the RTL8197DL"
+    depends on TBS_LED && RTL_8197DL
+    default n
+    help
+       This option enables support leds for the realtek RTL8197DL.
+
+config LED_RTL8196E_PROTEST
+        bool "LED support protest for the RTL8196E"
+        depends on TBS_LED && RTL_8196E
+    default n
+        help
+          This option enables support leds pretest for the realtek RTL8196E.
+
+config LED_C1000
+	tristate "LED support for the Mindspeed C1000"
+	depends on TBS_LED && ARCH_M83XXX
+
+    default n
+	help
+	  This option enables support leds for the Mindspeed C1000.
+
+endmenu

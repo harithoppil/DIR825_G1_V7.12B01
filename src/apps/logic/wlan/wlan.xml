@@ -1,0 +1,344 @@
+
+<InternetGatewayDevice type="object">
+	<LANDevice type="object" Writable="0" CurNode="LANDeviceNumberOfEntries">
+		<i type="object">
+			<X_TWSZ-COM_ReconfigFinishFlag type="boolean" Writable="0">1</X_TWSZ-COM_ReconfigFinishFlag>
+			<WLANConfiguration type="object" Writable="0">
+				<i type="object">
+					<Enable type="boolean">1</Enable>
+					<FixRate type="string(4)">-1</FixRate>
+					<MaxBitRate	type="string(4)" Stat="1">Auto</MaxBitRate>
+					<Channel type="unsignedInt[0:255]" Stat="1">0</Channel>
+					<AutoChannelEnable type="boolean" Stat="1">1</AutoChannelEnable>
+					<Standard type="string" Stat="1">b,g,n</Standard>
+					<PossibleChannels type="string(1024)" Writable="0" Stat="1"></PossibleChannels>
+					<BasicDataTransmitRates	type="string(256)" Stat="1"></BasicDataTransmitRates>
+					<OperationalDataTransmitRates type="string(256)" Stat="1"></OperationalDataTransmitRates>
+					<PossibleDataTransmitRates type="string(256)" Writable="0" Stat="1"></PossibleDataTransmitRates>
+					<InsecureOOBAccessEnabled type="boolean" Stat="1">1</InsecureOOBAccessEnabled>
+					<BeaconAdvertisementEnabled	type="boolean" Stat="1">1</BeaconAdvertisementEnabled>
+					<X_TWSZ-COM_APModuleEnable type="boolean" Stat="1">1</X_TWSZ-COM_APModuleEnable>
+					<TransmitPowerSupported	type="string(64)" Writable="0" Stat="1"></TransmitPowerSupported>
+					<TransmitPower type="unsignedInt" Stat="1"></TransmitPower>
+					<AutoRateFallBackEnabled type="boolean" Stat="1">1</AutoRateFallBackEnabled>
+					<LocationDescription type="string(4096)" Stat="1"></LocationDescription>
+					<RegulatoryDomain type="string(3)" Stat="1">CN</RegulatoryDomain>
+					<ChannelsInUse type="string(1024)" Writable="0"	Stat="1"></ChannelsInUse>
+					<DeviceOperationMode type="string" Stat="1">InfrastructureAccessPoint</DeviceOperationMode>
+					<DistanceFromRoot type="unsignedInt" Stat="1">0</DistanceFromRoot>
+					<WMMSupported type="boolean" Stat="1">1</WMMSupported>
+					<UAPSDSupported	type="boolean" Stat="1">1</UAPSDSupported>
+					<X_TWSZ-COM_PreambleType type="boolean" Stat="1">0</X_TWSZ-COM_PreambleType>
+					<BeaconInterval	type="unsignedInt[20:1000]" Stat="1">200</BeaconInterval>
+					<RCSCTSThreshlod type="unsignedInt[256:2347]" Stat="1">2346</RCSCTSThreshlod>
+					<PowerSave type="boolean" Stat="1">0</PowerSave>
+					<DTIM type="unsignedInt[1:15]" Stat="1">10</DTIM>
+					<OperatingChannelBandwidth type="string" Writable="1" Stat="1">0</OperatingChannelBandwidth>
+					<X_TWSZ-COM_ChannelWidth type="string" Writable="1" Stat="1">0</X_TWSZ-COM_ChannelWidth>
+					<BSSRelay type="boolean" Stat="1">0</BSSRelay>
+					<FRAGLEN type="unsignedInt[256:2346]" Stat="1">2346</FRAGLEN>
+					<XR	type="boolean" Stat="1">0</XR>
+					<X_TWSZ-COM_MIMO type="boolean" Stat="1">1</X_TWSZ-COM_MIMO>
+					<GuardInterval type="boolean" Stat="1">1</GuardInterval>
+					<X_TWSZ-COM_AMPDU type="boolean" Writable="1" Stat="1">1</X_TWSZ-COM_AMPDU>
+					<Status type="string" Writable="0" Stat="1"></Status>
+					<Name type="string(16)" Writable="0">ath0</Name>
+					<BSSID type="string" Writable="0" Stat="1"></BSSID>
+					<WEPKeyFormat type="unsignedInt[1:4]">0</WEPKeyFormat>
+					<X_TWSZ-COM_Powerlevel type="string">1</X_TWSZ-COM_Powerlevel>
+					<X_TWSZ-COM_PSKExpression type="string(31)" >KeyPassphrase</X_TWSZ-COM_PSKExpression>
+					<SSID type="string(32)">ChinaNet-0001</SSID>
+					<BeaconType type="string">WPA</BeaconType>
+					<MACAddressControlEnabled type="boolean" Cache="1">0</MACAddressControlEnabled>
+					<WEPKeyIndex type="unsignedInt[1:4]">1</WEPKeyIndex>
+					<KeyPassphrase type="string(63)"></KeyPassphrase>
+					<WEPEncryptionLevel type="string(64)">40-bit</WEPEncryptionLevel>
+					<BasicEncryptionModes type="string"></BasicEncryptionModes>
+					<BasicAuthenticationMode type="string">None</BasicAuthenticationMode>
+					<WPAEncryptionModes type="string"></WPAEncryptionModes>
+					<WPAAuthenticationMode type="string">PSKAuthentication</WPAAuthenticationMode>
+					<IEEE11iEncryptionModes type="string"></IEEE11iEncryptionModes>
+					<IEEE11iAuthenticationMode type="string">PSKAuthentication</IEEE11iAuthenticationMode>
+					<SSIDAdvertisementEnabled type="boolean"></SSIDAdvertisementEnabled>
+					<X_TWSZ-COM_SSIDHide type="boolean">0</X_TWSZ-COM_SSIDHide>
+					<TotalIntegrityFailures type="unsignedInt" Writable="0" Stat="1"></TotalIntegrityFailures>
+					<PeerBSSID type="string"></PeerBSSID>
+					<AuthenticationServiceMode type="string"></AuthenticationServiceMode>
+					<WMMEnable type="boolean"></WMMEnable>
+					<UAPSDEnable type="boolean"></UAPSDEnable>
+					<TotalBytesSent type="unsignedInt" Writable="0" Stat="1"></TotalBytesSent>
+					<TotalBytesReceived type="unsignedInt" Writable="0" Stat="1"></TotalBytesReceived>
+					<TotalPacketsSent type="unsignedInt" Writable="0" Stat="1"></TotalPacketsSent>
+					<TotalPacketsReceived type="unsignedInt" Writable="0" Stat="1"></TotalPacketsReceived>
+					<TotalAssociations type="unsignedInt" Writable="0" Stat="1">0</TotalAssociations>
+					<X_TWSZ-COM_UpTime type="unsignedInt" Writable="0" Stat="1"></X_TWSZ-COM_UpTime>
+					<Stats type="object">
+						<ErrorsSent type="unsignedInt" Writable="0" Stat="1"></ErrorsSent>
+						<ErrorsReceived type="unsignedInt" Writable="0" Stat="1"></ErrorsReceived>
+						<UnicastPacketsSent type="unsignedInt" Writable="0"></UnicastPacketsSent>
+						<UnicastPacketsReceived type="unsignedInt" Writable="0"></UnicastPacketsReceived>
+						<DiscardPacketsSent type="unsignedInt" Writable="0" Stat="1"></DiscardPacketsSent>
+						<DiscardPacketsReceived type="unsignedInt" Writable="0" Stat="1"></DiscardPacketsReceived>
+						<MulticastPacketsSent type="unsignedInt" Writable="0"></MulticastPacketsSent>
+						<MulticastPacketsReceived type="unsignedInt" Writable="0"></MulticastPacketsReceived>
+						<BroadcastPacketsSent type="unsignedInt" Writable="0"></BroadcastPacketsSent>
+						<BroadcastPacketsReceived type="unsignedInt" Writable="0"></BroadcastPacketsReceived>
+						<UnknownProtoRacketsReceived type="unsignedInt" Writable="0"></UnknownProtoRacketsReceived>
+						<TotalColls type="unsignedInt" Writable="0"></TotalColls>
+					</Stats>
+					<WPS type="object" >
+						<Enable type="boolean">1</Enable>
+						<DeviceName type="string(32)" Writable="0"></DeviceName>
+						<DevicePassword type="string">12345670</DevicePassword>
+						<IsMatchCondition type="string" Writable="0">0</IsMatchCondition>
+						<UUID type="string(36)" Writable="0" Stat="1">63041253101920061228000000000000</UUID>
+						<Version type="unsignedInt" Writable="0" Stat="1"></Version>
+						<ConfigMethodsSupported type="string" Writable="0" Stat="1"></ConfigMethodsSupported>
+						<ConfigMethodsEnabled type="string"></ConfigMethodsEnabled>
+						<SetupLockedState type="string" Writable="0" Stat="1"></SetupLockedState>
+						<SetupLock type="boolean">0</SetupLock>
+						<ConfigurationState type="string" Writable="0" Stat="1">Not configured</ConfigurationState>
+						<LastConfigurationError type="string" Writable="0"></LastConfigurationError>
+						<RegistrarNumberOfEntries type="unsignedInt" Writable="0"></RegistrarNumberOfEntries>
+						<RegistrarEstablished  type="boolean" Writable="0"></RegistrarEstablished>
+            <X_TWSZ-COM_DevicePassword type="string">12345670</X_TWSZ-COM_DevicePassword>
+						<X_TWSZ-COM_PeerPassword type="string" Stat="1"></X_TWSZ-COM_PeerPassword>
+						<X_TWSZ-COM_StartWpsSession type="string" Stat="1">0</X_TWSZ-COM_StartWpsSession>
+						<X_TWSZ-COM_GeneratePinEnable type="boolean" Writable="1" Stat="1">1</X_TWSZ-COM_GeneratePinEnable>
+						<X_TWSZ-COM_GeneratePin type="string" Cache="1" Stat="1">0</X_TWSZ-COM_GeneratePin>
+						<X_TWSZ-COM_WpsSessionStatus type="string" Writable="0" Stat="1"></X_TWSZ-COM_WpsSessionStatus>
+						<X_TWSZ-COM_GeneratePinStatus type="string" Writable="0" Stat="1"></X_TWSZ-COM_GeneratePinStatus>
+						<X_TWSZ-COM_SetupMethod type="string" Cache="1" Stat="1">None</X_TWSZ-COM_SetupMethod>
+						<X_TWSZ-COM_OriginalSSID type="string(32)" Writable="0" Stat="1">NetGear-001</X_TWSZ-COM_OriginalSSID>
+						<X_TWSZ-COM_OriginalAuth type="string" Writable="0" Stat="1">None</X_TWSZ-COM_OriginalAuth>
+						<X_TWSZ-COM_OriginalEnc type="string" Writable="0" Stat="1">None</X_TWSZ-COM_OriginalEnc>
+						<X_TWSZ-COM_OriginalKey type="string(64)"></X_TWSZ-COM_OriginalKey>
+						<Registrar type="object">
+		                          <Enable type="boolean" Writable="1"></Enable>
+		                     		  <UUID type="string(36)"  Writable="0"></UUID>
+		                     		  <DeviceName type="string(32)"  Writable="0"></DeviceName>
+						 </Registrar>
+					</WPS>
+					<AssociatedDevice type="object" Writable="0">
+						<i type="object">
+							<X_TWSZ-COM_HostName type="string" Writable="0"></X_TWSZ-COM_HostName>
+							<AssociatedDeviceMACAddress type="string" Writable="0"></AssociatedDeviceMACAddress>
+							<AssociatedDeviceIPAddress type="string(64)" Writable="0"></AssociatedDeviceIPAddress>
+							<AssociatedDeviceAuthenticationState type="boolean" Writable="0"></AssociatedDeviceAuthenticationState>
+							<LastRequestedUnicastCipher type="string(256)" Writable="0"></LastRequestedUnicastCipher>
+							<LastRequestedMulticastCipher type="string(256)" Writable="0"></LastRequestedMulticastCipher>
+							<LastPMKId type="string(256)" Writable="0"></LastPMKId>
+							<LastDataTransmitRate type="string(4)" Writable="0"></LastDataTransmitRate>
+							<X_TWSZ-COM_AssociatedDeviceRate type="string(256)"></X_TWSZ-COM_AssociatedDeviceRate>
+							<X_TWSZ-COM_AssociatedDeviceRSSI type="string(256)" Writable="0"></X_TWSZ-COM_AssociatedDeviceRSSI>
+							<X_TWSZ-COM_AssociatedDeviceState type="string(256)" Writable="0"></X_TWSZ-COM_AssociatedDeviceState>
+							<X_TWSZ-COM_AssociatedDeviceType type="string(256)" Writable="0"></X_TWSZ-COM_AssociatedDeviceType>
+							<X_TWSZ-COM_AssociatedDevicePhyMode type="string(256)" Writable="0"></X_TWSZ-COM_AssociatedDevicePhyMode>
+						</i>
+					</AssociatedDevice>
+					<WEPKey type="object" Writable="0">
+						<i type="object">
+							<WEPKey type="string(128)"></WEPKey>
+						</i>
+					</WEPKey>
+					<PreSharedKey type="object" Writable="0">
+						<i type="object">
+						    <PreSharedKey type="string(64)"></PreSharedKey>
+						    <KeyPassphrase type="string(63)">1234567890</KeyPassphrase>
+							<AssociatedDeviceMACAddress type="string"></AssociatedDeviceMACAddress>
+						</i>
+					</PreSharedKey>
+					<APWMMParameter type="object" Writable="0">
+						<i type="object">
+							<AIFSN type="unsignedInt[2:15]" Writable="1"></AIFSN>
+							<ECWMin type="unsignedInt[0:15]" Writable="1"></ECWMin>
+							<ECWMax type="unsignedInt[0:15]" Writable="1"></ECWMax>
+							<TXOP type="unsignedInt[0:255]" Writable="1"></TXOP>
+							<AckPolicy type="boolean" Writable="1"></AckPolicy>
+						</i>
+					</APWMMParameter>
+					<STAWMMParameter type="object" Writable="0">
+						<i type="object">
+							<AIFSN type="unsignedInt[2:15]" Writable="1"></AIFSN>
+							<ECWMin type="unsignedInt[0:15]" Writable="1"></ECWMin>
+							<ECWMax type="unsignedInt[0:15]" Writable="1"></ECWMax>
+							<TXOP type="unsignedInt[0:255]" Writable="1"></TXOP>
+							<AckPolicy type="boolean" Writable="1"></AckPolicy>
+						</i>
+					</STAWMMParameter>
+					<X_TWSZ-COM_RadiusServer type="object" Writable="1">
+						<i type="object">
+							<X_TWSZ-COM_IPAddress type="string" Writable="1" ></X_TWSZ-COM_IPAddress>
+							<X_TWSZ-COM_Port type="unsignedInt" Writable="1"></X_TWSZ-COM_Port>
+							<X_TWSZ-COM_ShareKey type="string(64)"></X_TWSZ-COM_ShareKey>
+							<X_TWSZ-COM_AccountPort type="unsignedInt" Writable="1"></X_TWSZ-COM_AccountPort>
+						</i>
+					</X_TWSZ-COM_RadiusServer>
+					<X_TWSZ-COM_WPS type="object">
+						<X_TWSZ-COM_Configured type="boolean">0</X_TWSZ-COM_Configured>
+					</X_TWSZ-COM_WPS>
+					<X_TWSZ-COM_APCreated type="boolean" >1</X_TWSZ-COM_APCreated>
+					<X_TWSZ-COM_PowerValue type="string" Writable="0" Stat="1">1</X_TWSZ-COM_PowerValue>
+					<X_TWSZ-COM_DeviceName type="string" Writable="0" Stat="1"></X_TWSZ-COM_DeviceName>
+					<X_TWSZ-COM_DHCPEnabled type="boolean">1</X_TWSZ-COM_DHCPEnabled>
+          <X_TWSZ-COM_Frequency type="string">5G</X_TWSZ-COM_Frequency>
+          <X_TWSZ-COM_RFBand type="unsignedInt"  Writable="1">0</X_TWSZ-COM_RFBand>
+					<X_TWSZ-COM_IsMatchCondition type="string" Writable="0" Stat="1">0</X_TWSZ-COM_IsMatchCondition>
+					<X_TWSZ-COM_PSKExpression type="string(31)">KeyPassphrase</X_TWSZ-COM_PSKExpression>
+					<X_TWSZ-COM_VapIndex type="unsignedInt" Writable="0" Stat="1">0</X_TWSZ-COM_VapIndex>
+					<X_TWSZ-COM_MulticastRate type="string(256)">0</X_TWSZ-COM_MulticastRate>
+					<X_TWSZ-COM_MAXSTATION type="unsignedInt[0:31]">16</X_TWSZ-COM_MAXSTATION>
+					<X_TWSZ-COM_AccountEnable type="boolean">0</X_TWSZ-COM_AccountEnable>
+					<X_TWSZ-COM_AccountInterval type="unsignedInt[60:65535]">100</X_TWSZ-COM_AccountInterval>
+					<X_TWSZ-COM_BakRadiusEnable type="boolean">0</X_TWSZ-COM_BakRadiusEnable>
+					<X_TWSZ-COM_WPAStrictRekey type="boolean">0</X_TWSZ-COM_WPAStrictRekey>
+					<X_TWSZ-COM_WPAGroupRekey type="unsignedInt[60:65535]">100</X_TWSZ-COM_WPAGroupRekey>
+					<X_TWSZ-COM_MACAddressControlAction type="string">Whitelist</X_TWSZ-COM_MACAddressControlAction>
+					<X_TWSZ-COM_MaxMACListNumberOfEntries type="unsignedInt" Writable="0" Stat="1">16</X_TWSZ-COM_MaxMACListNumberOfEntries>
+					<X_TWSZ-COM_MACListNumberOfEntries type="unsignedInt" Writable="1">0</X_TWSZ-COM_MACListNumberOfEntries>
+					<X_TWSZ-COM_RadioInterface type="unsignedInt" Writable="0">1</X_TWSZ-COM_RadioInterface>
+					<X_TWSZ-COM_VapIdx type="unsignedInt" Writable="0">1</X_TWSZ-COM_VapIdx>
+					<X_TWSZ-COM_MACListEnable type="boolean">0</X_TWSZ-COM_MACListEnable>
+					<X_TWSZ-COM_GuestAccess type="boolean" >1</X_TWSZ-COM_GuestAccess>
+					<X_TWSZ-COM_MACList type="object" MaxNode="X_TWSZ-COM_MaxMACListNumberOfEntries" CurNode="X_TWSZ-COM_MACListNumberOfEntries">
+						<i type="object">
+							<Description type="string"></Description>
+							<MACAddress type="string"></MACAddress>
+						</i>
+					</X_TWSZ-COM_MACList>
+					<X_TWSZ-COM_ScheduleListName type="string"></X_TWSZ-COM_ScheduleListName>
+				</i>
+			</WLANConfiguration>
+		</i>
+	</LANDevice>
+	<X_TWSZ-COM_Radio type="object">
+	    <i type="object">
+	      	<Enable type="boolean">1</Enable>
+	      	<VendorString type="string(16)" Writable="0" Stat="1"></VendorString>
+			<Name type="string(16)" Writable="0">ra0</Name>
+			<MaxBitRate type="string(4)">Auto</MaxBitRate>
+			<Frequency type="string">0</Frequency>
+			<Channel type="unsignedInt[0:255]">0</Channel>
+			<AutoChannelEnable type="boolean">1</AutoChannelEnable>
+			<Standard type="string" Writable="0">b,g,n</Standard>
+			<PossibleChannels type="string(1024)" Writable="0" Stat="1"></PossibleChannels>
+			<BasicDataTransmitRates type="string(256)"></BasicDataTransmitRates>
+			<OperationalDataTransmitRates type="string(256)"></OperationalDataTransmitRates>
+			<PossibleDataTransmitRates type="string(256)" Writable="0" Stat="1"></PossibleDataTransmitRates>
+			<InsecureOOBAccessEnabled type="boolean" Stat="1">1</InsecureOOBAccessEnabled>
+			<BeaconAdvertisementEnabled type="boolean">1</BeaconAdvertisementEnabled>
+			<RadioEnabled type="boolean">1</RadioEnabled>
+			<TransmitPowerSupported type="string(64)" Writable="0"></TransmitPowerSupported>
+			<TransmitPower type="unsignedInt"></TransmitPower>
+			<AutoRateFallBackEnabled type="boolean">1</AutoRateFallBackEnabled>
+			<LocationDescription type="string(4096)"></LocationDescription>
+			<RegulatoryDomain type="string(3)">CN</RegulatoryDomain>
+			<ChannelsInUse type="string(1024)" Writable="0" Stat="1"></ChannelsInUse>
+			<DeviceOperationMode type="string" Stat="1">InfrastructureAccessPoint</DeviceOperationMode>
+			<DistanceFromRoot type="unsignedInt" Stat="1">0</DistanceFromRoot>
+			<WMMSupported type="boolean">1</WMMSupported>
+			<UAPSDSupported type="boolean">1</UAPSDSupported>
+			<X_TWSZ-COM_PreambleType type="boolean">0</X_TWSZ-COM_PreambleType>
+			<X_TWSZ-COM_APIsolate type="boolean">0</X_TWSZ-COM_APIsolate>
+			<BeaconInterval type="unsignedInt[20:1000]">100</BeaconInterval>
+			<RCSCTSThreshlod type="unsignedInt[1:2347]" >2346</RCSCTSThreshlod>
+			<PowerSave type="boolean">0</PowerSave>
+			<DTIM type="unsignedInt[1:15]">10</DTIM>
+			<OperatingChannelBandwidth type="string" Writable="1" Cache="1">0</OperatingChannelBandwidth>
+			<X_TWSZ-COM_ChannelWidth type="string" Writable="1" Cache="1">0</X_TWSZ-COM_ChannelWidth>
+			<BSSRelay type="boolean" Stat="1">0</BSSRelay>
+			<FRAGLEN type="unsignedInt[256:2346]">2346</FRAGLEN>
+			<XR type="boolean" Stat="1">0</XR>
+			<X_TWSZ-COM_MIMO type="boolean">1</X_TWSZ-COM_MIMO>
+			<GuardInterval type="boolean">1</GuardInterval>
+			<AMPDU type="boolean" Writable="1">1</AMPDU>
+			<HtBssCoex type="boolean" Writable="1">1</HtBssCoex>
+			<IsolateSTA type="boolean">1</IsolateSTA>
+			<AvaliableChList type="string(128)" Writable="0"></AvaliableChList>
+			<WDSConfiguration type="object">
+				<Enable type="boolean">0</Enable>
+				<DisableGuestAccess type="boolean">1</DisableGuestAccess>
+				<WDSMode type="string" ></WDSMode>
+				<BtnScanAp type="string">0</BtnScanAp>
+				<BtnConnect type="string">0</BtnConnect>
+				<UpdateRootApMacAddr type="string">0</UpdateRootApMacAddr>
+				<BaseStationMACAddress type="string"></BaseStationMACAddress>
+				<EncryptionModes type="string"></EncryptionModes>
+				<WEPKey	type="string(128)" Password="2"></WEPKey>
+				<WEPKeyIndex type="unsignedInt[1:4]">1</WEPKeyIndex>
+				<AuthMode type="string">None</AuthMode>
+				<Passphrase type="string(63)" Password="2"></Passphrase>
+				<BaseStationAP type="object">
+				<BaseStationAPSSID type="string"></BaseStationAPSSID>
+				<BaseChannel type="unsignedInt[0:255]"></BaseChannel>
+				<BaseStationAPMACAddr type="string" ></BaseStationAPMACAddr>
+				</BaseStationAP>
+				<BaseStation type="object" >
+					<i type="object">
+						<MACAddress type="string"></MACAddress>
+						<Description type="string"></Description>
+					</i>
+				</BaseStation>
+				<ApInfoNumberOfEntries type="unsignedInt" Writable="0" Stat="1"></ApInfoNumberOfEntries>
+				<ApInfo type="object" Writable="0">
+					<i type="object">
+						<WDSApSSID type="string"></WDSApSSID>
+						<WDSApBssid type="string"></WDSApBssid>
+						<WDSApTxRate type="string(4)"></WDSApTxRate>
+						<WDSApChannel type="unsignedInt[0:255]"></WDSApChannel>
+						<WDSApBeanconInt type="unsignedInt[20:1000]"></WDSApBeanconInt>
+						<WDSApSnRadio type="string"></WDSApSnRadio>
+					</i>
+				</ApInfo>
+			</WDSConfiguration>
+		</i>
+	</X_TWSZ-COM_Radio>
+	<WANDevice>
+		<i type="object">
+			<WANConnectionDevice>
+				<i type="object">
+					<WANWirelessLinkConfig type="object"  Writable="1">
+						<Enable type="boolean"></Enable>
+						<Status type="string" Writable="0"></Status>
+						<Alias type="string(64)"></Alias>
+						<ProfileReference type="string(256)"></ProfileReference>
+						<SSIDReference type="string(256)" Writable="0"></SSIDReference>
+						<ProfileNumberOfEntries type="unsignedInt" Writable="0"></ProfileNumberOfEntries>
+						<Stats type="object" Writable="0">
+							<LastDataDownlinkRate  type="unsignedInt-[1000:600000]"></LastDataDownlinkRate>
+							<LastDataUplinkRate type="unsignedInt-[1000:600000]"></LastDataUplinkRate>
+							<SignalStrength type="int[-200:0]"></SignalStrength>
+							<Retransmissions type="unsignedInt-[0:100]"></Retransmissions>
+						</Stats>
+						<Security type="object"  Writable="0">
+							<ModesSupported type="string" Writable="0"></ModesSupported>
+						</Security>
+						<Profile type="object">
+							<i type="object">
+								<Enable type="boolean"></Enable>
+								<Status type="string" Writable="0"></Status>
+								<Alias type="string(64)"></Alias>
+								<SSID type="string(32)"></SSID>
+								<Location type="string"></Location>
+								<Priority type="unsignedInt-[:255]"></Priority>
+								<Sercrity type="object" Writable="0">
+									<ModeEnabled type="string"></ModeEnabled>
+									<WEPKey type="hexBinary-(5:5,13:13)"></WEPKey>
+									<PreSharedKey type="hexBinary-(32)"></PreSharedKey>
+									<KeyPassphrase type="string(63)"></KeyPassphrase>
+								</Sercrity>
+							</i>
+						</Profile>
+						<WPS type="object" Writable="0">
+							<Enable type="boolean"></Enable>
+							<ConfigMethodsSupported type="string" Writable="0"></ConfigMethodsSupported>
+							<ConfigMethodsEnabled type="string"></ConfigMethodsEnabled>
+						</WPS>
+					</WANWirelessLinkConfig>
+				</i>
+			</WANConnectionDevice>
+		</i>
+	</WANDevice>
+</InternetGatewayDevice>
+
+

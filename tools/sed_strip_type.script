@@ -1,0 +1,8 @@
+s/type[ ]*=[ ]*"string[^\"]*"/t="s"/g 
+s/type[ ]*=[ ]*"int[^\"]*"/t="i"/g 
+s/type[ ]*=[ ]*"unsignedInt[^\"]*"/t="u"/g 
+s/type[ ]*=[ ]*"dateTime[^\"]*"/t="d"/g 
+s/type[ ]*=[ ]*"object[^\"]*"/t="o"/g 
+s/type[ ]*=[ ]*"boolean[^\"]*"/t="b"/g 
+s/type[ ]*=[ ]*"base64[^\"]*"/t="ba"/g 
+

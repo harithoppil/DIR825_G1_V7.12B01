@@ -1,0 +1,443 @@
+﻿<div class="mainbody" id="mainbody">
+<div class="orangebox">
+<span id="Adv_gzone001">
+	<h1>Guest Zone</h1>
+	<p>Use this section to configure the guest zone settings of your router. The guest zone provide a separate network zone for guest to access Internet.</p>
+</span>
+	<p><input type="button" value="Save Settings" onClick="uiSubmit();" id="Adv_gzone002"/>
+	<input type="button" value="Don't Save Settings" onClick="uiPageRefresh();" id="Adv_gzone003"/></p>
+</div>
+
+<div id="div_route_zone_dualband" name="div_route_zone_dualband" class="blackbox" style="display:;">
+	<h2 id="Adv_gzone004">Guest Zone</h2>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone005">Enable Routing Between Zones</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="en_routing_dualband" type="checkbox" /></span>
+	</div>
+	<div class="emptyline"></div>
+</div>
+
+<div id="div_24G" class="blackbox">
+	<h2 name="div_24G_title" id="Adv_gzone006">Session 2.4Ghz</h2>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone007">Enable Guest Zone</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="en_gzone" type="checkbox" onClick="OnClickEnGzone('');" />
+		<select id="sch_gz" class="narrow" style="width: 65px;">
+		</select>
+		<input id="go2sch_gz" type="button" value="New Schedule" onclick="self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules';"/>
+
+		</span>
+	</div>
+	<div id="div_route_zone" class="textinput">
+		<span class="name" id="Adv_gzone008">Enable Routing Between Zones</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="en_routing" type="checkbox" /></span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone009">Wireless Band</span>
+		<span class="delimiter">:</span>
+		<span class="value" ><b id="Adv_gzone010">2.4GHz Band</b></span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone011">Wireless Network Name</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="ssid" type="text" size="20" maxlength="32" />
+			(<span id="Adv_gzone012">Also called the SSID</span>)
+		</span>
+	</div>
+	<div class="textinput">
+		<span class="name"  id="Adv_gzone013">Security Mode</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="security_type" onChange="OnChangeSecurityType('');">
+				<option value="none" id="Adv_gzone014">None</option>
+				<option value="wep" id="Adv_gzone015">WEP</option>
+				<option value="wpa_personal" id="Adv_gzone016">WPA-Personal</option>
+				<option value="wpa_enterprise" id="Adv_gzone017">WPA-Enterprise</option>		
+			</select>
+		</span>
+	</div>	
+	<div class="gap"></div>
+</div>
+	
+<div id="wep" class="blackbox" style="display:none;">
+	<h2 id="Adv_gzone018">WEP</h2>
+	<span id="Adv_gzone019">
+	<p>WEP is the wireless encryption standard. To use it you must enter the same key(s) into the router and the wireless stations. For 64-bit keys you must enter 10 hex digits into each key box. For 128-bit keys you must enter 26 hex digits into each key box.  A hex digit is either a number from 0 to 9 or a letter from A to F. For the most secure use of WEP set the authentication type to "Shared Key" when WEP is enabled.</p>
+	<p>You may also enter any text string into a WEP key box, in which case it will be converted into a hexadecimal key using the ASCII values of the characters. A maximum of 5 text characters can be entered for 64-bit keys, and a maximum of 13 characters for 128-bit keys.</p>
+	</span>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone020">Authentication</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+		<select id="auth_type" onChange="OnChangeWEPAuth('');">
+				<!--<option value="OPEN">Open</option>-->
+				<option value="AutoAuthentication" id="Adv_gzone021">Both</option>
+				<option value="SharedAuthentication" id="Adv_gzone022">Shared Key</option>
+		</select>
+		</span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone023">WEP Encryption</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="wep_key_len" onChange="OnChangeWEPKey('');">
+				<option value="40-bit" id="Adv_gzone024">64 bit (10 hex digits)</option>
+				<option value="104-bit" id="Adv_gzone025">128 bit (26 hex digits)</option>
+			</select>
+		</span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone026">Default WEP Key</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="wep_def_key" onChange="OnChangeWEPKey('');">
+				<option value="1" id="Adv_gzone027">WEP Key 1</option>
+<!--				<option value="2">WEP Key 2</option>
+				<option value="3">WEP Key 3</option>
+				<option value="4">WEP Key 4</option>-->
+			</select>
+		</span>
+	</div>
+	<div id="wep_64" class="textinput">
+		<span class="name" id="Adv_gzone028">WEP Key</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="wep_64_1" name="wepkey_64" type="text" size="15" maxlength="10" />
+<!--			<input id="wep_64_2" name="wepkey_64" type="text" size="15" maxlength="10" />
+			<input id="wep_64_3" name="wepkey_64" type="text" size="15" maxlength="10" />
+			<input id="wep_64_4" name="wepkey_64" type="text" size="15" maxlength="10" />-->
+		</span>
+	</div>
+	<div id="wep_128" class="textinput" style="display:none">
+		<span class="name" id="Adv_gzone029">WEP Key</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="wep_128_1" name="wepkey_128" type="text" size="31" maxlength="26" />
+<!--			<input id="wep_128_2" name="wepkey_128" type="text" size="31" maxlength="26" />
+			<input id="wep_128_3" name="wepkey_128" type="text" size="31" maxlength="26" />
+			<input id="wep_128_4" name="wepkey_128" type="text" size="31" maxlength="26" />-->
+		</span>
+	</div>
+	<div class="gap"></div>
+</div>
+	
+<div id="box_wpa" class="blackbox" style="display:none;">
+	<h2 id="Adv_gzone030">WPA</h2>
+	<span id="Adv_gzone031">
+	<p>Use <strong>WPA or WPA2</strong> mode to achieve a balance of strong security and best compatibility. This mode uses WPA for legacy clients while maintaining higher security with stations that are WPA2 capable. Also the strongest cipher that the client supports will be used. For best security, use <strong>WPA2 Only</strong> mode. This mode uses AES(CCMP) cipher and legacy stations are not allowed access with WPA security. For maximum compatibility, use <strong>WPA Only</strong>. This mode uses TKIP cipher. Some gaming and legacy devices work only in this mode.</p>
+	<p>To achieve better wireless performance use <strong>WPA2 Only</strong> security mode (or in other words AES cipher).</p>
+	</span>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone032">WPA Mode</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="wpa_mode" onChange="OnChangeWPAMode('');">
+				<option value="WPA+2" id="Adv_gzone033">Auto(WPA or WPA2)</option>
+				<option value="WPA2" id="Adv_gzone034">WPA2 Only</option>
+				<--option value="WPA" id="Adv_gzone035">WPA Only</option-->
+			</select>
+		</span>
+	</div>		
+	<div class="textinput">
+		<span class="name" id="Adv_gzone036">Cipher Type</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="cipher_type">
+				<option value="TKIP" id="Adv_gzone037">TKIP</option>
+				<option value="AES" id="Adv_gzone038">AES</option>
+				<option value="TKIP+AES" id="Adv_gzone039">TKIP and AES</option>
+			</select>
+		</span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone040">Group Key Update Interval</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="wpa_grp_key_intrv" type="text" size="20" maxlength="10" /> (<span id="Adv_gzone041">seconds</span>)
+		</span>
+	</div>			
+	<div class="gap"></div>
+</div>
+	
+<div id="box_wpa_personal" class="blackbox" style="display:none;">
+	<h2 id="Adv_gzone042">Pre-Shared Key</h2>
+	<p id="Adv_gzone043">Enter an 8- to 63-character alphanumeric pass-phrase. For good security it should be of ample length and should not be a commonly known phrase.
+	</p>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone044">Pre-Shared Key</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="wpa_psk_key" type="text" size="20" maxlength="64" />
+		</span>
+	</div>
+	<div class="gap"></div>
+</div>
+
+<div id="box_wpa_enterprise" class="blackbox" style="display:none;">
+	<h2 id="Adv_gzone045">EAP (802.1x)</h2>
+	<p><strong id="Adv_gzone046">When WPA enterprise is enabled, the router uses EAP (802.1x) to authenticate clients via a remote RADIUS server.</strong></p>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone047">RADIUS server IP Address</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="radius_srv_ip" type="text" size="15" maxlength="15" /></span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone048">RADIUS server Port</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="radius_srv_port" type="text" size="5" maxlength="5" /></span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone049">RADIUS server Shared Secret</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="radius_srv_sec" type="password" size="50" maxlength="64" /></span>
+	</div>
+
+	<div class="textinput">
+		<span class="name"></span>
+        <span class="delimiter"></span>
+        <span class="value"><input type="button" id="radius_adv" name="radius_adv" value="Advanced >>" onClick="OnClickRadiusAdvanced('');"></span>
+	</div>
+	
+	<div id="div_second_radius" name="div_second_radius" style="display:none;">
+		<div class="textinput">
+			<p class="strong"><strong id="Adv_gzone050">Optional backup RADIUS server</strong></p>
+		</div>
+		<div class="textinput">
+			<span class="name" id="Adv_gzone051">Second RADIUS server IP Address</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="radius_srv_ip_second" type="text" size="15" maxlength="15" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="Adv_gzone052">Second RADIUS server Port</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="radius_srv_port_second" type="text" size="5" maxlength="5" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="Adv_gzone053">Second RADIUS server Shared Secret</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="radius_srv_sec_second" type="password" size="50" maxlength="64" /></span>
+		</div>
+	</div>	
+	<div class="gap"></div>
+	<div class="gap"></div>	
+</div>
+	
+
+<div id="div_5G" class="blackbox" style="display:;">
+	<h2 name="div_5G_title" id="Adv_gzone054">Session 5Ghz</h2>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone055">Enable Guest Zone</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="en_gzone_Aband" type="checkbox" onClick="OnClickEnGzone('_Aband');" />
+		<select id="sch_gz_Aband" class="narrow" style="width: 65px;">
+		</select>
+<input id="go2sch_gz_Aband" type="button" value="New Schedule" onclick="self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules';"/>
+		</span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone056">Wireless Band</span>
+		<span class="delimiter">:</span>
+		<span class="value"><b id="Adv_gzone057">5GHz Band</b></span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone058">Wireless Network Name</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="ssid_Aband" type="text" size="20" maxlength="32" />
+			(<span id="Adv_gzone059">Also called the SSID</span>)
+		</span>
+	</div>
+	<div class="textinput">
+		<span class="name"  id="Adv_gzone060">Security Mode</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="security_type_Aband" onChange="OnChangeSecurityType('_Aband');">
+				<option value="none" id="Adv_gzone061">None</option>
+				<option value="wep" id="Adv_gzone062">WEP</option>
+				<option value="wpa_personal" id="Adv_gzone063">WPA-Personal</option>
+				<option value="wpa_enterprise" id="Adv_gzone064">WPA-Enterprise</option>	
+			</select>
+		</span>
+	</div>
+	<div class="gap"></div>
+</div>	
+
+<div id="wep_Aband" class="blackbox" style="display:none;">
+	<h2 id="Adv_gzone065">WEP</h2>
+	<span id="Adv_gzone066">
+	<p>WEP is the wireless encryption standard. To use it you must enter the same key(s) into the router and the wireless stations. For 64-bit keys you must enter 10 hex digits into each key box. For 128-bit keys you must enter 26 hex digits into each key box.  A hex digit is either a number from 0 to 9 or a letter from A to F. For the most secure use of WEP set the authentication type to "Shared Key" when WEP is enabled.</p>
+	<p>You may also enter any text string into a WEP key box, in which case it will be converted into a hexadecimal key using the ASCII values of the characters. A maximum of 5 text characters can be entered for 64-bit keys, and a maximum of 13 characters for 128-bit keys.</p>
+	</span>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone067">Authentication</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="auth_type_Aband" onChange="OnChangeWEPAuth('_Aband');">
+				<!--<option value="OPEN">Open</option>-->
+				<option value="AutoAuthentication" id="Adv_gzone068">Both</option>
+				<option value="SharedAuthentication" id="Adv_gzone069">Shared Key</option>
+			</select>
+		</span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone070">WEP Encryption</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="wep_key_len_Aband" onChange="OnChangeWEPKey('_Aband');">
+				<option value="40-bit" id="Adv_gzone071">64 bit (10 hex digits)</option>
+				<option value="104-bit" id="Adv_gzone072">128 bit (26 hex digits)</option>
+			</select>
+		</span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone073">Default WEP Key</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="wep_def_key_Aband" onChange="OnChangeWEPKey('_Aband');">
+				<option value="1" id="Adv_gzone074">WEP Key 1</option>
+			</select>
+		</span>
+	</div>
+	<div id="wep_64_Aband" class="textinput">
+		<span class="name" id="Adv_gzone075">WEP Key</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="wep_64_1_Aband" name="wepkey_64_Aband" type="text" size="15" maxlength="10" />
+<!--		<input id="wep_64_2_Aband" name="wepkey_64_Aband" type="text" size="15" maxlength="10" />
+			<input id="wep_64_3_Aband" name="wepkey_64_Aband" type="text" size="15" maxlength="10" />
+			<input id="wep_64_4_Aband" name="wepkey_64_Aband" type="text" size="15" maxlength="10" />-->
+		</span>
+	</div>
+	<div id="wep_128_Aband" class="textinput" style="display:none">
+		<span class="name" id="Adv_gzone076">WEP Key</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="wep_128_1_Aband" name="wepkey_128_Aband" type="text" size="31" maxlength="26" />
+<!--		<input id="wep_128_2_Aband" name="wepkey_128_Aband" type="text" size="31" maxlength="26" />
+			<input id="wep_128_3_Aband" name="wepkey_128_Aband" type="text" size="31" maxlength="26" />
+			<input id="wep_128_4_Aband" name="wepkey_128_Aband" type="text" size="31" maxlength="26" />-->
+		</span>
+	</div>
+	<div class="gap"></div>
+</div>
+
+<div id="box_wpa_Aband" class="blackbox" style="display:none;">
+	<h2 id="Adv_gzone077">WPA</h2>
+	<span id="Adv_gzone078">
+	<p>Use <strong>WPA or WPA2</strong> mode to achieve a balance of strong security and best compatibility. This mode uses WPA for legacy clients while maintaining higher security with stations that are WPA2 capable. Also the strongest cipher that the client supports will be used. For best security, use <strong>WPA2 Only</strong> mode. This mode uses AES(CCMP) cipher and legacy stations are not allowed access with WPA security. For maximum compatibility, use <strong>WPA Only</strong>. This mode uses TKIP cipher. Some gaming and legacy devices work only in this mode.</p>
+	<p>To achieve better wireless performance use <strong>WPA2 Only</strong> security mode (or in other words AES cipher).</p>
+	</span>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone079">WPA Mode</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="wpa_mode_Aband" onChange="OnChangeWPAMode('_Aband');">
+				<option value="WPA+2" id="Adv_gzone080">Auto(WPA or WPA2)</option>
+				<option value="WPA2" id="Adv_gzone081">WPA2 Only</option>
+				<--option value="WPA" id="Adv_gzone082">WPA Only</option-->
+			</select>
+		</span>
+	</div>		
+	<div class="textinput">
+		<span class="name" id="Adv_gzone083">Cipher Type</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="cipher_type_Aband">
+				<option value="TKIP" id="Adv_gzone084">TKIP</option>
+				<option value="AES" id="Adv_gzone085">AES</option>
+				<option value="TKIP+AES" id="Adv_gzone086">TKIP and AES</option>
+			</select>
+		</span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone087">Group Key Update Interval</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="wpa_grp_key_intrv_Aband" type="text" size="20" maxlength="10" /> (<span id="Adv_gzone088">seconds</span>)
+		</span>
+	</div>			
+	<div class="gap"></div>
+</div>
+	
+<div id="box_wpa_personal_Aband" class="blackbox" style="display:none;">
+	<h2 id="Adv_gzone089">Pre-Shared Key</h2>
+	<p id="Adv_gzone090">Enter an 8- to 63-character alphanumeric pass-phrase. For good security it should be of ample length and should not be a commonly known phrase.
+	</p>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone091">Pre-Shared Key</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="wpa_psk_key_Aband" type="text" size="20" maxlength="64" />
+		</span>
+	</div>
+	<div class="gap"></div>
+</div>
+	
+<div id="box_wpa_enterprise_Aband" class="blackbox" style="display:none;">
+	<h2 id="Adv_gzone092">EAP (802.1x)</h2>
+	<p><strong id="Adv_gzone093">When WPA enterprise is enabled, the router uses EAP (802.1x) to authenticate clients via a remote RADIUS server.</strong></p>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone094">RADIUS server IP Address</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="radius_srv_ip_Aband" type="text" size="15" maxlength="15" /></span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone095">RADIUS server Port</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="radius_srv_port_Aband" type="text" size="5" maxlength="5" /></span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="Adv_gzone096">RADIUS server Shared Secret</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="radius_srv_sec_Aband" type="password" size="50" maxlength="64" /></span>
+	</div>
+
+	<div class="textinput">
+		<span class="name"></span>
+		<span class="delimiter"></span>
+	    <span class="value"><input type="button" id="radius_adv_Aband" name="radius_adv_Aband" value="Advanced >>" onClick="OnClickRadiusAdvanced('_Aband');"></span>
+	</div>
+		
+	<div id="div_second_radius_Aband" name="div_second_radius_Aband" style="display:none;">
+		<div class="textinput">
+			<p class="strong"><strong id="Adv_gzone097">Optional backup RADIUS server</strong></p>
+		</div>
+		<div class="textinput">
+			<span class="name" id="Adv_gzone098">Second RADIUS server IP Address</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="radius_srv_ip_second_Aband" type="text" size="15" maxlength="15" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="Adv_gzone099">Second RADIUS server Port</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="radius_srv_port_second_Aband" type="text" size="5" maxlength="5" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="Adv_gzone100">Second RADIUS server Shared Secret</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="radius_srv_sec_second_Aband" type="password" size="50" maxlength="64" /></span>
+		</div>
+	</div>	
+	<div class="gap"></div>
+	<div class="gap"></div>
+</div>
+	
+<div class="emptyline"></div>
+
+
+<p><input type="button" value="Save Settings" onclick="uiSubmit();" id="Adv_gzone101"/>
+	<input type="button" value="Don't Save Settings" onclick="uiPageRefresh();" id="Adv_gzone102"/></p>
+
+</div>
+<div id="WINFO011" class="tips">
+<span id="Adv_gzone103">
+	<strong>Helpful Hints...</strong>
+	<br/><br/>
+	<p>&nbsp;&#149;&nbsp;&nbsp;Use this section to configure the guest zone settings of your router. The guest zone provide a separate network zone for guests to access Internet.</p>
+</span>
+	<p>&nbsp;&#149;&nbsp;&nbsp;<a href=
+	"/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpadv#Guestzone"><span id = "Adv_gzone104">More</span></a></p>

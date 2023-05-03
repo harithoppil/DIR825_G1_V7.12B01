@@ -1,0 +1,25 @@
+
+<InternetGatewayDevice type="object">
+	<X_TWSZ-COM_SCHEDULES type="object">
+		<Enable type="boolean" Writable="0">1</Enable>
+		<MaxSchedEntries type="unsignedInt" Writable="0">16</MaxSchedEntries>
+		<SchedNumberOfEntries type="unsignedInt" Writable="1">0</SchedNumberOfEntries>
+		<SchedEntry type="object" MaxNode="MaxSchedEntries" CurNode="SchedNumberOfEntries">
+			<i type="object">
+				<Enable type="boolean">1</Enable>
+				<SchedName type="string">sch_1</SchedName>
+				<SchedvsUsed type="unsignedInt">0</SchedvsUsed>
+				<SchedpfUsed type="unsignedInt">0</SchedpfUsed>
+				<SchedptUsed type="unsignedInt">0</SchedptUsed>
+				<SchednfUsed type="unsignedInt">0</SchednfUsed>
+				<SchedUsed type="unsignedInt">0</SchedUsed>
+				<EnableAllDays type="boolean">1</EnableAllDays>
+				<SelectDays type="string">Sun,Mon,Tue,Wed,Thu,Fri,Sat,</SelectDays>
+				<EnableAllTimes type="boolean">1</EnableAllTimes>
+				<StartTime type="String">00:00</StartTime>
+				<EndTime type="String">23:59</EndTime>
+				<IsUpdateSch type="boolean">0</IsUpdateSch>
+			</i>
+		</SchedEntry>
+	</X_TWSZ-COM_SCHEDULES>
+</InternetGatewayDevice>

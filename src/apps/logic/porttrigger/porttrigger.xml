@@ -1,0 +1,22 @@
+
+<InternetGatewayDevice type="object">
+	<X_TWSZ-COM_PortTrigger type="object">
+		<Enable	type="boolean">1</Enable>
+		<Timeout type="unsignedInt[1:9999]">20</Timeout>
+		<MaxNumberOfEntries type="unsignedInt" Writable="0">24</MaxNumberOfEntries>
+		<NumberOfEntries type="unsignedInt" Writable="0">0</NumberOfEntries>
+		<TriggerList type="object" MaxIdx="0" CurNode="NumberOfEntries" MaxNode="MaxNumberOfEntries">
+			<i type="object">
+				<Description type="string"></Description>
+				<PortTriggerTime type="string">Always</PortTriggerTime>
+				<OpenPortMap type="string"></OpenPortMap>
+				<OpenProtocol type="string"></OpenProtocol>
+				<TriggerPortMap type="string"></TriggerPortMap>
+				<TriggerEndIP type="string"></TriggerEndIP>
+				<TriggerStartIP type="string"></TriggerStartIP>
+				<TriggerProtocol type="string"></TriggerProtocol>
+				<Enable type="boolean"></Enable>
+			</i>
+		</TriggerList>
+	</X_TWSZ-COM_PortTrigger>
+</InternetGatewayDevice>

@@ -1,0 +1,60 @@
+INSTALL - nbSMTP 0.9X
+---------------------
+
+* Steps to install this software:
+
+
+   1. Dependencies: 
+      - C development environment (tested with GNU gcc).
+      - OpenSSL if you need SSL connections with SMTP
+        servers (development libraries if you installed
+	it from binary packages).
+
+
+   2. Uncompress the tarball (probably you
+      have already done so as you are reading
+      this). This is done by running the command:
+
+        $ tar xvzf nbsmtp-0.9X.tar.gz
+      or
+        $ tar xvjf nbsmtp-0.9X.tar.bz2
+
+      A new directory will be created. Running
+
+        $ cd nbsmtp-0.9X/
+
+      will make it the current working directory.
+
+
+   3. Run "configure" script. Examples:
+
+        $ ./configure
+
+      if you don't need SSL. Or
+
+        $ ./configure --enable-ssl
+
+      if you need SSL.
+
+   
+   4. Run "make" to compile the source code:
+
+        $ make
+      
+   5. A binary named "nbsmtp" will be created, which
+      can be used directly. If you want to install it
+      system-wide, run as root:
+
+        # make install
+
+   6. Once everything is installed take a look at
+      nbsmtp(8) and nbsmtprc(5). Updated online versions
+      of the man pages can be found at:
+
+      http://nbsmtp.ferdyx.org/nbsmtprc.5.html
+      http://nbsmtp.ferdyx.org/nbsmtp.8.html
+
+* Lastest information and releases of this software can be
+  found at:
+
+  http://nbsmtp.ferdyx.org

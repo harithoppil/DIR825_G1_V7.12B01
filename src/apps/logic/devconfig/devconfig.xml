@@ -1,0 +1,7 @@
+<InternetGatewayDevice type="object">
+    <DeviceConfig type="object" Writable="0">
+		<PersistentData type="string(64)" Writable="1"> </PersistentData>
+		<X_TWSZ-COM_LastSaveTime type="unsignedInt" Writable="0" >0</X_TWSZ-COM_LastSaveTime>
+		<X_TWSZ-COM_LastSaveVersion type="string(64)" Writable="0"></X_TWSZ-COM_LastSaveVersion>
+    </DeviceConfig>
+</InternetGatewayDevice>

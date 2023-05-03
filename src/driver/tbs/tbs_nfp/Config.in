@@ -1,0 +1,100 @@
+######################################
+#
+#
+######################################
+menuconfig TBS_NFP
+        bool "Use Tbs Network Fast Processing (TBS NFP)"
+	depends on DRIVERS_TBSMOD && TBS_NFP_ADAPTER
+        default y
+        ---help---
+        Choosing this option will include TBS NFP support in the image.
+
+config TBS_NFP_DEF
+        depends on TBS_NFP
+        int "Default value for TBS NFP:  0 - disable, 1 - enable"
+        default 0
+        ---help---
+
+
+menuconfig TBS_NFP_BRIDGE
+	bool "Support TBS NFP Bridging"
+	depends on TBS_NFP && BRIDGE
+	default y
+	---help---
+	Choosing this option will enable NFP Bridging
+choice
+	prompt "Support TBS NFP Bridging by fdb or bridge rule"
+        default TBS_NFP_BRIDGE_RULE
+        depends on TBS_NFP_BRIDGE
+
+	config TBS_NFP_FDB
+        	bool "Support TBS NFP Bridging by fdb"
+        	depends on TBS_NFP_BRIDGE
+        	---help---
+        	Choosing this option will enable NFP Bridging by fdb.
+
+	config TBS_NFP_BRIDGE_RULE
+        	bool "Support TBS NFP Bridging by Bridge Rule"
+        	depends on TBS_NFP_BRIDGE
+        	---help---
+        	Choosing this option will enable TBS NFP Bridging by Bridge Rule.
+endchoice
+
+
+config TBS_NFP_VLAN
+        bool "Support TBS NFP VLANs processing"
+        default y
+        depends on TBS_NFP
+        ---help---
+        Choosing this option will enable TBS NFP VLANs support.
+
+
+config TBS_NFP_FIB
+        bool "Support TBS NFP routing"
+        default y
+        depends on TBS_NFP
+        ---help---
+        Choosing this option will enable TBS NFP routing support.
+
+config TBS_NFP_CT
+        bool "Support TBS NFP 5 Tuple Rules"
+        depends on TBS_NFP_FIB && NF_CONNTRACK && (NF_CONNTRACK_ENABLED || NF_CONNTRACK_IPV4)
+		select TBS_NFP_NAT
+        default y
+        ---help---
+        Choosing this option will enable TBS NFP 5 Tuple Rules support.
+
+config TBS_NFP_NAT
+        bool "Support TBS NFP NAT"
+        depends on TBS_NFP_FIB && TBS_NFP_CT
+        ---help---
+        Choosing this option will enable TBS NFP NAT support.
+
+config TBS_NFP_PPP
+        bool "Support TBS NFP PPPoE"
+        depends on TBS_NFP && PPPOE
+        default y
+         ---help---
+        Choosing this option will enable TBS NFP PPPoE protocol.
+
+config TBS_NFP_WLAN
+        bool "Support TBS NFP WLAN"
+        depends on TBS_NFP
+        default n
+         ---help---
+        Choosing this option will enable TBS NFP WLAN.
+
+config  TBS_NFP_STATS
+        bool "Collect TBS NFP statistics"
+        depends on TBS_NFP
+        default n
+        ---help---
+        Collect TBS NFP statistics. Can be displayed using sysfs command.
+
+config TBS_NFP_DEBUG
+        bool "TBS NFP Debug"
+        default n
+        depends on TBS_NFP
+        ---help---
+          Choosing this option will enable debug for tbs_nfp module.
+

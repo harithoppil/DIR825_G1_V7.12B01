@@ -1,0 +1,6 @@
+config OPENSOURCE_MDNS
+	bool 'mdns'
+	default y
+	depends on OPENSOURCE
+	help
+		mDNS

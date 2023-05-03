@@ -1,0 +1,49 @@
+﻿<div class="mainbody" id="mainbody">
+	<div class="orangebox">
+		<h1 id="WLANSUM001" >Wireless Settings</h1>
+		<p id="WLANSUM002">The following Web-based wizards are designed to assist you in your wireless network setup and wireless device connection.</p>
+		<p id="WLANSUM003">Before launching these wizards, please make sure you have followed all steps outlined in the Quick Installation Guide included in the package.</p>
+	</div>
+	<div class="blackbox">
+		<h2 id="WLANSUM004">Wireless Network Setup Wizard</h2>
+		<p id="WLANSUM005">
+			This wizard is designed to assist you in your wireless network setup. It will guide you through step-by-step instructions on how to set up your wireless network and how to make it secure.
+		</p>
+		<div class="centerline">
+			<input type="button" id="WLANSUM012" value="Wireless Connection Setup Wizard" onClick='self.location.href="/cgi-bin/webproc?getpage=html/index_wiz.html&var:page=Wiz_wlan";' />
+		</div>
+		<p id="WLANSUM006">
+			<strong>Note:</strong>
+			Some changes made using this Setup Wizard may require you to change some settings on your wireless client adapters so they can still connect to the D-Link Router.
+		</p>
+	</div>
+	<div class="blackbox">
+		<h2 id="WLANSUM007">Add Wireless Device WITH WPS (WI-FI PROTECTED SETUP) Wizard</h2>
+		<p id="WLANSUM008">
+			This wizard is designed to assist you in connecting your wireless device to your wireless router. It will guide you through step-by-step instructions on how to get your wireless device connected. Click the button below to begin.
+		</p>
+		<div class="centerline">
+			<input type="button" id="WLANSUM013" value="Add Wireless Device with WPS" onClick='self.location.href="/cgi-bin/webproc?getpage=html/index_wiz.html&var:page=Wiz_wps";'  />
+		</div>
+		<div class="emptyline"></div>
+	</div>
+	<div class="blackbox">
+		<h2 id="WLANSUM009">Manual Wireless Network Setup</h2>
+		<p id="WLANSUM010">
+			If your wireless network is already set up with Wi-Fi Protected Setup, manual configuration of the wireless network will destroy the existing wireless network. If you would like to configure the wireless settings of your new D-Link Systems Router manually, then click on the Manual Wireless Network Setup button below.
+		</p>
+		<div class="centerline">
+			<input type="button" id="WLANSUM014" value="Manual Wireless Connection Setup" onClick='self.location.href="/cgi-bin/webproc?getpage=html/index.html&var:menu=basic&var:page=Bas_wlan";' usrmode="enable" />
+		</div>
+		<div class="emptyline"></div>
+	</div>
+	<!-- End of Page Dependent Part. -->
+</div>
+<div id="WLANSUM011" class="tips">
+<!-- Start of Help Depedent Part. -->
+<strong>Helpful Hints...</strong>
+	<br/><br/>
+	<p>&nbsp;&#149;&nbsp;&nbsp;If you already have a wireless network setup with Wi-Fi Protected Setup, click on <strong>Add Wireless Device with WPS</strong> to add new device to your wireless network.</p>
+	<p>&nbsp;&#149;&nbsp;&nbsp;If you are new to wireless networking and have never configured a wireless router before, click on <strong>Wireless Connection Setup Wizard</strong> and the router will guide you through a few simple steps to get your wireless network up and running.</p>
+	<p>&nbsp;&#149;&nbsp;&nbsp;If you consider yourself an advanced user and have configured a wireless router before, click <strong>Manual Wireless Connection Setup</strong> to input all the settings manually.</p>
+	<p>&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpsetup#Wireless">More...</a></p>

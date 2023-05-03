@@ -1,0 +1,56 @@
+<div class="mainbody" id="mainbody">
+<div class="orangebox"> 
+	<h1 id="BWACCESS001">Storage</h1>
+		<p id="BWACCESS002">
+			USB storage device using the Samba file sharing protocol. To use this feature, check the Enable SAMBA checkbox, then use the root account to manage access to your storage devices.
+		</p>
+		<p>
+			<input type="button" id="BWACCESS011" value="Save Settings" onclick="OnSubmit();" />
+			<input type="button" id="BWACCESS012" value="Don't Save Settings" onclick="uiPageRefresh();" />
+		</p>
+</div>
+<!-- IPV6 orangebox END-->
+<!-- IPV6 ULA SETTINGS -->
+<div class="blackbox" id="bbox_ula">
+	<div id="box_sabma_title" >
+		<h2 id="BWACCESS003">WINDOWS FILE SHARING (SAMBA)</h2>
+	</div>
+	<div id="box_samba_body">
+		<div class="textinput">
+			<span class="name" id="BWACCESS004">Enable SAMBA</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="en_webaccess" value="" type="checkbox" onClick="OnClickEnableSabma();"/></span>
+		</div>
+	</div>
+	<div class="gap"></div>
+</div>
+
+<div class="blackbox" id="div_usercreat">
+	<div id="box_usercreat_title" style="display:"> 
+		<h2 id="BWACCESS007">User Creation</h2>
+	</div>
+	<div id="box_usercreat_body">
+		<div class="textinput">
+			<span class="name" id="BWACCESS008">User Name</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input id="user_name" type="text" value="root" size="20" maxlength="15" disabled=""></input>
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BWACCESS009">Password</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="pwd" type="text" size="20" maxlength="15"></input></span>
+		</div>
+	</div>
+	<div class="gap"></div>
+</div>
+<div class="gap"></div>
+<p><input type="button" id="BWACCESS013" value="Save Settings" onclick="OnSubmit();" />
+	<input type="button" id="BWACCESS014" value="Don't Save Settings" onclick="uiPageRefresh();" /></p>
+</div>
+<div id="BWACCESS010" class="tips">
+	<strong>Helpful Hints...</strong>
+	<br/><br/>
+	<p>&nbsp;&#149;&nbsp;&nbsp;ULA is useful for Local IPv6 communications, If you would like to enable it,click Enable ULA. By default ULA is disabled.</p>
+	<p>&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpsetup#IPv6"><span id = "lang_wanbind">More</span></a></p>

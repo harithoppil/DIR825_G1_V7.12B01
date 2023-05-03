@@ -1,0 +1,26 @@
+
+<InternetGatewayDevice type="object">
+	<X_TWSZ-COM_Mail type="object" MaxIdx="0" Writable="0" Standard="0">
+		<Enable type="boolean" Writable="1" Standard="0">0</Enable>
+		<SmtpHost type="string(63)" Writable="1" Standard="0"></SmtpHost>
+		<SmtpPort type="unsignedInt[0:65535]" Writable="1" Standard="0">25</SmtpPort>
+		<SmtpUsername type="string(127)" Writable="1" Standard="0"></SmtpUsername>
+		<SmtpPassword type="string(127)" Writable="1" Standard="0"></SmtpPassword>
+		<SenderMail type="string(63)" Writable="1" Standard="0"></SenderMail>
+		<TosendMail type="string(63)" Writable="1" Standard="0"></TosendMail>
+		<Authrq type="boolean" Writable="1" Standard="0">0</Authrq>
+		<Alertsend type="boolean" Writable="1" Standard="0">0</Alertsend>
+		<Fullenable type="boolean" Standard="0" Writable="1">0</Fullenable>
+		<Hourenable type="boolean" Standard="0" Writable="1">0</Hourenable>
+		<Dayenable type="boolean" Standard="0" Writable="1">0</Dayenable>
+		<Weekenable type="boolean" Standard="0" Writable="1">0</Weekenable>
+		<Weektime type="unsignedInt" Standard="0" Writable="1">0</Weektime>
+		<Clocktime type="unsignedInt" Standard="0" Writable="1">0</Clocktime>
+		<SendCMD type="unsignedInt"  Cache="1"  Standard="0" Writable="1" Stat="1">0</SendCMD>	
+		<TaskFinishNotifyEmail type="boolean" Writable="1" Standard="0">0</TaskFinishNotifyEmail>
+		<ScheduleEnable type="boolean" Writable="1" Standard="0">0</ScheduleEnable>	
+		<ScheduleListName type="string(63)" Writable="1" Standard="0"></ScheduleListName>
+		<MailSubjectName type="string(63)" Writable="1" Standard="0"></MailSubjectName>
+		<MailSendStatus type="string(63)" Writable="1" Standard="0">sending</MailSendStatus>
+	</X_TWSZ-COM_Mail>
+</InternetGatewayDevice>

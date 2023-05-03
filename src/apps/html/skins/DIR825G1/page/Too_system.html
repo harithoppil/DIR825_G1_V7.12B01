@@ -1,0 +1,105 @@
+﻿<div class="mainbody" id="mainbody">
+<div class="orangebox">
+	<h1 id="SYS001">Save and Restore Settings</h1>
+	<p id="SYS002">Once the router is configured you can save the configuration settings to a configuration file on your hard drive. You also have the option to load configuration settings, or restore the factory default settings.</p>
+</div>
+<div class="blackbox">
+	<h2 id="SYS003">Save and Restore Settings</h2>
+	<div class="gap"></div>
+	<form name="BackupForm"  method="post" action="webupg" onSubmit="isBakeup();">	
+		<input type="hidden" value="" name="tokenid" id="tokenid1">
+		<div class="textinput">
+			<span class="name_l" id="SYS004">Save Settings To Local Hard Drive</span>
+			<span class="delimiter">:</span>
+			<span>
+			<input type="submit" id="SYS005" value="Save Configuration"/>
+			<input type="hidden" id="name" name="name" value="downloadConfigCompress"/>			
+			</span>
+		</div>
+	</form>
+	<br>
+	<form name="confForm1"  method="post" action="webupg" enctype="multipart/form-data" onSubmit="return upConfigProgress();">		
+		<input type="hidden" value="" name="tokenid" id="tokenid2">
+		<div class="textinput">
+			<span class="name_l" id="SYS006">Load Settings From Local Hard Drive</span>
+			<span class="delimiter">:</span>
+			<span>
+			<input type="file" name="configCompress" id="config" size="20" >
+			<input type="hidden" name="updateConfig" value="update">
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name_l"></span>
+			<span class="delimiter"></span>
+			<span>
+			<input type="submit" id="SYS007"  value="Restore Configuration From File" />
+			</span>
+		</div>
+	</form>
+	<br>
+	
+	<div class="textinput">
+		<span class="name_l" id="SYS008">Restore To Factory Default Settings</span>
+		<span class="delimiter">:</span>
+		<span>
+			<form name="restore" id="restore" method="post" action="webproc">				
+				<input type="hidden" value="" name="var:sys_Token" id="tokenid3">
+				<input type="button" id="SYS009" name="restore" value="Restore Factory Defaults" onClick="OnClickReboot_factory_def();"/>
+				<input type="hidden" name="obj-action" value="recover" />
+				<input type="hidden" name="var:noredirect" value="1" />
+				<input type="hidden" name="var:menu" value="toolbox" />
+				<input type="hidden" name="var:page" value="Too_system" />
+				<input type="hidden" name="var:errorpage" value="Too_system" />
+				<input type="hidden" name="getpage" value="html/page/restore.html" />
+			</form>
+		</span>
+	</div>
+	
+	<br>
+	<div class="textinput">
+		<span class="name_l" id="SYS010">Reboot The Device</span>
+		<span class="delimiter">:</span>
+		<span>
+			<form name="reboot" id="reboot" method="post" action="webproc">			
+				<input type="hidden" value="" name="var:sys_Token" id="tokenid4">
+				<input type="button" id="SYS011" name="reboot" value="Reboot the Device" onClick="OnClickReboot();"/>
+				<input type="hidden" name="obj-action" value="reboot" />
+				<input type="hidden" name="var:noredirect" value="1" />
+				<input type="hidden" name="var:menu" value="toolbox" />
+				<input type="hidden" name="var:page" value="Too_system" />
+				<input type="hidden" name="var:errorpage" value="Too_system" />
+				<input type="hidden" name="getpage" value="html/page/restarting.html" />					
+			</form>
+		</span>
+	</div>
+	<br>
+	<form name="langclearForm" id="langclearForm" method="post" action="webproc" onSubmit="isClear();">
+		<div class="textinput">
+			<input type="hidden" value="" name="var:sys_Token" id="tokenid5">
+			<input type="hidden" name="obj-action" value="langclear" />
+			<input type="hidden" name="var:noredirect" value="1" />
+			<input type="hidden" name="var:menu" value="toolbox" />
+			<input type="hidden" name="var:page" value="Too_system" />
+			<input type="hidden" name="var:errorpage" value="Too_system" />
+			<input type="hidden" name="getpage" value="html/page/language_pack.html" />
+			<span class="name_l" id="SYS012">Clear Language Pack</span>
+			<span class="delimiter">:</span>
+			<span>
+				<input type="submit" id="SYS016" value="Clear" >
+				<!--<input type="hidden" name="obj-action" value="reboot" />-->
+			</span>
+		</div>
+	</form>
+	<div class="emptyline"></div>
+</div>
+</div>
+<div id="help_hint" class="tips">
+	<strong id="SYS013">Helpful Hints...</strong>
+	<br>
+	<br>
+	<p id="SYS014">&nbsp;&#149;&nbsp;&nbsp;Once your router is configured the way you want it, you can save these settings to a configuration file that can later be loaded in the event that the router's default settings are restored. To do this, click the
+	<strong>Save</strong>
+	button next to where it says Save Settings to Local Hard Drive.
+	</p>
+	<p id="SYS015">&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helptool#System">More...</a>
+	</p>

@@ -1,0 +1,14 @@
+/lib/modules/2.6.36/kernel/drivers/usb/host/ohci-hcd.ko
+/lib/modules/2.6.36/kernel/drivers/usb/host/ehci-hcd.ko
+/lib/modules/2.6.36/kernel/drivers/scsi/scsi_wait_scan.ko
+/lib/modules/2.6.36/kernel/drivers/usb/serial/usbserial.ko
+/lib/modules/2.6.36/kernel/drivers/usb/class/usblp.ko
+/lib/modules/2.6.36/kernel/fs/nls/nls_ascii.ko
+/lib/modules/2.6.36/kernel/fs/nls/nls_cp437.ko
+/lib/modules/2.6.36/kernel/fs/nls/nls_cp936.ko
+/lib/modules/2.6.36/kernel/drivers/usb/serial/usb_wwan.ko 
+/lib/modules/2.6.36/kernel/drivers/usb/serial/option.ko
+
+
+
+

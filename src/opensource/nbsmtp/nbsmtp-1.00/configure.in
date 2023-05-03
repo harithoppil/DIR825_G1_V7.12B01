@@ -1,0 +1,95 @@
+dnl Process this file with autoconf to produce a configure script.
+AC_INIT(nbsmtp,[1.00],[nbsmtp@ferdyx.org])
+AC_COPYRIGHT([Copyright (C) 2004-2005 Fernando J. Pereda <ferdy@ferdyx.org>
+Copyright (C) 2004 Ricardo Cervera Navarro <ricardo@zonasiete.org>
+Copyright (C) 2000-2001 David Rysdam])
+
+dnl Initial checks (COMPILER AND PREPROCESSOR)
+AC_PROG_CC
+AC_PROG_CPP
+AC_PROG_INSTALL
+
+dnl Checks for header files.
+AC_HEADER_STDC
+AC_CHECK_HEADERS(stdio.h unistd.h stdlib.h	\
+		 sys/types.h sys/socket.h	\
+		 sys/param.h netdb.h		\
+		 netinet/in.h fcntl.h		\
+		 ctype.h syslog.h string.h pwd.h)
+AC_DEFINE(_GNU_SOURCE)
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+AC_TYPE_SIZE_T
+AC_STRUCT_TM
+
+dnl Checks for library functions.
+
+AC_FUNC_STRFTIME
+AC_FUNC_VPRINTF
+AC_CHECK_FUNCS(gethostbyname gethostname socket strdup strcasestr asprintf memset getopt strsep)
+
+case "$host" in
+	*-solaris*)
+		AC_CHECK_LIB(nls,main)
+		AC_CHECK_LIB(socket,main)
+	;;
+esac
+
+dnl Check for optional features
+EXTRASRCS=""
+EXTRADEFS=""
+
+AC_ARG_ENABLE(ssl,[AC_HELP_STRING([--enable-ssl],[support for secure connection to mail server])])
+if test x$enableval = xyes ; then
+	AC_DEFINE(HAVE_SSL)
+	AC_CHECK_HEADERS(openssl/crypto.h openssl/x509.h openssl/pem.h openssl/ssl.h openssl/err.h openssl/md5.h)
+	AC_CHECK_LIB(ssl,main)
+	AC_CHECK_LIB(crypto,main)
+	AC_CHECK_FUNCS(CRYPTO_cleanup_all_ex_data)
+	EXTRASRCS="$EXTRASRCS hmac_md5.c"
+fi
+enableval=""
+
+AC_ARG_ENABLE(ipv6,[AC_HELP_STRING([--enable-ipv6],[support for IPv6 connections (same as inet6)])])
+AC_ARG_ENABLE(inet6,[AC_HELP_STRING([--enable-inet6],[support for IPv6 connections (same as ipv6)])])
+if test x$enableval = xyes ; then
+	AC_DEFINE(HAVE_INET6)
+	AC_CHECK_FUNCS(getaddrinfo)
+fi
+enableval=""
+
+AC_ARG_ENABLE(osx,[AC_HELP_STRING([--enable-osx],[support for special Mac OS X features (EXPERIMENTAL)])])
+if test x$enableval = xyes ; then
+	OSXMODULE="yes"
+	AC_SUBST(OSXMODULE)
+	AC_DEFINE(HAVE_OSX)
+	EXTRASRCS="$EXTRASRCS osx.c"
+	
+	AC_PATH_PROG(growlnotify,growlnotify)
+
+	if test -x $growlnotify ; then
+		AC_DEFINE(HAVE_GROWLNOTIFY)
+		AC_DEFINE_UNQUOTED(GROWLNOTIFYPATH,"$growlnotify")
+		dnl This is ugly, but, do you have a better workaround?
+		EXTRADEFS="$EXTRADEFS -DGROWLICONPATH=\\\""\$"(iconpath)/nbsmtp-growl.png\\\""
+	fi
+fi
+enableval=""
+
+AC_ARG_ENABLE(debug,[AC_HELP_STRING([--enable-debug],[enable debug information (for developers)])])
+if test x$enableval = xyes ; then
+	AC_DEFINE(HAVE_DEBUG)
+	dnl If you are debugging you DEFINATELY want this to be done
+	CFLAGS=${CFLAGS/-O?/-ggdb -O0}
+	CFLAGS=${CFLAGS/-fomit-frame-pointer/}
+fi
+enableval=""
+
+AC_SUBST(EXTRASRCS)
+AC_SUBST(EXTRADEFS)
+
+AC_PATH_PROG(doxygen,doxygen)
+AC_SUBST(doxygen)
+
+AC_OUTPUT([Makefile Doxyfile])

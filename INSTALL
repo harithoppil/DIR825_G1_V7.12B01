@@ -1,0 +1,70 @@
+Copyright (C) 2011 T&W, Inc.  All Rights Reserved.
+
+Installation instructions for build the firmware image
+_____________________________________________________________________________
+
+  If you had installed Cross-compiler tool chain, you can make firmware image
+  as the following guide.
+  
+  If you had not installed Cross-compiler tool chain before, you should intall
+  it. The Cross-compiler tool chain tbs_toolchains.tar.bz2.zip on the top
+  level, you can extract it and read the INSTRUCTION file which will guide you
+  to install.
+_____________________________________________________________________________
+
+GENERATE HOST TOOLS
+
+	make tools
+
+  If you are build the firmware image for the first time, you must execute 
+  the command.
+  If you had executed the command before, you can skip.
+
+  The command "make tools" will generate the tools that use for build firmware 
+  image, for example sqlzma/mktree/mkimage, sqlzma use for filesystem, mktree use
+  for xml files, mkimage use for make image.
+
+  The command "make tools" depend on the some development tools. If the tools
+  had not installed, it may prompt errors.
+  
+	*Specially,In this GPL code,we have install tools already,you can ignore this step.
+	
+_____________________________________________________________________________
+
+GENERATE THE BUILD ENVIRONMENT
+
+	make prepare
+
+  If you are build the firmware image for the first time, you must execute 
+  the command.
+  If you had executed the command before, you can skip.
+
+_____________________________________________________________________________
+
+GENERATE THE FIRMWARE IMAGE
+
+	make
+
+  The command will generate the firmware image in the directory by the name
+  image.img.
+
+_____________________________________________________________________________
+
+Detailed step descriptions:
+
+	1: unzip	Sitecom-WLR3100_V1.0_src.tar.bz2.zip
+	
+	2: tar -xvf  Sitecom-WLR3100_V1.0_src.tar.bz2
+	
+	3: 将toolchain-buildroot-gcc342.tar.gz拷贝到/opt/下，然后，tar -zxvf  toolchain-buildroot-gcc342.tar.gz
+	
+	4: cd Sitecom-WLR3100_V1.0_src
+	
+	5: make prepare
+
+ 	6: make 
+
+
+ 
+
+

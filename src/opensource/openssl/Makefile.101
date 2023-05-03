@@ -1,0 +1,42 @@
+.PHONY: all build clean distclean 
+SRCDIR=$(CURDIR)/openssl-1.0.1p
+export PATH:=$(TOOLCHAINS_PATH)/../${TARGET}/bin:$(PATH)
+SSL_OBJS_TO_REMOVE =    
+
+CRYPTO_OBJS_TO_REMOVE = 
+all: $(SRCDIR) build 
+
+zlib:
+	make -C ${ROOTDIR} zlib
+$(SRCDIR):
+	echo "openssl-1.0.1p not here"
+	if [ ! -d $(SRCDIR) ]; then\
+	  tar zxf openssl-1.0.1p.tar.gz; \
+	fi
+	cd $(SRCDIR); \
+	if [ ! -d $(TOOLCHAINS_PATH)/../${TARGET}/bin ]; then \
+	  echo "Directory \"$(TOOLCHAINS_PATH)/../${TARGET}/bin\" not exists! "; \
+	  exit 1;  \
+	fi; \
+	touch Makefile \
+	./Configure --cross-compile-prefix=" " --prefix=$(TMPDISTDIR) -DB_ENDIAN shared $(EXTRAFLAGS) -I$(TMPDISTDIR)/include -L$(TMPDISTDIR)/lib linux-generic32 \
+	no-zlib no-zlib-dynamic no-rc4 no-asm no-camellia no-cms no-idea no-mdc2 no-threads -DOPENSSL_NO_CAPIENG -DOPENSSL_NO_DTLS1 -DOPENSSL_NO_GOST -DOPENSSL_NO_HEARTBEATS -DOPENSSL_NO_RDRAND -DOPENSSL_NO_RSAX -DOPENSSL_NO_SHA0 -DOPENSSL_NO_STATIC_ENGINE -DOPENSSL_NO_WHIRLPOOL -DOPENSSL_NO_SSL3 -DOPENSSL_NO_SSL2
+	
+	#no-threads no-bf no-cast no-pqueue no-dsa no-rc2 no-rc5 -DWAPI_ENABLE linux-generic32; 
+	touch configure
+build:
+	rm -f $(TMPDISTDIR)/lib/libssl.so* $(TMPDISTDIR)/lib/libcrypto.so*
+	make -C $(SRCDIR) all install_sw 
+
+clean:
+
+distclean:	
+	
+install:
+	cp -Pf $(TMPDISTDIR)/lib/libssl.so* $(FSROOT)/lib
+	cp -Pf $(TMPDISTDIR)/lib/libcrypto.so* $(FSROOT)/lib
+	cp -Pf $(TMPDISTDIR)/bin/openssl $(FSROOT)/bin
+	chmod u+w $(FSROOT)/lib/lib{ssl,crypto}.so*
+	$(STRIP)  $(FSROOT)/lib/libssl.so*  $(FSROOT)/lib/libcrypto.so*
+	$(STRIP)  $(FSROOT)/bin/openssl
+	#cp -Pf $(TMPDISTDIR)/ssl/openssl.cnf $(FSROOT)/etc/openssl.cnf

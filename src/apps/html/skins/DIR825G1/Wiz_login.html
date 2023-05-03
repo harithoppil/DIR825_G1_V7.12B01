@@ -1,0 +1,2491 @@
+﻿<?setvaronce var:language zh_cn?>
+<?setvaronce var:menu basic?>
+<?setvaronce var:page Bas_wansum?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="shortcut icon" href="/html/skin/favicon.gif" type="image/x-icon">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache" />
+<title>D-LINK SYSTEMS, INC. | WIRELESS ROUTER | HOME</title>	
+<link rel="stylesheet" type="text/css" href="/html/skin/general.css?v=<?echo $var:tbsversion?>">
+</head>
+<script type="text/javascript" src="/html/languages/<?echo $var:language?>/languages.js"></script>
+<script type="text/javascript" src="/html/languages/<?echo $var:language?>/error.js"></script>
+<script type="text/javascript" src="/html/js/ajax.js"></script>
+<script type="text/javascript" src="/html/js/boot.js"></script>
+<script type="text/javascript" src="/html/js/seboot.js"></script>
+<script type="text/javascript">
+
+<? include html/js/global.js ?>
+
+/* JavaScript Document */
+var G_WANConn = [];
+
+<?objget :InternetGatewayDevice.WANDevice.1.WANConnectionDevice.  "WANIPConnectionNumberOfEntries WANPPPConnectionNumberOfEntries"
+`	<?if gt $11 0 
+	`	<?objget :InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.WANIPConnection. "Enable Name NATEnabled ExternalIPAddress SubnetMask DefaultGateway DNSOverrideAllowed DNSServers AddressingType ConnectionType X_TWSZ-COM_NATType X_TWSZ-COM_ServiceList X_TWSZ-COM_ProtocolType RouteProtocolRx RipDirection X_TWSZ-COM_DomainName X_TWSZ-COM_Hostname X_TWSZ-COM_UsrDNSServers" 
+		`	G_WANConn['Path'] = "InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.WANIPConnection.$00.";	//Path	
+			G_WANConn['Enable'] 			= "$01";	//Enable
+			G_WANConn['Name'] 			    = "$02";	//Name
+			G_WANConn['NATEnabled'] 		= "$03";	//NATEnabled
+			G_WANConn['ExternalIPAddress'] 	= "$04";	//ExternalIPAddress
+			G_WANConn['SubnetMask'] 		= "$05";	//SubnetMask
+			G_WANConn['DefaultGateway'] 	= "$06";	//DefaultGateway
+			G_WANConn['DNSOverrideAllowed'] = "$07";	//DNSOverrideAllowed
+			G_WANConn['DNSServers'] 		= "$08";	//DNSServers
+			G_WANConn['AddressingType'] 	= "$09";	//AddressingType
+			G_WANConn['ConnectionType'] 	= "$0a";	//ConnectionType
+			G_WANConn['NATType'] 			= "$0b";	//X_TWSZ-COM_NATType
+			G_WANConn['ServiceList'] 		= "$0c";	//X_TWSZ-COM_ServiceList
+			G_WANConn['ProtocolType'] 		= "$0d";	//X_TWSZ-COM_ProtocolType
+			G_WANConn['RouteProtocolRx'] 	= "$0e";	// RouteProtocolRx
+			G_WANConn['RipDirection'] 		= "$0f";	// RipDirection
+			G_WANConn['DomainName'] 		= "$0g";	// X_TWSZ-COM_DomainName
+			G_WANConn['Hostname'] 			= "$0h";	// X_TWSZ-COM_Hostname
+			G_WANConn['X_TWSZ-COM_UsrDNSServers']  = "$0i";	//X_TWSZ-COM_UsrDNSServers
+		`?>
+	`?>
+	<?if gt $12 0
+	`	<?objget :InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.WANPPPConnection. "Enable NATEnabled Username PPPAuthenticationProtocol ConnectionTrigger IdleDisconnectTime MaxMRUSize MaxMTUSize PPPLCPEchoRetry X_TWSZ-COM_StaticIPAddress X_TWSZ-COM_NATType PPPLCPEcho X_TWSZ-COM_ServiceList X_TWSZ-COM_ProtocolType RouteProtocolRx RipDirection ConnectionType DNSServers X_TWSZ-COM_UsrDNSServers X_TWSZ-COM_VPN_CLIENT X_TWSZ-COM_VPN_NETMASK X_TWSZ-COM_VPN_GATEWAY X_TWSZ-COM_VPN_SERVER X_TWSZ-COM_VPN_INTERFACE_REF PPPoEServiceName X_TWSZ-COM_VPN_ADDR_MODE"
+		`	G_WANConn['Path'] = "InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.WANPPPConnection.$00.";	//Path		
+			G_WANConn['Enable'] 			= "$01";	//Enable
+			G_WANConn['NATEnabled'] 		= "$02";	//NATEnabled
+			G_WANConn['Username'] 			= "$03";	//Username
+			G_WANConn['Password'] 			= "**********";	//Password
+			G_WANConn['PPPAuthenticationProtocol'] 	= "$04";	//PPPAuthenticationProtocol
+			G_WANConn['ConnectionTrigger'] 		= "$05";	//ConnectionTrigger
+			G_WANConn['IdleDisconnectTime'] 	= "$06";	//IdleDisconnectTime
+			G_WANConn['MaxMRUSize'] 		= "$07";	//MaxMRUSize
+			G_WANConn['MaxMTUSize'] 		= "$08";	//MaxMTUSize
+			G_WANConn['PPPLCPEchoRetry'] 		= "$09";	//PPPLCPEchoRetry
+			G_WANConn['StaticIPAddress'] 		= "$0a";	//X_TWSZ-COM_StaticIPAddress
+			G_WANConn['NATType'] 			= "$0b";	//X_TWSZ-COM_NATType
+			G_WANConn['PPPLCPEcho'] 		= "$0c";	//PPPLCPEcho
+			G_WANConn['ServiceList'] 		= "$0d";	//X_TWSZ-COM_ServiceList
+			G_WANConn['ProtocolType'] 		= "$0e";	//X_TWSZ-COM_ProtocolType
+			G_WANConn['RouteProtocolRx'] 		= "$0f";	// RouteProtocolRx
+			G_WANConn['RipDirection'] 		= "$0g";	// RipDirection
+			G_WANConn['ConnectionType'] 		= "$0h";	//ConnectionType
+			G_WANConn['DNSServers']                = "$0i";	//
+			G_WANConn['X_TWSZ-COM_UsrDNSServers']  = "$0j";	//
+			G_WANConn['X_TWSZ-COM_VPN_CLIENT']     = "$0k";	//
+			G_WANConn['X_TWSZ-COM_VPN_NETMASK']    = "$0l";	//
+			G_WANConn['X_TWSZ-COM_VPN_GATEWAY']    = "$0m";	//
+			G_WANConn['X_TWSZ-COM_VPN_SERVER']     = "$0n";	//
+			G_WANConn['X_TWSZ-COM_VPN_INTERFACE_REF']  = "$0o";	//X_TWSZ-COM_VPN_INTERFACE_REF
+			G_WANConn['PPPoEServiceName']               = "$0p"; //PPPoEServiceName
+			G_WANConn['X_TWSZ-COM_VPN_ADDR_MODE']               = "$0q"; //X_TWSZ-COM_VPN_ADDR_MODE
+		`?>
+	`?>	
+`?>
+
+var G_WAN = [];
+<?mget :InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1. "X_TWSZ-COM_CloneMACAddress X_TWSZ-COM_VLANID X_TWSZ-COM_VLANPriority"
+`
+	G_WAN['Path'] 		= "InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.";
+	G_WAN['CloneMACAddress']   = "$01";	//X_TWSZ-COM_CloneMACAddress
+	G_WAN['VLANID'] 		= "$02";	//VLANID
+	G_WAN['VLANPriority']   = "$03";	//VLANPriority
+	
+`?>
+
+var G_Wireless = [];
+var n = 0;
+ <?objget :InternetGatewayDevice.LANDevice.1.WLANConfiguration. "X_TWSZ-COM_ScheduleListName SSID SSIDAdvertisementEnabled BeaconType WEPEncryptionLevel WEPKeyIndex BasicAuthenticationMode BasicEncryptionModes WPAAuthenticationMode WPAEncryptionModes IEEE11iAuthenticationMode IEEE11iEncryptionModes X_TWSZ-COM_PSKExpression PreSharedKey.1.KeyPassphrase PreSharedKey.1.PreSharedKey X_TWSZ-COM_WPAGroupRekey WEPKey.1.WEPKey X_TWSZ-COM_RadiusServer.1.X_TWSZ-COM_IPAddress X_TWSZ-COM_RadiusServer.1.X_TWSZ-COM_Port X_TWSZ-COM_RadiusServer.1.X_TWSZ-COM_ShareKey X_TWSZ-COM_RadiusServer.2.X_TWSZ-COM_IPAddress X_TWSZ-COM_RadiusServer.2.X_TWSZ-COM_Port X_TWSZ-COM_RadiusServer.2.X_TWSZ-COM_ShareKey WPS.Enable"
+        `	
+            G_Wireless[n] = ['InternetGatewayDevice.LANDevice.1.WLANConfiguration.$00.', //path
+                     '$01',//X_TWSZ-COM_ScheduleListName
+                     '$02', //SSID
+                     '$03', //SSIDAdvertisementEnabled
+                     '$04',//BeaconType
+                     '$05',//WEPEncryptionLevel
+                     '$06',//WEPKeyIndex
+                     '$07', //BasicAuthenticationMode
+					 '$08', //BasicEncryptionModes
+					 '$09', //WPAAuthenticationMode
+					 '$0a', //WPAEncryptionModes
+					 '$0b', //IEEE11iAuthenticationMode
+					 '$0c', //IEEE11iEncryptionModes
+					 '$0d', //X_TWSZ-COM_PSKExpression
+					 '$0e', //KeyPassphrase
+					 '$0f', //PreSharedKey
+					 '$0g', //X_TWSZ-COM_WPAGroupRekey
+					 '$0h', //WEPKey.1.WEPKey
+					 '$0i', //X_TWSZ-COM_RadiusServer.1.X_TWSZ-COM_IPAddress
+					 '$0j', //X_TWSZ-COM_RadiusServer.1.X_TWSZ-COM_Port
+					 '$0k', //X_TWSZ-COM_RadiusServer.1.X_TWSZ-COM_ShareKey
+					 '$0l', //X_TWSZ-COM_RadiusServer.2.X_TWSZ-COM_IPAddress
+					 '$0m', //X_TWSZ-COM_RadiusServer.2.X_TWSZ-COM_Port
+					 '$0n', //X_TWSZ-COM_RadiusServer.2.X_TWSZ-COM_ShareKey
+					 '$0o', //WPS.Enable
+                     ];
+    n++;
+`?>
+
+<?mget :InternetGatewayDevice.Time. "LocalTimeZoneName LocalTimeZone"
+`	G_LocalTimeZoneName	= "$01";
+	G_LocalTimeZone		= "$02";
+`?>
+
+/*---- Global variable define -----*/
+//var G_Error	    = "<?error found?>"; 
+//var G_Status	= "<?error status?>"; 
+//var G_Error_Msg	= "<?error message?>";
+
+var stages = new Array ("stage_desc", "stage_wan_detect","stage_ether", "stage_ether_cfg", "stage_wlan_set", "stage_passwd", "stage_tz", "stage_wlan_result", "check_wan_connect", "check_wan_connect_bar");
+var wanTypes = new Array ("DHCP", "DHCPPLUS", "PPPoE", "PPTP", "L2TP", "STATIC", "R_PPTP", "R_L2TP", "R_PPPoE");
+var wanDetectCheckNum = 0;
+var wanDetectNum = 0;
+var wanDetectResult;
+var wanDetectCheckTimer;
+var wanDetectTimer = 0;
+var currentStage = 0;	// 0 ~ stages.length
+var currentWanType = 0;	// 0 ~ wanTypes.length
+var internetCheck = 0;
+var dual_band = "<?get :InternetGatewayDevice.X_TWSZ-COM_Radio.2.Enable ?>";
+
+var enGraph_Auth = false;//图形认证
+
+<? if lt 0 `<?get :InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterfaceNumberOfEntries?>`
+`	<?mget :InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1. "IPInterfaceIPAddress IPInterfaceSubnetMask"
+	`	var G_LanIPAddress  = "$01";
+		var G_LanSubAddress = "$02";
+	`?>
+`?>
+function SetRadioValue(name, value)
+{
+	var radio = document.getElementsByName(name);
+	for (i=0; i<radio.length; i++)
+	{
+		if (radio[i].value==value)	radio[i].checked = true;
+	}
+}
+function GetRadioValue(name)
+{
+	var radio = document.getElementsByName(name);
+	var value = null;
+	for (i=0; i<radio.length; i++)
+	{
+		if (radio[i].checked)	return radio[i].value;
+	}
+
+}
+function OnChangeRussiaPPPoEMode()
+{
+	var disable = document.getElementsByName("wiz_rpppoe_conn_mode")[0].checked ? true: false;
+	$("wiz_rpppoe_ipaddr").disabled = disable;
+	$("wiz_rpppoe_mask").disabled = disable;
+	$("wiz_rpppoe_gw").disabled = disable;
+	$("wiz_rpppoe_dns1").disabled = $("wiz_rpppoe_dns2").disabled = disable;
+}
+function OnChangePPPoEMode()
+{
+	var disable = document.getElementsByName("wiz_pppoe_conn_mode")[0].checked ? true: false;
+	$("wiz_pppoe_ipaddr").disabled = disable;
+}
+function OnChangePPTPMode()
+{
+	var disable = document.getElementsByName("wiz_pptp_conn_mode")[0].checked ? true: false;
+	$("wiz_pptp_ipaddr").disabled = disable;
+	$("wiz_pptp_mask").disabled = disable;
+	$("wiz_pptp_gw").disabled = disable;
+}
+function OnChangeL2TPMode()
+{
+	var disable = document.getElementsByName("wiz_l2tp_conn_mode")[0].checked ? true: false;
+	$("wiz_l2tp_ipaddr").disabled = disable;
+	$("wiz_l2tp_mask").disabled = disable;
+	$("wiz_l2tp_gw").disabled = disable;
+}
+function OnChangeWanType(type)
+{
+	for (var i=0; i<this.wanTypes.length; i++)
+	{
+		if (type=="R_PPPoE")	
+			$("R_PPPoE").style.display = "block";
+		else					
+			$("R_PPPoE").style.display = "none";
+		
+		if (type=="DHCPPLUS")	
+			$("DHCPPLUS").style.display = "block";
+		else					
+			$("DHCPPLUS").style.display = "none";
+
+		if (wanTypes[i]==type)
+			currentWanType = i;
+	}
+}
+function null_errorfunc()
+{
+
+	return true;
+}
+function Ajax_handler(_text)
+{
+	try{
+		eval(_text);
+	}catch(e){
+		uiPageRefresh();
+		return;
+	}
+	//G_Wan_Link_status = "Up";
+	if(G_Wan_Link_status == "Down")
+	{
+		$("wan_detect").style.display = $("wantype_unknown").style.display = "none";
+		$("cable_fail").style.display = "block";
+		
+		return;
+	}
+	
+	var wanDetectResult = G_CheckWanConnection=="0"?G_WANConnectionType:"";
+	if(wanDetectResult === "")
+	{
+		if(wanDetectCheckNum < 50)
+		{
+			$("cable_fail").style.display = $("wantype_unknown").style.display = "none";
+			$("wan_detect").style.display = "block";//检测50次(100S)
+			wanDetectCheckTimer = setTimeout('GetWanDetect()', 2000);
+		}
+		else//检测超时
+		{
+			$("wan_detect").style.display = $("cable_fail").style.display = "none";
+			$("wantype_unknown").style.display = "block";				
+		}						
+	}
+	else if(wanDetectResult === "dhcp success")
+	{
+		for(var i=0; i < stages.length; i++) 
+			if(stages[i]==="stage_wlan_set") 
+				currentStage=i;
+		for(var i=0; i < wanTypes.length; i++)	
+			if(wanTypes[i]==="DHCP")	
+				currentWanType=i;
+		SetRadioValue("wan_mode", "DHCP");
+		ShowCurrentStage();
+	}
+	else if(wanDetectResult === "pppoe success")
+	{
+		for(var i=0; i < stages.length; i++) 
+			if(stages[i]==="stage_ether_cfg") 
+				currentStage=i;
+		for(var i=0; i < wanTypes.length; i++)	
+			if(wanTypes[i]==="PPPoE")	
+				currentWanType=i;
+		SetRadioValue("wan_mode", "PPPoE");			
+		ShowCurrentStage();			
+	}
+	else
+	{
+		for(var i=0; i < stages.length; i++) 
+			if(stages[i]==="stage_ether_cfg") 
+				currentStage=i;
+		for(var i=0; i < wanTypes.length; i++)	
+			if(wanTypes[i]==="STATIC")	
+				currentWanType=i;
+		SetRadioValue("wan_mode", "STATIC");			
+		ShowCurrentStage();			
+	}	
+}
+function GetWanDetect()
+{
+	wanDetectCheckNum++;
+	var _url = "/cgi-bin/webproc?getpage=html/page/portforwdrestore.ajax.js&var:page=*";
+	G_ajax = Ajax.getInstance(_url, "", 0, Ajax_handler, null_errorfunc);
+	G_ajax.get();
+}
+function WanDetect()
+{
+	wanDetectCheckNum++;
+	$H({
+		'var:page'   : 'Bas_wansum',
+		'getpage'    : 'html/page/portforwdrestore.ajax.js',
+		'var:sys_Token' : "tk59651649",
+		'ajax'          : 'ok',
+		'obj-action' : 'set',
+		':InternetGatewayDevice.X_TWSZ-COM_Diagnostics.CheckWanConnection' : '1'
+	},true);
+	
+	G_ajax = Ajax.getInstance("/cgi-bin/webproc", "", 0, Ajax_handler, null_errorfunc);
+	G_ajax.post($('uiPostForm'));	
+}
+function WanDetectAgain()
+{
+	if(wanDetectCheckTimer) 
+		clearTimeout(wanDetectCheckTimer);
+		
+	wanDetectCheckNum = 0;
+	wanDetectResult = "";
+	WanDetectCheck();		
+}
+function WanDetectCheck()
+{
+	if(stages[currentStage]!=="stage_wan_detect") 
+		return;
+	$("cable_fail").style.display = $("wantype_unknown").style.display = "none";	
+	$("wan_detect").style.display = $("stage_wan_detect").style.display = "block";	
+	wanDetectCheckTimer = setTimeout('WanDetect()', 3000);
+	
+}
+function PrePasswd()
+{
+	if ($("en_captcha").checked)
+	{
+		enGraph_Auth = true;
+	}
+	else
+	{
+		enGraph_Auth = false;
+	}	
+	return true;
+}
+function CheckAccount()
+{
+	
+	SetStage(1);
+	ShowCurrentStage();			
+				
+}
+function UpdateWLANCFG(str_Aband)
+{	
+	$("ssid"+str_Aband).innerHTML = $("wiz_ssid"+str_Aband).value;
+	$("wiz_key_result"+str_Aband).innerHTML = $("wiz_key"+str_Aband).value;
+}
+
+/*检测是否全部是数字*/
+function validateKey(str)
+{
+   for (var i=0; i<str.length; i++) {
+    if ( (str.charAt(i) >= '0' && str.charAt(i) <= '9') || (str.charAt(i) == '.' ) )
+			continue;
+	return 0;
+  }
+  return 1;
+}
+
+function getDigit(str, num)
+{
+  i=1;
+  if ( num != 1 ) {
+  	while (i!=num && str.length!=0) {
+		if ( str.charAt(0) == '.' ) {
+			i++;
+		}
+		str = str.substring(1);
+  	}
+  	if ( i!=num )
+  		return -1;
+  }
+  for (i=0; i<str.length; i++) {
+  	if ( str.charAt(i) == '.' ) {
+		str = str.substring(0, i);
+		break;
+	}
+  }
+  if ( str.length == 0)
+  	return -1;
+  var d = parseInt(str, 10);
+  return d;
+}
+
+/*判断地址是否在范围内*/
+function checkDigitRange(str, num, min, max)
+{
+  var d = getDigit(str,num);
+  if ( d > max || d < min )
+      	return false;
+  return true;
+}
+
+function checkDNSValue(_value)
+{
+	if (validateKey(_value) == 0) {
+		return false;
+	}
+	if (!checkDigitRange(_value,1,1,223)) {
+		return false;
+	}
+	if (getDigit(_value,1) == 127)
+	{
+		return false;
+	}
+	if ( !checkDigitRange(_value,2,0,255) ) {
+		return false;
+	}
+	if ( !checkDigitRange(_value,3,0,255) ) {
+		return false;
+	}
+	if ( !checkDigitRange(_value,4,1,254) ) {
+		return false;
+	}
+   
+	return true;
+}
+function checkDNS(DNS){
+	var tmpPriorityDNS=$(DNS+'1').value;
+	var tmpSecondaryDNS=$(DNS+'2').value;
+	
+	if((tmpPriorityDNS==''))
+	{
+		alert(SEcode['lang_pri_dns_invalid']);
+		return false;
+	}
+
+	if ((tmpPriorityDNS!='') && !checkDNSValue(tmpPriorityDNS)) 
+	{
+		alert(SEcode['lang_pri_dns_invalid']);
+		return false;
+	}
+	
+	if ((tmpSecondaryDNS!='') && !checkDNSValue(tmpSecondaryDNS))
+	{
+		alert(SEcode['lang_sec_dns_invalid']);
+		return false;
+	}
+	
+	if(tmpPriorityDNS&&tmpPriorityDNS==tmpSecondaryDNS)
+	{
+		alert(SEcode['lang_sec_dns_invalid']);
+		return false;
+	}
+    return true;
+}
+function CheckWANData(type)
+{
+	switch (type)
+	{
+		case "DHCP":
+			break;
+		case "PPPoE":
+			if ($("wiz_pppoe_usr").value == "")
+			{
+				alert(SEcode["lang_user_empty"]);
+				return false;
+			}
+			if ($("wiz_pppoe_passwd").value == "")
+			{
+				alert(SEcode["lang_passwd_empty"]);
+				return false;
+			}
+			break; 
+		case "PPTP":
+			if ($("wiz_"+type.toLowerCase()+"_passwd").value!=
+				$("wiz_"+type.toLowerCase()+"_passwd2").value)
+			{
+				alert(SEcode["lang_passwd_not_match"]);
+				return false;
+			}
+			
+			if ($("wiz_pptp_usr").value == "") 
+			{
+				alert(SEcode["lang_user_empty"]);
+				return false;
+			}
+			if ($("wiz_pptp_passwd").value == "") 
+			{
+				alert(SEcode["lang_passwd_empty"]);
+				return false;
+			}
+			if($("wiz_pptp_svr").value == G_LanIPAddress)
+			{
+				alert(SEcode["lang_lan_pptp_server_conflict"]);
+				$("wiz_pptp_svr").focus();
+				return false;
+			}
+			if ($("wiz_pptp_svr").value == "" || $("wiz_pptp_svr").value=="0.0.0.0") 
+			{
+				alert(SEcode["lang_invalid_pptp_server"]);
+				return false;
+			}
+			if (!CheckValidity.IP("wiz_pptp_svr",SEcode["lang_invalid_pptp_server"]))
+				return false;
+			if($("dns1").value !="" || $("dns2").value !="")
+				if(!checkDNS('dns'))
+					return false;
+			if (document.getElementsByName("wiz_pptp_conn_mode")[1].checked == true) 
+			{
+
+				if ($("wiz_pptp_ipaddr").value == "" || $("wiz_pptp_ipaddr").value=="0.0.0.0") 
+				{
+					alert(SEcode["lang_invalid_ip"]);	
+					return false;
+				}
+				if (!CheckValidity.IP("wiz_pptp_ipaddr",SEcode["lang_invalid_ip"]))
+					return false;
+				
+				if ($("wiz_pptp_mask").value == "" || $("wiz_pptp_mask").value=="0.0.0.0") 
+				{
+					alert(SEcode["lang_invalid_mask"]);	
+					return false;
+				}
+				if (!CheckValidity.Mask("wiz_pptp_mask",SEcode["lang_invalid_mask"]))
+					return false;
+				
+				if ($("wiz_pptp_gw").value == "" || $("wiz_pptp_gw").value=="0.0.0.0") 
+				{
+					alert(SEcode["lang_gate_invalid"]);	
+					return false;
+				}
+				if (!CheckValidity.IP("wiz_pptp_gw",SEcode["lang_gate_invalid"]))
+					return false;
+				
+
+				if(!isSameSubNet($("wiz_pptp_gw").value,$('wiz_pptp_mask').value,$('wiz_pptp_ipaddr').value,$('wiz_pptp_mask').value))
+				{
+					alert(SEcode["lang_gate_same_ip"]);
+					$("wiz_pptp_gw").focus();
+					return false;
+				}
+
+				if(!checkDNS('dns'))
+					return false;
+				if(isSameSubNet($("wiz_pptp_ipaddr").value,$('wiz_pptp_mask').value,G_LanIPAddress,G_LanSubAddress))
+				{
+					alert(SEcode["lang_lan_wan_conflict"]);	
+					$("wiz_pptp_ipaddr").focus();
+					return false;
+				}
+				if($('wiz_pptp_svr').value == $('wiz_pptp_ipaddr').value)
+				{
+					alert(SEcode['lang_pptp_server_same_ip']);
+					return false;
+				}
+			}
+			break;
+	case "L2TP":
+		if ($("wiz_"+type.toLowerCase()+"_passwd").value!=
+			$("wiz_"+type.toLowerCase()+"_passwd2").value)
+		{
+			alert(SEcode["lang_passwd_not_match"]);
+			return false;
+		}
+
+
+		if ($("wiz_l2tp_usr").value == "") 
+		{
+			alert(SEcode["lang_user_empty"]);
+			return false;
+		}
+		if ($("wiz_l2tp_passwd").value == "") 
+		{
+			alert(SEcode["lang_passwd_empty"]);
+			return false;
+		}
+		if($("wiz_l2tp_svr").value == G_LanIPAddress)
+		{
+			alert(SEcode["lang_lan_l2tp_server_conflict"]);
+			$("wiz_l2tp_svr").focus();
+			return false;
+		}
+		if ($("wiz_l2tp_svr").value == "" || $("wiz_l2tp_svr").value=="0.0.0.0") 
+		{
+			alert(SEcode["lang_invalid_l2tp_server"]);
+			return false;
+		}
+		if (!CheckValidity.IP("wiz_l2tp_svr",SEcode["lang_invalid_l2tp_server"]))
+			return false;
+		if($("dns1").value !="" || $("dns2").value !="")
+			if(!checkDNS('dns'))
+				return false;		
+		if (document.getElementsByName("wiz_l2tp_conn_mode")[1].checked == true) 
+		{
+
+			if ($("wiz_l2tp_ipaddr").value == "" || $("wiz_l2tp_ipaddr").value=="0.0.0.0") 
+			{
+				alert(SEcode["lang_invalid_ip"]);	
+				return false;
+			}
+			if (!CheckValidity.IP("wiz_l2tp_ipaddr",SEcode["lang_invalid_ip"]))
+				return false;
+			
+			if ($("wiz_l2tp_mask").value == "" || $("wiz_l2tp_mask").value=="0.0.0.0") 
+			{
+				alert(SEcode["lang_invalid_mask"]);	
+				return false;
+			}
+			if (!CheckValidity.Mask("wiz_l2tp_mask",SEcode["lang_invalid_mask"]))
+				return false;
+			
+			if ($("wiz_l2tp_gw").value == "" || $("wiz_l2tp_gw").value=="0.0.0.0") 
+			{
+				alert(SEcode["lang_invalid_def_gate"]);	
+				return false;
+			}
+			if (!CheckValidity.IP("wiz_l2tp_gw",SEcode["lang_invalid_def_gate"]))
+				return false;
+			
+			if(!isSameSubNet($("wiz_l2tp_gw").value,$('wiz_l2tp_mask').value,$('wiz_l2tp_ipaddr').value,$('wiz_l2tp_mask').value))
+			{
+				alert(SEcode["lang_gate_same_ip"]);
+				$("wiz_l2tp_gw").focus();
+				return false;
+			}
+			if(!checkDNS('dns'))
+				return false;
+			if(isSameSubNet($("wiz_l2tp_ipaddr").value,$('wiz_l2tp_mask').value,G_LanIPAddress,G_LanSubAddress))
+			{
+				alert(SEcode["lang_lan_wan_conflict"]);	
+				$("wiz_l2tp_ipaddr").focus();
+				return false;
+			}
+			if($('wiz_l2tp_svr').value == $('wiz_l2tp_ipaddr').value)
+			{
+				alert(SEcode['lang_l2tp_server_same_ip']);
+				return false;
+			}
+		}
+			break;
+		case "STATIC":
+			if (!CheckValidity.IP("wiz_"+type.toLowerCase()+"_ipaddr","Invalid IP format!"))
+				return false;
+			if (!CheckValidity.Mask("wiz_"+type.toLowerCase()+"_mask","Invalid Mask format!"))
+				return false;
+			if (!CheckValidity.isNetIP( $("wiz_"+type.toLowerCase()+"_ipaddr").value, $("wiz_"+type.toLowerCase()+"_mask").value ) )
+				return false;
+				
+			if(!checkDNS('wiz_static_dns'))
+			return false;
+			if(isSameSubNet($("wiz_static_ipaddr").value,$('wiz_static_mask').value,G_LanIPAddress,G_LanSubAddress))
+			{
+				alert(SEcode["lang_lan_wan_conflict"]);	
+				$("wiz_static_ipaddr").focus();
+				return false;
+			}
+			break;
+		default:
+			alert(SEcode["lang_select_mode"]);
+			return false;
+	}
+	
+	return true;
+}
+function OnClickCancel()
+{
+	$H({
+		
+		'var:menu'     : 'basic',
+		'getpage'      : 'html/index.html',
+		'var:page'     : 'Bas_wansum',
+		'var:sys_Token' : "tk59651649",
+		'errorpage'    : 'html/index.html',
+		'var:errorpage': 'Bas_wansum',
+		'var:CacheLastData': ViewState.Save()
+	},true);
+	$('uiPostForm').submit();
+}
+function SetStage(offset)
+{
+	var length = stages.length;
+	switch (offset)
+	{
+	case 2:
+		if (currentStage < length-1)
+			currentStage += 2;
+		break;			
+	case 1:
+		if (currentStage < length-1)
+			currentStage += 1;
+		break;
+	case -1:
+		if (currentStage > 0)
+			currentStage -= 1;
+		break;
+	case -2:
+		if (currentStage > 1)
+			currentStage -= 2;
+		break;			
+	}
+}
+function OnClickPre()
+{
+	var stage = stages[currentStage];
+	var type = wanTypes[currentWanType];
+	if(stage=="stage_wlan_set" && (type=="DHCP" || type=="DHCPPLUS")) 
+		SetStage(-2);
+	else if(stage == "stage_wan_detect")
+	{
+		if(wanDetectCheckTimer) 
+			clearTimeout(wanDetectCheckTimer);
+		SetStage(-1);
+	}
+	else 
+		SetStage(-1);	
+	stage = stages[currentStage];	
+	if(stage=="stage_wan_detect") WanDetectAgain();
+	ShowCurrentStage();
+}
+function OnClickNext()
+{
+	var stage = stages[currentStage];
+	
+	if (stage == "stage_passwd")
+	{
+		if ($("wiz_passwd").value=="")
+		{
+			alert(SEcode["lang_admin_passwd_empty"]);
+			return false;			
+		}
+		if(!$("wiz_passwd").value.match(/^[0-9a-zA-Z\\.@_$-]{1,15}$/))
+		{
+			alert(SEcode["lang_invalid_passwd"]);
+			return false;			
+		}		
+		for(var i=0;i < $("wiz_passwd").value.length;i++)
+		{
+			if ($("wiz_passwd").value.charCodeAt(i) > 256) //avoid holomorphic word
+			{ 
+				alert(SEcode["lang_invalid_passwd"]);
+				return false;
+			}
+		}			
+		if ($("wiz_passwd").value!=$("wiz_passwd2").value)
+		{
+			alert(SEcode["lang_passwd_not_match"]);
+			return false;
+		}
+		//PrePasswd();//图形验证码
+		CheckAccount();			
+	}	
+	else if (stage == "stage_ether")
+	{
+		var type = wanTypes[currentWanType];
+		if (type=="DHCPPLUS")	
+			type = "DHCP";
+		if (type=="DHCP")
+		{
+			SetStage(2);	
+		}
+		else 
+			SetStage(1);
+		ShowCurrentStage();
+	}			
+	else if (stage == "stage_ether_cfg")
+	{
+		var type = wanTypes[currentWanType];
+		if (type=="R_PPTP")			
+			type = "PPTP";
+		else if (type=="R_L2TP")	
+			type = "L2TP";
+		else if (type=="R_PPPoE")	
+			type = "PPPoE";
+		else if (type=="DHCPPLUS")	
+			type = "DHCP";
+			
+		if(CheckWANData(type) == true)
+		{
+			SetStage(1);
+			ShowCurrentStage();
+		}
+	}
+	else if (stage == "stage_wlan_set")
+	{
+		if($("wiz_ssid").value.charAt(0)===" "|| $("wiz_ssid").value.charAt($("wiz_ssid").value.length-1)===" ")
+		{
+			alert(SEcode["lang_prefix_blank"]);
+			$("wiz_ssid").focus();
+			return ;
+		}
+		if(dual_band && ($("wiz_ssid_Aband").value.charAt(0)===" "|| $("wiz_ssid_Aband").value.charAt($("wiz_ssid_Aband").value.length-1)===" "))
+		{
+			alert(SEcode["lang_prefix_blank"]);
+			$("wiz_ssid_Aband").focus();
+			return ;
+		}			
+		if ($("wiz_ssid").value=="")
+		{
+			alert(SEcode["lang_ssid_empty"]);
+			$("wiz_ssid").focus();
+			return;
+		}
+		if (dual_band && $("wiz_ssid_Aband").value=="")
+		{
+			alert(SEcode["lang_ssid_empty"]);
+			$("wiz_ssid_Aband").focus();
+			return;
+		}		
+		
+		if ($("wiz_key").value.length < 8)
+		{
+			alert(SEcode["lang_passwd_8_63"]);
+			$("wiz_key").focus();
+			return;
+		}
+		if(dual_band && $("wiz_key_Aband").value.length < 8)
+		{
+			alert(SEcode["lang_passwd_8_63"]);
+			$("wiz_key_Aband").focus();
+			return;
+		}	
+		if($("wiz_key").value.charAt(0)==" "|| $("wiz_key").value.charAt($("wiz_key").value.length-1)==" ")
+		{
+			alert(SEcode["lang_passwd_blank"]);
+			$("wiz_key").focus();
+			return;
+		}
+		if(dual_band && ($("wiz_key_Aband").value.charAt(0)==" "|| $("wiz_key_Aband").value.charAt($("wiz_key_Aband").value.length-1)==" "))
+		{
+			alert(SEcode["lang_passwd_blank"]);
+			$("wiz_key_Aband").focus();
+			return;
+		}	
+				
+		SetStage(1);
+		ShowCurrentStage();
+	}	
+	else if(stage == "stage_wan_detect")
+	{
+		if(wanDetectCheckTimer) 
+			clearTimeout(wanDetectCheckTimer);
+		SetStage(1);
+		ShowCurrentStage();
+	}
+	else
+	{	
+		SetStage(1);
+		ShowCurrentStage();
+	}	
+}	
+function findProtocol( ){
+    var _protocol = 'DHCP';
+	var Conn_Type = G_WANConn['Path'].indexOf('WANIPConnection') > -1 ? "IP" : "PPP";
+	if(Conn_Type == 'PPP')
+	{
+		if(G_WANConn['ConnectionType']=="PPTP_Relay"){
+			_protocol = 'PPTP';
+		}else if(G_WANConn['ConnectionType']=="L2TP_Relay"){
+			_protocol = 'L2TP';
+		}else{
+			_protocol = 'PPPoE';
+		}
+	}else
+	{
+		if(G_WANConn['ConnectionType'] != 'IP_Bridged')
+		{
+			if(G_WANConn['AddressingType'] == 'Static')
+			{
+				_protocol = 'STATIC';
+			}else{
+				_protocol = 'DHCP';
+			}
+		}
+	}
+	return _protocol;
+}
+function InitValue()
+{
+	if(dual_band == 1)//enable 5G
+	{
+		$("div_ssid_A").style.display = "block"; 
+		$("div_ssid_A_result").style.display = "block";
+	}
+	else
+	{
+		$("wifi24_name_pwd_show").innerHTML	= data_languages.Wiz_login.innerHTML.WIZLOGIN217;
+		$("wifi24_pwd_show").style.display 	= "block";
+		$("fld_ssid_24_result").innerHTML		= data_languages.Wiz_login.innerHTML.WIZLOGIN218;
+	}
+	
+	var type = findProtocol();
+	setJSONValue({
+		"wan_mode" 			: type,
+		"wiz_ssid" 			: G_Wireless[0][2],
+		"wiz_ssid_Aband" 	: G_Wireless[1][2],
+		'wiz_tz'        	: G_LocalTimeZone || '56'
+	});
+	if(G_Wireless[0][13] == "PreSharedKey")
+	{
+		if(G_Wireless[0][15]!="")
+			$("wiz_key").value = Base64.Decode(G_Wireless[0][15]);
+	}else if(G_Wireless[0][13] == "KeyPassphrase")
+	{
+		if(G_Wireless[0][14]!="")
+			$("wiz_key").value = Base64.Decode(G_Wireless[0][14]);
+	}
+	if(G_Wireless[1][13] == "PreSharedKey")
+	{
+		if(G_Wireless[1][15]!="")
+			$("wiz_key_Aband").value = Base64.Decode(G_Wireless[1][15]);
+	}else if(G_Wireless[1][13] == "KeyPassphrase")
+	{
+		if(G_Wireless[1][14]!="")
+			$("wiz_key_Aband").value = Base64.Decode(G_Wireless[1][14]);
+	}
+	
+	OnChangeWanType(type);
+	switch(type) {
+		case "DHCP" :
+			setJSONValue({
+			
+			});
+			break;
+			
+		case "STATIC" :
+			setJSONValue({
+			"wiz_static_ipaddr"      : G_WANConn['ExternalIPAddress'] || "0.0.0.0",
+			"wiz_static_mask"        : G_WANConn['SubnetMask'] || "0.0.0.0",
+			"wiz_static_gw"          : G_WANConn['DefaultGateway'] || "0.0.0.0",
+			"dns1"        			 : G_WANConn['X_TWSZ-COM_UsrDNSServers'].split(',')[0] || '',
+			"dns2"       			 : G_WANConn['X_TWSZ-COM_UsrDNSServers'].split(',')[1] || ''
+			});
+			break;
+			
+		case "PPPoE" :
+			setJSONValue({
+			"wiz_pppoe_usr"           : G_WANConn['Username'] || "",
+			"wiz_pppoe_passwd"        : Base64.Decode(G_WANConn['Password'])
+			});
+			break;
+			
+		case "PPTP" :
+			setJSONValue({
+			"wiz_pptp_ipaddr"           : G_WANConn['X_TWSZ-COM_VPN_CLIENT'] || '0.0.0.0',
+			"wiz_pptp_mask"        		: G_WANConn['X_TWSZ-COM_VPN_NETMASK'] || '0.0.0.0',
+			"wiz_pptp_gw"        		: G_WANConn['X_TWSZ-COM_VPN_GATEWAY'] || '0.0.0.0',
+			"wiz_pptp_svr"        		: G_WANConn['X_TWSZ-COM_VPN_SERVER'] || '0.0.0.0',
+			"wiz_pptp_usr"        		: G_WANConn['Username'] || '',
+			"wiz_pptp_passwd"       	: G_WANConn['Password'] || '',
+			"wiz_pptp_passwd2"        	: G_WANConn['Password'] || '',
+			"dns1"        				: G_WANConn['X_TWSZ-COM_UsrDNSServers'].split(',')[0] || '',
+			"dns2"        				: G_WANConn['X_TWSZ-COM_UsrDNSServers'].split(',')[1] || ''
+			});
+			Form.Radio("wiz_pptp_conn_mode",  G_WANConn['X_TWSZ-COM_VPN_ADDR_MODE']=="Static"? "static" : "dynamic");
+			
+			break;
+		case "L2TP" :
+			setJSONValue({
+			"wiz_l2tp_ipaddr"           : G_WANConn['X_TWSZ-COM_VPN_CLIENT'] || '0.0.0.0',
+			"wiz_l2tp_mask"        		: G_WANConn['X_TWSZ-COM_VPN_NETMASK'] || '0.0.0.0',
+			"wiz_l2tp_gw"        		: G_WANConn['X_TWSZ-COM_VPN_GATEWAY'] || '0.0.0.0',
+			"wiz_l2tp_svr"        		: G_WANConn['X_TWSZ-COM_VPN_SERVER'] || '0.0.0.0',
+			"wiz_l2tp_usr"        		: G_WANConn['Username'] || '',
+			"wiz_l2tp_passwd"        	: G_WANConn['Password'] || '',
+			"wiz_l2tp_passwd2"        	: G_WANConn['Password'] || '',
+			"dns1"       				: G_WANConn['X_TWSZ-COM_UsrDNSServers'].split(',')[0] || '',
+			"dns2"      				: G_WANConn['X_TWSZ-COM_UsrDNSServers'].split(',')[1] || ''
+			});
+			Form.Radio("wiz_l2tp_conn_mode",  G_WANConn['X_TWSZ-COM_VPN_ADDR_MODE']=="Static"? "static" : "dynamic");
+			
+			break;
+		default:;
+	}
+	
+	OnChangePPTPMode();
+	OnChangeL2TPMode();
+}
+function uiOnload()
+{
+	chg_language(data_languages["Wiz_login"]);
+	ShowCurrentStage();
+	InitValue();
+	
+	dealWithError();
+}
+
+function CheckInternet()
+{
+	var action="dnsquery";
+	if(internetCheck < 10)
+	{
+		internetCheck++;
+	}
+	var result = "FAIL";
+	if(result =="OK")
+	{
+		self.location.href="";				
+	}
+	else if(internetCheck >= 10)
+	{
+		if (confirm("Did not detect the Internet, whether or not to run the wizard again?")) 
+		{ 
+			self.location.href="";
+		}
+		else
+		{ 
+			ActiveWLANService(); 
+		}
+	}
+	else 
+		setTimeout('CheckInternet()', 2000);
+	
+}
+function OnClickSkip()
+{
+	OnClickCancel();
+
+}
+
+// Activate Wifi setting and redirect user to webUI when user leave the wizard
+function ActiveWLANService()
+{
+	var result = "OK";
+	if(result != "OK") 
+		alert("WiFi setting error, please check it again!");
+	OnClickCancel();
+}
+function ShowCurrentStage()
+{
+	var i = 0;
+	var type = "";
+	for (i=0; i<wanTypes.length; i++)
+	{
+		type = wanTypes[i];
+		if (type=="R_PPTP")			type = "PPTP";
+		else if (type=="R_L2TP")	type = "L2TP";
+		else if (type=="R_PPPoE")	type = "PPPoE";
+		else if (type=="DHCPPLUS")	type = "DHCP";
+		$(type).style.display = "none";
+	}
+	for (i=0; i<stages.length; i++)
+	{
+		if (i==currentStage)
+		{
+			$(stages[i]).style.display = "block";
+			if (stages[currentStage]=="stage_ether_cfg")
+			{
+				type = wanTypes[currentWanType];
+				if (type=="R_PPTP")			type = "PPTP";
+				else if (type=="R_L2TP")	type = "L2TP";
+				else if (type=="R_PPPoE")	type = "PPPoE";
+				else if (type=="DHCPPLUS")	type = "DHCP";
+				$(type).style.display = "block";
+			}
+		}
+		else	
+			$(stages[i]).style.display = "none";
+	}
+	if(wanTypes[currentWanType]=="DHCP" || wanTypes[currentWanType]=="DHCPPLUS" 
+		|| wanTypes[currentWanType]=="STATIC" || wanTypes[currentWanType]=="R_PPPoE"
+		|| wanTypes[currentWanType]=="PPPoE")	
+		$("DNS").style.display = "none";
+	else	
+		$("DNS").style.display = "block";
+
+	if (stages[currentStage]=="stage_wan_detect")
+	{
+		if(wanDetectCheckTimer) 
+			clearTimeout(wanDetectCheckTimer);
+		wanDetectCheckNum = 0;
+		WanDetectCheck();
+	}
+	else 
+		$("wan_detect").style.display = $("cable_fail").style.display = $("wantype_unknown").style.display = "none";	
+
+	if (stages[currentStage]=="stage_wlan_result")
+	{
+		UpdateWLANCFG("");
+		if(dual_band) 
+			UpdateWLANCFG("_Aband");
+	}
+
+	if (stages[currentStage]=="check_wan_connect")
+	{
+		//ShowContent();
+		internetCheck=0;
+		setTimeout('SetStage(1);ShowCurrentStage();', 2000);
+		setTimeout('CheckInternet()', 10000);
+	}
+	
+}
+
+function recordPsd(){
+	if(Form.Checkbox('INPUT_Remember')){ //checked = true;
+		Cookie.Set('TBSPASSWORD', $('INPUT_Psd').value, 720);
+	} else if(!Form.Checkbox('INPUT_Remember')){ //checked = false;
+		Cookie.Delete('TBSPASSWORD');
+	}
+}
+
+
+/* 
+对错误码的处理 
+错误码的格式:节点名=错误码
+*/
+function dealErrorMsg(arrayNode, errorMsg){
+	if (typeof errorMsg != 'string') 
+	    return;
+	    
+	//将错误信息一分为二：前段寻找错误码对应的节点；后段寻找错误码对应的提示；
+	var errorFragment = errorMsg.split('=');
+	var errorCode, errorString, leafNode;
+	
+	//寻找错误码对应的节点;
+	if (errorFragment != null && errorFragment.length > 0){
+		var _fragment = errorFragment[0].split('.');
+		leafNode = _fragment[_fragment.length - 1];
+		leafNode = arrayNode[leafNode];
+	}
+	    
+	//在获取错误码后，立即寻找相应的错误码。
+	if (errorFragment[1] != null){
+		errorCode = errorFragment[1].match(/^[0-9]{4}/)[0];
+	} else {
+		if (errorMsg.match(/^[0-9]{4}/) == null){
+            leafNode = arrayNode["result"];
+			
+			if($(leafNode)){
+				$(leafNode).innerHTML = errorMsg;				
+			}
+            return false;
+	    }
+	    errorCode = errorMsg.match(/^[0-9]{4}/)[0];
+	}
+	
+	if(UEcode[errorCode] !== undefined){
+		errorString = UEcode[errorCode];
+	} else if (SEcode[errorCode] !== undefined ) {
+		errorString = SEcode[errorCode];
+	} else {
+		errorString = SEcode[1000];
+	}
+	
+	//选择两种不同的错误提示方式：1、将错误准确打印在对应的输入框之后；2、对于未知错误，以告警框来提示；
+	if (leafNode != undefined){
+		$(leafNode).innerHTML = errorString;
+	} else {
+		alert(errorString + "!");
+	}
+}
+
+function ShowContent()
+{
+	$("mbox").style.display	= "none";
+	
+}
+function OnSubmitCallback(code, result)
+{
+	switch (code)
+	{
+		case "OK":
+			for(var i=0; i < stages.length; i++) if(stages[i]==="check_wan_connect") currentStage=i;
+			ShowCurrentStage();
+			return true;
+			break;
+		default : 
+			currentStage--;
+			ShowCurrentStage();
+			return false;
+	}
+}
+function SubmitCallback(code, result)
+{
+	if (OnSubmitCallback(code, result)) return;
+	ShowContent();
+	switch (code)
+	{
+		case "OK":
+			OnReload();
+			break;
+		case "BUSY":
+			alert("Device is busy, please try again later.");
+			break;
+		
+	}
+}
+function searchTimeZoneName(){
+	//TimeZoneName和TimeZone的对应关系图
+	var timeZoneNameMap = {
+		'1':'IDLE',//-12
+		'2':'UTC',//-11
+		'3':'HST',//-10
+		'4':'AKST',//-9
+		'5':'PST',//-8
+		'6':'MST',//-7
+		'7':'MST',//-7
+		'8':'MST',//-7
+		'9':'CST',//-6
+		'10':'CST',//-6
+		'11':'CST',//-6
+		'12':'CST',//-6
+		'13':'EST',//-5
+		'14':'EST',//-5
+		'15':'VEN',//-430
+		'16':'AST',//-4
+		'17':'AST',//-4
+		'18':'AST',//-4
+		'19':'NST',//-330
+		'20':'BRT',//-3
+		'21':'BRT',//-3
+		'22':'BRT',//-3
+		'23':'FNT',//-2
+		'24':'WAT',//-1
+		'25':'WAT',//-1
+		'26':'GMT',//0
+		'27':'GMT',//0
+		'28':'MET',//+1
+		'29':'MET',//+1
+		'30':'MET',//+1
+		'31':'MET',//+1
+		'32':'MET',//+1
+		'33':'EET',//+2
+		'34':'EET',//+2
+		'35':'EET',//+2
+		'36':'EET',//+2
+		'37':'EET',//+2
+		'38':'EET',//+2
+		'39':'EAT',//+3
+		'40':'EAT',//+3
+		'41':'EAT',//+3
+		'42':'IRT',//+330
+		'43':'MUT',//+4
+		'44':'MUT',//+4
+		'45':'MUT',//+4
+		'46':'NZT',//+430
+		'47':'TFT',//+5
+		'48':'LKA',//+530
+		'49':'LKA',//+530
+		'50':'NPL', //+545
+		'51':'ALMT',//+600
+		'52':'ALMT',//+600
+		'53':'MMT', //+630
+		'54':'WAST',//+7
+		'55':'WAST',//+7
+		'56':'CCT',//+8
+		'57':'CCT',//+8
+		'58':'CCT',//+8
+		'59':'CCT',//+8
+		'60':'CCT',//+8
+		'61':'CCT',//+8
+		'62':'JST',//+9
+		'63':'JST',//+9
+		'64':'JST',//+9
+		'65':'JST',//+9
+		'66':'JST',//+9
+		'67':'AEST',//+10
+		'68':'AEST',//+10
+		'69':'AEST',//+10
+		'70':'AEST',//+10
+		'71':'AEST',//+10
+		'72':'AESST',//+11
+		'73':'AESST',//+11
+		'74':'AESST',//+12
+		'75':'NZT',//+12
+		'76':'NZT',//+12
+		'77':'NZDT',//+13
+		'78':'NZDT'//+13
+	};
+	for(var i in timeZoneNameMap){
+		if(i == arguments[0]){
+			return timeZoneNameMap[i];
+		}
+	}
+	return G_LocalTimeZoneName;
+}
+function getProtocol()
+{
+	var type = wanTypes[currentWanType];
+	switch(type){
+		case 'DHCP' : {
+			return ['DHCP','IP'];
+		}
+		case 'STATIC' : {
+			return ['Static','IP'];
+		}
+		case 'PPPoE' : {
+			return ['PPPoE','PPP'];
+		}
+		case 'PPTP' : {
+			return ['PPTP','PPP'];
+		}
+		case 'L2TP' : {
+			return ['L2TP','PPP'];
+		}
+	}
+}
+function Ajax_Submit_2(_text)
+{
+	try{
+		eval(_text);
+	}catch(e){
+		uiPageRefresh();
+		return;
+	}
+	var Basepsw= $('wiz_passwd').value;
+	if($('wiz_passwd').value != '')
+	{		
+		var pass = $("wiz_passwd").value;
+		Basepsw= Base64.Encode(pass);
+	}
+	G_SysToken = "tk59651649";
+	if(G_Error == '1')
+	{
+		$("wizard").style.display="";
+		$("mbox").style.display="none";	
+		dealWithError();
+		$("WIZLOGIN216").disabled = false;
+	}	
+	else
+	{
+		$H({
+			"obj-action"           : "set",
+			"getpage"              : "html/page/portforwdrestore.ajax.js",
+			"errorpage"            : "html/page/portforwdrestore.ajax.js",
+			'var:sys_Token' : G_SysToken,
+			'ajax'          : 'ok',
+			"var:menu"             : "basic",
+			"var:page"             : "Bas_wansum",
+			"var:errorpage"        : "Bas_wansum",
+			"var:CacheLastData" 	: ViewState.Save()
+		}, true);
+
+		//TimeZone
+		$F(':InternetGatewayDevice.Time.LocalTimeZone', document.getElementById("wiz_tz").value);
+		$F(':InternetGatewayDevice.Time.LocalTimeZoneName', searchTimeZoneName(document.getElementById("wiz_tz").value) );
+		$F(':InternetGatewayDevice.Time.DaylightSavingsUsed', '1');	
+	
+		//password
+		$F(':InternetGatewayDevice.X_TWSZ-COM_Authentication.UserList.1.Password', Basepsw);
+	
+		var _url = "/cgi-bin/webproc?getpage=html/page/portforwdrestore.ajax.js&var:page=*";
+		G_ajax = Ajax.getInstance(_url, "", 0, Ajax_Submit, null_errorfunc);
+		G_ajax.post($('uiPostForm'));
+	}
+}
+function Ajax_Submit_3(_text)
+{
+	try{
+		eval(_text);
+	}catch(e){
+		uiPageRefresh();
+		return;
+	}
+	G_SysToken = "tk59651649";
+	if(G_Error == '1')
+	{
+		$("wizard").style.display="";
+		$("mbox").style.display="none";	
+		dealWithError();
+		$("WIZLOGIN216").disabled = false;
+	}	
+	else
+	{
+		self.location.href = "/cgi-bin/webproc?getpage=html/main.html&var:menu=basic&var:page=Bas_wansum";	
+	}
+}
+function Ajax_Submit(_text)
+{
+	try{
+		eval(_text);
+	}catch(e){
+		uiPageRefresh();
+		return;
+	}
+	G_SysToken = "tk59651649";
+	if(G_Error == '1')
+	{
+		$("wizard").style.display="";
+		$("mbox").style.display="none";	
+		dealWithError();
+		$("WIZLOGIN216").disabled = false;
+	}	
+	else
+	{
+		$H({
+			"obj-action"           : "set",
+			"getpage"              : "html/page/portforwdrestore.ajax.js",
+			"errorpage"            : "html/page/portforwdrestore.ajax.js",
+			"var:menu"             : "basic",
+			'var:sys_Token' : G_SysToken,
+			'ajax'          : 'ok',
+			"var:page"             : "Bas_wansum",
+			"var:errorpage"        : "Bas_wansum",
+			"var:CacheLastData" 	: ViewState.Save()
+		}, true);
+	
+		//WLAN 
+		var _path = ":InternetGatewayDevice.LANDevice.1.WLANConfiguration.1";
+		var path_5G = ":InternetGatewayDevice.LANDevice.1.WLANConfiguration.2";
+		
+		$F(':InternetGatewayDevice.X_TWSZ-COM_Radio.1.Enable', 	1);
+		$F(_path + ".SSID", 					$("wiz_ssid").value);
+		$F(_path + '.BeaconType', 					'WPAand11i');
+		$F(_path + '.WPAEncryptionModes', 			'TKIPandAESEncryption'); //yll test 
+		$F(_path + '.IEEE11iEncryptionModes', 		'TKIPandAESEncryption');
+		
+		//Pre-Shared Key
+		if($('wiz_key').value.length >= 8 && $('wiz_key').value.length < 64){
+			$F(_path + '.PreSharedKey.1.KeyPassphrase', Base64.Encode($('wiz_key').value) );
+			$F(_path + '.X_TWSZ-COM_PSKExpression', 'KeyPassphrase');
+		} else if($('wiz_key').value.length == 64){
+			$F(_path + '.PreSharedKey.1.PreSharedKey', Base64.Encode($('wiz_key').value) );
+			$F(_path + '.X_TWSZ-COM_PSKExpression', 'PreSharedKey');
+		}else{
+			alert(SEcode["lang_psk_printable"]);
+		}
+		if(dual_band == 1)
+		{
+			$F(':InternetGatewayDevice.X_TWSZ-COM_Radio.2.Enable', 	1);
+			$F(path_5G + ".SSID", 				$("wiz_ssid_Aband").value);
+			$F(path_5G + '.BeaconType', 					'WPAand11i');
+			$F(path_5G + '.WPAEncryptionModes', 			'TKIPandAESEncryption'); //yll test 
+			$F(path_5G + '.IEEE11iEncryptionModes', 		'TKIPandAESEncryption');
+			if($('wiz_key_Aband').value.length >= 8 && $('wiz_key_Aband').value.length < 64){
+			$F(path_5G + '.PreSharedKey.1.KeyPassphrase', Base64.Encode($('wiz_key_Aband').value) );
+			$F(path_5G + '.X_TWSZ-COM_PSKExpression', 'KeyPassphrase');
+			} else if($('wiz_key_Aband').value.length == 64){
+				$F(path_5G + '.PreSharedKey.1.PreSharedKey', Base64.Encode($('wiz_key_Aband').value) );
+				$F(path_5G + '.X_TWSZ-COM_PSKExpression', 'PreSharedKey');
+			}else{
+				alert(SEcode["lang_psk_printable"]);
+			}
+		}
+		
+		var _url = "/cgi-bin/webproc?getpage=html/page/portforwdrestore.ajax.js&var:page=*";
+		G_ajax = Ajax.getInstance(_url, "", 0, Ajax_Submit_3, null_errorfunc);
+		G_ajax.post($('uiPostForm'));
+	}
+}
+function OnSubmit()
+{
+	//SubmitCallback("OK","2");
+	var ConnPath;
+	var _addrtype;
+	var _protocol = getProtocol();
+
+	
+	if(_protocol[0] == "DHCP"){
+		_addrtype = "DHCP";
+	}else if(_protocol[0] == "Static"){
+		_addrtype = "Static";
+	}else{
+		_addrtype = "undefined";
+	}
+	
+	$H({
+		"obj-action"           : "set",
+		"getpage"              : "html/page/portforwdrestore.ajax.js",
+		"errorpage"            : "html/page/portforwdrestore.ajax.js",
+		'var:sys_Token' : G_SysToken,
+		'ajax'          : 'ok',
+		"var:menu"             : "basic",
+		"var:page"             : "Bas_wansum",
+		"var:errorpage"        : "Bas_wansum",
+		"var:CacheLastData" 	: ViewState.Save()
+	}, true);
+	
+	
+	if(G_WANConn['Path'] && G_WANConn['Path'].indexOf(_protocol[1]) > -1){
+		ConnPath = G_WANConn['Path'];
+	}else{
+		ConnPath = G_WANConn['Path'].replace(_protocol[1] == 'PPP' ? 'IP' : 'PPP', _protocol[1]);
+		
+		$F('mid','0438');
+		$F(":" + ConnPath + "X_TWSZ-COM_ConnectionMode", G_WANConn['Path'].indexOf('IP') > 0 ? 'IP' : 'PPP');
+	}
+	
+	
+	//VLAN 节点的路径
+	var DevicePath = G_WAN['Path'];
+	
+	//vlan
+	if(_protocol[0] != "PPTP" && _protocol[0] != "L2TP")
+	{
+		$F(":" + DevicePath + "X_TWSZ-COM_VLANID", 				'0');
+	}
+	$F(":" + DevicePath + "X_TWSZ-COM_VLANPriority", 		'0');
+	
+	//IP common
+	$F(":" + ConnPath + "Enable", 						'1');
+	$F(":" + ConnPath + "Name", 						_protocol[0] + '_1');	
+	$F(":" + ConnPath + "X_TWSZ-COM_ProtocolType", 		'IPv4');
+	$F(":" + ConnPath + "X_TWSZ-COM_ServiceList", 		'Internet');
+	$F(":" + ConnPath + "NATEnabled", 					'1');
+	$F(":" + ConnPath + "X_TWSZ-COM_NATType", 	"symmetric");	
+	$F(":" + ConnPath + "RouteProtocolRx", 		"Off");
+	$F(":" + ConnPath + "RipDirection", 		"Both");	
+	$F(":" + ConnPath + "AddressingType", 		_addrtype == "undefined" ? undefined : _addrtype);
+	
+	
+	switch(_protocol[0]){
+		case "DHCP" :
+			
+			$F(":" + ConnPath + "DNSOverrideAllowed", 	"0");
+			$F(":" + ConnPath + "MaxMTUSize", 			"1500");	
+			$F(":" + ConnPath + "ConnectionType", 		"IP_Routed");	
+			$F(":" + ConnPath + "X_TWSZ-COM_DhcpUseUnicast",     "0");
+		  	break;
+		case "Static" :
+			var _dnsservers = $('wiz_static_dns1').value+','+$('wiz_static_dns2').value;
+			$F(":" + ConnPath + "ExternalIPAddress", 	$('wiz_static_ipaddr').value);
+			$F(":" + ConnPath + "SubnetMask", 			$('wiz_static_mask').value);
+			$F(":" + ConnPath + "DefaultGateway", 		$('wiz_static_gw').value);
+			$F(":" + ConnPath + "DNSOverrideAllowed", 	_dnsservers==","?"0":"1");
+			$F(":" + ConnPath + "X_TWSZ-COM_UsrDNSServers", 			_dnsservers.delcomma());
+			$F(":" + ConnPath + "MaxMTUSize", 			"1500");				
+			$F(":" + ConnPath + "ConnectionType", 		"IP_Routed");
+			break;
+		case "PPPoE" :
+		
+			$F(":" + ConnPath + "Username", 		$('wiz_pppoe_usr').value);
+			$F(":" + ConnPath + "Password", 		$('wiz_pppoe_passwd').value != '**********' ? Base64.Encode($('wiz_pppoe_passwd').value) : undefined);
+			$F(":" + ConnPath + "PPPAuthenticationProtocol", "Auto");
+			$F(":" + ConnPath + "ConnectionTrigger", 	"AlwaysOn" );
+			$F(":" + ConnPath + "MaxMRUSize", 		"1492");
+			$F(":" + ConnPath + "MaxMTUSize", 		"1492");
+			$F(":" + ConnPath + "PPPLCPEcho", 		"15");
+			$F(":" + ConnPath + "PPPLCPEchoRetry", 		"15");
+			$F(":" + ConnPath + "X_TWSZ-COM_StaticIPAddress", "");	
+			$F(":" + ConnPath + "ConnectionType", 		"IP_Routed");
+			$F(":" + ConnPath + "DNSOverrideAllowed", 	"0");	
+			
+			break;
+		case "PPTP" :
+		case "L2TP" :	
+			var _dnsservers = $('dns1').value+','+$('dns2').value;
+			var x;
+			if (_protocol[0] == "PPTP")
+				x = (Form.Radio("wiz_pptp_conn_mode") == 'dynamic') ? '1' : '0';
+			else 
+				x = (Form.Radio("wiz_l2tp_conn_mode") == 'dynamic') ? '1' : '0';
+			
+			if(x == "1"){//Dynamic
+				$F(":" + ConnPath + 'X_TWSZ-COM_VPN_ADDR_MODE',  	"DHCP");  //address mode
+			} else {//static
+				if (_protocol[0] == "PPTP") {
+					$F(":" + ConnPath + 'X_TWSZ-COM_VPN_CLIENT',  	(Form.Radio("wiz_pptp_conn_mode") == 'dynamic') ? '' :$('wiz_pptp_ipaddr').value);
+					$F(":" + ConnPath + 'X_TWSZ-COM_VPN_NETMASK', 	(Form.Radio("wiz_pptp_conn_mode") == 'dynamic') ? '' :$('wiz_pptp_mask').value);
+					$F(":" + ConnPath + 'X_TWSZ-COM_VPN_GATEWAY', 	(Form.Radio("wiz_pptp_conn_mode") == 'dynamic') ? '' :$('wiz_pptp_gw').value);
+					
+					
+				} else {
+					$F(":" + ConnPath + 'X_TWSZ-COM_VPN_CLIENT',  	(Form.Radio("wiz_l2tp_conn_mode") == 'dynamic') ? '' :$('wiz_l2tp_ipaddr').value);
+					$F(":" + ConnPath + 'X_TWSZ-COM_VPN_NETMASK', 	(Form.Radio("wiz_l2tp_conn_mode") == 'dynamic') ? '' :$('wiz_l2tp_mask').value);
+					$F(":" + ConnPath + 'X_TWSZ-COM_VPN_GATEWAY', 	(Form.Radio("wiz_l2tp_conn_mode") == 'dynamic') ? '' :$('wiz_l2tp_gw').value);
+					
+					
+				}
+				$F(":" + ConnPath + 'X_TWSZ-COM_VPN_ADDR_MODE',  	"Static"); 
+							
+			}
+			
+			$F(":" + ConnPath + 'X_TWSZ-COM_VPN_INTERFACE_REF',  	"");
+			if (_protocol[0] == "PPTP") {
+				$F(":" + ConnPath + 'X_TWSZ-COM_VPN_SERVER',  	$('wiz_pptp_svr').value);
+				$F(":" + ConnPath + 'Username', 					$('wiz_pptp_usr').value);
+				if ($('wiz_pptp_passwd').value != '**********')
+				{
+					$F(":" + ConnPath + 'Password', 				Base64.Encode($('wiz_pptp_passwd').value));
+				}
+				
+			} else {
+				$F(":" + ConnPath + 'X_TWSZ-COM_VPN_SERVER',  	$('wiz_l2tp_svr').value);
+				$F(":" + ConnPath + 'Username', 					$('wiz_l2tp_usr').value);
+				if ($('wiz_l2tp_passwd').value != '**********')
+				{
+					$F(":" + ConnPath + 'Password', 				Base64.Encode($('wiz_l2tp_passwd').value));
+				}
+				
+			}
+			
+			
+			/* VPN只设置MTU, MRU随MRU保持一致 */
+			$F(":" + ConnPath + "MaxMRUSize", 				'1460');
+			$F(":" + ConnPath + 'MaxMTUSize', 				'1460');
+			
+			$F(":" + ConnPath + 'ConnectionType', 			(_protocol[0]=="PPTP"?"PPTP_Relay":"L2TP_Relay"));
+			$F(":" + ConnPath + 'ConnectionTrigger',         'AlwaysOn');
+			$F(":" + ConnPath + 'PPPAuthenticationProtocol', 'Auto');	
+			$F(":" + ConnPath + "DNSOverrideAllowed", 	_dnsservers==","?"0":"1");
+			$F(":" + ConnPath + 'X_TWSZ-COM_UsrDNSServers', _dnsservers.delcomma());
+			break;	
+		default :
+			;
+	}
+	
+	
+	
+	var _url = "/cgi-bin/webproc?getpage=html/page/portforwdrestore.ajax.js&var:page=*";
+	G_ajax = Ajax.getInstance(_url, "", 0, Ajax_Submit_2, null_errorfunc);
+	G_ajax.post($('uiPostForm'));	
+	$("wizard").style.display="none";
+	$("mbox").style.display="";	
+	$("WIZLOGIN216").disabled = true;
+	
+}
+function dealWithError(){
+	 if (G_Error != 1){
+		 return false; 
+	}
+	
+	var arrayHint = [];
+	dealErrorMsg(arrayHint, G_Error_Msg);
+}
+addListeners(uiOnload,dealWithError);
+
+</script>
+
+<body class="mainbg">
+	
+	<div class="maincontainer">	
+		<div class="headercontainer">
+			<span class="product">
+				<span id = "DIV_ProductPage">Product Page : </span>
+				<a href="http://support.dlink.com" target="_blank"><?get :InternetGatewayDevice.DeviceInfo.ProductClass?></a>
+			</span>
+			<span class="version">			
+				<span id = "DIV_FirmwareVersion">Firmware Version : </span>
+				<span class="value"><?get :InternetGatewayDevice.DeviceInfo.SoftwareVersion?></span>
+			</span>
+			<span class="hwversion">
+				<span id = "DIV_HardwareVersion">Hardware Version : </span>
+				<span class="value" style="text-transform:uppercase;"><?get :InternetGatewayDevice.DeviceInfo.HardwareVersion?></span>
+			</span>
+		</div>                          <!--end of headercontainer(logo picture) -->
+		<div class="bannercontainer">
+			<span class="bannerhead"><a href="http://www.dlink.com.tw"><img src="/html/skin//head_01.gif" width="162" height="92"></a></span>
+			<span class="bannertail"><img src="/html/skin/head_03.gif"></span>
+		</div>                          <!--end of bannercontainer -->
+	<div id="wizard" class="simplecontainer">
+		<div class="simplebody">
+		<div id="stage_desc" class="blackbox">
+			<h2 id="WIZLOGIN001">Welcome to the D-Link Setup Wizard</h2>
+			<div><p class="strong" id="WIZLOGIN002">
+				This wizard will guide you through a step-by-step process to configure your new D-Link router and connect to the Internet. 
+			</p></div>
+			<div>
+				<ul>
+					<li id="WIZLOGIN003">Step 1: Configure your Internet Connection</li>
+					<li id="WIZLOGIN004">Step 2: Configure your Wi-Fi Security</li>
+					<li id="WIZLOGIN005">Step 3: Set your Password</li>
+					<li id="WIZLOGIN006">Step 4: Select your Time Zone</li>
+					<li id="WIZLOGIN007">Step 5: Confirm Wi-Fi Settings</li>			
+				</ul>
+			</div>
+			<div class="emptyline"></div>
+			<div class="centerline">	
+				<input type="button" id="WIZLOGIN176" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+				<input type="button" id="WIZLOGIN177" name="b_next" value="Next" onClick="OnClickNext();" />
+			</div>
+			<div class="emptyline"></div>		
+		</div>
+		<!-- End of Stage Description -->
+		<!-- Start of Stage Wan Detect -->
+		<div id="stage_wan_detect" style="display:none;">
+			<div id="wan_detect" style="display:none;">
+				<div class="blackbox"> 
+					<h2 id="WIZLOGIN008">Step 1: Configure your Internet Connection</h2>
+					<div><p class="strong" id="WIZLOGIN009">
+						The router is detecting your Internet connection type, please wait...
+					</p></div>
+					<div align="center">
+						<img src="/html/skin/wan_detect_process_bar.gif" width="300" height="30">
+					</div>
+					<div class="emptyline"></div>
+			<div class="centerline">
+				<input type="button" id="WIZLOGIN178" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+				<input type="button" id="WIZLOGIN179" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+				<input type="button" id="WIZLOGIN180" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+			</div>
+			<div class="emptyline"></div>
+				</div>
+			</div>
+			<div id="cable_fail" style="display:none;">
+				<div class="blackbox"> 
+					<h2 id="WIZLOGIN010">Step 1: Configure your Internet Connection</h2>
+					<div><p class="strong" id="WIZLOGIN011">
+						Please plug one end of the included Ethernet cable that came with your router into the port labeled INTERNET on the back of the router. Plug the other end of this cable into the Ethernet port on your modem and power cycle the modem.
+					</p></div>
+					<div align="center">
+						<img src="/html/skin/cable_connection.jpg">
+					</div>
+					<div class="gap"></div>
+					<div class="centerline">
+						<input type="button" id="WIZLOGIN181" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+						<input type="button" id="WIZLOGIN182" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+						<input type="button" id="WIZLOGIN183" value="Connect" onClick="WanDetectAgain();" />&nbsp;&nbsp;
+					</div>
+					<div class="gap"></div>		
+				</div>	
+			</div>
+			<div id="wantype_unknown" style="display:none;">
+				<div class="blackbox"> 
+					<h2 id="WIZLOGIN012">Step 1: Configure your Internet Connection</h2>
+					<div><p class="strong" id="WIZLOGIN013">
+						Router is unable to detect your Internet connection type.
+					</p></div>
+					<div class="gap"></div>
+					<div class="centerline">
+						<input type="button" id="WIZLOGIN184" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+						<input type="button" id="WIZLOGIN185" value="Retry" onClick="WanDetectAgain();" />&nbsp;&nbsp;
+						<input type="button" id="WIZLOGIN186" id="b_next" value="Through the Internet connection setup wizard" onClick="OnClickNext();" />&nbsp;&nbsp;
+					</div>
+					<div class="gap"></div>	
+				</div>
+			</div>		
+		</div>
+		<!-- End of Stage Wan Detect -->
+		<!-- Start of Stage Ethernet -->
+		<div id="stage_ether" style="display:none;">
+		<div class="blackbox">
+			<h2 id="WIZLOGIN014">Step 1: Configure your Internet Connection</h2>
+			<div class="gap"></div>
+			<div><p class="strong" id="WIZLOGIN015">
+				If your Internet Service Provider was not listed or you don't know who it is, please select the Internet connection type below:
+			</p></div>
+			<div class="gap"></div>	
+			<div class="wiz-l1">
+				<input name="wan_mode" type="radio" value="DHCP" onClick="OnChangeWanType(this.value);" />
+				<span id="WIZLOGIN016">DHCP Connection (Dynamic IP Address)</span>
+			</div>
+			<div class="wiz-l2" id="WIZLOGIN017">
+				Choose this if your Internet connection automatically provides you with an IP Address. Most Cable Modems use this type of connection.
+			</div>
+			<div class="wiz-l1" style="display:none;">
+				<input name="wan_mode" type="radio" value="DHCPPLUS" onClick="OnChangeWanType(this.value);" />
+				<span id="WIZLOGIN018">DHCP Plus Connection (Dynamic IP Address)</span>
+			</div>
+			<div class="wiz-l2" style="display:none;" id="WIZLOGIN019">
+				Choose this if your Internet connection automatically provides you with an IP Address. Most Cable Modems use this type of connection.
+			</div>
+			<div class="wiz-l1">
+				<input name="wan_mode" type="radio" value="PPPoE" onClick="OnChangeWanType(this.value);" />
+				<span id="WIZLOGIN020">Username / Password Connection (PPPoE)</span>
+			</div>
+			<div class="wiz-l2" id="WIZLOGIN021">
+				Choose this option if your Internet connection requires a username and password to get online. Most DSL modems use this type of connection.
+			</div>
+			<div class="wiz-l1">
+				<input name="wan_mode" type="radio" value="PPTP" onClick="OnChangeWanType(this.value);" />
+				<span id="WIZLOGIN022">Username / Password Connection (PPTP)</span>
+			</div>
+			<div class="wiz-l2" id="WIZLOGIN023">
+				PPTP client.
+			</div>
+			<div class="wiz-l1">
+				<input name="wan_mode" type="radio" value="L2TP" onClick="OnChangeWanType(this.value);" />
+					<span id="WIZLOGIN024">Username / Password Connection (L2TP)</span>
+			</div>
+			<div class="wiz-l2" id="WIZLOGIN025">
+				L2TP client.
+			</div>
+			<div class="wiz-l1">
+				<input name="wan_mode" type="radio" value="STATIC" onClick="OnChangeWanType(this.value);" />
+				<span id="WIZLOGIN026">Static IP Address Connection</span>
+			</div>
+			<div class="wiz-l2" id="WIZLOGIN027">
+				Choose this option if your Internet Setup Provider provided you with IP Address information that has to be manually configured.
+			</div>
+			
+			<div class="emptyline"></div>
+			<div class="centerline">
+				<input type="button" id="WIZLOGIN187" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+				<input type="button" id="WIZLOGIN188" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+				<input type="button" id="WIZLOGIN189" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+			</div>
+			<div class="emptyline"></div>
+		</div>
+		</div>
+		<!-- End of Stage Ethernet -->
+		<!-- Start of Stage Ethernet WAN Settings -->
+		<div id="stage_ether_cfg" style="display:none;">
+			<input id="ppp4_timeout" type="hidden" />
+			<input id="ppp4_mode" type="hidden" />
+			<input id="ppp4_mtu" type="hidden" />
+			<input id="ipv4_mtu" type="hidden" />
+			<!-- Start of DHCP -->
+			<div id="DHCP">
+				<div class="blackbox">
+					<h2 id="WIZLOGIN028"> DHCP Connection (Dynamic IP Address)</h2>
+					<div><p class="strong" id="WIZLOGIN029">
+						To set up this connection, please make sure that you are connected to the D-Link Router with the PC that was originally connected to your broadband connection. If you are, then click the Clone MAC button to copy your computer's MAC Address to the D-Link Router.
+					</p></div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN030">MAC Address</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_dhcp_mac" type="text" size="20" maxlength="17" />
+							<span id="WIZLOGIN031">(optional)</span>
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name"></span>
+						<span class="delimiter"></span>
+						<span class="value">
+							<input type="button" value="Copy Your PC's MAC Address" onClick="OnClickCloneMAC();" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN032">Host Name</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_dhcp_host" type="text" size="25" maxlength="39" />
+						</span>
+					</div>
+					<div id="DHCPPLUS" style="display:none">
+						<div class="textinput">
+							<span class="name">Username</span>
+							<span class="delimiter">:</span>
+							<span class="value">
+								<input id="wiz_dhcpplus_user" type="text" size="25" maxlength="63" />
+							</span>
+						</div>
+						<div class="textinput">
+							<span class="name">Password</span>
+							<span class="delimiter">:</span>
+							<span class="value">
+								<input id="wiz_dhcpplus_pass" type="password" size="25" maxlength="63" />
+							</span>
+						</div>
+					</div>
+					<div class="emptyline"></div>				
+			<div class="centerline">
+				<input type="button" id="WIZLOGIN190" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+				<input type="button" id="WIZLOGIN191" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+				<input type="button" id="WIZLOGIN192" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+			</div>
+			<div class="emptyline"></div>
+				</div>
+			</div>
+			<!-- End of DHCP -->
+			<!-- Start of PPPoE -->
+			<div id="PPPoE">
+				<div class="blackbox">
+					<h2 id="WIZLOGIN033">Set Username and Password Connection (PPPoE)</h2>
+					<div><p class="strong" id="WIZLOGIN034">
+						To set up this connection you will need to have a Username and Password from your Internet Service Provider. If you do not have this information, please contact your ISP.
+					</p></div>
+					<div class="textinput" style="display:none;">
+						<span class="name" id="WIZLOGIN035">Address Mode</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input name="wiz_pppoe_conn_mode" type="radio" value="dynamic" checked onChange="OnChangePPPoEMode();" />
+							<span id="WIZLOGIN036">Dynamic IP</span>
+							<span class="value">
+							<input name="wiz_pppoe_conn_mode" type="radio" value="static" onChange="OnChangePPPoEMode();" />
+							<span id="WIZLOGIN037">Static IP</span>
+						</span>
+						</span>
+					</div>
+					<div class="textinput" style="display:none;">
+						<span class="name" id="WIZLOGIN038">IP Address </span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_pppoe_ipaddr" type="text" size="20" maxlength="15" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN039">User Name</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_pppoe_usr" type="text" size="20" maxlength="63" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN040">Password</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_pppoe_passwd" type="text" size="20" maxlength="63" />
+						</span>
+					</div>
+					<div class="textinput" style="display:none;">
+						<span class="name" id="WIZLOGIN041">Verify Password</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_pppoe_passwd2" type="password" size="20" maxlength="63" />
+						</span>
+					</div>
+					<div class="textinput" style="display:none;">
+						<span class="name" id="WIZLOGIN042">Service Name</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_pppoe_svc" type="text" size="20" maxlength="39" />
+							(optional)
+						</span>
+					</div>
+					<div style="display:none;">
+					<p id="WIZLOGIN043">
+						Note: You may also need to provide a Service Name.If you do not have or know this information, please contact your ISP.
+					</p>
+					</div>
+					<div class="emptyline"></div>
+			<div class="centerline">
+				<input type="button" id="WIZLOGIN193" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+				<input type="button" id="WIZLOGIN194" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+				<input type="button" id="WIZLOGIN195" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+			</div>
+			<div class="emptyline"></div>
+					<div class="gap"></div>
+				</div>
+				<div id="R_PPPoE" class="blackbox" style="margin-top:0px;">
+					<h2>WAN Physical Settings</h2>
+					<div class="textinput">
+						<span class="name"></span>
+						<span class="delimiter"></span>
+						<span class="value">
+							<input name="wiz_rpppoe_conn_mode" type="radio" value="dynamic" checked onChange="OnChangeRussiaPPPoEMode();" />
+							Dynamic IP
+							<input name="wiz_rpppoe_conn_mode" type="radio" value="static" onChange="OnChangeRussiaPPPoEMode();" />
+							Static IP
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name">IP Address</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_rpppoe_ipaddr" type="text" size="20" maxlength="15" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name">Subnet Mask</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_rpppoe_mask" type="text" size="20" maxlength="15" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name">Gateway</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_rpppoe_gw" type="text" size="20" maxlength="15" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name">Primary DNS Address</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_rpppoe_dns1" type="text" size="20" maxlength="15" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name">Secondary DNS Address</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_rpppoe_dns2" type="text" size="20" maxlength="15" />
+						</span>
+					</div>
+					<div class="emptyline"></div>
+			<div class="centerline">
+				<input type="button" id="WIZLOGIN196" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+				<input type="button" id="WIZLOGIN197" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+				<input type="button" id="WIZLOGIN198" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+			</div>
+			<div class="emptyline"></div>
+				</div>
+			</div>
+			<!-- End of PPPoE -->
+			<!-- Start of PPTP -->
+			<div id="PPTP">
+				<div class="blackbox">
+					<h2 id="WIZLOGIN044">Set Username and Password Connection (PPTP)</h2>
+					<div><p class="strong" id="WIZLOGIN045">
+						To set up this connection you will need to have a Username and Password from your Internet Service Provider. You also need PPTP IP address. If you do not have this information, please contact your ISP.
+					</p></div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN046">Address Mode </span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input name="wiz_pptp_conn_mode" type="radio" value="dynamic" checked onChange="OnChangePPTPMode();" />
+							<span id="WIZLOGIN047">Dynamic IP</span>
+							<input name="wiz_pptp_conn_mode" type="radio" value="static" onChange="OnChangePPTPMode();" />
+							<span id="WIZLOGIN048">Static IP</span>
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN049">PPTP IP Address</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_pptp_ipaddr" type="text" size="20" maxlength="15" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN050">PPTP Subnet Mask </span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_pptp_mask" type="text" size="20" maxlength="15" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN051">PPTP Gateway IP Address </span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_pptp_gw" type="text" size="20" maxlength="15" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN052">PPTP Server IP Address(may be same as gateway)</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_pptp_svr" type="text" size="20" maxlength="15" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN053">User Name </span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_pptp_usr" type="text" size="20" maxlength="63" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN054">Password </span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_pptp_passwd" type="password" size="20" maxlength="63" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN055">Verify Password</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_pptp_passwd2" type="password" size="20" maxlength="63" />
+						</span>
+					</div>
+					<div class="emptyline"></div>
+				</div>
+			</div>
+			<!-- End of PPTP -->
+			<!-- Start of L2TP -->
+			<div id="L2TP">
+				<div class="blackbox">
+					<h2 id="WIZLOGIN056">Set Username and Password Connection (L2TP)</h2>
+					<div><p class="strong" id="WIZLOGIN057">
+						To set up this connection you will need to have a Username and Password from your Internet Service Provider. You also need L2TP IP address. If you do not have this information, please contact your ISP.
+					</p></div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN058">Address Mode </span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input name="wiz_l2tp_conn_mode" type="radio" value="dynamic" checked onChange="OnChangeL2TPMode();" />
+							<span id="WIZLOGIN059">Dynamic IP</span>
+							<input name="wiz_l2tp_conn_mode" type="radio" value="static" onChange="OnChangeL2TPMode();" />
+							<span id="WIZLOGIN060">Static IP</span>
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN061">L2TP IP Address</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_l2tp_ipaddr" type="text" size="20" maxlength="15" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN062">L2TP Subnet Mask</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_l2tp_mask" type="text" size="20" maxlength="15" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN063">L2TP Gateway IP Address </span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_l2tp_gw" type="text" size="20" maxlength="15" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN064">L2TP Server IP Address (may be same as gateway)</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_l2tp_svr" type="text" size="20" maxlength="15" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN065">User Name</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_l2tp_usr" type="text" size="20" maxlength="63" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN066">Password</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_l2tp_passwd" type="password" size="20" maxlength="63" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN067">Verify Password</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_l2tp_passwd2" type="password" size="20" maxlength="63" />
+						</span>
+					</div>
+					<div class="emptyline"></div>
+				</div>
+			</div>
+			<!-- End of L2TP -->
+			<!-- Start of STATIC -->
+			<div id="STATIC">
+				<div class="blackbox">
+					<h2 id="WIZLOGIN068">Set Static IP Address Connection</h2>
+					<div><p class="strong" id="WIZLOGIN069">
+						To set up this connection you will need to have a complete list of IP information provided by your Internet Service Provider. If you have a Static IP connection and do not have this information, please contact your ISP.
+					</p></div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN070">IP Address</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_static_ipaddr" type="text" size="20" maxlength="15" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN071">Subnet Mask</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_static_mask" type="text" size="20" maxlength="15" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN072">Gateway Address</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_static_gw" type="text" size="20" maxlength="15" />
+						</span>
+					</div>
+					<br>
+				</div>			
+				<div class="blackbox" style="margin-top:0px;">
+					<h2 id="WIZLOGIN073">DNS Settings</h2>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN074">Primary DNS Address</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_static_dns1" type="text" size="20" maxlength="15" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN075">Secondary DNS Address</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="wiz_static_dns2" type="text" size="20" maxlength="15" />
+						</span>
+					</div>
+					<div class="emptyline"></div>
+			<div class="centerline">
+				<input type="button" id="WIZLOGIN199" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+				<input type="button" id="WIZLOGIN200" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+				<input type="button" id="WIZLOGIN201" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+			</div>
+			<div class="emptyline"></div>
+				</div>
+			</div>
+			<!-- End of STATIC -->
+			<div id="DNS">
+				<div class="blackbox" style="margin-top:0px;">
+					<h2 id="WIZLOGIN076">DNS settings</h2>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN077">Primary DNS Address</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="dns1" type="text" size="20" maxlength="15" />
+						</span>
+					</div>
+					<div class="textinput">
+						<span class="name" id="WIZLOGIN078">Secondary DNS Address</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="dns2" type="text" size="20" maxlength="15" />
+						</span>
+					</div>			
+					<div class="gap"></div>
+					<div class="emptyline"></div>
+			<div class="centerline">
+				<input type="button" id="WIZLOGIN202" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+				<input type="button" id="WIZLOGIN203" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+				<input type="button" id="WIZLOGIN204" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+			</div>
+			<div class="emptyline"></div>
+					<div class="gap"></div>		
+				</div>	
+			</div>	
+		</div>
+		<!-- End of Stage Ethernet WAN Settings -->
+		<!-- Start of Stage WLAN settings -->
+		<div id="stage_wlan_set" class="blackbox" style="display:none;">
+			<h2 id="WIZLOGIN079">Step 2: Configure your Wi-Fi Security</h2>
+			<div class="gap"></div>
+			<div><p id="wifi24_name_pwd_show" class="wiz_strong">
+				Give your Wi-Fi network a name and a password. (2.4GHz Band)
+			</p></div>
+			<div>
+				<span id="fld_ssid_24" name="fld_ssid_24" class="wiz_input"> Wi-Fi Network Name(SSID)</span>
+				<span>:</span>
+			</div>
+			<div class="gap"></div>
+			<div>
+				<span class="wiz_input">
+					<input id="wiz_ssid" type="text" size="32" maxlength="32" />
+				</span>	
+				<span class="wiz_input_script" id="WIZLOGIN080">(Using up to 32 characters)</span>	
+			</div>
+			<div class="gap"></div>
+			<div id="wifi24_pwd_show" style="display:none;"><p class="wiz_strong">
+				Give your Wi-Fi network a password.
+			</p></div>
+			<div>
+				<span class="wiz_input" id="WIZLOGIN081">Wi-Fi Password </span>
+				<span>:</span>
+			</div>
+			<div class="gap"></div>		
+			<div>
+				<span class="wiz_input">
+					<input id="wiz_key" type="text" size="32" maxlength="63" />
+				</span>	
+				<span class="wiz_input_script" id="WIZLOGIN082">(Between 8 and 63 characters)</span>	
+			</div>
+
+			<div class="gap"></div>
+			<div class="gap"></div>	
+			<div class="gap"></div>			
+			<div id="div_ssid_A" name="div_ssid_A" style="display:none;">
+				<div><p class="wiz_strong" id="WIZLOGIN083">
+					Give your Wi-Fi network a name and a password. (5GHz Band)
+				</p></div>
+				<div>
+					<span id="fld_ssid_5" name="fld_ssid_5" class="wiz_input"> Wi-Fi Network Name(SSID)</span>
+					<span>:</span>
+				</div>
+				<div class="gap"></div>		
+				<div>
+					<span class="wiz_input">
+						<input id="wiz_ssid_Aband" type="text" size="32" maxlength="32" />
+					</span>	
+					<span class="wiz_input_script" id="WIZLOGIN084">(Using up to  32 characters)</span>	
+				</div>
+				<div class="gap"></div>
+				<div>
+					<span class="wiz_input" id="WIZLOGIN085">Wi-Fi Password </span>
+					<span>:</span>
+				</div>
+				<div class="gap"></div>			
+				<div>
+					<span class="wiz_input">
+						<input id="wiz_key_Aband" type="text" size="32" maxlength="63" />
+					</span>	
+					<span class="wiz_input_script" id="WIZLOGIN086">(Between 8 and 63 characters)</span>	
+				</div>
+			</div>	
+			<div class="emptyline"></div>
+			<div class="centerline">
+				<input type="button" id="WIZLOGIN205" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+				<input type="button" id="WIZLOGIN206" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+				<input type="button" id="WIZLOGIN207" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+			</div>
+			<div class="emptyline"></div>
+		</div>
+		<!-- End of Stage WLAN settings -->
+		<!-- Start of Stage Password -->
+		<div id="stage_passwd" class="blackbox" style="display:none;">
+			<h2 id="WIZLOGIN087">Step 3: Set your Password</h2>
+			<div><p class="strong" id="WIZLOGIN088">
+				By default, your new D-Link Router does not have a password configured for administrator access to the Web-based configuration pages. To secure your new networking device, please set and verify a password below.
+			</p></div>
+			<div class="gap"></div>
+			<div class="textinput">
+				<span class="name" id="WIZLOGIN089">Password </span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_passwd" type="password" size="20" maxlength="15" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZLOGIN090">Verify Password</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_passwd2" type="password" size="20" maxlength="15" />
+				</span>
+			</div>
+			<div class="textinput" style="display:none">
+				<span class="name" id="WIZLOGIN091">Enable Graphical Authentication</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="en_captcha" type="checkbox" /></span>
+			</div>	
+			<div class="emptyline"></div>
+			<div class="centerline">
+				<input type="button" id="WIZLOGIN208" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+				<input type="button" id="WIZLOGIN209" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+				<input type="button" id="WIZLOGIN210" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+			</div>
+			<div class="emptyline"></div>
+		</div>
+		<!-- End of Stage Password -->
+		<!-- Start of Stage Time Zone -->
+		<div id="stage_tz" class="blackbox" style="display:none;">
+			<h2 id="WIZLOGIN092">Step 4: Select your Time Zone</h2>
+			<div><p class="strong" id="WIZLOGIN093">
+				Select the appropriate time zone for your location. This information is required to configure the time-based options for the router. 
+			</p></div>
+			<div class="gap"></div>
+			<div style="text-align:center;">
+				<span>
+					<select id="wiz_tz">
+						<option value="1" id="WIZLOGIN094">(GMT-12:00) International Date Line West</option>
+						<option value="2" id="WIZLOGIN095">(GMT-11:00) Midway Island</option>
+						<option value="3" id="WIZLOGIN096">(GMT-10:00) Hawaii</option>
+						<option value="4" id="WIZLOGIN097">(GMT-09:00) Alaska</option>
+						<option value="5" id="WIZLOGIN098">(GMT-08:00) Pacific Time (US & Canada), Tijuana</option>
+						<option value="6" id="WIZLOGIN099">(GMT-07:00) Arizona</option>
+						<option value="7" id="WIZLOGIN100">(GMT-07:00) Chihuahua, La Paz, Mazatlan</option>
+						<option value="8" id="WIZLOGIN101">(GMT-07:00) Mountain Time (US & Canada)</option>
+						<option value="9" id="WIZLOGIN102">(GMT-06:00) Central America</option>
+						<option value="10" id="WIZLOGIN103">(GMT-06:00) Central Time (US & Canada)</option>
+						<option value="11" id="WIZLOGIN104">(GMT-06:00) Guadalajara, Mexico City, Monterrey</option>
+						<option value="12" id="WIZLOGIN105">(GMT-06:00) Saskatchewan</option>
+						<option value="13" id="WIZLOGIN106">(GMT-05:00) Bogota, Lima, Quito,Indiana (East)</option>
+						<option value="14" id="WIZLOGIN107">(GMT-05:00) Eastern Time (US & Canada)</option>
+						<option value="15" id="WIZLOGIN108">(GMT-04:30) Caracas</option>
+						<option value="16" id="WIZLOGIN109">(GMT-04:00) Georgetown, La Paz</option>
+						<option value="17" id="WIZLOGIN110">(GMT-04:00) Atlantic Time (Canada)</option>
+						<option value="18" id="WIZLOGIN111">(GMT-04:00) Santiago</option>
+						<option value="19" id="WIZLOGIN112">(GMT-03:30) Newfoundland</option>
+						<option value="20" id="WIZLOGIN113">(GMT-03:00) Brasilia</option>
+						<option value="21" id="WIZLOGIN114">(GMT-03:00) Buenos Aires</option>
+						<option value="22" id="WIZLOGIN115">(GMT-03:00) Greenland</option>
+						<option value="23" id="WIZLOGIN116">(GMT-02:00) Mid-Atlantic</option>
+						<option value="24" id="WIZLOGIN117">(GMT-01:00) Azores</option>
+						<option value="25" id="WIZLOGIN118">(GMT-01:00) Cape Verde Is.</option>
+						<option value="26" id="WIZLOGIN119">(GMT) Casablanca, Monrovia</option>
+						<option value="27" id="WIZLOGIN120">(GMT) Greenwich Mean Time : Dublin, Edinburgh, Lisbon, London</option>
+						<option value="28" id="WIZLOGIN121">(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</option>
+						<option value="29" id="WIZLOGIN122">(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</option>
+						<option value="30" id="WIZLOGIN123">(GMT+01:00) Brussels, Copenhagen, Madrid, Paris</option>
+						<option value="31" id="WIZLOGIN124">(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb</option>
+						<option value="32" id="WIZLOGIN125">(GMT+01:00) West Central Africa</option>
+						<option value="33" id="WIZLOGIN126">(GMT+02:00) Athens, Istanbul, Minsk</option>
+						<option value="34" id="WIZLOGIN127">(GMT+02:00) Bucharest</option>
+						<option value="35" id="WIZLOGIN128">(GMT+02:00) Cairo</option>
+						<option value="36" id="WIZLOGIN129">(GMT+02:00) Harare, Pretoria</option>
+						<option value="37" id="WIZLOGIN130">(GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius</option>
+						<option value="38" id="WIZLOGIN131">(GMT+02:00) Jerusalem</option>
+						<option value="39" id="WIZLOGIN132">(GMT+03:00) Baghdad</option>
+						<option value="40" id="WIZLOGIN133">(GMT+03:00) Kuwait, Riyadh</option>
+						<option value="41" id="WIZLOGIN134">(GMT+03:00) Nairobi</option>
+						<option value="42" id="WIZLOGIN135">(GMT+03:30) Tehran</option>
+						<option value="43" id="WIZLOGIN136">(GMT+04:00) Abu Dhabi, Muscat</option>
+						<option value="44" id="WIZLOGIN137">(GMT+04:00) Baku, Tbilisi, Yerevan</option>
+						<option value="45" id="WIZLOGIN138">(GMT+04:00) Moscow, St. Petersburg, Volgograd</option>
+						<option value="46" id="WIZLOGIN139">(GMT+04:30) Kabul</option>
+						<option value="47" id="WIZLOGIN140">(GMT+05:00) Islamabad, Karachi, Tashkent</option>
+						<option value="48" id="WIZLOGIN141">(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</option>
+						<option value="49" id="WIZLOGIN142">(GMT+05:30) Sri Jayawardenepura</option>
+						<option value="50" id="WIZLOGIN143">(GMT+05:45) Kathmandu</option>
+						<option value="51" id="WIZLOGIN144">(GMT+06:00) Astana, Dhaka</option>
+						<option value="52" id="WIZLOGIN145">(GMT+06:00) Ekaterinburg</option>
+						<option value="53" id="WIZLOGIN146">(GMT+06:30) Rangoon</option>
+						<option value="54" id="WIZLOGIN147">(GMT+07:00) Almaty, Novosibirsk</option>
+						<option value="55" id="WIZLOGIN148">(GMT+07:00) Bangkok, Hanoi, Jakarta</option>
+						<option value="56" id="WIZLOGIN149">(GMT+08:00) Krasnoyarsk</option>
+						<option value="57" id="WIZLOGIN150">(GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi</option>
+						<option value="58" id="WIZLOGIN151">(GMT+08:00) Kuala Lumpur, Singapore</option>
+						<option value="59" id="WIZLOGIN152">(GMT+08:00) Perth</option>
+						<option value="60" id="WIZLOGIN153">(GMT+08:00) Taipei</option>
+						<option value="61" id="WIZLOGIN154">(GMT+08:00) Ulaan Bataar</option>
+						<option value="62" id="WIZLOGIN155">(GMT+09:00) Irkutsk</option>
+						<option value="63" id="WIZLOGIN156">(GMT+09:00) Osaka, Sapporo, Tokyo</option>
+						<option value="64" id="WIZLOGIN157">(GMT+09:00) Seoul</option>
+						<option value="65" id="WIZLOGIN158">(GMT+09:30) Adelaide</option>
+						<option value="66" id="WIZLOGIN159">(GMT+09:30) Darwin</option>
+						<option value="67" id="WIZLOGIN160">(GMT+10:00) Brisbane</option>
+						<option value="68" id="WIZLOGIN161">(GMT+10:00) Canberra, Melbourne, Sydney</option>
+						<option value="69" id="WIZLOGIN162">(GMT+10:00) Guam, Port Moresby</option>
+						<option value="70" id="WIZLOGIN163">(GMT+10:00) Hobart</option>
+						<option value="71" id="WIZLOGIN164">(GMT+10:00) Yakutsk</option>
+						<option value="72" id="WIZLOGIN165">(GMT+11:00) Solomon Is., New Caledonia</option>
+						<option value="73" id="WIZLOGIN166">(GMT+11:00) Vladivostok</option>
+						<option value="74" id="WIZLOGIN167">(GMT+12:00) Magadan</option>
+						<option value="75" id="WIZLOGIN168">(GMT+12:00) Auckland, Wellington</option>
+						<option value="76" id="WIZLOGIN169">(GMT+12:00) Fiji, Kamchatka, Marshall Is.</option>
+						<option value="77" id="WIZLOGIN170">(GMT+13:00) Nuku'alofa</option>
+						<option value="78" id="WIZLOGIN171">(GMT+13:00) Samoa</option>
+					</select>
+				</span>
+			</div>
+			<div class="emptyline"></div>
+			<div class="centerline">
+				<input type="button" id="WIZLOGIN211" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+				<input type="button" id="WIZLOGIN212" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+				<input type="button" id="WIZLOGIN213" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+			</div>
+			<div class="emptyline"></div>
+		</div>
+		<!-- End of Stage Time Zone -->
+		<!-- Start of Stage WLAN result -->
+		<div id="stage_wlan_result" class="blackbox" style="display:none;">
+			<h2 id="WIZLOGIN172">Step 5: Confirm WI-FI settings</h2>
+			<div><p class="strong" id="WIZLOGIN173">
+				Below is a detailed summary of your Wi-Fi security settings. Please print this page out, or write the information on a piece of paper, so you can configure the correct settings on your Wi-Fi devices.
+			</p></div>
+			<div class="gap"></div>
+			<div class="textinput">
+				<span id="fld_ssid_24_result" name="fld_ssid_24_result" class="name"> Wi-Fi Network Name(SSID) 2.4GHz</span>
+				<span class="delimiter">:</span>
+				<pre style="font-family:Tahoma"><span id="ssid" class="value"></span></pre>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZLOGIN174">Wi-Fi Password </span>
+				<span class="delimiter">:</span>
+				<span id="wiz_key_result" class="value" style="word-wrap: break-word;"></span>
+			</div>
+			
+			<div id="div_ssid_A_result" name="div_ssid_A_result" style="display:none;">
+				<div class="gap"></div>
+				<div class="textinput">
+					<span id="fld_ssid_5G" name="fld_ssid_5G" class="name"> Wi-Fi Network Name(SSID) 5GHz</span>
+					<span class="delimiter">:</span>
+					<pre style="font-family:Tahoma"><span id="ssid_Aband" class="value"></span></pre>
+				</div>
+				<div class="textinput">
+					<span class="name" id="WIZLOGIN175">Wi-Fi Password </span>
+					<span class="delimiter">:</span>
+					<span id="wiz_key_result_Aband" class="value" style="word-wrap: break-word;"></span>
+				</div>
+			</div>
+
+			<div class="gap"></div>
+			<div class="emptyline"></div>
+				<div class="centerline">
+					<input type="button" id="WIZLOGIN214" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+					<input type="button" id="WIZLOGIN215" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+					<input type="button" id="WIZLOGIN216" name="b_send" value="Next" onClick="OnSubmit();" />&nbsp;&nbsp; 
+				</div>
+			<div class="emptyline"></div>
+		</div>
+		<!-- End of Stage WLAN result -->
+		<!-- Start of Stage Check internet connection -->
+		<div id="check_wan_connect" class="blackbox" style="display:none;">
+			<h2>SAVING SETTINGS</h2>
+			<div class="centerline"><p>Your settings are being saved.</p></div>
+			<div class="centerline"><p>Please wait...</p></div>
+			<div class="centerline"><p>Checking internet connectivity.</p></div>
+		</div>
+		<!-- End of Stage Check internet connection -->
+		<!-- Start of Stage Check internet connection bar -->
+				<div id="check_wan_connect_bar" class="blackbox" style="display:none;">
+					<h2>SAVING SETTINGS</h2>
+					<div><p class="strong">Routers is checking Internet connectivity, please wait.</p></div>
+					<div align="center"><img src="/html/skin/wan_detect_process_bar.gif" width="300" height="30"></div>
+					<div class="emptyline"></div>
+						<div class="centerline">
+							<input type="button" name="b_exit" value="Skip" onClick="OnClickSkip();" />&nbsp;&nbsp;
+							<input type="button" name="b_send" value="Next" onClick="OnSubmit();" disabled="disabled"/>&nbsp;&nbsp; 
+						</div>
+					<div class="emptyline"></div>
+				</div>				
+				</div>				<!--end of simplebody -->
+			</div>                           <!--end of footercontainer -->
+		<div id="mbox" class="simplecontainer" style="display:none;">
+			<div class="simplebody">
+				<div class="orangebox">
+					<span id="message">
+						<h1 id="lang_saving">Saving</h1>
+						<div class="emptyline"></div>
+						<div class="centerline" id="lang_take_effect">The settings are being saved and are taking effect.</div>
+						<div class="emptyline"></div>
+						<div class="centerline" id="lang_waiting">Please wait ...</div>
+						<div class="emptyline"></div>			
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="footercontainer">
+			<span class="footermark"><img src="/html/skin/tail.gif"></span>
+		</div>
+	</div>                              <!--end of maincontainer -->
+
+<div class="copyright" id="DIV_Copyright">Copyright &copy; 2016 D-Link Corporation. All rights reserved.</div>
+
+<form name="uiPostForm" id="uiPostForm" method="post" action="webproc"></form>
+
+</body>
+</html>
+  
+  

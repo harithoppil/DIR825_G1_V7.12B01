@@ -1,0 +1,21 @@
+<InternetGatewayDevice type="object">
+	<X_TWSZ-COM_KC_SAMBA type="object">
+		<SambaEnable type="boolean" Writable="1">1</SambaEnable>
+		<Status type="int[0:3]" Writable="0">0</Status>
+		<Workgroup type="string" Writable="1">home</Workgroup>
+		<NetbiosName type="string" Wirtable="1">dsl_route</NetbiosName>
+		<Newpassword type="string" Wirtable="1">123456</Newpassword>
+		<USBEnable type="boolean" Writable="1">1</USBEnable>
+		<USBMode type="string" Writable="1">NetUSB</USBMode>
+		<MaxSambaNumberOfEntries type="unsignedInt" Writable="0">20</MaxSambaNumberOfEntries>
+		<CurSambaNumberOfEntries type="unsignedInt" Writable="0">0</CurSambaNumberOfEntries>
+		<User type="object" CurNode="CurSambaNumberOfEntries" MaxNode="MaxSambaNumberOfEntries">
+			<i type="object">
+				<Password type="string" Writable="1"></Password>
+				<Name type="string" Writable="1"></Name>
+				<Enabled type="boolean" Writable="1">0</Enabled>
+				<ReadOnly type="boolean" Writable="1">1</ReadOnly>
+			</i>
+		</User>
+    </X_TWSZ-COM_KC_SAMBA>
+</InternetGatewayDevice>

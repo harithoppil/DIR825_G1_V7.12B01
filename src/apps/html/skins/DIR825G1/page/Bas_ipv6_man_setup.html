@@ -1,0 +1,495 @@
+<div class="mainbody" id="mainbody">
+<div class="orangebox"> 
+	<h1 id="BIPV6MAN001">IPv6</h1>
+		<p id="BIPV6MAN002">
+			Use this section to configure your IPv6 Connection Type.
+			If you are unsure of your connection method, please contact your Internet Service Provider.
+		</p>
+		<p>
+			<input type="button" id="BIPV6MAN107" value="Save Settings" onclick="OnSubmit();" />
+			<input type="button" id="BIPV6MAN108" value="Don't Save Settings" onclick="uiPageRefresh();" />
+		</p>
+</div>
+<!-- IPV6 orangebox END-->
+<!-- IPV6 CONNECTION TYPE START -->
+<div class="blackbox">
+	<h2 id="BIPV6MAN003">IPv6 Connection Type</h2>
+		<p class="strong" id="BIPV6MAN004">
+			Choose the mode to be used by the router to connect to the IPv6 Internet.
+		</p>
+	<div class="textinput" >
+		<span class="name" id="BIPV6MAN005">My IPv6 Connection is </span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="wan_ipv6_mode" onchange="OnChangewan_ipv6_mode();">
+			<!--option value="AUTODETECT">Auto Detection</option-->
+			<option value="STATIC" id="BIPV6MAN006">Static IPv6</option>
+			<option value="AUTO" id="BIPV6MAN007">Autoconfiguration(SLAAC/DHCPv6)</option>
+			<!--<option value="DHCP">DHCPv6(Stateful)</option>-->
+			<!--<option value="RA">Stateless Autoconfiguration</option>-->
+			<option value="PPPOE" id="BIPV6MAN008">PPPoE</option>
+			<option value="6IN4" id="BIPV6MAN009">IPv6 in IPv4 Tunnel</option>
+			<option value="6TO4" id="BIPV6MAN010">6to4</option>
+			<option value="6RD" id="BIPV6MAN011">6rd</option>
+			<option value="LL" id="BIPV6MAN012">Local Connectivity Only</option>
+			</select>
+		</span>
+	</div>
+	<div class="gap"></div>
+</div>
+<!-- IPV6 CONNECTION TYPE END -->
+<!-- WAN block START-->
+<div class="blackbox" id="bbox_wan" style="display:none">
+	<div id="box_wan_title" style="display:none">
+		<h2 id="BIPV6MAN013">WAN IPv6 ADDRESS SETTINGS</h2>
+		<p class="strong" id="BIPV6MAN014"> Enter the IPv6 address information provided by your Internet Service Provider (ISP). </p>
+	</div>
+	<div id="box_wan_static_body" style="display:none">
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN015">Use Link-Local Address</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="usell" value="" type="checkbox" onClick="OnClickUsell();"/></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN016">IPv6 Address</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="w_st_ipaddr" type="text" size="42" maxlength="45" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN017">Subnet Prefix Length</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="w_st_pl" type="text" size="4" maxlength="3" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN018">Default Gateway</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="w_st_gw" type="text" size="42" maxlength="45" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN019">Primary DNS Server</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="w_st_pdns" type="text" size="42" maxlength="45" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN020">Secondary DNS Server</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="w_st_sdns" type="text" size="42" maxlength="45" /></span>
+		</div>
+	</div>
+	<div id="box_wan_pppoe" style="display:none">
+		<h2 id="BIPV6MAN021">PPPoE Internet Connection Type</h2>
+		<p class="strong" id="BIPV6MAN022">Enter the information provided by your Internet Service Provider (ISP). </p>
+	</div>
+	<div id="box_wan_pppoe_body" style="display:none">
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN023">PPPoE Session</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input type="radio" id="pppoe_sess_share" name="pppoe_sess_type" onclick="OnClickPppoeSessType();"/><span id="BIPV6MAN024">Share with IPv4</span>
+				<input type="radio" id="pppoe_sess_new"  name="pppoe_sess_type" onclick="OnClickPppoeSessType();"/><span id="BIPV6MAN025">Create a new session</span>
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN026">Address Mode</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input type="radio" id="pppoe_dynamic" name="pppoe_addr_type" onclick="OnClickPppoeAddrType();"/><span id="BIPV6MAN027">Dynamic IP</span>
+				<input type="radio" id="pppoe_static"  name="pppoe_addr_type" onclick="OnClickPppoeAddrType();"/><span id="BIPV6MAN028">Static IP</span>
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN029">IP Address</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="pppoe_ipaddr" type="text" size="42" maxlength="45" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN030">Username</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input id="pppoe_username" type="text" size="20" maxlength="63" />
+				<span id="show_pppoe_mppe" style="display:none" ><span id="BIPV6MAN031">&nbsp;MPPE :
+					</span><input type="checkbox" id="pppoe_mppe" name="ppp_mppe" >
+				</span>
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN032">Password</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="pppoe_password" type="password" size="20" maxlength="63" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN033">Verify Password</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="confirm_pppoe_password" type="password" size="20" maxlength="63" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN034">Service Name</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="pppoe_service_name" type="text" size="30" maxlength="39" /> <span id="BIPV6MAN035">(optional)</span></span>
+		</div>
+
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN036">Reconnect Mode</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input type="radio" id="pppoe_alwayson"	name="pppoe_reconnect_radio" checked/><span id="BIPV6MAN037">Always on</span>
+				<input type="radio" id="pppoe_ondemand"	name="pppoe_reconnect_radio" /><span id="BIPV6MAN038">On demand</span>
+			    <input type="radio" id="pppoe_manual"	name="pppoe_reconnect_radio" /><span id="BIPV6MAN039">Manual</span>
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN040">Maximum Idle Time</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="pppoe6_max_idle_time" type="text" size="10" maxlength="5" /><span id="BIPV6MAN041">(minutes, 0=infinite)</span></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN042">MTU</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="ppp6_mtu" type="text" size="10" maxlength="4" /><span id="BIPV6MAN043">(bytes) MTU default = 1492</span></span>
+		</div>
+	</div>
+	<div id="box_wan_6to4_body" style="display:none">
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN044">6to4 Address</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<span id="w_6to4_ipaddr"></span>
+				<span id="w_6to4_pl"></span>
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN045">6to4 Relay</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="w_6to4_relay" type="text" size="42" maxlength="15" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN046">Primary DNS Server</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="w_6to4_pdns" type="text" size="42" maxlength="45" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN047">Secondary DNS Server</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="w_6to4_sdns" type="text" size="42" maxlength="45" /></span>
+		</div>
+	</div>
+	<div id="box_wan_6rd_body" style="display:none">
+		<div class="textinput" style="display:none">
+			<span class="name" id="BIPV6MAN048">Enable Hub and Spoke Mode</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="en_hub_spoke" type="checkbox" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN049">6rd Configuration</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input type="radio" id="6rd_dhcp_option" name="6rd_dhcp_option_rad" onclick="OnClick6rdDHCPOPT();"/><span id="BIPV6MAN050">6rd DHCPv4 option</span>
+				<input type="radio" id="6rd_manual"  name="6rd_dhcp_option_rad" onclick="OnClick6rdDHCPOPT();"/><span id="BIPV6MAN051">Manual Configuration</span>
+			</span>
+		</div>
+		<div class="textinput">	
+			<span class="name" id="BIPV6MAN052">6rd IPv6 Prefix</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input id="w_6rd_prefix_1" type="text" size="20" maxlength="39" />	/
+				<input id="w_6rd_prefix_2" type="text" size="4" maxlength="3" />
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN053">IPv4 Address</span>
+			<span class="delimiter">:</span>
+			<!--<span  ><span id="w_6rd_v4addr"></span></span>-->
+			<span class="value">
+				<label class="label" id="w_6rd_v4addr"></label>
+			<!--<span style="font-weight:bold;position:absolute;margin-left: 120px;">Mask Length-->
+			<span style="font-weight:bold;"><span id="BIPV6MAN054">Mask Length</span>
+			:
+			<!--<span class="delimiter">:</span>-->
+			<input id="w_6rd_v4addr_mask" type="text" size="3" maxlength="2" /></span>	
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN055">Assigned IPv6 Prefix</span>
+			<span class="delimiter">:</span>
+			<span class="value"><span id="w_6rd_prefix_3"></span></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN056">Tunnel Link-Local Address</span>
+			<span class="delimiter">:</span>
+			<span class="value"><span id="w_6rd_ll_addr"></span></span>
+		</div>
+<!--
+		<div class="textinput">
+			<span class="name">6rd Address</span>
+			<span class="delimiter">:</span>
+			<span class="value"><span id="w_6rd_addr"></span></span>
+		</div>
+-->
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN057">6rd Border Relay IPv4 Address</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="w_6rd_relay" type="text" size="15" maxlength="15" /></span></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN058">Primary DNS Server</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="w_6rd_pdns" type="text" size="42" maxlength="45" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN059">Secondary DNS Server</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="w_6rd_sdns" type="text" size="42" maxlength="45" /></span>
+		</div>
+	</div>
+	<div id="box_wan_ll_body" style="display:none">
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN060">IPv6 Link-Local Address</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<span id="wan_ll"></span>
+				<span id="wan_ll_pl"></span>
+			</span>
+		</div>
+	</div>
+	<div id="box_wan_tunnel" style="display:none">
+		<h2 id="BIPV6MAN061">IPv6 in IPv4 TUNNEL SETTINGS</h2>
+		<p class="strong" id="BIPV6MAN062"> Enter the IPv6 in IPv4 Tunnel information provided by your Tunnel Broker. </p>
+	</div>
+	<div id="box_wan_tunnel_body" style="display:none">
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN063">Remote IPv4 Address</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="w_tu_rev4_ipaddr" type="text" size="21" maxlength="15" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN064">Remote IPv6 Address</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="w_tu_rev6_ipaddr" type="text" size="42" maxlength="45" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN065">Local IPv4 Address</span>
+			<span class="delimiter">:</span>
+			<span class="value"><span id="w_tu_lov4_ipaddr"></span></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN066">Local IPv6 Address</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="w_tu_lov6_ipaddr" type="text" size="42" maxlength="45" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN067">Subnet Prefix Length</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="w_tu_pl" type="text" size="4" maxlength="3" /></span>
+		</div>
+	</div>
+	<div class="gap"></div>
+</div>
+<!-- WAN block END -->
+<!-- DNS START -->
+<div class="blackbox" id="bbox_wan_dns" style="display:none">
+	<div id="box_wan_dns">
+		<h2 id="BIPV6MAN068">IPv6 DNS SETTINGS</h2>
+		<p class="strong" id="BIPV6MAN069">Obtain DNS server address automatically or enter a specific DNS server address. </p>
+	</div>
+	<div id="box_wan_dns_body">
+		<div class="textinput">
+			<span class="name"><input type="radio" id="w_dhcp_dns_auto" name="w_dhcp_dns_rad" value="auto" onclick="OnClickDHCPDNS();" /></span>
+			<span class="value" id="BIPV6MAN070"><strong>Obtain IPv6 DNS Servers automatically</strong></span>
+		</div>
+		<div class="textinput">
+			<span class="name"><input type="radio" id="w_dhcp_dns_manual" name="w_dhcp_dns_rad" value="manual" onclick="OnClickDHCPDNS();" /></span>
+			<span class="value" id="BIPV6MAN071"><strong>Use the following IPv6 DNS Servers</strong></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN072">Primary DNS Server</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="w_dhcp_pdns" type="text" size="42" maxlength="45" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN073">Secondary DNS Server</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="w_dhcp_sdns" type="text" size="42" maxlength="45" /></span>
+		</div>
+	</div>
+	<div class="gap"></div>
+</div>
+<!-- DNS END -->
+<!-- LAN block START -->
+<div class="blackbox">
+	<div id="box_lan" style="display:none"> 
+		<h2 id="BIPV6MAN074">LAN IPv6 ADDRESS SETTINGS</h2>
+			<p id="BIPV6MAN075">
+				Use this section to configure the internal network settings of your router.
+				<span id="span_dsc1" style="display:none">If you change the LAN IPv6 Address here, you may need to adjust your PC network settings to access the network again.</span>
+			</p>
+	</div>
+	<div id="box_lan_ul" style="display:none"> 
+		<h2 id="BIPV6MAN077">LAN IPv6 ADDRESS SETTINGS</h2>
+			<p id="BIPV6MAN078">
+				LAN IPv6 address for local IPv6 communications.
+			</p>
+	</div>
+	<div id="box_lan_pd_body" style="display:none">
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN079">Enable DHCP-PD</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="en_dhcp_pd" type="checkbox" onclick="OnClickpd();"/></span>
+		</div>
+	</div>
+	<div id="box_lan_pd_hint_body" style="display:none">
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN080">Manual IA_PD hint configuration</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="en_dhcp_pd_hint" type="checkbox" onclick="OnClickpdhint();"/></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN081">Specified Prefix</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input id="dhcppd_hint_prefix" type="text" size="42" maxlength="45" />	/
+				<input id="dhcppd_hint_pfxlen" type="text" size="4" maxlength="3" />
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN082">Specified Prefer Time</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="dhcppd_hint_plft" type="text" size="5" maxlength="3" />
+				<span id="BIPV6MAN083">(minutes)</span></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN084">Specified Valid Time</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="dhcppd_hint_vlft" type="text" size="5" maxlength="3" />
+				<span id="BIPV6MAN085">(minutes)
+				(optional)</span></span>
+		</div>
+	</div>
+	<div id="box_lan_body" style="display:none">
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN086">LAN IPv6 Address</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<span id="l_span_6rd" style="display:none">
+					<!--<label class="label" id="l_ipaddr_rd"></label>-->
+				</span>
+				<span id="l_span_6to4" style="display:none">
+					<span id="l_prefix_6to4" id="BIPV6MAN087">XXXX:XXXX:XXXX:</span>
+					<input id="l_ipaddr_6to4" type="text" size="6" maxlength="4" />:<span id="l_ipaddreui_6to4">:1</span> /64
+				</span>
+				<span id="l_span" style="display:none">
+				<span><input id="l_ipaddr" type="text" size="42" maxlength="45" /></span>
+				<span id="l_pl"></span>
+			</span>
+			</span>
+		</div>
+	</div>
+	<div id="box_lan_ll_body" style="display:none">
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN088">LAN IPv6 Link-Local Address</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<span id="lan_ll"></span>	
+				<span id="lan_ll_pl"></span>
+			</span>
+		</div>
+		<br>
+	</div>
+	<div id="box_lan_ul_body" style="display:none">
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN089">LAN IPv6 Unique Local Address</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<span id="lan_ul"></span>	
+				<span id="lan_ul_pl"></span>
+			</span>
+		</div>
+	</div>
+	<div class="gap"></div>
+</div>
+<!-- LAN block END -->
+<!-- LAN IPV6 ADDRESS SETTING START -->
+<div class="blackbox" id="bbox_lan_auto" stle="display:none">
+	<div id="box_lan_auto" style="display:none">
+		<h2 id="BIPV6MAN090">ADDRESS AUTOCONFIGURATION SETTINGS</h2>
+			<p id="BIPV6MAN091">
+				Use this section to setup IPv6 Autoconfiguration to assign IP addresses to the computers on your network.
+			</p>
+	</div>
+	<div id="box_lan_auto_pd" style="display:none">
+		<h2 id="BIPV6MAN092">ADDRESS AUTOCONFIGURATION SETTINGS</h2>
+			<p id="BIPV6MAN093">
+				Use this section to setup IPv6 Autoconfiguration to assign IP addresses to the computers on your network. You can also enable DHCP-PD to delegate prefixes for routers in your LAN.
+			</p>
+	</div>
+	<div id="box_lan_auto_body" style="display:none">  
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN094">Enable Automatic IPv6 address assignment</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="enableAuto" value="" type="checkbox" onClick="OnClickAuto();"/></span>
+		</div>
+		<div id="box_lan_auto_pd_body" style="display:none">
+			<div class="textinput">
+				<span class="name" id="BIPV6MAN095">Enable Automatic DHCP-PD in LAN</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="en_lan_pd" value="" type="checkbox" onClick="OnClickLanpd();"/></span>
+			</div>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6MAN096">Autoconfiguration Type</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<select id="lan_auto_type" onchange="OnChangelan_auto_type();">
+				<option value="STATELESSR" id="BIPV6MAN097">SLAAC+RDNSS</option>
+				<option value="STATELESSD" id="BIPV6MAN098">SLAAC+Stateless DHCP</option>
+				<option value="STATEFUL" id="BIPV6MAN099">Stateful DHCPv6</option>
+				</select>
+			</span>
+		</div>
+	</div>
+         <div id="box_lan_stless" style="display:none">
+                        <div class="textinput">
+                                <span class="name" id="BIPV6MAN100">Router Advertisement Lifetime</span>
+                                <span class="delimiter">:</span>
+                                <span class="value"><input id="ra_lifetime" type="text" size="5" maxlength="3" />
+                                <span id="BIPV6MAN101">(minutes)</span></span>
+                        </div>
+         </div>
+         <div id="box_lan_dhcp" style="display:none">
+                <div class="textinput">
+			        <span class="name" id="BIPV6MAN102">IPv6 Address Range (Start)</span>
+			        <span class="delimiter">:</span>
+			        <span class="value"><input id="dhcps_start_ip_prefix" type="text" size="30" maxlength="39" />
+			        <span id="sp_dli_s"></span>
+			        <input id="dhcps_start_ip_value" type="text" size="3" maxlength="2" />
+			        <span id="l_range_start_pl"></span>
+			        </span>	
+		        </div>
+		        <div class="textinput">
+			        <span class="name" id="BIPV6MAN103">IPv6 Address Range (End)</span>
+			        <span class="delimiter">:</span>
+			        <span class="value"><input id="dhcps_stop_ip_prefix" type="text" size="30" maxlength="39" />
+			        <span id="sp_dli_e"></span>
+			        <input id="dhcps_stop_ip_value" type="text" size="3" maxlength="2" />
+			        <span id="l_range_end_pl"></span>
+			        </span>	
+		        </div>
+                <div class="textinput">
+                        <span class="name" id="BIPV6MAN104">IPv6 Address Lifetime</span>
+                        <span class="delimiter">:</span>
+                        <span class="value"><input id="ip_lifetime" type="text" size="5" maxlength="3" />
+                        <span id="BIPV6MAN105">(minutes)</span></span>
+                </div>
+	</div>
+	<div class="gap"></div>
+</div>
+<!-- LAN IPV6 ADDRESS SETTING END -->
+<div class="gap"></div>
+<p><input type="button" id="BIPV6MAN109" value="Save Settings" onclick="OnSubmit();" />
+	<input type="button" id="BIPV6MAN110" value="Don't Save Settings" onclick="uiPageRefresh();" /></p>
+</div>
+<div id="BIPV6MAN106" class="tips">
+	<strong>Helpful Hints...</strong>
+	<br/><br/>
+	<p>&nbsp;&#149;&nbsp;&nbsp;When configuring the router to access the IPv6 internet, be sure to choose the correct IPv6 Connection Type from the drop down menu. If you are unsure of which option to choose, contact your internet Service Provider(ISP).</p>
+	<p>&nbsp;&#149;&nbsp;&nbsp;If you are having trouble accessing the IPv6 internet through the router, double check any settings you have entered on this page and verify them with your ISP if needed.</p>
+	<p>&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpsetup#IPv6"><span id = "lang_wanbind">More</span></a></p>

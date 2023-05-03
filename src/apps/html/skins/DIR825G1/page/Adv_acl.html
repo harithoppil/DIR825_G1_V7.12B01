@@ -1,0 +1,426 @@
+﻿<div class="mainbody" id="mainbody">
+	<div id="access_main">	
+		<div class="orangebox">
+		<span id="Adv_acl001">
+			<h1>Access Control</h1>
+			<p>The Access Control option allows you to control access in and out of your network. Use this feature as Access Controls to only grant access to approved sites, limit web access based on time or dates, and/or block internet access for applications like P2P utilities or games.</p>
+		</span>
+			<p><input type="button" value="Save Settings" onClick="uiSubmitEn();" id="Adv_acl002"/>
+			<input type="button" value="Don't Save Settings" onClick="uiPageRefresh();" id="Adv_acl003"/></p>
+		</div>
+		<div class="blackbox">
+			<h2 id="Adv_acl004">ACCESS CONTROL</h2>
+			<div class="textinput">
+				<span class="name" id="Adv_acl005">Enable Access Control</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="en_access" type="checkbox" onClick="OnClickEnACCESS();" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name"></span>
+				<span class="delimiter"></span>
+				<span class="value">
+					<input id="add_policy" type="button" value="Add Policy" onClick="OnClickAddPolicy();" />
+				</span>
+			</div>
+			<div class="emptyline"></div>
+		</div>
+		<div id="policytableframe" class="blackbox">
+			<h2 id="Adv_acl006">POLICY TABLE</h2>
+			<table id="policytable" class="general" style="font-size:11px" >
+				<tr>
+					<th width="35px" id="Adv_acl007">Enable</th>
+					<th width="45px" id="Adv_acl008">Policy</th>
+					<th width="50px" id="Adv_acl009">Machine</th>
+					<th width="50px" id="Adv_acl010">Filtering</th>
+					<th width="45px" id="Adv_acl011">Logged</th>
+					<th width="46px" id="Adv_acl012">Schedule</th>
+					<th width="10px"> </th>
+					<th width="10px"> </th>
+				</tr>			
+			</table>
+			<div class="gap"></div>
+		</div>
+		<p><input type="button" value="Save Settings" onclick="uiSubmitEn();" id="Adv_acl013"/>
+			<input type="button" value="Don't Save Settings" onclick="uiPageRefresh();" id="Adv_acl014"/></p>
+	</div>		
+
+	<div id="access_descript" style="display:none;">
+		<div class="blackbox">
+			<h2 id="Adv_acl015">ADD NEW POLICY</h2>
+			<span id="Adv_acl016">
+			<p class="strong">This wizard will guide you through the following steps to add a new policy for Access Control.</p>
+			<p>Step 1 - Choose a unique name for your policy</p>
+			<p>Step 2 - Select a schedule</p>
+			<p>Step 3 - Select the machine to which this policy applies</p>
+			<p>Step 4 - Select filtering method</p>
+			<p>Step 5 - Select filters</p>
+			<p>Step 6 - Configure Web Access Logging</p>
+			</span>
+			<div class="emptyline"></div>
+		<div class="centerline">
+			<input type="button" name="b_prev" value="Prev" onClick="OnClickPrev();" id="Adv_acl017"/>&nbsp;&nbsp;
+			<input type="button" name="b_next" value="Next" onClick="OnClickNext();" id="Adv_acl018"/>&nbsp;&nbsp;
+			<input type="button" name="b_save" value="Save" onClick="uiSubmit();" id="Adv_acl019"/>&nbsp;&nbsp;
+			<input type="button" name="b_cancel" value="Cancel" onClick="OnClickCancel();" id="Adv_acl020"/>&nbsp;&nbsp;
+		</div>
+		<div class="emptyline"></div>
+		</div>		
+	</div>		
+
+	<div id="access_name" style="display:none;">
+		<div class="blackbox">
+			<h2 id="Adv_acl021">STEP 1: CHOOSE POLICY NAME</h2>
+			<p class="strong" id="Adv_acl022">Choose a unique name for your policy.</p>
+			<div class="textinput">
+				<span class="name" id="Adv_acl023">Policy Name</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input type="text" id="policyname" size="20" maxlength="16"></span>
+			</div>
+			<div class="emptyline"></div>
+		<div class="centerline">
+			<input type="button" name="b_prev" value="Prev" onClick="OnClickPrev();" id="Adv_acl024"/>&nbsp;&nbsp;
+			<input type="button" name="b_next" value="Next" onClick="OnClickNext();" id="Adv_acl025"/>&nbsp;&nbsp;
+			<input type="button" name="b_save" value="Save" onClick="uiSubmit();" id="Adv_acl026"/>&nbsp;&nbsp;
+			<input type="button" name="b_cancel" value="Cancel" onClick="OnClickCancel();" id="Adv_acl027"/>&nbsp;&nbsp;
+		</div>
+		<div class="emptyline"></div>
+		</div>		
+	</div>	
+
+	<div id="access_schedule" style="display:none;">
+		<div class="blackbox">
+			<h2 id="Adv_acl028">STEP 2: SELECT SCHEDULE</h2>
+			<p class="strong" id="Adv_acl029">Choose a schedule to apply to this policy.</p>
+			<div class="centerline" align="center">
+				<div class="textinput">
+					<span class="name"></span>
+					<span class="delimiter"></span>
+					<span class="value">
+						<select id="sch_select" onChange="OnClickSchSelect(this.value)">
+						</select>
+					</span>
+				</div>
+				<div class="textinput">
+					<span class="name" id="Adv_acl030">Details</span>
+					<span class="delimiter">:</span>
+					<span class="value"><input type="text" id="sch_detail" maxlength="60" size="40" disabled></span>
+				</div>
+			</div>
+			<div class="emptyline"></div>
+		<div class="centerline">
+			<input type="button" name="b_prev" value="Prev" onClick="OnClickPrev();" id="Adv_acl031"/>&nbsp;&nbsp;
+			<input type="button" name="b_next" value="Next" onClick="OnClickNext();" id="Adv_acl032"/>&nbsp;&nbsp;
+			<input type="button" name="b_save" value="Save" onClick="uiSubmit();" id="Adv_acl033"/>&nbsp;&nbsp;
+			<input type="button" name="b_cancel" value="Cancel" onClick="OnClickCancel();" id="Adv_acl034"/>&nbsp;&nbsp;
+		</div>
+		<div class="emptyline"></div>
+		</div>		
+	</div>	
+
+	<div id="access_machine" style="display:none;">
+		<div class="blackbox">
+			<h2 id="Adv_acl035">STEP 3: SELECT MACHINE</h2>
+			<span id="Adv_acl036">
+			<p class="strong">Select the machine to which this policy applies.</p>
+			<p>Specify a machine with its IP or MAC address, or select 'Other Machines' for machines that do not have a policy.</p>
+			</span>
+			<div class="textinput">
+				<span class="name" id="Adv_acl037">Address Type</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input type="radio" id="MIP" onclick="OnClickMachineType('IP');"><span id="Adv_acl038">IP</span>
+					<input type="radio" id="MMAC" onclick="OnClickMachineType('MAC');"><span id="Adv_acl039">MAC</span>
+					<!--<input type="radio" id="MOthers" onclick="OnClickMachineType('Others');"><span id="Adv_acl040">Other Machines</span>	-->
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="Adv_acl041">IP Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input type="text" id="MachineIP" maxlength="15">
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="MachineIPSelect" onChange="OnClickMachineIPSelect(this.value)">
+					</select>				
+				</span>			
+			</div>
+			<div class="textinput">
+				<span class="name" id="Adv_acl042">Machine Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input type="text" id="MachineMAC" maxlength="17">
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="MachineMACSelect" onChange="OnClickMachineMACSelect(this.value)">
+					</select>				
+				</span>			
+			</div>		
+			<div class="textinput">
+				<span class="name"></span>
+				<span class="delimiter"></span>
+				<span class="value"><input id="ipv4_mac_button" type="button" value="Clone Your PC's MAC Address" onclick="OnClickMACButton();" /></span>
+			</div>		
+			<div class="textinput">
+				<span class="name"></span>
+				<span class="delimiter"></span>
+				<span class="value">
+					<input id="machine_submit" type="button" value="Add" onclick="OnClickMachineSubmit();" />
+					<input id="machine_cancel" type="button" value="Cancel" onclick="OnClickMachineCancel();" />
+				</span>	
+			</div>
+			<div class="gap"></div>
+			<div>
+				<table id="machinetable" class="general">
+					<tr>
+						<th width="570px" id="Adv_acl043">Machine</th>
+						<th width="40px"> </th>
+						<th width="40px"> </th>
+					</tr>
+				</table>
+			</div>	
+			<div class="emptyline"></div>
+		<div class="centerline">
+			<input type="button" name="b_prev" value="Prev" onClick="OnClickPrev();" id="Adv_acl044"/>&nbsp;&nbsp;
+			<input type="button" name="b_next" value="Next" onClick="OnClickNext();" id="Adv_acl045"/>&nbsp;&nbsp;
+			<input type="button" name="b_save" value="Save" onClick="uiSubmit();" id="Adv_acl046"/>&nbsp;&nbsp;
+			<input type="button" name="b_cancel" value="Cancel" onClick="OnClickCancel();" id="Adv_acl047"/>&nbsp;&nbsp;
+		</div>
+		<div class="emptyline"></div>
+		</div>		
+	</div>	
+
+	<div id="access_filter_meth" style="display:none;">
+		<div class="blackbox">
+			<h2 id="Adv_acl048">STEP 4: SELECT FILTERING METHOD</h2>
+			<p class="strong" id="Adv_acl049">Select the method for filtering.</p>
+			<div class="textinput">
+				<span class="name" id="Adv_acl050">Method</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input type="radio" id="LOGWEBONLY" onclick="OnClickFilterMethod('LOGWEBONLY');" checked name="method" value="LOGWEBONLY"><span id="Adv_acl051">Log Web Access Only</span>
+					<input type="radio" id="BLOCKALL" onclick="OnClickFilterMethod('BLOCKALL');" name="method" value="BLOCKALL"><span id="Adv_acl052">Block All Access</span>
+					<input type="radio" id="BLOCKSOME" onclick="OnClickFilterMethod('BLOCKSOME');" name="method" value="BLOCKSOME"><span id="Adv_acl053">Block Some Access</span>	
+				</span>
+			</div>
+			<div class="textinput" id="WebFilter" style="display:none;">
+				<span class="name" id="Adv_acl054">Apply Web Filter</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input type="checkbox" id="WebFilterCheck">
+				</span>
+			</div>
+			<div class="textinput" id="PortFilter" style="display:none;">
+				<span class="name" id="Adv_acl055">Apply Advanced Port Filters</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input type="checkbox" id="PortFilterCheck">
+				</span>
+			</div>
+			<div class="emptyline"></div>
+		<div class="centerline">
+			<input type="button" name="b_prev" value="Prev" onClick="OnClickPrev();" id="Adv_acl056"/>&nbsp;&nbsp;
+			<input type="button" name="b_next" value="Next" onClick="OnClickNext();" id="Adv_acl057"/>&nbsp;&nbsp;
+			<input type="button" name="b_save" value="Save" onClick="uiSubmit();" id="Adv_acl058"/>&nbsp;&nbsp;
+			<input type="button" name="b_cancel" value="Cancel" onClick="OnClickCancel();" id="Adv_acl059"/>&nbsp;&nbsp;
+		</div>
+		<div class="emptyline"></div>
+		</div>		
+	</div>
+
+	<div id="access_port_filter" style="display:none;">
+		<div class="blackbox">
+			<h2 id="Adv_acl060">STEP 5: PORT FILTER</h2>
+			<span id="Adv_acl061">
+			<p class="strong">Add Port Filters Rules.</p>
+			<p>Specify rules to prohibit access to specific IP addresses and ports.</p>
+			</span>
+			<div>	
+				<table class="general">	
+					<tr>
+						<td class="centered" width="40px" id="Adv_acl062">Enable</td>
+						<td class="centered" width="100px" id="Adv_acl063">Name</td>
+						<td class="centered" width="120px" id="Adv_acl064">Dest IP Start</td>
+						<td class="centered" width="120px"id="Adv_acl065">Dest IP End</td>
+						<td class="centered" width="60px" id="Adv_acl066">Protocol</td>
+						<td class="centered" width="100px" id="Adv_acl067">Dest Port Start</td>
+						<td class="centered" width="100px" id="Adv_acl068">Dest Port End</td>
+					</tr>
+	<tr>
+	<td class='centered'><input type='checkbox' id='filter_enable1'></td>
+	<td class='centered'><input type='text' size=14 id='filter_name1' maxlength='15'></td>
+	<td class='centered'><input type='text' size=16 id='filter_startip1' value='0.0.0.0' maxlength='15'></td>
+	<td class='centered'><input type='text' size=16 id='filter_endip1' value='255.255.255.255' maxlength='15'></td>
+	<td class='centered'>
+	<select id='filter_protocol1' onChange='OnClickProtocol(1)' value="ALL">
+	<option value='ALL' id="Adv_acl069">Any</option>
+	<option value='ICMP'>ICMP</option>
+	<option value='TCP'>TCP</option>
+	<option value='UDP'>UDP</option>
+	</td>
+	<td class='centered'><input type='text' size=10 id='filter_startport1' value='0' maxlength='5'></td>
+	<td class='centered'><input type='text' size=10 id='filter_endport1' value='65535' maxlength='5'></td>
+	</tr><tr>
+	<td class='centered'><input type='checkbox' id='filter_enable2'></td>
+	<td class='centered'><input type='text' size=14 id='filter_name2' maxlength='15'></td>
+	<td class='centered'><input type='text' size=16 id='filter_startip2' value='0.0.0.0' maxlength='15'></td>
+	<td class='centered'><input type='text' size=16 id='filter_endip2' value='255.255.255.255' maxlength='15'></td>
+	<td class='centered'>
+	<select id='filter_protocol2' onChange='OnClickProtocol(2)' value="ALL">
+	<option value='ALL' id="Adv_acl070">Any</option>
+	<option value='ICMP'>ICMP</option>
+	<option value='TCP'>TCP</option>
+	<option value='UDP'>UDP</option>
+	</td>
+	<td class='centered'><input type='text' size=10 id='filter_startport2' value='0' maxlength='5'></td>
+	<td class='centered'><input type='text' size=10 id='filter_endport2' value='65535' maxlength='5'></td>
+	</tr><tr>
+	<td class='centered'><input type='checkbox' id='filter_enable3'></td>
+	<td class='centered'><input type='text' size=14 id='filter_name3' maxlength='15'></td>
+	<td class='centered'><input type='text' size=16 id='filter_startip3' value='0.0.0.0' maxlength='15'></td>
+	<td class='centered'><input type='text' size=16 id='filter_endip3' value='255.255.255.255' maxlength='15'></td>
+	<td class='centered'>
+	<select id='filter_protocol3' onChange='OnClickProtocol(3)' value="ALL">
+	<option value='ALL' id="Adv_acl071">Any</option>
+	<option value='ICMP'>ICMP</option>
+	<option value='TCP'>TCP</option>
+	<option value='UDP'>UDP</option>
+	</td>
+	<td class='centered'><input type='text' size=10 id='filter_startport3' value='0' maxlength='5'></td>
+	<td class='centered'><input type='text' size=10 id='filter_endport3' value='65535' maxlength='5'></td>
+	</tr><tr>
+	<td class='centered'><input type='checkbox' id='filter_enable4'></td>
+	<td class='centered'><input type='text' size=14 id='filter_name4' maxlength='15'></td>
+	<td class='centered'><input type='text' size=16 id='filter_startip4' value='0.0.0.0' maxlength='15'></td>
+	<td class='centered'><input type='text' size=16 id='filter_endip4' value='255.255.255.255' maxlength='15'></td>
+	<td class='centered'>
+	<select id='filter_protocol4' onChange='OnClickProtocol(4)' value="ALL">
+	<option value='ALL' id="Adv_acl072">Any</option>
+	<option value='ICMP'>ICMP</option>
+	<option value='TCP'>TCP</option>
+	<option value='UDP'>UDP</option>
+	</td>
+	<td class='centered'><input type='text' size=10 id='filter_startport4' value='0' maxlength='5'></td>
+	<td class='centered'><input type='text' size=10 id='filter_endport4' value='65535' maxlength='5'></td>
+	</tr><tr>
+	<td class='centered'><input type='checkbox' id='filter_enable5'></td>
+	<td class='centered'><input type='text' size=14 id='filter_name5' maxlength='15'></td>
+	<td class='centered'><input type='text' size=16 id='filter_startip5' value='0.0.0.0' maxlength='15'></td>
+	<td class='centered'><input type='text' size=16 id='filter_endip5' value='255.255.255.255' maxlength='15'></td>
+	<td class='centered'>
+	<select id='filter_protocol5' onChange='OnClickProtocol(5)' value="ALL">
+	<option value='ALL' id="Adv_acl073">Any</option>
+	<option value='ICMP'>ICMP</option>
+	<option value='TCP'>TCP</option>
+	<option value='UDP'>UDP</option>
+	</td>
+	<td class='centered'><input type='text' size=10 id='filter_startport5' value='0' maxlength='5'></td>
+	<td class='centered'><input type='text' size=10 id='filter_endport5' value='65535' maxlength='5'></td>
+	</tr><tr>
+	<td class='centered'><input type='checkbox' id='filter_enable6'></td>
+	<td class='centered'><input type='text' size=14 id='filter_name6' maxlength='15'></td>
+	<td class='centered'><input type='text' size=16 id='filter_startip6' value='0.0.0.0' maxlength='15'></td>
+	<td class='centered'><input type='text' size=16 id='filter_endip6' value='255.255.255.255' maxlength='15'></td>
+	<td class='centered'>
+	<select id='filter_protocol6' onChange='OnClickProtocol(6)' value="ALL">
+	<option value='ALL' id="Adv_acl074">Any</option>
+	<option value='ICMP'>ICMP</option>
+	<option value='TCP'>TCP</option>
+	<option value='UDP'>UDP</option>
+	</td>
+	<td class='centered'><input type='text' size=10 id='filter_startport6' value='0' maxlength='5'></td>
+	<td class='centered'><input type='text' size=10 id='filter_endport6' value='65535' maxlength='5'></td>
+	</tr><tr>
+	<td class='centered'><input type='checkbox' id='filter_enable7'></td>
+	<td class='centered'><input type='text' size=14 id='filter_name7' maxlength='15'></td>
+	<td class='centered'><input type='text' size=16 id='filter_startip7' value='0.0.0.0' maxlength='15'></td>
+	<td class='centered'><input type='text' size=16 id='filter_endip7' value='255.255.255.255' maxlength='15'></td>
+	<td class='centered'>
+	<select id='filter_protocol7' onChange='OnClickProtocol(7)' value="ALL">
+	<option value='ALL' id="Adv_acl075">Any</option>
+	<option value='ICMP'>ICMP</option>
+	<option value='TCP'>TCP</option>
+	<option value='UDP'>UDP</option>
+	</td>
+	<td class='centered'><input type='text' size=10 id='filter_startport7' value='0' maxlength='5'></td>
+	<td class='centered'><input type='text' size=10 id='filter_endport7' value='65535' maxlength='5'></td>
+	</tr><tr>
+	<td class='centered'><input type='checkbox' id='filter_enable8'></td>
+	<td class='centered'><input type='text' size=14 id='filter_name8' maxlength='15'></td>
+	<td class='centered'><input type='text' size=16 id='filter_startip8' value='0.0.0.0' maxlength='15'></td>
+	<td class='centered'><input type='text' size=16 id='filter_endip8' value='255.255.255.255' maxlength='15'></td>
+	<td class='centered'>
+	<select id='filter_protocol8' onChange='OnClickProtocol(8)' value="ALL">
+	<option value='ALL' id="Adv_acl076">Any</option>
+	<option value='ICMP'>ICMP</option>
+	<option value='TCP'>TCP</option>
+	<option value='UDP'>UDP</option>
+	</td>
+	<td class='centered'><input type='text' size=10 id='filter_startport8' value='0' maxlength='5'></td>
+	<td class='centered'><input type='text' size=10 id='filter_endport8' value='65535' maxlength='5'></td>
+	</tr>		
+				</table>		
+			</div>
+			<div class="emptyline"></div>
+		<div class="centerline">
+			<input type="button" name="b_prev" value="Prev" onClick="OnClickPrev();" id="Adv_acl077"/>&nbsp;&nbsp;
+			<input type="button" name="b_next" value="Next" onClick="OnClickNext();" id="Adv_acl078"/>&nbsp;&nbsp;
+			<input type="button" name="b_save" value="Save" onClick="uiSubmit();" id="Adv_acl079"/>&nbsp;&nbsp;
+			<input type="button" name="b_cancel" value="Cancel" onClick="OnClickCancel();" id="Adv_acl080"/>&nbsp;&nbsp;
+		</div>
+		<div class="emptyline"></div>
+		</div>		
+	</div>
+
+	<div id="access_web_logging" style="display:none;">
+		<div class="blackbox">
+			<h2 id="Adv_acl081">STEP 6: CONFIGURE WEB ACCESS LOGGING</h2>
+			<div class="textinput">
+				<span class="name" id="Adv_acl082">Web Access Logging</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input type="radio" value="0" id="WebLogDisabled" onclick="OnClickWebLogging('disable');"><span id="Adv_acl083">Disabled</span>
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name"></span>
+				<span class="delimiter"></span>
+				<span class="value">
+					<input type="radio" value="1" id="WebLogEnabled" onclick="OnClickWebLogging('enable');"><span id="Adv_acl084">Enabled</span>
+				</span>
+			</div>
+			<div class="emptyline"></div>
+		<div class="centerline">
+			<input type="button" name="b_prev" value="Prev" onClick="OnClickPrev();" id="Adv_acl085"/>&nbsp;&nbsp;
+			<input type="button" name="b_next" value="Next" onClick="OnClickNext();" id="Adv_acl086"/>&nbsp;&nbsp;
+			<input type="button" name="b_save" value="Save" onClick="uiSubmit();" id="Adv_acl087"/>&nbsp;&nbsp;
+			<input type="button" name="b_cancel" value="Cancel" onClick="OnClickCancel();" id="Adv_acl088"/>&nbsp;&nbsp;
+		</div>
+		<div class="emptyline"></div>
+		</div>		
+	</div>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+
+<!-- End of Page Dependent Part. -->
+</div>
+<div id="help_hint" class="tips">
+<!-- Start of Help Depedent Part. -->
+<span id="Adv_acl089">
+<strong>Helpful Hints...</strong>
+<br/><br/>
+<p>&nbsp;&#149;&nbsp;&nbsp;Check <strong>Enable Access Control</strong> if you want to enforce rules that limit Internet access from specific LAN computers.</p>
+<p>&nbsp;&#149;&nbsp;&nbsp;Click <strong>Add Policy</strong> to start the processes of creating a rule. You can cancel the process at any time. When you are finished creating a rule it will be added to the <strong>Policy Table</strong> below.</p>
+<p>&nbsp;&#149;&nbsp;&nbsp;Click the <strong>Edit</strong> icon to modify an existing rule using the Policy Wizard.</p>
+<p>&nbsp;&#149;&nbsp;&nbsp;Click the <strong>Delete</strong> icon to permanently remove a rule.</p>
+</span>
+<p>&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpadv#AccessCtrl"><span id="Adv_acl090">More</span>...</a></p>
+<!-- End of Help Dependent Part. -->

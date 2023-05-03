@@ -1,0 +1,12 @@
+prefix=/home/zhangtianchuan/gpl_825/DIR825/build/tmpdist
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: OpenSSL
+Description: Secure Sockets Layer and cryptography libraries
+Version: 1.0.1p
+Requires: 
+Libs: -L${libdir} -lssl -lcrypto
+Libs.private: -L/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/mips-linux/lib -ldl
+Cflags: -I${includedir} 

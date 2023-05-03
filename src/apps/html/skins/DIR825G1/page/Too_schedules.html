@@ -1,0 +1,113 @@
+﻿<div class="mainbody" id="mainbody">
+	<div class="orangebox">
+		<h1 id="SCS001">Schedules</h1>
+		<p id="SCS002">The Schedule configuration option is used to manage schedule rules for "WAN", "Wireless", "Virtual Server", "Port Forwarding", "Applications" and "Network Filter".</p>
+	</div>
+	<div class="blackbox">
+		<h2><span id="edittitle">10 -- Add Schedule Rule</span></h2>
+		<div class="textinput">
+			<span class="name" id="SCS003">Name</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="schdesc" size="20" maxlength="16" type="text"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="SCS004">Day(s)</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input type="radio" id="schallweek" name="schdayselect" value="1"
+					onclick="changeDaysSelect();"><span id="SCS005">All Week</span>
+				<input type="radio" id="schdays" name="schdayselect" checked="checked" value="0"
+					onclick="changeDaysSelect();"><span id="SCS006">Select Day(s)</span>
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name"></span>
+			<span class="delimiter"></span>
+			<span class="value" id="daysArea">
+				<input type="checkbox" id="schsun"><span id="SCS007">Sun</span>
+				<input type="checkbox" id="schmon"><span id="SCS008">Mon</span>
+				<input type="checkbox" id="schtue"><span id="SCS009">Tue</span>
+				<input type="checkbox" id="schwed"><span id="SCS010">Wed</span>
+				<input type="checkbox" id="schthu"><span id="SCS011">Thu</span>
+				<input type="checkbox" id="schfri"><span id="SCS012">Fri</span>
+				<input type="checkbox" id="schsat"><span id="SCS013">Sat</span>
+			</span>
+		</div>
+		<div class="gap"></div>
+		<div class="gap"></div>
+		<div class="textinput">
+			<span class="name" id="SCS014">All Day - 24 hrs</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input type="checkbox" id="sch24hrs" onclick="SetWholeDay();">
+			</span>
+		</div>
+		<!--div class="textinput">
+			<span class="name">Time Format</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<select id="timeformat" onChange="OnChangeTimeFormat(this.value)">
+					<option value="12-hour">12-hour</option>
+					<option value="24-hour">24-hour</option>
+				</select>
+			</span>
+		</div-->	
+		<div class="textinput">
+			<span class="name" id="SCS015">Start Time</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input type="text" id="schstarthrs" size=3 maxlength=2
+				>:<input type="text" id="schstartmin" size=3 maxlength=2>
+				<!--select id="schstartapm">
+					<option value="AM">AM</option>
+					<option value="PM">PM</option>
+				</select-->
+				<span id="SCS028">(hour:minute)</span>
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="SCS016">End Time</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input type="text" id="schendhrs" size=3 maxlength=2
+				>:<input type="text" id="schendmin" size=3 maxlength=2>
+				<!--select id="schendapm">
+					<option value="AM">AM</option>
+					<option value="PM">PM</option>
+				</select-->
+				<span id="SCS029">(hour:minute)</span>
+			</span>
+		</div>
+		<div class="centerline">
+			<input type="button" id="schsubmit" value="Add" onclick="uiSubmit();">
+			<input type="button" id="schcancel" value="Cancel" onclick="uiPageRefresh();">
+		</div>
+		<div class="gap"></div>
+	</div>
+	<div class="blackbox">
+		<h2 id="SCS017">Schedule Rules List</h2>
+		<table id="schtable" class="general">
+		<tr>
+			<th width="151px" id="SCS018">Name</th>
+			<th width="201px" id="SCS019">Day(s)</th>
+			<th width="116px" id="SCS020">Time Frame</th>
+			<th width="20px"> </th>
+			<th width="20px"> </th>
+		</tr>
+		</table>
+		<div class="gap"></div>
+	</div>
+	<div class="emptyline"></div>
+	<!-- End of Page Dependent Part. -->
+</div>
+<div id="help_hint" class="tips">
+<!-- Start of Help Depedent Part. -->
+<strong id="SCS021">Helpful Hints...</strong>
+<br/><br/>
+<p id="SCS022">&nbsp;&#149;&nbsp;&nbsp;Schedules are used with a number of other features to define when those features are in effect.</p>
+<p id="SCS023">&nbsp;&#149;&nbsp;&nbsp;Give each schedule a name that is meaningful to you. For example, a schedule for Monday through Friday from 3:00pm to 9:00pm, might be called &quot;After School&quot;.</p>
+<p id="SCS024">&nbsp;&#149;&nbsp;&nbsp;Click <strong>Add</strong> to add a completed schedule to the list below.</p>
+<p id="SCS025">&nbsp;&#149;&nbsp;&nbsp;Click <strong>Edit</strong> icon to change an existing schedule.</p>
+<p id="SCS026">&nbsp;&#149;&nbsp;&nbsp;Click <strong>Delete</strong> icon to permanently delete a schedule.</p>
+<p id="SCS027">&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helptool#Schedules">More...</a></p>
+<!-- End of Help Dependent Part. -->

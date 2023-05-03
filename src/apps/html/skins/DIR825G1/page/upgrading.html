@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<link rel="shortcut icon" href="/html/skin/favicon.gif" type="image/x-icon">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Pragma" content="No-cache" />
+<meta http-equiv="Content-Type" content="no-cache">
+<title>D-LINK SYSTEMS, INC. | WIRELESS ROUTER | HOME</title>	
+<link rel="stylesheet" type="text/css" href="/html/skin/general.css">
+<script type="text/javascript" src="/html/js/boot.js"></script>
+</head>
+<body class="mainbg" onload="uiload();">
+<div class="maincontainer">	
+	<div class="headercontainer">
+		<span class="product">
+			<span id = "upgrading001">Product Page : </span>
+			<a target="_blank" id="pro_page" href="http://support.dlink.com"></a>
+		</span>
+		<span class="version">				
+			<span id = "upgrading002">Firmware Version : </span>
+			<span class="value" id = "Span_FirmwareVersion"></span>
+		</span>
+		<span class="hwversion">
+			<span id = "upgrading003">Hardware Version : </span>
+			<span class="value" id = "Span_HardwareVersion"></span>
+		</span>
+	</div><!-- logo picture -->
+	<div class="bannercontainer">
+		<span class="bannerhead">
+			<a href="http://www.dlink.com.tw"><img width="162" height="92" src="/html/skin/head_01.gif"></a> 
+		</span>
+		<span class="bannertail"><img src="/html/skin/head_03.gif"></span>
+		
+	</div><!-- logo menu -->	
+	<div class="simplecontainer" id="content">		
+		<div class="simplebody">					
+			<div class="orangebox">
+				<span id="message">
+				<h1 id="upgrading004">REBOOTING...</h1>
+				<div class="emptyline"></div>
+				<div class="centerline" id="result"><p>Upgrading...</p><p>Do not power off the device until the Firmware Upgrade is complete</p></div>
+				<div class="emptyline"></div>
+				<div class="centerline" id="wait">
+				<span id="upgrading006">Waiting time :</span>
+				<span id="timer" style="color:red;">110</span>
+				 <span id="upgrading007"> second(s)</span>
+				</div>
+				<div class="centerline" id="continue" style="display:none">
+				<input type="button" value="Continue" onclick="self.location='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_firmware';">
+				</div>
+				<div class="emptyline"></div>
+				</span>
+			</div>
+		</div><!-- mainbody -->
+	</div>	
+	<div class="footercontainer">
+		<span class="footermark"><img src="/html/skin/tail.gif"></span>
+	</div>
+</div>
+<div class="copyright" id="upgrading008">Copyright &copy; 2016 D-Link Corporation. All rights reserved.</div>
+	<form id="uiPostForm" method="post" action="webproc"></form>
+</body>
+</html>
+
+<script>
+
+var timerId;
+var seconds = 110;
+var Ip_addr;
+var  G_Language; 
+if(G_Language == null)
+{  
+  G_Language = "<? echo $var:language ?>";
+}
+var arrLang = [];
+arrLang['en_us'] = {
+   	'upgrading001'      :       'Product Page : ',
+	'upgrading002'      :       'Firmware Version : ',
+	'upgrading003'      :       'Hardware Version : ',
+	'upgrading004'      :       'REBOOTING...',
+	'result'      		:       '<p>Upgrading...</p><p>Do not power off the device until the Firmware Upgrade is complete</p>',
+	'upgrading006'      :       'Waiting time :',
+	'upgrading007'      :       'second(s)',
+	'upgrading008'      :       'Copyright &copy; 2016 D-Link Corporation. All rights reserved.'
+};
+arrLang['zh_tw'] = {
+	upgrading001 : '產品頁面:',
+	upgrading002 : '韌體版本:',
+	upgrading003 : '硬體版本:',
+	upgrading004 : '重新啟動中…',
+	result : '<p>Upgrading...</p><p>Do not power off the device until the Firmware Upgrade is complete</p>',
+	upgrading006 : '等候時間:',
+	upgrading007 : '秒',
+	upgrading008 : 'Copyright &copy; 2016 D-Link Corporation. All rights reserved.'
+};
+arrLang['es'] = {
+	upgrading001 : 'Página del producto：',
+	upgrading002 : 'Versión del firmware：',
+	upgrading003 : 'Versión del hardware：',
+	upgrading004 : 'Reiniciando…',
+	result : '<p>Upgrading...</p><p>Do not power off the device until the Firmware Upgrade is complete</p>',
+	upgrading006 : 'Tiempo de espera:',
+	upgrading007 : 'segundo(s)',
+	upgrading008 : 'Copyright &copy; 2016 D-Link Corporation. All rights reserved.'
+};
+arrLang['pt'] = {
+	upgrading001 : 'Página do produto：',
+	upgrading002 : 'Versão de firmware：',
+	upgrading003 : 'Versão de hardware：',
+	upgrading004 : 'Reiniciar……',
+	result : '<p>Upgrading...</p><p>Do not power off the device until the Firmware Upgrade is complete</p>',
+	upgrading006 : 'Tempo de espera:',
+	upgrading007 : 'segundo(s)',
+	upgrading008 : 'Copyright &copy; 2016 D-Link Corporation. All rights reserved.'
+};
+function Countdown()
+{
+	seconds--;
+	if(seconds > 0)
+	{
+		document.getElementById("timer").innerHTML = seconds;
+		setTimeout('Countdown()',1000);
+	}
+	else
+	{
+		clearTimeout(timerId);
+		top.location = "http://" + Ip_addr;
+	}
+}
+
+function uiload()
+{
+	//chg_language(data_languages["upgrading"]);
+	var objLang = arrLang[G_Language];
+	for (var attr in objLang){
+		try{
+			document.getElementById(attr).innerHTML = objLang[attr];
+		} catch(E) {
+		}
+	}
+	if(G_display_info == "(null)" )	
+	{
+		var temp = G_dev_info.split("]]");
+		
+		var pro_page = temp[1].split(": ");
+		var firm_ver = temp[5].split(": ");
+		var hard_ver = temp[4].split(": ");
+		
+		document.getElementById("pro_page").innerHTML = pro_page[1];
+		document.getElementById("Span_FirmwareVersion").innerHTML = firm_ver[1];
+		document.getElementById("Span_HardwareVersion").innerHTML = hard_ver[1];
+		
+		var ip = temp[3].split(": ");
+		Ip_addr = ip[1];
+		
+		timerId = setTimeout('Countdown()',1000);
+	}
+	else
+	{
+		document.getElementById("upgrading004").innerHTML = "Firmware Upload Fail";
+		document.getElementById("result").innerHTML = G_display_info;
+		document.getElementById("wait").style.display = "none";
+		document.getElementById("continue").style.display = "";
+	}
+}
+</script>
+

@@ -1,0 +1,142 @@
+﻿<div class="mainbody" id="mainbody">
+	<div class="orangebox">
+		<h1 id="ddns001">Dynamic DNS</h1>
+		<p id="ddns002">
+			The Dynamic DNS feature allows you to host a server (Web, FTP, Game Server, etc...) using a domain name that you have purchased (www.whateveryournameis.com) with your dynamically assigned IP address. Most broadband Internet Service Providers assign dynamic (changing) IP addresses. Using a DDNS service provider, your friends can enter your host name to connect to your game server no matter what your IP address is.
+		</p>
+		<p id="dsc_oray" style="display:none">
+			Oray.cn Peanut Dynamic Domain Resolve Service:<br>
+			&nbsp; <a href="http://www.oray.cn/Passport/Passport_Register.asp" target=_blank>* Peanut Dynamic Domain Resolve Service</a><br>
+			&nbsp; <a href="http://www.oray.cn/peanuthull/peanuthull_prouser.htm" target=_blank>* Update to Professional Service of Dynamic Domain Resolve of Peanut</a><br>
+			&nbsp; <a href="http://ask.oray.cn/help/" target=_blank>* Help About Dynamic Domain Resolve Service of Peanut</a>
+		</p>
+		<p><input type="button" id="save01" value="Save Settings" onclick="uiSubmit();" />
+			<input type="button" id="save02" value="Don't Save Settings" onclick="uiPageRefresh();" /></p>
+	</div>
+	<div class="blackbox">
+		<h2 id="ddns003">Dynamic DNS Settings</h2>
+		<div class="centerline" align="center">
+			<div class="textinput">
+				<span class="name"  id="ddns004">Enable Dynamic DNS</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input type="checkbox" id="en_ddns" onclick="EnableDDNS();"></span>
+			</div>
+			<div class="textinput">
+				<span class="name"  id="ddns005">Server Address</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input type="text" id="v4addr" maxlength="60" size="20">
+				<input type="button" value="<<" class="arrow" onClick="OnClickAddr();" />		
+					<select id="server">
+						<option value="title" id="ddns028">Select Dynamic DNS Server</option>
+						<!--  -->				
+						<option value="DLINK">dlinkddns.com</option>
+						<option value="DYNDNS">dyndns.com</option>
+						
+					</select>
+				</span>
+			</div>
+			<div class="textinput" id="host_div">
+				<span class="name"  id="ddns006">Host Name</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input type="text" id="host" maxlength="60" size="40"></span>
+			</div>
+			<div class="textinput">
+				<span class="name"  id="ddns007">Username</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input type="text" id="user" maxlength="32" size="40"></span>
+			</div>
+			<div class="textinput">
+				<span class="name"  id="ddns008">Password</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input type="password" id="passwd" maxlength="32" size="40"></span>
+			</div>
+			<div class="textinput">
+				<span class="name"  id="ddns009">Verify Password</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input type="password" id="passwd_verify" maxlength="32" size="40"></span>
+			</div>
+			<div class="textinput">
+				<span class="name"  id="ddns010">Timeout</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input type="text" id="timeout" maxlength="4" size="10"><span id="ddns026">(times)</span></span>
+			</div>
+			<div id="report_div" class="textinput">
+				<span class="name"  id="ddns011">Status</span>
+				<span class="delimiter" >:</span>
+				<span class="value" id="report" ></span>
+			</div>
+		</div>
+		<div id="peanut_status_div" class="textinput" style="display:none; height:auto;">
+			<span class="name"  id="ddns012">Linkage Status</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="peanut_status"></span>
+		</div>
+		<div style="clear:both;"></div>
+		<div id="peanut_detail_div" style="display:none;">
+			<div class="textinput">
+				<span class="name" id="ddns013">Service Level</span>
+				<span class="delimiter">:</span>
+				<span class="value" id="peanut_level"></span>
+			</div>
+			<div class="textinput">
+				<span class="name"  id="ddns014">Net Domain</span>
+				<span class="delimiter">:</span>
+				<span class="value"></span>
+			</div>
+		
+			
+		</div>
+		<div class="gap"></div>
+	</div>
+	<div class="blackbox" style="display:none;">
+		<h2  id="ddns015">Dynamic DNS For IPv6 HOST</h2>
+				<div class="textinput">
+				<span class="name"  id="ddns016">Enable</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input type="checkbox" id="en_ddns_v6" onclick="EnableDDNS();"></span>
+			</div>
+			<div class="textinput">
+				<span class="name"  id="ddns017">IPv6 Address</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input type="text" id="v6addr" maxlength="60" size="25" />
+				<input type="button" value="<<" class="arrow" onClick="OnClickPCArrow('');" />
+				<select id="pc_" modified="ignore" class="broad" style="width: 120px;">
+				</select>
+				</span>
+			
+			</div>
+
+			<div class="textinput">
+				<span class="name"  id="ddns018">Host Name</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input type="text" id="v6host" maxlength="60" size="25"><span id="ddns027">(e.g.: ipv6.mydomain.net)</span></span>
+			</div>		
+			<p style="display:none;"><input type="button" id="add_ddns_v6" value="Save" onclick="AddDDNS();" />
+			<input type="button" id="clear_ddns_v6" value="Clear" onclick="ClearDDNS();" /></p>
+			<div class="gap"></div>
+	</div>	
+	<div class="blackbox" style="display:none;">
+		<h2  id="ddns019">IPv6 DYNAMIC DNS LIST </h2>
+		<table id="v6ddns_list" class="general">
+			<tr>
+				<th width=10%  id="ddns020">Enable</th>
+				<th width=44%  id="ddns021">Host Name</th>
+				<th width=30%  id="ddns022">IPv6 Address</th>
+				<th width=8%></th>
+				<th width=8%></th>
+			</tr>
+		</table>
+		<div class="gap"></div>
+	</div>	
+	<p><input type="button"  id="save03" value="Save Settings" onclick="uiSubmit();" />
+		<input type="button"  id="save04" value="Don't Save Settings" onclick="uiPageRefresh();" /></p>
+	<!-- End of Page Dependent Part. -->
+</div>
+<div id="help_hint" class="tips">
+<!-- Start of Help Depedent Part. -->
+<strong  id="ddns023">Helpful Hints...</strong>
+<br/><br/>
+<p  id="ddns024">&nbsp;&#149;&nbsp;&nbsp;To use this feature, you must first have a Dynamic DNS account from one of the providers in the drop down menu.</p>
+<!--p>&nbsp;&#149;&nbsp;&nbsp;We could also use DDNS function for IPv6 with the same account as IPv4.</p-->
+<p  id="ddns025">&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helptool#DDNS">More...</a></p>
+<!-- End of Help Dependent Part. -->

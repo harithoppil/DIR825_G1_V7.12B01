@@ -1,0 +1,237 @@
+objopt.lo: objopt.c ../../include/internal.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/stdio.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/features.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/uClibc_config.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/uClibc_arch_features.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/sys/cdefs.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/gcc/stddef.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/types.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/wordsize.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/kernel_types.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/typesizes.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/pthreadtypes.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/sched.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/uClibc_stdio.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/wchar.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/wchar.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/uClibc_mutex.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/pthread.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/sched.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/time.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/time.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/uClibc_clk_tck.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/signal.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/sigset.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/initspin.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/sigthread.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/uClibc_pthread.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/gcc/stdarg.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/stdio_lim.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/stdlib.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/sys/types.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/endian.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/endian.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/byteswap.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/byteswap.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/sys/select.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/select.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/sys/sysmacros.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/alloca.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/string.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/arpa/inet.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/netinet/in.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/stdint.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/sys/socket.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/sys/uio.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/uio.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/socket.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/limits.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/gcc/limits.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/posix1_lim.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/local_lim.h \
+ /home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/linux/limits.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/uClibc_local_lim.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/posix2_lim.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/sockaddr.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/asm/socket.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/asm/sockios.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/asm/ioctl.h \
+ /home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/asm-generic/ioctl.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/in.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/errno.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/errno.h \
+ /home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/linux/errno.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/asm/errno.h \
+ /home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/asm-generic/errno-base.h \
+ /home/zhangtianchuan/gpl_825/DIR825/build/tmpdist/include/libnfnetlink/libnfnetlink.h \
+ /home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/linux/netlink.h \
+ /home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/linux/socket.h \
+ /home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/linux/types.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/asm/types.h \
+ /home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/asm-generic/int-ll64.h \
+ /home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/asm-generic/bitsperlong.h \
+ /home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/linux/posix_types.h \
+ /home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/linux/stddef.h \
+ /home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/linux/compiler.h \
+ /opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/asm/posix_types.h \
+ /home/zhangtianchuan/gpl_825/DIR825/build/tmpdist/include/libnfnetlink/linux_nfnetlink.h \
+ ../../include/libnetfilter_conntrack/libnetfilter_conntrack.h \
+ ../../include/libnetfilter_conntrack/linux_nfnetlink_conntrack.h
+
+../../include/internal.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/stdio.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/features.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/uClibc_config.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/uClibc_arch_features.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/sys/cdefs.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/gcc/stddef.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/types.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/wordsize.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/kernel_types.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/typesizes.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/pthreadtypes.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/sched.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/uClibc_stdio.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/wchar.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/wchar.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/uClibc_mutex.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/pthread.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/sched.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/time.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/time.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/uClibc_clk_tck.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/signal.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/sigset.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/initspin.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/sigthread.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/uClibc_pthread.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/gcc/stdarg.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/stdio_lim.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/stdlib.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/sys/types.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/endian.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/endian.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/byteswap.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/byteswap.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/sys/select.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/select.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/sys/sysmacros.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/alloca.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/string.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/arpa/inet.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/netinet/in.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/stdint.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/sys/socket.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/sys/uio.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/uio.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/socket.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/limits.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/gcc/limits.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/posix1_lim.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/local_lim.h:
+
+/home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/linux/limits.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/uClibc_local_lim.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/posix2_lim.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/sockaddr.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/asm/socket.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/asm/sockios.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/asm/ioctl.h:
+
+/home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/asm-generic/ioctl.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/in.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/errno.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/bits/errno.h:
+
+/home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/linux/errno.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/asm/errno.h:
+
+/home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/asm-generic/errno-base.h:
+
+/home/zhangtianchuan/gpl_825/DIR825/build/tmpdist/include/libnfnetlink/libnfnetlink.h:
+
+/home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/linux/netlink.h:
+
+/home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/linux/socket.h:
+
+/home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/linux/types.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/asm/types.h:
+
+/home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/asm-generic/int-ll64.h:
+
+/home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/asm-generic/bitsperlong.h:
+
+/home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/linux/posix_types.h:
+
+/home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/linux/stddef.h:
+
+/home/zhangtianchuan/gpl_825/DIR825/build/kernel/linux-2.6.30/include/linux/compiler.h:
+
+/opt/tbs_toolchains/realtek/rsdk-1.5.5-5281-EB-2.6.30-0.9.30.3-110714/include/asm/posix_types.h:
+
+/home/zhangtianchuan/gpl_825/DIR825/build/tmpdist/include/libnfnetlink/linux_nfnetlink.h:
+
+../../include/libnetfilter_conntrack/libnetfilter_conntrack.h:
+
+../../include/libnetfilter_conntrack/linux_nfnetlink_conntrack.h:

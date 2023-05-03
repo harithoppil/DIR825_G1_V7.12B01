@@ -1,0 +1,33 @@
+
+<InternetGatewayDevice type="object">
+	<X_TWSZ-COM_IPv6Layer3Forwarding type="object">
+		<DefaultConnectionService type="string"></DefaultConnectionService>
+		<MAXForwardNumberOfEntries type="unsignedInt" Writable="0">15</MAXForwardNumberOfEntries>
+		<ForwardNumberOfEntries type="unsignedInt" Writable="0">0</ForwardNumberOfEntries>
+		<IPv6Forwarding type="object" CurNode="ForwardNumberOfEntries" MaxNode="MAXForwardNumberOfEntries">
+			<i type="object">
+				<Name type="string" Writable="0"></Name>
+				<Enable type="boolean">0</Enable>
+				<Status type="string" Writable="0">Disabled</Status>
+				<Type type="string" Writable="0">Network</Type>
+				<DestIPv6Address type="string"></DestIPv6Address>
+				<DestPrefixLength type="unsignedInt"></DestPrefixLength>
+				<SourceIPv6Address type="string"></SourceIPv6Address>
+				<SourcePrefixLength type="unsignedInt"></SourcePrefixLength>
+				<GatewayIPv6Address type="string"></GatewayIPv6Address>
+				<Interface type="string"></Interface>
+				<ForwardingMetric type="int">256</ForwardingMetric>
+				<MTU type="int">1492</MTU>
+			</i>
+		</IPv6Forwarding>
+	</X_TWSZ-COM_IPv6Layer3Forwarding>
+	<X_TWSZ-COM_IPv6RouteInfo type="object" >
+			<i type="object">
+				<DestIPv6Address type="string"></DestIPv6Address>
+				<DestPrefixLength type="string"></DestPrefixLength>
+				<GatewayIPv6Address type="string"></GatewayIPv6Address>
+				<ForwardingMetric type="string"></ForwardingMetric>
+				<Interface type="string"></Interface>
+			</i>
+	</X_TWSZ-COM_IPv6RouteInfo>
+</InternetGatewayDevice>

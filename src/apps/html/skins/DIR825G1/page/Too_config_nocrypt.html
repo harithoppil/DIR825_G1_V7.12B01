@@ -1,0 +1,39 @@
+<div class="mainbody" id="mainbody">
+<div class="orangebox">
+	<h1 id="SYS001">Save and Restore no crypt Config</h1>
+	<p>Save and Restore no crypt Config</p>
+</div>
+<div class="blackbox">
+	<h2 id="SYS003">Save and Restore no crypt Config</h2>
+	<form name="BackupForm"  method="post" action="webupg" onSubmit="isBakeup();">
+		<input type="hidden" value="" name="tokenid" id="tokenid1">
+		<table cellspacing="2" border="0">
+			<tr>
+				<td class="background" style="width:50%"  id="FW009">Backup no crypt Config : </td>
+				<td>				
+					<input type="submit" id="FW010" value="Backup" />
+					<input type="hidden" id="name" name="name" value="downloadConfig" />				
+				</td>
+			</tr>
+			<tr>
+				<td style="height:15px" colspan="4"></td>
+			</tr>
+		</table>
+	</form>
+	<form name="confForm1"  method="post" action="webupg" enctype="multipart/form-data" onSubmit="return upConfigProgress();">
+		<input type="hidden" value="" name="tokenid" id="tokenid2">
+		<table cellspacing="2" border="0">
+			<tr>
+				<td class="background" style="width:50%"  id="FW012">no crypt Config File : </td>
+				<td>
+					<input type="file" name="config" id="config" maxlength="128" size="30" />
+					<input type="hidden" name="updateConfig" id="updateConfig" value="update">
+					<input type="submit" id="FW013"  value="Upgrade Config" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>
+</div>
+<div id="help_hint" class="tips">
+	<strong id="SYS013">Helpful Hints...</strong>

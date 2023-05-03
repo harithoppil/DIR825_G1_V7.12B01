@@ -1,0 +1,69 @@
+
+<InternetGatewayDevice type="object">
+	<WANDevice type="object" Writable="0" CurNode="WANDeviceNumberOfEntries">
+		<i type="object">
+			<WANConnectionDevice type="object" MaxNode="MAXWANConnectionNumberOfEntries" CurNode="WANConnectionNumberOfEntries">
+				<i type="object">
+					<WANIPConnectionNumberOfEntries type="unsignedInt" Writable="0">0</WANIPConnectionNumberOfEntries>
+					<MaxIPConnectionNumberOfEntries type="unsignedInt" Writable="0">1</MaxIPConnectionNumberOfEntries>
+					<WANIPConnection type="object" CurNode="WANIPConnectionNumberOfEntries" MaxNode="MaxIPConnectionNumberOfEntries">
+						<i type="object">
+							<Enable type="boolean">0</Enable>
+							<ConnectionStatus type="string" Writable="0"></ConnectionStatus>
+							<ConnectionType type="string">IP_Routed</ConnectionType>
+							<Name type="string(256)">WANConnection</Name>
+							<X_TWSZ-COM_ProtocolClass type="string" Writable="0">IPv4</X_TWSZ-COM_ProtocolClass>
+							<X_TWSZ-COM_ConnectedDeviceName type="string" Writable="0"></X_TWSZ-COM_ConnectedDeviceName>
+							<LastConnectionError type="string" Writable="0">ERROR_NONE</LastConnectionError>
+							<AddressingType type="string"></AddressingType>
+							<ExternalIPAddress type="string" Notification="2"></ExternalIPAddress>
+							<SubnetMask type="string"></SubnetMask>
+							<DefaultGateway type="string"></DefaultGateway>
+							<X_TWSZ-COM_DhcpServerLease  type="string">0</X_TWSZ-COM_DhcpServerLease>							
+							<X_TWSZ-COM_Hostname type="string"  Cache="1" Standard="0"></X_TWSZ-COM_Hostname>
+							<X_TWSZ-COM_DomainName type="string"></X_TWSZ-COM_DomainName>
+							<X_TWSZ-COM_GetNTPServers type="boolean">0</X_TWSZ-COM_GetNTPServers>
+							<X_TWSZ-COM_NTPServers type="string"></X_TWSZ-COM_NTPServers>
+							<X_TWSZ-COM_ProtocolType type="string">IPv4</X_TWSZ-COM_ProtocolType>
+							<X_TWSZ-COM_ConnectionMode type="string" Writable="0">IP</X_TWSZ-COM_ConnectionMode>
+							<X_TWSZ-COM_DhcpUseUnicast type="boolean" Writable="1">0</X_TWSZ-COM_DhcpUseUnicast>	
+							<X_TWSZ-COM_DhcpServerReleaseRenew Cache="1" type="string">Unconfigured</X_TWSZ-COM_DhcpServerReleaseRenew>
+							<PossibleConnectionTypes type="string" Writable="0"></PossibleConnectionTypes>
+							<MACAddress type="string"></MACAddress>
+							<MaxMTUSize type="unsignedInt">1500</MaxMTUSize>
+							<ConnectionTrigger type="string">On-Demand</ConnectionTrigger>
+							<Reset type="boolean" Writable="1">0</Reset>
+							<Uptime type="unsignedInt" Writable="0"></Uptime>
+							<ConnectionTime type="string" Writable="0">0</ConnectionTime>
+							<Stats type="object" Writable="0">
+								<EthernetBytesSent type="unsignedInt" Writable="0"></EthernetBytesSent>
+								<EthernetBytesReceived type="unsignedInt" Writable="0"></EthernetBytesReceived>
+								<EthernetPacketsSent type="unsignedInt" Writable="0"></EthernetPacketsSent>
+								<EthernetPacketsReceived type="unsignedInt" Writable="0"></EthernetPacketsReceived>
+								<EthernetErrorsSent type="unsignedInt" Writable="0"></EthernetErrorsSent>
+								<EthernetErrorsReceived type="unsignedInt" Writable="0"></EthernetErrorsReceived>
+								<EthernetDiscardPacketsSent type="unsignedInt" Writable="0"></EthernetDiscardPacketsSent>
+								<EthernetDiscardPacketsReceived type="unsignedInt" Writable="0"></EthernetDiscardPacketsReceived>
+							</Stats>
+							<Backup3G type="string" Writable="1">1</Backup3G>
+                            <X_TWSZ-COM_DHCPOPTION60 type="object">
+                                <i type="object">
+                                    <Enable type="boolean" Writable="1">0</Enable>
+                                    <Type type="unsignedInt" Writable="1">34</Type>
+                                    <ValueMode type="unsignedInt" Writable="1">0</ValueMode>
+                                    <Value type="string" Writable="1">0</Value>
+                                </i>
+                            </X_TWSZ-COM_DHCPOPTION60>
+                            <X_TWSZ-COM_DHCPOPTION125 type="object">
+                                <i type="object">
+                                    <Enable type="boolean" Writable="1">0</Enable>
+                                    <Value type="string" Writable="1">0</Value>
+                                </i>
+                            </X_TWSZ-COM_DHCPOPTION125>
+						</i>
+					</WANIPConnection>
+				</i>
+			</WANConnectionDevice>
+		</i>
+	</WANDevice>
+</InternetGatewayDevice>

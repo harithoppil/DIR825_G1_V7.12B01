@@ -1,0 +1,7 @@
+
+config OPENSOURCE_OPENL2TP
+	bool 'openl2tp'
+	default n
+	depends on OPENSOURCE
+  	help 
+      	openl2tp

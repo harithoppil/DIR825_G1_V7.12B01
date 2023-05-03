@@ -1,0 +1,7 @@
+
+<InternetGatewayDevice type="object">
+	<X_TWSZ-COM_PORTMAPPING type="object">
+		<Enable type="boolean">1</Enable>
+		<Configuration type="unsignedInt">1</Configuration>
+	</X_TWSZ-COM_PORTMAPPING>
+</InternetGatewayDevice>

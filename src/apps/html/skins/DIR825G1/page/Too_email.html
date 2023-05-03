@@ -1,0 +1,100 @@
+﻿<div class="mainbody" id="mainbody">
+	<div class="orangebox">
+		<h1 id="email001">EMail Settings</h1>
+		<p  id="email002">The Email feature can be used to send the system log files and router alert messages to your email address.</p>
+		<p><input type="button"  id="email003" value="Save Settings" onClick="uiSubmit();" />
+			<input type="button"  id="email004" value="Don't Save Settings" onClick="uiPageRefresh();" /></p>
+	</div>
+	<div class="blackbox">
+		<h2  id="email005">Email Notification</h2>
+		<div class="textinput">
+			<span class="name" id="email006">Enable Email Notification</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="en_mail" type="checkbox" onclick="OnClickEnable();"/></span>
+		</div>
+		<br>
+	</div>
+	<div class="blackbox">
+		<h2  id="email007">Email Settings</h2>
+		<div class="textinput">
+			<span class="name"  id="email008">From Email Address</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="from_addr" type="text" size="20" maxlength="128"/></span>
+		</div>
+		<div class="textinput">
+			<span class="name"  id="email009">To Email Address</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="to_addr" type="text" size="20" maxlength="128"/></span>
+		</div>
+		<div class="textinput">
+			<span class="name"  id="email010">Email Subject</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="email_subject" type="text" size="20" maxlength="128"/></span>
+		</div>
+		<div class="textinput">
+			<span class="name"  id="email011">SMTP Server Address</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="smtp_server_addr" type="text" size="20" maxlength="128"/></span>
+		</div>
+		<div class="textinput">
+			<span class="name"  id="email012">SMTP Server Port</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="smtp_server_port" type="text" size="20" maxlength="5"/></span>
+		</div>
+		<div class="textinput">
+			<span class="name"  id="email013">Enable Authentication</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="authenable" type="checkbox" onclick="OnClickAuthEnable();"/></span>
+		</div>
+		<div class="textinput">
+			<span class="name"  id="email014">Account Name</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="account_name" type="text" size="20" maxlength="128"/></span>
+		</div>
+		<div class="textinput">
+			<span class="name"  id="email015">Password</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="passwd" type="password" size="20" maxlength="128"/></span>
+		</div>
+		<div class="textinput">
+			<span class="name"  id="email016">Verify Password</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input id="verify_passwd" type="password" size="20" maxlength="128"/>
+				<input id="sendmail" type="button" value="Send Mail Now" onClick="OnClickSendMail();"/>
+			</span>
+		</div>
+		<div class="textinput" id="send_msg" style="display:none">
+			<span class="name"></span>
+			<span class="value"><font color="red"  id="email017">(Mail sent already!)</font></span>
+		</div>	
+		<div class="gap"></div>
+	</div>
+	<div class="blackbox">
+		<h2  id="email018">Email log when FULL or on Schedule</h2>
+		<div class="textinput">
+			<span class="name"  id="email027">On Log Full</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="en_logfull" type="checkbox"/></span>
+		</div>
+		<div class="textinput">
+			<span class="name"  id="email019">On Schedule</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="en_log_sch" type="checkbox" onclick="OnClickEnableSchedule();"/></span>
+		</div>
+	<div class="textinput"><span class="name"  id="email020">Schedule</span><span class="delimiter">:</span><span class="value"><select id="log_sch" class="narrow" onchange="OnChangeSchedule();" style="width: 65px;">
+	</select>
+	</span></div><div class="textinput"><span class="name"  id="email021">Detail</span><span class="delimiter">:</span><span class="value"><input id="log_detail" type="text" size="40"  disabled/></span></div>
+		<div class="gap"></div>
+	</div>
+	<p><input type="button"  id="email022" value="Save Settings" onclick="uiSubmit();" />
+		<input type="button"  id="email023" value="Don't Save Settings" onclick="uiPageRefresh();" /></p>
+<!-- End of Page Dependent Part. -->
+</div>
+<div id="help_hint" class="tips">
+<!-- Start of Help Depedent Part. -->
+<strong  id="email024">Helpful Hints...</strong>
+<br/><br/>
+<p  id="email025">&nbsp;&#149;&nbsp;&nbsp;You may want to make the email settings similar to those of your email client program.</p>
+<p  id="email026">&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helptool#Email">More...</a></p>
+<!-- End of Help Dependent Part. -->

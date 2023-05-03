@@ -1,0 +1,17 @@
+src/apps/ssap
+src/apps/cli
+src/apps/logic
+src/apps/ipv6
+src/apps/tm
+src/apps/upgcgi
+src/apps/web
+src/apps/tr069fe
+src/apps/omlib
+src/apps/supp
+src/apps/test
+src/apps/html
+src/apps/CTC_UPnP_DM_FE
+src/apps/include
+src/boot
+src/kernel/linux-2.6.36.x/drivers/net/wireless/MT7620A
+src/kernel/linux-2.6.36.x/drivers/net/wireless/MT76120

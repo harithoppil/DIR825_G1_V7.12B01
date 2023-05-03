@@ -1,0 +1,550 @@
+﻿<div class="mainbody" id="mainbody">
+	<div class="orangebox">
+		<h1 id="BWAN001">WAN</h1>
+		<p id="BWAN002"> Use this section to configure your Internet Connection type. There are several connection types to choose from: Static IP, DHCP, PPPoE, PPTP, L2TP, and DS-Lite. If you are unsure of your connection method, please contact your Internet Service Provider. </p>
+		<p>
+		<strong id="BWAN003">Note :</strong>
+		<span id="BWAN004">If using the PPPoE option, you will need to remove or disable any PPPoE client software on your computers.</span>
+		</p>
+		<p>
+			<input id="BWAN005" type="button" onclick="uiSubmit()" value="Save Settings" modified="false">
+			<input id="BWAN006" type="button" onclick="uiPageRefresh();" value="Don't Save Settings" modified="false">
+		</p>
+	</div>
+	<div class="blackbox">
+		<h2 id="BWAN007">Internet Connection Type</h2>
+			<p class="strong" id="BWAN008"> Choose the mode to be used by the router to connect to the Internet. </p>
+		<div class="textinput">
+			<span class="name" id="BWAN009">My Internet Connection is </span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<select id="wan_ip_mode" onchange="OnChangeWanIpMode();" default="1" modified="false">
+					<option value="static" id="BWAN010">Static IP</option>
+					<option value="dhcp" id="BWAN011">Dynamic IP (DHCP)</option>
+					<option value="pppoe" id="BWAN012">PPPoE (Username / Password)</option>
+					<option value="pptp" id="BWAN013">PPTP (Username / Password)</option>
+					<option value="l2tp" id="BWAN014">L2TP (Username / Password)</option>
+					<option value="rupppoe" id="BWAN114">Russia PPPoE (Username / Password)</option>
+					<option value="dslite" id="BWAN015">DS-Lite</option>
+				</select>
+			</span>
+		</div>
+		<div class="gap"></div>
+	</div>	
+	<div id="ipv4_setting" class="blackbox">
+		<div id="box_wan_static" style="display:none">
+			<h2 id="BWAN016">Static IP Address Internet Connection Type :</h2>
+			<p class="strong" id="BWAN017"> Enter the static address information provided by your Internet Service Provider (ISP). </p>
+		</div>
+		<div id="box_wan_dhcp" style="display: none;">
+			<h2 id="BWAN018">Dynamic IP (DHCP) Internet Connection Type :</h2>
+			<p class="strong" id="BWAN019"> Use this Internet connection type if your Internet Service Provider (ISP) didn't provide you with IP Address information and/or a username and password. </p>
+		</div>
+		<div id="box_wan_dhcpplus" style="display:none">
+			<h2 id="BWAN020">DHCP Plus Internet Connection Type :</h2>
+		</div>
+		<div id="box_wan_static_body" style="display:none">
+			<div class="textinput">
+				<span class="name" id="BWAN021">IP Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="st_ipaddr" type="text" maxlength="15" size="20" default="" autocomplete="off" modified="false">
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN022">Subnet Mask</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="st_mask" type="text" maxlength="15" size="20" default="0.0.0.0" autocomplete="off" modified="false">
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN023">Default Gateway</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="st_gw" type="text" maxlength="15" size="20" default="" autocomplete="off" modified="false">
+				</span>
+			</div>
+		</div>
+		<div id="box_wan_dhcp_body" style="display: none;">
+			<div class="textinput">
+				<span class="name" id="BWAN024">Host Name</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+				<input id="dhcp_host_name" type="text" maxlength="15" size="20" default="dlinkrouter" autocomplete="off" modified="false">
+				</span>
+			</div>
+			<div id="dhcpplus" style="display:none">
+				<div class="textinput">
+					<span class="name" >Username</span>
+					<span class="delimiter">:</span>
+					<span class="value">
+					<input id="dhcpplus_username" type="text" maxlength="63" size="20" default="" autocomplete="off" modified="false">
+					</span>
+				</div>
+				<div class="textinput">
+					<span class="name">Password</span>
+					<span class="delimiter">:</span>
+					<span class="value">
+					<input id="dhcpplus_password" type="password" maxlength="63" size="20" default="" modified="false">
+					</span>
+				</div>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN025">Use Unicasting</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+				<input id="dhcpc_unicast" type="checkbox" default="false" modified="false">
+				  <span id="BWAN026">(compatibility for some DHCP Servers)</span>
+				</span>
+			</div>
+		</div>
+		<div id="box_wan_ipv4_common_body" style="display: none;">
+			<div class="textinput">
+				<span class="name" id="BWAN027">Primary DNS Server</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+				<input id="ipv4_dns1" type="text" maxlength="15" size="20" default="" autocomplete="off" modified="false">
+				<span id="ipv4_dns1_optional" style="display:none"></span>
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN028">Secondary DNS Server</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+				<input id="ipv4_dns2" type="text" maxlength="15" size="20" default="" autocomplete="off" modified="false">
+				<span id="BWAN029">(optional)</span>
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN030">MTU</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+				<input id="ipv4_mtu" type="text" maxlength="4" size="10" default="1500" autocomplete="off" modified="false">
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN031">MAC Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+				<input id="ipv4_macaddr" type="text" maxlength="17" size="20" default="" autocomplete="off" modified="false">
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name"></span>
+				<span class="delimiter"></span>
+				<span class="value">
+				<input id="BWAN113" type="button" onclick="OnClickMacButton('ipv4_macaddr');" value="Clone Your PC's MAC Address" modified="false">
+				</span>
+			</div>
+		</div>
+		<div class="gap"></div>
+	</div>
+	<!-- ppp4 -->
+	<div class="blackbox" id="ppp4_setting">
+		<!-- header -->
+		<div id="box_wan_pppoe" style="display:none">
+			<h2 id="BWAN032">PPPoE Internet Connection Type</h2>
+			<p class="strong" id="BWAN033">Enter the information provided by your Internet Service Provider (ISP). </p>
+		</div>
+		<div id="box_wan_pptp" style="display:none">
+			<h2 id="BWAN034">PPTP Internet Connection Type :</h2>
+			<p class="strong" id="BWAN035"> Enter the information provided by your Internet Service Provider (ISP). </p>
+		</div>
+		<div id="box_wan_l2tp" style="display:none">
+			<h2 id="BWAN036">L2TP Internet Connection Type :</h2>
+			<p class="strong" id="BWAN037"> Enter the information provided by your Internet Service Provider (ISP). </p>
+		</div>
+		<div id="box_wan_ru_pppoe" style="display:none">
+			<h2 id="BWAN001">Russia PPPoE (Dual Access) :</h2>
+			<p class="strong"> Enter the information provided by your Internet Service Provider (ISP). </p>
+		</div>
+		<div id="box_wan_ru_pptp" style="display:none">
+			<h2>Russia PPTP (Dual Access) :</h2>
+			<p class="strong"> Enter the information provided by your Internet Service Provider (ISP). </p>
+		</div>
+		<div id="box_wan_ru_l2tp" style="display:none">
+			<h2>Russia L2TP (Dual Access) :</h2>
+			<p class="strong"> Enter the information provided by your Internet Service Provider (ISP). </p>
+		</div>	
+		<!-- end of header -->
+		<!-- pppoe -->
+		<div id="box_wan_pppoe_body" style="display:none">
+			<div class="textinput">
+				<span class="name" id="BWAN038">Address Mode</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input type="radio" id="pppoe_dynamic" name="pppoe_addr_type" checked onclick="OnClickPppoeAddrType();" value="dynamic"/><span id="BWAN039">Dynamic IP</span>
+					<input type="radio" id="pppoe_static"  name="pppoe_addr_type" onclick="OnClickPppoeAddrType();" value="static"/><span id="BWAN040">Static IP</span>
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN041">IP Address</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="pppoe_ipaddr" type="text" size="20" maxlength="15" /></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN042">Username</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="pppoe_username" type="text" size="20" maxlength="63" />
+					<span id="show_pppoe_mppe" style="display:none" >&nbsp;MPPE :
+						<input type="checkbox" id="pppoe_mppe" name="ppp_mppe" >
+					</span>
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name"id="BWAN043">Password</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="pppoe_password" type="password" size="20" maxlength="63" /></span>
+			</div>
+			<div class="textinput">
+				<span class="name"id="BWAN044">Verify Password</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="confirm_pppoe_password" type="password" size="20" maxlength="63" /></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN045">Service Name</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="pppoe_service_name" type="text" size="30" maxlength="39" /><span id="BWAN046">(optional)</span></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN047">Reconnect Mode</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input type="radio" id="pppoe_alwayson" name="pppoe_reconnect_radio" checked onclick="OnClickPppoeReconnect();" value="AlwaysOn" checked/>
+					<select id="pppoe_schedule" style="width: 65px;">						
+					</select>
+					<input type="button" id="BWAN048" value="New Schedule" onclick='self.location.href="/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules";' />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name"></span>
+				<span class="delimiter"></span>
+				<span class="value">
+					<input type="radio" id="pppoe_ondemand"	name="pppoe_reconnect_radio" onclick="OnClickPppoeReconnect();" value="OnDemand"/><span id="BWAN049">On demand</span>
+					<input type="radio" id="pppoe_manual"	name="pppoe_reconnect_radio" onclick="OnClickPppoeReconnect();" value="Manual"/><span id="BWAN050">Manual</span>
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN051">Maximum Idle Time</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="pppoe_max_idle_time" type="text" size="10" maxlength="5" value="" /><span id="BWAN052">(minutes)</span></span>
+			</div>
+			<div class="textinput" style="display:none">
+				<span class="name"><input type="checkbox" id="en_fakeos" /></span>
+				<span class="delimiter">:</span>
+				<span class="value">I want to use Netblock.</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN053">DNS Mode</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="pppoe_dns_isp"		type="radio" name="dns_mode" checked onclick="OnClickDnsMode();" value="auto"/><span id="BWAN054">Receive DNS from ISP</span>
+					<input id="pppoe_dns_manual"	type="radio" name="dns_mode" onclick="OnClickDnsMode();" value="manual"/><span id="BWAN055">Enter DNS Manually</span>
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN056">Primary DNS Server</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="pppoe_dns1" type="text" size="20" maxlength="15" /></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN057">Secondary DNS Server</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="pppoe_dns2" type="text" size="20" maxlength="15" />
+					<span id="BWAN058">(optional)</span>
+				</span>
+			</div>
+			<!-- for China special wan: NetSniper, Starspeed, PPPoE+ -->
+			
+			<div id="show_netsniper" class="textinput"  style="display:none">
+				<span class="name"><input id="en_netsniper" type="checkbox" onclick="OnClickSpecialWan();"/></span>
+				<span class="delimiter">:</span>
+				<span class="value">I need sniper</span>
+			</div>
+			<div id="show_starspeed" class="textinput"  style="display:none">
+				<span class="name"><input id="en_starspeed" type="checkbox" onclick="OnClickSpecialWan();"/></span>
+				<span class="delimiter">:</span>
+				<span class="value">Support starspeed</span>
+			</div>
+			<div id="show_pppoeplus" class="textinput"  style="display:none">
+				<span class="name"><input id="en_pppoeplus" type="checkbox" onclick="OnClickSpecialWan();"/></span>
+				<span class="delimiter">:</span>
+				<span class="value">PPPoE+</span>
+			</div>
+		</div>
+		<!-- pptp -->
+		<div id="box_wan_pptp_body" style="display:none">
+			<div class="textinput">
+				<span class="name" id="BWAN059">Address Mode</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="pptp_dynamic" type="radio" name="pptp_addr_type" checked onclick="OnClickPptpAddrType();" value="dynamic"/><span id="BWAN060">Dynamic IP</span>
+					<input id="pptp_static"  type="radio" name="pptp_addr_type" onclick="OnClickPptpAddrType();" value="static"/><span id="BWAN061">Static IP</span>
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN062">PPTP IP Address</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="pptp_ipaddr" type="text" size="20" maxlength="15" /></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN063">PPTP Subnet Mask</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="pptp_mask" type="text" size="20" maxlength="15" /></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN064">PPTP Gateway IP Address</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="pptp_gw" type="text" size="20" maxlength="15" /></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN065">PPTP Server IP Address</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="pptp_server" type="text" size="20" maxlength="30" /></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN066">Username</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="pptp_username" type="text" size="20" maxlength="63" />
+					<span id="show_pptp_mppe" style="display:none" >&nbsp;MPPE :
+						<input type="checkbox" id="pptp_mppe" name="pptp_mppe" >
+					</span>
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN067">Password</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="pptp_password" type="password" size="20" maxlength="63" /></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN068">Verify Password</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="confirm_pptp_password" type="password" size="20" maxlength="63" /></span>
+			</div>	
+			<div class="textinput">
+				<span class="name" id="BWAN069">Reconnect Mode</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input type="radio" id="pptp_alwayson" name="pptp_reconnect_radio" checked onclick="OnClickPptpReconnect();" value="AlwaysOn"/>
+					<select id="pptp_schedule" style="width: 65px;">
+					</select>
+					<input type="button" id="BWAN070" value="New Schedule" onclick='self.location.href="/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules";' />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name"></span>
+				<span class="delimiter"></span>
+				<span class="value">
+					<input type="radio" id="pptp_ondemand"	name="pptp_reconnect_radio" onclick="OnClickPptpReconnect();" value="OnDemand"/><span id="BWAN071">On demand</span>
+					<input type="radio" id="pptp_manual"	name="pptp_reconnect_radio" onclick="OnClickPptpReconnect();" value="Manual"/><span id="BWAN072">Manual</span>
+				</span>
+			</div>                                                 
+			<div class="textinput">
+				<span class="name" id="BWAN073">Maximum Idle Time</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="pptp_max_idle_time" type="text" size="10" maxlength="5" value=""/><span id="BWAN074">(minutes)</span></span>
+			</div>                                                                             
+			<div class="textinput">
+				<span class="name" id="BWAN075">Primary DNS Server</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="pptp_dns1" type="text" size="20" maxlength="15" /></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN076">Secondary DNS Server</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="pptp_dns2" type="text" size="20" maxlength="15" />
+					<span id="BWAN077">(optional)</span>
+				</span>
+			</div>
+		</div><!-- box_wan_pptp_body -->
+		<!-- l2tp -->
+		<div id="box_wan_l2tp_body" style="display:none">
+			<div class="textinput">
+				<span class="name" id="BWAN078">Address Mode</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="l2tp_dynamic" type="radio" name="l2tp_addr_type" checked onclick="OnClickL2tpAddrType();" value="dynamic"/><span id="BWAN079">Dynamic IP</span>
+					<input id="l2tp_static"  type="radio" name="l2tp_addr_type" onclick="OnClickL2tpAddrType();" value="static"/><span id="BWAN080">Static IP</span>
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN081">L2TP IP Address</span>
+				<span class="delimiter">:</span>	
+				<span class="value"><input id="l2tp_ipaddr" type="text" size="20" maxlength="15" /></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN082">L2TP Subnet Mask</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="l2tp_mask" type="text" size="20" maxlength="15" /></span>
+			</div>	
+			<div class="textinput">
+				<span class="name" id="BWAN083">L2TP Gateway IP Address</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="l2tp_gw" type="text" size="20" maxlength="15" /></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN084">L2TP Server IP Address</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="l2tp_server" type="text" size="20" maxlength="30" /></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN085">Username</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="l2tp_username" type="text" size="20" maxlength="63" /></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN086">Password</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="l2tp_password" type="password" size="20" maxlength="63" /></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN087">Verify Password</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="confirm_l2tp_password" type="password" size="20" maxlength="63" /></span>
+			</div>	
+			<div class="textinput">
+				<span class="name" id="BWAN088">Reconnect Mode</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input type="radio" id="l2tp_alwayson" name="l2tp_reconnect_radio" checked onclick="OnClickL2tpReconnect();" value="AlwaysOn"/>
+					<select id="l2tp_schedule" style="width: 65px;">
+					</select>
+					<input type="button" id="BWAN089" value="New Schedule" onclick='self.location.href="/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules";' />
+					</span>
+			</div>
+			<div class="textinput">
+				<span class="name"></span>
+				<span class="delimiter"></span>
+				<span class="value">
+					<input type="radio" id="l2tp_ondemand"	name="l2tp_reconnect_radio" onclick="OnClickL2tpReconnect();" value="OnDemand"/><span id="BWAN090">On demand</span>
+					<input type="radio" id="l2tp_manual"	name="l2tp_reconnect_radio" onclick="OnClickL2tpReconnect();" value="Manual"/><span id="BWAN091">Manual</span>
+				</span>
+			</div>                                                 
+			<div class="textinput">
+				<span class="name" id="BWAN092">Maximum Idle Time</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="l2tp_max_idle_time" type="text" size="10" maxlength="5" value=""/><span id="BWAN093">(minutes)</span></span>
+			</div>                                                                             
+			<div class="textinput">
+				<span class="name" id="BWAN094">Primary DNS Server</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="l2tp_dns1" type="text" size="20" maxlength="15" /></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN095">Secondary DNS Server</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="l2tp_dns2" type="text" size="20" maxlength="15" />
+					<span id="BWAN096">(optional)</span>
+				</span>
+			</div>
+		</div><!-- box_wan_l2tp_body -->
+		<!-- common -->
+		<div id="box_wan_ppp4_comm_body" style="display:none">
+			<div class="textinput">
+				<span class="name" id="BWAN097">MTU</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="ppp4_mtu" type="text" size="10" maxlength="4" /></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN098">MAC Address</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="ppp4_macaddr" type="text" size="20" maxlength="17" /></span>
+			</div>
+			<div class="textinput">
+				<span class="name"></span>
+				<span class="delimiter"></span>
+				<span class="value">
+					<input id="BWAN099" type="button" value="Clone Your PC's MAC Address" onclick="OnClickMacButton('ppp4_macaddr');" />
+				</span>
+			</div>
+		</div>
+		<div class="gap"></div>
+	</div><!--blackbox -->
+	<!-- DS-Lite -->
+	<div class="blackbox" id="dslite_setting">
+		<div id="box_wan_dslite" style="display:none">
+			<h2 id="BWAN100">AFTR Address Internet Connection Type :</h2>
+			<p class="strong" id="BWAN101">Enter the AFTR address information provided by your Internet Service Provider (ISP). </p>
+		</div>
+		<div id="box_wan_dslite_body" style="display:none">
+			<div class="textinput">
+				<span class="name" id="BWAN102">DS-Lite Configuration</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input type="radio" id="dslite_dynamic" name="dslite_addr_type" onclick="OnClickDsliteAddrType();" value="dynamic" checked/><span id="BWAN103">DS-Lite DHCPv6 Option</span>
+					<input type="radio" id="dslite_static"  name="dslite_addr_type" onclick="OnClickDsliteAddrType();" value="manual"/><span id="BWAN104">Manual Configuration</span>
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN105">AFTR IPv6 Address</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="aftr_ipaddr6" type="text" size="42" maxlength="45" /></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN106">B4 IPv4 Address</span>
+				<span class="delimiter">:</span>
+				<span id="b4_ipaddr_1">192.0.0.</span>
+				<input id="b4_ipaddr_2" type="text" size="3" maxlength="3" /><span id="BWAN107">(optional)</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN108">WAN IPv6 Address</span>
+				<span class="delimiter">:</span>
+				<span class="value" id="dslite_wan_ipaddr6"></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN109">IPv6 WAN Default Gateway</span>
+				<span class="delimiter">:</span>
+				<span class="value" id="dslite_gw_ipaddr6"></span>
+			</div>
+			<div class="emptyline"></div>
+		</div>
+	</div>
+
+	
+	
+	<div class="blackbox" id="secondwan_block"  style="display:none">
+		<!-- header -->
+		<div id="box_secondwan" >
+			<h2 id="BWAN115">WAN PHYSICAL SETTINGS :</h2>
+		</div>
+		<!-- end of header -->
+		<div id="box_secondwan_body" >
+			<div class="textinput">
+				<span class="name" id="BWAN038">Address Mode</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input type="radio" id="secondwan_dynamic" name="secondwan_type" checked onclick="OnClickSecondWanType();" value="dynamic"/><span id="BWAN039">Dynamic IP</span>
+					<input type="radio" id="secondwan_static"  name="secondwan_type" onclick="OnClickSecondWanType();" value="static"/><span id="BWAN040">Static IP</span>
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN021">IP Address</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="secondwan_ipaddr" type="text" size="20" maxlength="15" /></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWAN022">Subnet Mask</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="secondwan_mask" type="text" size="20" maxlength="15" /></span>
+			</div>
+		</div>
+		<div class="gap"></div>
+	</div><!--blackbox -->	
+	
+
+	<p><input type="button" id="BWAN110" value="Save Settings" onclick="uiSubmit()" />
+		<input type="button" id="BWAN111" value="Don't Save Settings" onclick="uiPageRefresh();" /></p>
+</div>
+<div id="BWAN112" class="tips">
+	<!-- Start of Help Depedent Part. -->
+	<strong>Helpful Hints...</strong>
+	<br/><br/>
+	<p>&nbsp;&#149;&nbsp;&nbsp;<strong>Internet Connection:</strong><br>When configuring the router to access the Internet, be sure to choose the correct <strong>Internet Connection Type</strong> from the drop down menu. If you are unsure of which option to choose, please contact your <strong>Internet Service Provider (ISP)</strong>.</p>
+	<p>&nbsp;&#149;&nbsp;&nbsp;<strong>Support:</strong><br>If you are having trouble accessing the Internet through the router, double check any settings you have entered on this page and verify them with your ISP if needed.</p>
+	<p>&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpsetup#Internet">More...</a></p>

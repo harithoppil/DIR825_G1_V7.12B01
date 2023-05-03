@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="shortcut icon" href="/html/skin/favicon.gif" type="image/x-icon">
+<title>D-LINK SYSTEMS, INC. | WIRELESS ROUTER | HOME</title>
+<link rel="stylesheet" type="text/css" href="/html/skin/main.css?v=<?echo $var:tbsversion?>">
+<link rel="stylesheet" type="text/css" href="/html/skin/general.css?v=<?echo $var:tbsversion?>">
+<style>
+.textleft {font-weight: bold; font-family: Tahoma; font-size: 12px; padding-left:20px;}
+.textright {font-family: Tahoma; font-size: 12px;}
+</style>
+</head>
+
+<script type="text/javascript">
+	<?mget :InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1. "IPInterfaceIPAddress"
+	`	G_IPAddress = "$01";
+	`?>
+	var G_FactoryMode = "<?get :InternetGatewayDevice.DeviceInfo.X_TWSZ-COM_FactoryMode?>";
+	function uipostGoBas_lan(){
+		var lanip = G_IPAddress;
+		document.location.href = "http://" + lanip + "/cgi-bin/webproc?getpage=html/index.html&errorpage=html/main.html&var:language=en_us&var:menu=basic&var:page=Bas_wansum"
+	}
+</script>
+
+<body class="mainbg">	
+	<div class="maincontainer">	
+		<div class="headercontainer">
+			<span class="product">
+				<span id = "DIV_ProductPage">Product Page : </span>
+				<a href="http://support.dlink.com" target="_blank"><?get :InternetGatewayDevice.DeviceInfo.ProductClass?></a>
+			</span>
+			<span class="version" id = "Span_FirmwareVersion"><?get :InternetGatewayDevice.DeviceInfo.SoftwareVersion?></span>
+			<span class="version" id = "DIV_FirmwareVersion">Firmware Version : </span>
+			<span class="hwversion">
+				<span id = "DIV_HardwareVersion">Hardware Version : </span>
+				<span class="value" style="text-transform:uppercase;"><?get :InternetGatewayDevice.DeviceInfo.HardwareVersion?></span>
+			</span>
+		</div>
+	
+		<div class="bannercontainer">
+			<span class="bannerhead"><a href="http://www.dlink.com.tw"><img src="/html/skin//head_01.gif" width="162" height="92"></a></span>
+			<span class="bannertail"><img src="/html/skin/head_03.gif"></span>
+		</div>
+		<div class="simplecontainer">
+			<div class="simplebody">
+				<div class="orangebox">
+					<h1>Version</h1>
+					<table border="0" cellpadding="3" cellspacing="0"  width="162" id="version_table">
+						<tr>
+							<td class="letterBg" colspan = "2">&nbsp;</td>
+						</tr>
+						<!--
+						<tr>
+							<td width="50%" id="Label_Product" align=left>Product:</td>
+							<td width="50%" id="Value_Product" align=left><?get :InternetGatewayDevice.DeviceInfo.Manufacturer?> <?get :InternetGatewayDevice.DeviceInfo.ModelName?></td>
+						</tr>
+						-->
+						<tr>
+							<td width="35%" id="Label_FirmwareExtVer" align=left class="textleft">Firmware Externel Version :</td>
+							<td width="65%" id="Value_FirmwareExtVer" align=left class="textright"><?get :InternetGatewayDevice.DeviceInfo.ModemFirmwareVersion?></td>
+						</tr>
+						<tr>
+							<td width="35%" id="Label_FirmwareIntVer" align=left class="textleft">Firmware Internal Version :</td>
+							<td width="65%" id="Value_FirmwareIntVer" align=left class="textright">V7.12B01</td>
+						</tr>
+						<tr>
+							<td width="35%" align=left class="textleft">Language Package :</td>
+							<td width="65%" id="Value_Language" align=left class="textright">en</td>
+						</tr>
+						<!--tr>
+							<td width="35%" id="Label_KernelVer" align=left class="textleft">Kernel Version:</td>
+							<td width="65%" id="Value_KernelVer" align=left class="textright">Linux-2.3.36</td>
+						</tr-->
+						<tr>
+							<td width="35%" id="Label_Date" align=left class="textleft">Date :</td>
+							<td width="65%" align=left class="textright">(%_DATE_%)</td>
+						</tr>
+						<tr>
+							<td width="35%" id="Label_Checksum" align=left class="textleft">Checksum :</td>
+							<td width="65%" align=left class="textright">8386</td>
+						</tr>						
+						<tr>
+							<td width="35%" id="Label_WanMac" align=left class="textleft">WAN MAC :</td>
+							<td width="65%" align=left class="textright">
+							<?get :InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.X_TWSZ-COM_MACAddress?>
+							</td>
+						</tr>
+						<tr>
+							<td width="35%" id="Label_LanMac" align=left class="textleft">LAN MAC :</td>
+							<td width="65%" align=left class="textright"><?get :InternetGatewayDevice.LANDevice.1.LANEthernetInterfaceConfig.1.MACAddress ?></td>
+						</tr>
+						<tr>
+							<td width="35%" id="Label_WlanMac" align=left class="textleft">WLAN MAC (2.4G) :</td>
+							<td width="65%" id="Label_WlanMac_val" align=left class="textright">
+							<script type="text/javascript">
+								var wlan_mac = '<?get :InternetGatewayDevice.LANDevice.1.WLANConfiguration.1.BSSID ?>';
+								document.getElementById("Label_WlanMac_val").innerHTML = wlan_mac.toLowerCase();
+							</script>
+							</td>
+						</tr>
+						<tr>
+							<td width="35%" id="Label_5GWlanMac" align=left class="textleft">WLAN MAC (5G) :</td>
+							<td width="65%" id="Label_5GWlanMac_val" align=left class="textright">
+							<script type="text/javascript">
+								var wlan5G_mac = '<?get :InternetGatewayDevice.LANDevice.1.WLANConfiguration.2.BSSID ?>';
+								document.getElementById("Label_5GWlanMac_val").innerHTML = wlan5G_mac.toLowerCase();
+							</script>
+							</td>
+						</tr>
+						<tr>
+							<td width="35%" id="Label_WlanDomain" align=left class="textleft">WLAN Domain (2.4G) :</td>
+							<td width="65%" align=left class="textright"><?get :InternetGatewayDevice.LANDevice.1.WLANConfiguration.1.RegulatoryDomain ?><br><?get :InternetGatewayDevice.X_TWSZ-COM_Radio.1.AvaliableChList ?></td>
+						</tr>
+						<tr>
+							<td width="35%" id="Label_5GWlanDomain" align=left class="textleft">WLAN Domain (5G) :</td>
+							<td width="65%" align=left class="textright"><?get :InternetGatewayDevice.LANDevice.1.WLANConfiguration.2.RegulatoryDomain ?><br><?get :InternetGatewayDevice.X_TWSZ-COM_Radio.2.AvaliableChList ?></td>
+						</tr>
+						<tr>
+							<td width="35%" id="Label_FWQuery" align=left class="textleft">Firmware Query :</td>
+							<td width="65%" align=left class="textright">http://wrpd.dlink.com/router/firmware/query.aspx?model=DIR-825_Gx_default2</td>
+						</tr>
+						<tr>
+							<td width="35%" id="Label_WlanSsid" align=left class="textleft">SSID (2.4G) :</td>
+							<td width="65%" align=left class="textright"><?get :InternetGatewayDevice.LANDevice.1.WLANConfiguration.1.SSID ?></td>
+						</tr>
+						<tr>
+							<td width="35%" id="Label_5GWlanSsid" align=left class="textleft">SSID (5G) :</td>
+							<td width="65%" align=left class="textright"><?get :InternetGatewayDevice.LANDevice.1.WLANConfiguration.2.SSID ?></td>
+						</tr>
+						<tr>
+							<td width="35%" id="Label_Factory" align=left class="textleft">Factory Default :</td>
+							<td width="65%" align=left class="textright" id="Factory_val">
+							<script type="text/javascript">
+								document.getElementById("Factory_val").innerHTML = G_FactoryMode=="user_settings"?"0 (False: Settings has been modified)":"1 (true: Settings has not been modified)";
+							</script></td>
+						</tr>
+						<tr>
+							<td width="35%" align=left class="textleft">&nbsp;</td>
+							<td width="65%" align=left class="textright">
+								<input type="button" value = "Continue" onclick = "uipostGoBas_lan()">
+							</td>
+						</tr>
+						
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="footercontainer">
+			<span class="footermark"><img src="/html/skin/tail.gif"></span>
+		</div>                          
+	</div>
+
+<div class="copyright">Copyright &copy; 2016 D-Link Corporation. All rights reserved.</div>
+</body>
+</html>

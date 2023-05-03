@@ -1,0 +1,74 @@
+.TH nbsmtp 8 "3 May 2005" Unix "nbSMTP Manual"
+.SH NAME
+nbsmtp \- The no-brainer SMTP client
+.SH SYNOPSIS
+.PP
+.B nbsmtp
+-h \fIrelayhost\fP [OPTIONS]
+.SH DESCRIPTION
+.PP
+nbSMTP is a lightweight SMTP client. It \fIsimply\fP takes a message from STDIN
+and sends it to a relayhost. A relayhost is meant to be a full SMTP server and it
+will really send the message.
+.SH OPTIONS
+.PP
+.IP "-f \fIfrom-address\fP"
+E-Mail address to send in the MAIL FROM command
+.IP "-h \fIrelayhost\fP"
+Name or address of the relayhost server
+.IP "-d \fIdomain\fP"
+Hostname to send in the HELO/EHLO request
+.IP "-c \fIfile\fP"
+Specify another config file
+.IP "-p \fIport\fP"
+Port to connect to
+.IP "-U \fIusername\fP"
+SASL User
+.IP "-P \fIpassword\fP"
+SASL Password
+.IP "-M [l|p|c]"
+SASL Method: l - AUTH LOGIN , p - AUTH PLAIN (default), c - AUTH CRAM-MD5 (only available when SSL compiled in)
+.IP "-s"
+If SSL compiled-in; use SSL to transfer the message
+.IP "-S"
+If SSL compiled-in; use STARTTLS command before sending the message
+.IP "-N"
+Don\'t read system wide config file
+.IP "-n"
+Don\'t read local config file (~/.nbsmtprc)
+.IP "-D"
+Enable debug to syslog
+.IP "-V"
+Enable debug to stderr instead to syslog
+.IP "-v"
+Print version and exit
+.IP "-H"
+Show help
+
+.PP
+If no arguments are passed to nbSMTP, it will read both system-wide and per-user
+configuration file \fBnbsmtprc\fP. Please refer to \fBnbsmtprc(5)\fP manual to 
+understand this file.
+.SH FILES
+.PP
+.IP "~/.nbsmtprc or ~/.mutt/nbsmtprc or ~/.nbsmtp/nbsmtprc"
+Per-User local configuration file.
+.IP "/etc/nbsmtprc or SYSCONFDIR/nbsmtprc"
+System-Wide configuration file
+.SH SEE ALSO
+.PP
+.BR nbsmtprc(5)
+.PP
+nbSMTP Home Page: http://nbsmtp.ferdyx.org
+.SH BUGS
+.PP
+Please report bugs to <nbsmtp@ferdyx.org>
+.SH AUTHORS
+.PP
+Fernando J. Pereda <ferdy@ferdyx.org>
+.PP
+Ricardo Cervera Navarro <ricardo@zonasiete.org>
+.B (Retired)
+.PP
+David Rysdam
+.B (Retired)

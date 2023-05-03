@@ -1,0 +1,1249 @@
+﻿	<style>
+		select.broad	{ width: 120px; }
+		select.narrow	{ width: 65px; }
+	</style>
+<div class="mainbody" id="mainbody">
+	<div class="orangebox">
+	<span id="Adv_vt001">
+		<h1>Virtual Server</h1>
+		<p>
+			The Virtual Server option allows you to define a single public port on your router for redirection to an internal LAN IP Address and Private LAN port if required.
+			This feature is useful for hosting online services such as FTP or Web Servers.
+		</p>
+	</span>
+		<p><input type="button" value="Save Settings" onclick="uiSubmit();" id="Adv_vt002"/>
+			<input type="button" value="Don't Save Settings" onclick="uiPageRefresh();" id="Adv_vt003"/></p>
+	</div>
+	<div class="blackbox">
+		<h2 id="Adv_vt004">24 - Virtual Servers List</h2>
+		<p><span id="Adv_vt005">Remaining number of rules that can be created: </span><span id="rmd" style="color:red;"></span></p>
+		<div class="centerline" align="center">
+			<table id="" class="general">
+			<tr>
+				<th width="20px">&nbsp;</th>
+				<th width="100px">&nbsp;</th>
+				<th width="155px">&nbsp;</th>
+				<th width="65px" id="Adv_vt006">Port</th>
+				<th width="76px" id="Adv_vt007">Traffic Type</th>
+				<th width="85px"></th>
+			</tr>
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_1" value="">
+					<input id="en_1" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt008">Name</span><br /><input id="dsc_1" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('1');" modified="ignore" />
+					<span id="span_app_1"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt009">Public Port</span><br /><input id="pubport_1" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt010">Protocol</span><br />
+					<select id="pro_1" onchange="OnClickProtocal('1');">
+						<option value="TCP" id="Adv_vt011">TCP</option>
+						<option value="UDP" id="Adv_vt012">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt013">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt014">Schedule</span><br />
+					<select id="sch_1" class="narrow" style="width: 65px;">					
+					</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt015">IP Address</span><br />
+					<input id="ip_1" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('1');" modified="ignore" />
+					<select id="pc_1" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt016">Private Port</span><br />
+					<input id="priport_1" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_1" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt001"><span id="Adv_vt017">Inbound Filter</span><br /></span><br />
+					<select id="inbfilter_1" class="narrow" style="width: 72px;">
+					</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_2" value="">
+					<input id="en_2" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt018">Name</span><br /><input id="dsc_2" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('2');" modified="ignore" />
+					<span id="span_app_2"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt019">Public Port</span><br /><input id="pubport_2" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt020">Protoco</span><br />
+					<select id="pro_2" onchange="OnClickProtocal('2');">
+						<option value="TCP" id="Adv_vt021">TCP</option>
+						<option value="UDP" id="Adv_vt022">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt023">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt024">Schedule</span><br />
+					<select id="sch_2" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt025">IP Address</span><br />
+					<input id="ip_2" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('2');" modified="ignore" />
+					<select id="pc_2" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt026">Private Port</span><br />
+					<input id="priport_2" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_2" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt027">Inbound Filter</span><br /><br />
+					<select id="inbfilter_2" class="narrow" style="width: 72px;">
+					</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_3" value="">
+					<input id="en_3" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt028">Name</span><br /><input id="dsc_3" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('3');" modified="ignore" />
+					<span id="span_app_3"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt029">Public Port</span><br /><input id="pubport_3" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt030">Protoco</span><br />
+					<select id="pro_3" onchange="OnClickProtocal('3');">
+						<option value="TCP" id="Adv_vt031">TCP</option>
+						<option value="UDP" id="Adv_vt032">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt033">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt034">Schedule</span><br />
+					<select id="sch_3" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt035">IP Address</span><br />
+					<input id="ip_3" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('3');" modified="ignore" />
+					<select id="pc_3" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt036">Private Port</span><br />
+					<input id="priport_3" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_3" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt037">Inbound Filter</span><br /><br />
+					<select id="inbfilter_3" class="narrow" style="width: 72px;">
+					</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_4" value="">
+					<input id="en_4" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt038">Name</span><br /><input id="dsc_4" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('4');" modified="ignore" />
+					<span id="span_app_4"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt039">Public Port</span><br /><input id="pubport_4" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt040">Protoco</span><br />
+					<select id="pro_4" onchange="OnClickProtocal('4');">
+						<option value="TCP" id="Adv_vt041">TCP</option>
+						<option value="UDP" id="Adv_vt042">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt043">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt044">Schedule</span><br />
+					<select id="sch_4" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt045">IP Address</span><br />
+					<input id="ip_4" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('4');" modified="ignore" />
+					<select id="pc_4" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt046">Private Port</span><br />
+					<input id="priport_4" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_4" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt047">Inbound Filter</span><br /><br />
+					<select id="inbfilter_4" class="narrow" style="width: 72px;">
+					</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_5" value="">
+					<input id="en_5" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt048">Name</span><br /><input id="dsc_5" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('5');" modified="ignore" />
+					<span id="span_app_5"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt049">Public Port</span><br /><input id="pubport_5" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt050">Protoco</span><br />
+					<select id="pro_5" onchange="OnClickProtocal('5');">
+						<option value="TCP" id="Adv_vt051">TCP</option>
+						<option value="UDP" id="Adv_vt052">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt053">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt054">Schedule</span><br />
+					<select id="sch_5" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt055">IP Address</span><br />
+					<input id="ip_5" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('5');" modified="ignore" />
+					<select id="pc_5" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt056">Private Port</span><br />
+					<input id="priport_5" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_5" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt057">Inbound Filter</span><br /><br />
+					<select id="inbfilter_5" class="narrow" style="width: 72px;">
+					</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_6" value="">
+					<input id="en_6" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt058">Name</span><br /><input id="dsc_6" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('6');" modified="ignore" />
+					<span id="span_app_6"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt059">Public Port</span><br /><input id="pubport_6" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt060">Protoco</span><br />
+					<select id="pro_6" onchange="OnClickProtocal('6');">
+						<option value="TCP" id="Adv_vt061">TCP</option>
+						<option value="UDP" id="Adv_vt062">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt063">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt064">Schedule</span><br />
+					<select id="sch_6" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt065">IP Address</span><br />
+					<input id="ip_6" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('6');" modified="ignore" />
+					<select id="pc_6" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt066">Private Port</span><br />
+					<input id="priport_6" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_6" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt067">Inbound Filter</span><br /><br />
+				<select id="inbfilter_6" class="narrow" style="width: 72px;">
+				</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_7" value="">
+					<input id="en_7" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt068">Name</span><br /><input id="dsc_7" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('7');" modified="ignore" />
+					<span id="span_app_7"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt069">Public Port</span><br /><input id="pubport_7" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt070">Protoco</span><br />
+					<select id="pro_7" onchange="OnClickProtocal('7');">
+						<option value="TCP" id="Adv_vt071">TCP</option>
+						<option value="UDP" id="Adv_vt072">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt073">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt074">Schedule</span><br />
+				<select id="sch_7" class="narrow" style="width: 65px;">
+				</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt075">IP Address</span><br />
+					<input id="ip_7" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('7');" modified="ignore" />
+					<select id="pc_7" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt076">Private Port</span><br />
+					<input id="priport_7" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_7" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt077">Inbound Filter</span><br /><br />
+				<select id="inbfilter_7" class="narrow" style="width: 72px;">
+				</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_8" value="">
+					<input id="en_8" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt078">Name</span><br /><input id="dsc_8" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('8');" modified="ignore" />
+					<span id="span_app_8"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt079">Public Port</span><br /><input id="pubport_8" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt080">Protoco</span><br />
+					<select id="pro_8" onchange="OnClickProtocal('8');">
+						<option value="TCP" id="Adv_vt081">TCP</option>
+						<option value="UDP" id="Adv_vt082">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt083">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt084">Schedule</span><br />
+				<select id="sch_8" class="narrow" style="width: 65px;">
+				</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt085">IP Address</span><br />
+					<input id="ip_8" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('8');" modified="ignore" />
+					<select id="pc_8" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt086">Private Port</span><br />
+					<input id="priport_8" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_8" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt087">Inbound Filter</span><br /><br />
+				<select id="inbfilter_8" class="narrow" style="width: 72px;">
+				</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_9" value="">
+					<input id="en_9" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt088">Name</span><br /><input id="dsc_9" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('9');" modified="ignore" />
+					<span id="span_app_9"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt089">Public Port</span><br /><input id="pubport_9" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt090">Protoco</span><br />
+					<select id="pro_9" onchange="OnClickProtocal('9');">
+						<option value="TCP" id="Adv_vt091">TCP</option>
+						<option value="UDP" id="Adv_vt092">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt093">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt094">Schedule</span><br />
+				<select id="sch_9" class="narrow" style="width: 65px;">
+				</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt095">IP Address</span><br />
+					<input id="ip_9" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('9');" modified="ignore" />
+					<select id="pc_9" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt096">Private Port</span><br />
+					<input id="priport_9" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_9" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt097">Inbound Filter</span><br /><br />
+				<select id="inbfilter_9" class="narrow" style="width: 72px;">
+				</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_10" value="">
+					<input id="en_10" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt098">Name</span><br /><input id="dsc_10" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('10');" modified="ignore" />
+					<span id="span_app_10"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt099">Public Port</span><br /><input id="pubport_10" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt100">Protoco</span><br />
+					<select id="pro_10" onchange="OnClickProtocal('10');">
+						<option value="TCP" id="Adv_vt101">TCP</option>
+						<option value="UDP" id="Adv_vt102">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt103">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt104">Schedule</span><br />
+				<select id="sch_10" class="narrow" style="width: 65px;">
+				</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt105">IP Address</span><br />
+					<input id="ip_10" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('10');" modified="ignore" />
+					<select id="pc_10" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt106">Private Port</span><br />
+					<input id="priport_10" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_10" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt107">Inbound Filter</span><br /><br />
+				<select id="inbfilter_10" class="narrow" style="width: 72px;">
+				</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_11" value="">
+					<input id="en_11" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt108">Name</span><br /><input id="dsc_11" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('11');" modified="ignore" />
+					<span id="span_app_11"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt109">Public Port</span><br /><input id="pubport_11" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt110">Protoco</span><br />
+					<select id="pro_11" onchange="OnClickProtocal('11');">
+						<option value="TCP" id="Adv_vt111">TCP</option>
+						<option value="UDP" id="Adv_vt112">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt113">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt114">Schedule</span><br />
+				<select id="sch_11" class="narrow" style="width: 65px;">
+				</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt115">IP Address</span><br />
+					<input id="ip_11" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('11');" modified="ignore" />
+					<select id="pc_11" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt116">Private Port</span><br />
+					<input id="priport_11" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_11" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt117">Inbound Filter</span><br /><br />
+				<select id="inbfilter_11" class="narrow" style="width: 72px;">
+				</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_12" value="">
+					<input id="en_12" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt118">Name</span><br /><input id="dsc_12" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('12');" modified="ignore" />
+					<span id="span_app_12"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt119">Public Port</span><br /><input id="pubport_12" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt120">Protoco</span><br />
+					<select id="pro_12" onchange="OnClickProtocal('12');">
+						<option value="TCP" id="Adv_vt121">TCP</option>
+						<option value="UDP" id="Adv_vt122">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt123">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt124">Schedule</span><br />
+				<select id="sch_12" class="narrow" style="width: 65px;">
+				</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt125">IP Address</span><br />
+					<input id="ip_12" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('12');" modified="ignore" />
+					<select id="pc_12" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt126">Private Port</span><br />
+					<input id="priport_12" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_12" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt127">Inbound Filter</span><br /><br />
+				<select id="inbfilter_12" class="narrow" style="width: 72px;">
+				</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_13" value="">
+					<input id="en_13" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt128">Name</span><br /><input id="dsc_13" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('13');" modified="ignore" />
+					<span id="span_app_13"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt129">Public Port</span><br /><input id="pubport_13" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt130">Protoco</span><br />
+					<select id="pro_13" onchange="OnClickProtocal('13');">
+						<option value="TCP" id="Adv_vt131">TCP</option>
+						<option value="UDP" id="Adv_vt132">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt133">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt134">Schedule</span><br />
+				<select id="sch_13" class="narrow" style="width: 65px;">
+				</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt135">IP Address</span><br />
+					<input id="ip_13" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('13');" modified="ignore" />
+					<select id="pc_13" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt136">Private Port</span><br />
+					<input id="priport_13" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_13" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt137">Inbound Filter</span><br /><br />
+				<select id="inbfilter_13" class="narrow" style="width: 72px;">
+				</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_14" value="">
+					<input id="en_14" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt138">Name</span><br /><input id="dsc_14" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('14');" modified="ignore" />
+					<span id="span_app_14"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt139">Public Port</span><br /><input id="pubport_14" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt140">Protoco</span><br />
+					<select id="pro_14" onchange="OnClickProtocal('14');">
+						<option value="TCP" id="Adv_vt141">TCP</option>
+						<option value="UDP" id="Adv_vt142">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt143">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt144">Schedule</span><br />
+				<select id="sch_14" class="narrow" style="width: 65px;">
+				</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt145">IP Address</span><br />
+					<input id="ip_14" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('14');" modified="ignore" />
+					<select id="pc_14" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt146">Private Port</span><br />
+					<input id="priport_14" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_14" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt147">Inbound Filter</span><br /><br />
+				<select id="inbfilter_14" class="narrow" style="width: 72px;">
+				</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_15" value="">
+					<input id="en_15" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt148">Name</span><br /><input id="dsc_15" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('15');" modified="ignore" />
+					<span id="span_app_15"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt149">Public Port</span><br /><input id="pubport_15" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt150">Protoco</span><br />
+					<select id="pro_15" onchange="OnClickProtocal('15');">
+						<option value="TCP" id="Adv_vt151">TCP</option>
+						<option value="UDP" id="Adv_vt152">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt153">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt154">Schedule</span><br />
+				<select id="sch_15" class="narrow" style="width: 65px;">
+				</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt155">IP Address</span><br />
+					<input id="ip_15" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('15');" modified="ignore" />
+					<select id="pc_15" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt156">Private Port</span><br />
+					<input id="priport_15" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_15" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt157">Inbound Filter</span><br /><br />
+				<select id="inbfilter_15" class="narrow" style="width: 72px;">
+				</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_16" value="">
+					<input id="en_16" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt158">Name</span><br /><input id="dsc_16" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('16');" modified="ignore" />
+					<span id="span_app_16"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt159">Public Port</span><br /><input id="pubport_16" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt160">Protoco</span><br />
+					<select id="pro_16" onchange="OnClickProtocal('16');">
+						<option value="TCP" id="Adv_vt161">TCP</option>
+						<option value="UDP" id="Adv_vt162">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt163">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt164">Schedule</span><br />
+				<select id="sch_16" class="narrow" style="width: 65px;">
+				</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt165">IP Address</span><br />
+					<input id="ip_16" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('16');" modified="ignore" />
+					<select id="pc_16" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt166">Private Port</span><br />
+					<input id="priport_16" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_16" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt167">Inbound Filter</span><br /><br />
+				<select id="inbfilter_16" class="narrow" style="width: 72px;">
+				</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_17" value="">
+					<input id="en_17" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt168">Name</span><br /><input id="dsc_17" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('17');" modified="ignore" />
+					<span id="span_app_17"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt169">Public Port</span><br /><input id="pubport_17" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt170">Protoco</span><br />
+					<select id="pro_17" onchange="OnClickProtocal('17');">
+						<option value="TCP" id="Adv_vt171">TCP</option>
+						<option value="UDP" id="Adv_vt172">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt173">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt174">Schedule</span><br />
+				<select id="sch_17" class="narrow" style="width: 65px;">
+				</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt175">IP Address</span><br />
+					<input id="ip_17" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('17');" modified="ignore" />
+					<select id="pc_17" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt176">Private Port</span><br />
+					<input id="priport_17" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_17" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt177">Inbound Filter</span><br /><br />
+				<select id="inbfilter_17" class="narrow" style="width: 72px;">
+				</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_18" value="">
+					<input id="en_18" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt178">Name</span><br /><input id="dsc_18" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('18');" modified="ignore" />
+					<span id="span_app_18"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt179">Public Port</span><br /><input id="pubport_18" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt180">Protoco</span><br />
+					<select id="pro_18" onchange="OnClickProtocal('18');">
+						<option value="TCP" id="Adv_vt181">TCP</option>
+						<option value="UDP" id="Adv_vt182">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt183">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt184">Schedule</span><br />
+				<select id="sch_18" class="narrow" style="width: 65px;">
+				</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt185">IP Address</span><br />
+					<input id="ip_18" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('18');" modified="ignore" />
+					<select id="pc_18" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt186">Private Port</span><br />
+					<input id="priport_18" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_18" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt187">Inbound Filter</span><br /><br />
+				<select id="inbfilter_18" class="narrow" style="width: 72px;">
+				</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_19" value="">
+					<input id="en_19" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt188">Name</span><br /><input id="dsc_19" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('19');" modified="ignore" />
+					<span id="span_app_19"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt189">Public Port</span><br /><input id="pubport_19" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt190">Protoco</span><br />
+					<select id="pro_19" onchange="OnClickProtocal('19');">
+						<option value="TCP" id="Adv_vt191">TCP</option>
+						<option value="UDP" id="Adv_vt192">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt193">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt194">Schedule</span><br />
+				<select id="sch_19" class="narrow" style="width: 65px;">
+				</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt195">IP Address</span><br />
+					<input id="ip_19" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('19');" modified="ignore" />
+					<select id="pc_19" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt196">Private Port</span><br />
+					<input id="priport_19" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_19" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt197">Inbound Filter</span><br /><br />
+				<select id="inbfilter_19" class="narrow" style="width: 72px;">
+				</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_20" value="">
+					<input id="en_20" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt198">Name</span><br /><input id="dsc_20" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('20');" modified="ignore" />
+					<span id="span_app_20"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt199">Public Port</span><br /><input id="pubport_20" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt200">Protoco</span><br />
+					<select id="pro_20" onchange="OnClickProtocal('20');">
+						<option value="TCP" id="Adv_vt201">TCP</option>
+						<option value="UDP" id="Adv_vt202">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt203">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt204">Schedule</span><br />
+				<select id="sch_20" class="narrow" style="width: 65px;">
+				</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt205">IP Address</span><br />
+					<input id="ip_20" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('20');" modified="ignore" />
+					<select id="pc_20" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt206">Private Port</span><br />
+					<input id="priport_20" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_20" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt207">Inbound Filter</span><br /><br />
+				<select id="inbfilter_20" class="narrow" style="width: 72px;">
+				</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_21" value="">
+					<input id="en_21" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt208">Name</span><br /><input id="dsc_21" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('21');" modified="ignore" />
+					<span id="span_app_21"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt209">Public Port</span><br /><input id="pubport_21" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt210">Protoco</span><br />
+					<select id="pro_21" onchange="OnClickProtocal('21');">
+						<option value="TCP" id="Adv_vt211">TCP</option>
+						<option value="UDP" id="Adv_vt212">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt213">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt214">Schedule</span><br />
+				<select id="sch_21" class="narrow" style="width: 65px;">
+				</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt215">IP Address</span><br />
+					<input id="ip_21" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('21');" modified="ignore" />
+					<select id="pc_21" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt216">Private Port</span><br />
+					<input id="priport_21" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_21" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt217">Inbound Filter</span><br /><br />
+				<select id="inbfilter_21" class="narrow" style="width: 72px;">
+				</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_22" value="">
+					<input id="en_22" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt218">Name</span><br /><input id="dsc_22" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('22');" modified="ignore" />
+					<span id="span_app_22"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt219">Public Port</span><br /><input id="pubport_22" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt220">Protoco</span><br />
+					<select id="pro_22" onchange="OnClickProtocal('22');">
+						<option value="TCP" id="Adv_vt221">TCP</option>
+						<option value="UDP" id="Adv_vt222">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt223">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt224">Schedule</span><br />
+				<select id="sch_22" class="narrow" style="width: 65px;">
+				</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt225">IP Address</span><br />
+					<input id="ip_22" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('22');" modified="ignore" />
+					<select id="pc_22" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt226">Private Port</span><br />
+					<input id="priport_22" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_22" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt227">Inbound Filter</span><br /><br />
+				<select id="inbfilter_22" class="narrow" style="width: 72px;">
+				</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_23" value="">
+					<input id="en_23" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt228">Name</span><br /><input id="dsc_23" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('23');" modified="ignore" />
+					<span id="span_app_23"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt229">Public Port</span><br /><input id="pubport_23" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt230">Protoco</span><br />
+					<select id="pro_23" onchange="OnClickProtocal('23');">
+						<option value="TCP" id="Adv_vt231">TCP</option>
+						<option value="UDP" id="Adv_vt232">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt233">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt234">Schedule</span><br />
+				<select id="sch_23" class="narrow" style="width: 65px;">
+				</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt235">IP Address</span><br />
+					<input id="ip_23" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('23');" modified="ignore" />
+					<select id="pc_23" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt236">Private Port</span><br />
+					<input id="priport_23" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_23" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt237">Inbound Filter</span><br /><br />
+				<select id="inbfilter_23" class="narrow" style="width: 72px;">
+				</select>
+				</td>
+
+			</tr>
+
+
+			<tr>
+				<td rowspan="2" class="centered">
+					<!-- the uid of VSVR -->
+					<input type="hidden" id="uid_24" value="">
+					<input id="en_24" type="checkbox" />
+				</td>
+				<td><span id="Adv_vt238">Name</span><br /><input id="dsc_24" type="text" size="15" maxlength="15" /></td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('24');" modified="ignore" />
+					<span id="span_app_24"></span>
+				</td>
+				<td class="centered"><span id="Adv_vt239">Public Port</span><br /><input id="pubport_24" type="text" size="4" maxlength="5" /></td>
+				<td class="centered"><span id="Adv_vt240">Protoco</span><br />
+					<select id="pro_24" onchange="OnClickProtocal('24');">
+						<option value="TCP" id="Adv_vt241">TCP</option>
+						<option value="UDP" id="Adv_vt242">UDP</option>
+						<option value="TCP/UDP" id="Adv_vt243">Both</option>
+						<!--option value="Other">Other</option-->
+					</select>
+				</td>
+				<td class="centered"><span id="Adv_vt244">Schedule</span><br />
+				<select id="sch_24" class="narrow" style="width: 65px;">
+				</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><span id="Adv_vt245">IP Address</span><br />
+					<input id="ip_24" type="text" size="15" maxlength="15" />
+				</td>
+				<td class="bottom">
+					<input type="button" value="<<" class="arrow" onclick="OnClickPCArrow('24');" modified="ignore" />
+					<select id="pc_24" modified="ignore" class="broad" style="width: 120px;">
+					</select>
+
+				</td>
+				<td class="centered"><span id="Adv_vt246">Private Port</span><br />
+					<input id="priport_24" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered">&nbsp;<br />
+					<input id="pronum_24" type="text" size="4" maxlength="5" />
+				</td>
+				<td class="centered"><span id="Adv_vt247">Inbound Filter</span><br /><br />
+				<select id="inbfilter_24" class="narrow" style="width: 72px;">
+				</select>
+				</td>
+
+			</tr>
+
+
+			</table>
+		</div>
+		<div class="gap"></div>
+	</div>
+	<p><input type="button" value="Save Settings" onclick="uiSubmit();" id="Adv_vt248"/>
+	<input type="button" value="Don't Save Settings" onclick="uiPageRefresh();" id="Adv_vt249"/></p>
+	<!-- End of Page Dependent Part. -->
+</div>
+<div id="help_hint" class="tips">
+<!-- Start of Help Depedent Part. -->
+<span id="Adv_vt250">
+<strong>Helpful Hints...</strong>
+<br/><br/>
+<p>&nbsp;&#149;&nbsp;&nbsp;Check the <strong>Application Name</strong> drop down menu for a list of predefined server types. If you select one of the predefined server types, click the arrow button next to the drop down menu to fill out the corresponding field.</p>
+<p>&nbsp;&#149;&nbsp;&nbsp;You can select a computer from the list of DHCP clients in the <strong>Computer Name</strong> drop down menu, or you can manually enter the IP address of the computer at which you would like to open the specified port.</p>
+<p>&nbsp;&#149;&nbsp;&nbsp;Select a schedule for when the virtual server will be enabled. If you do not see the schedule you need in the list of schedules, go to the <a href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'>Tools -> Schedules</a> screen and create a new schedule.</p>
+<p>&nbsp;&#149;&nbsp;&nbsp;Select a filter that restricts the Internet hosts that can access this virtual server to hosts that you trust. If you do not see the filter you need in the list of filters, go to the <a href='/cgi-bin/webproc?getpage=html/index.html&var:menu=advanced&var:page=Adv_inbound'>Advanced -> Inbound Filter<br /></a> screen and create a new filter.</p>
+</span>
+<p>&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpadv#VSR"><span id="Adv_vt251">More</span>...</a></p>
+<!-- End of Help Dependent Part. -->

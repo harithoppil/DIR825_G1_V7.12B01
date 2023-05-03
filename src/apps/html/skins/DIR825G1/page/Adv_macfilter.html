@@ -1,0 +1,652 @@
+﻿<div class="mainbody" id="mainbody">
+		<div class="orangebox">
+		<span id="Adv_macft001">
+			<h1>MAC Address Filter</h1>
+			<p>
+				The MAC (Media Access Controller) Address filter option is used to control network access based on the MAC Address of the network adapter.
+				A MAC address is a unique ID assigned by the manufacturer of the network adapter.
+				This feature can be configured to ALLOW or DENY network/Internet access.
+			</p>
+		</span>
+			<p><input type="button" value="Save Settings" onclick="uiSubmit();" id="Adv_macft002"/>
+				<input type="button" value="Don't Save Settings" onclick="uiPageRefresh();" id="Adv_macft003"/></p>
+		</div>
+		<div class="blackbox">
+			<h2 id="Adv_macft004">24 -- MAC Filtering Rules</h2>
+			<p><span id="Adv_macft005">Configure MAC Filtering below</span>:
+			
+				<select id="mode" onchange="OnChangeMode();">
+					<option value="DISABLE" id="Adv_macft006">Turn MAC Filtering OFF</option>
+					<option value="Allow" id="Adv_macft007">Turn MAC Filtering ON and ALLOW computers listed to access the network</option>
+					<option value="Deny" id="Adv_macft008">Turn MAC Filtering ON and DENY computers listed to access the network</option>
+				</select>
+			</p>
+			<p><span id="Adv_macft009">Remaining number of rules that can be created</span>: <span id="rmd" style="color:red;"></span></p>
+			<div class="centerline" align="center">
+				<table id="" class="general">
+				<tr  align="center">
+					<td width="23px">&nbsp;</td>
+					<td width="133px"><b id="Adv_macft010">MAC Address</b></td>
+					<td width="29px">&nbsp;</td>
+					<td width="136px"><b id="Adv_macft011">DHCP Client List</b></td>					
+					<td width="188px"><b id="Adv_macft012">Schedule</b></td>
+				</tr>
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_1" value="">
+						<input type="hidden" id="description_1" value="">
+						<input type="checkbox"id="en_1"  />
+					</td>
+					<td><input type=text id="mac_1" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_1" value="<<" class="arrow" onclick="OnClickArrowKey(1);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_1" modified="ignore" style="width: 120px;">
+					</select>
+					</td>
+					<td>
+					<select id="sch_1" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_1_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_2" value="">
+						<input type="hidden" id="description_2" value="">
+						<input type="checkbox"id="en_2"  />
+					</td>
+					<td><input type=text id="mac_2" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_2" value="<<" class="arrow" onclick="OnClickArrowKey(2);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_2" modified="ignore" style="width: 120px;">
+					</select>
+					</td>
+					<td>
+					<select id="sch_2" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_2_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_3" value="">
+						<input type="hidden" id="description_3" value="">
+						<input type="checkbox"id="en_3"  />
+					</td>
+					<td><input type=text id="mac_3" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_3" value="<<" class="arrow" onclick="OnClickArrowKey(3);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_3" modified="ignore" style="width: 120px;">
+					</select>
+					</td>
+					<td>
+					<select id="sch_3" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_3_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_4" value="">
+						<input type="hidden" id="description_4" value="">
+						<input type="checkbox"id="en_4"  />
+					</td>
+					<td><input type=text id="mac_4" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_4" value="<<" class="arrow" onclick="OnClickArrowKey(4);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_4" modified="ignore" style="width: 120px;">
+					</select>
+					</td>
+					<td>
+					<select id="sch_4" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_4_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_5" value="">
+						<input type="hidden" id="description_5" value="">
+						<input type="checkbox"id="en_5"  />
+					</td>
+					<td><input type=text id="mac_5" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_5" value="<<" class="arrow" onclick="OnClickArrowKey(5);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_5" modified="ignore" style="width: 120px;">
+					</select>
+					</td>
+					<td>
+					<select id="sch_5" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_5_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_6" value="">
+						<input type="hidden" id="description_6" value="">
+						<input type="checkbox"id="en_6"  />
+					</td>
+					<td><input type=text id="mac_6" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_6" value="<<" class="arrow" onclick="OnClickArrowKey(6);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_6" modified="ignore" style="width: 120px;">
+					</select>
+					</td>
+					<td>
+					<select id="sch_6" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_6_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_7" value="">
+						<input type="hidden" id="description_7" value="">
+						<input type="checkbox"id="en_7"  />
+					</td>
+					<td><input type=text id="mac_7" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_7" value="<<" class="arrow" onclick="OnClickArrowKey(7);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_7" modified="ignore" style="width: 120px;">
+					</select>
+					</td>
+					<td>
+					<select id="sch_7" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_7_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_8" value="">
+						<input type="hidden" id="description_8" value="">
+						<input type="checkbox"id="en_8"  />
+					</td>
+					<td><input type=text id="mac_8" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_8" value="<<" class="arrow" onclick="OnClickArrowKey(8);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_8" modified="ignore" style="width: 120px;">
+					</select>
+					</td>
+					<td>
+						<select id="sch_8" class="narrow" style="width: 65px;">
+						</select>
+					&nbsp;<input type="button"  id="schedule_8_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_9" value="">
+						<input type="hidden" id="description_9" value="">
+						<input type="checkbox"id="en_9"  />
+					</td>
+					<td><input type=text id="mac_9" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_9" value="<<" class="arrow" onclick="OnClickArrowKey(9);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_9" modified="ignore" style="width: 120px;">
+					</select>
+					</td>
+					<td>
+					<select id="sch_9" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_9_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_10" value="">
+						<input type="hidden" id="description_10" value="">
+						<input type="checkbox"id="en_10"  />
+					</td>
+					<td><input type=text id="mac_10" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_10" value="<<" class="arrow" onclick="OnClickArrowKey(10);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_10" modified="ignore" style="width: 120px;">
+					</select>
+					</td>
+					<td>
+					<select id="sch_10" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_10_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_11" value="">
+						<input type="hidden" id="description_11" value="">
+						<input type="checkbox"id="en_11"  />
+					</td>
+					<td><input type=text id="mac_11" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_11" value="<<" class="arrow" onclick="OnClickArrowKey(11);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_11" modified="ignore" style="width: 120px;">
+					</select>
+					</td>
+					<td>
+					<select id="sch_11" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_11_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_12" value="">
+						<input type="hidden" id="description_12" value="">
+						<input type="checkbox"id="en_12"  />
+					</td>
+					<td><input type=text id="mac_12" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_12" value="<<" class="arrow" onclick="OnClickArrowKey(12);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_12" modified="ignore" style="width: 120px;">						
+					</select>
+					</td>
+					<td>
+					<select id="sch_12" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_12_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_13" value="">
+						<input type="hidden" id="description_13" value="">
+						<input type="checkbox"id="en_13"  />
+					</td>
+					<td><input type=text id="mac_13" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_13" value="<<" class="arrow" onclick="OnClickArrowKey(13);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_13" modified="ignore" style="width: 120px;">
+					</select>
+					</td>
+					<td>
+					<select id="sch_13" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_13_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_14" value="">
+						<input type="hidden" id="description_14" value="">
+						<input type="checkbox"id="en_14"  />
+					</td>
+					<td><input type=text id="mac_14" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_14" value="<<" class="arrow" onclick="OnClickArrowKey(14);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_14" modified="ignore" style="width: 120px;">
+					</select>
+					</td>
+					<td>
+					<select id="sch_14" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_14_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_15" value="">
+						<input type="hidden" id="description_15" value="">
+						<input type="checkbox"id="en_15"  />
+					</td>
+					<td><input type=text id="mac_15" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_15" value="<<" class="arrow" onclick="OnClickArrowKey(15);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_15" modified="ignore" style="width: 120px;">
+					</select>
+					</td>
+					<td>
+					<select id="sch_15" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_15_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_16" value="">
+						<input type="hidden" id="description_16" value="">
+						<input type="checkbox"id="en_16"  />
+					</td>
+					<td><input type=text id="mac_16" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_16" value="<<" class="arrow" onclick="OnClickArrowKey(16);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_16" modified="ignore" style="width: 120px;">
+					</select>
+					</td>
+					<td>
+					<select id="sch_16" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_16_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_17" value="">
+						<input type="hidden" id="description_17" value="">
+						<input type="checkbox"id="en_17"  />
+					</td>
+					<td><input type=text id="mac_17" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_17" value="<<" class="arrow" onclick="OnClickArrowKey(17);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_17" modified="ignore" style="width: 120px;">
+					</select>
+					</td>
+					<td>
+					<select id="sch_17" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_17_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_18" value="">
+						<input type="hidden" id="description_18" value="">
+						<input type="checkbox"id="en_18"  />
+					</td>
+					<td><input type=text id="mac_18" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_18" value="<<" class="arrow" onclick="OnClickArrowKey(18);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_18" modified="ignore" style="width: 120px;">
+					</select>
+					</td>
+					<td>
+					<select id="sch_18" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_18_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_19" value="">
+						<input type="hidden" id="description_19" value="">
+						<input type="checkbox"id="en_19"  />
+					</td>
+					<td><input type=text id="mac_19" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_19" value="<<" class="arrow" onclick="OnClickArrowKey(19);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_19" modified="ignore" style="width: 120px;">						
+					</select>
+					</td>
+					<td>
+					<select id="sch_19" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_19_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_20" value="">
+						<input type="hidden" id="description_20" value="">
+						<input type="checkbox"id="en_20"  />
+					</td>
+					<td><input type=text id="mac_20" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_20" value="<<" class="arrow" onclick="OnClickArrowKey(20);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_20" modified="ignore" style="width: 120px;">
+					</select>
+					</td>
+					<td>
+					<select id="sch_20" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_20_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_21" value="">
+						<input type="hidden" id="description_21" value="">
+						<input type="checkbox"id="en_21"  />
+					</td>
+					<td><input type=text id="mac_21" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_21" value="<<" class="arrow" onclick="OnClickArrowKey(21);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_21" modified="ignore" style="width: 120px;">
+					</select>
+					</td>
+					<td>
+					<select id="sch_21" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_21_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_22" value="">
+						<input type="hidden" id="description_22" value="">
+						<input type="checkbox"id="en_22"  />
+					</td>
+					<td><input type=text id="mac_22" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_22" value="<<" class="arrow" onclick="OnClickArrowKey(22);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_22" modified="ignore" style="width: 120px;">
+					</select>
+					</td>
+					<td>
+					<select id="sch_22" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_22_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_23" value="">
+						<input type="hidden" id="description_23" value="">
+						<input type="checkbox"id="en_23"  />
+					</td>
+					<td><input type=text id="mac_23" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_23" value="<<" class="arrow" onclick="OnClickArrowKey(23);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_23" modified="ignore" style="width: 120px;">
+					</select>
+					</td>
+					<td>
+					<select id="sch_23" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_23_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				<tr>
+					<td class="centered">
+						<!-- the uid of MAC_FILTER -->
+						<input type="hidden" id="uid_24" value="">
+						<input type="hidden" id="description_24" value="">
+						<input type="checkbox"id="en_24"  />
+					</td>
+					<td><input type=text id="mac_24" size=18 maxlength=17>
+					</td>
+					<td>
+						<input type="button" id="arrow_24" value="<<" class="arrow" onclick="OnClickArrowKey(24);" modified="ignore" />
+					</td>
+					
+					<td>			
+					<select id="client_list_24" modified="ignore" style="width: 120px;">
+					</select>
+					</td>
+					<td>
+					<select id="sch_24" class="narrow" style="width: 65px;">
+					</select>
+					&nbsp;<input type="button"  id="schedule_24_btn" value="New Schedule" onclick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'">
+					</td>
+
+				</tr>
+
+				</table>
+			</div>
+			<div class="gap"></div>
+		</div>
+		<p><input type="button" value="Save Settings" onclick="uiSubmit();" id="Adv_macft013"/>
+		<input type="button" value="Don't Save Settings" onclick="uiPageRefresh();" id="Adv_macft014"/></p>
+		<!-- End of Page Dependent Part. -->
+</div>
+<div id="help_hint" class="tips">
+<!-- Start of Help Depedent Part. -->
+<span id="Adv_macft015">
+<strong>Helpful Hints...</strong>
+<br/><br/>
+<p>&nbsp;&#149;&nbsp;&nbsp;Create a list of MAC addresses and choose whether to allow or deny them access to your network.</p>
+<p>&nbsp;&#149;&nbsp;&nbsp;Computers that have obtained an IP address from the router's DHCP server will be in the DHCP Client List. Select a device from the drop down menu and click the arrow to add that device's MAC to the list.</p>
+<p>&nbsp;&#149;&nbsp;&nbsp;Use the check box on the left to either enable or disable a particular entry.</p>
+<p>&nbsp;&#149;&nbsp;&nbsp;Use the <strong>Always</strong> drop down menu if you have previously defined a schedule in the router. If not, click on the <strong>New Schedule</strong> button to add one.</p>
+</span>
+<p>&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpadv#NetFilter"><span id="Adv_macft016">More</span>...</a></p>
+<!-- End of Help Dependent Part. -->

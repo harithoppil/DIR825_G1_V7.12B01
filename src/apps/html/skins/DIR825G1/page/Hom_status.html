@@ -1,0 +1,397 @@
+﻿<div class="mainbody" id="mainbody">
+	<div class="orangebox">
+		<h1 id="STA001">Device Information</h1>
+		<p id="STA002">
+			All of your Internet and network connection details are displayed on this page. The firmware version is also displayed here.
+		</p>
+	</div>
+	<div class="blackbox">
+		<h2 id="STA003">General</h2>
+		<div class="textinput">
+			<span class="name" id="STA004">Time</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_time"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA005">Firmware Version</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_fw"></span>
+		</div>
+		<div class="textinput" style='display:none;'>
+			<span class="name" id="STA006">mydlink Service</span>
+			<span class="delimiter">:</span>
+			<span class="value">Non-Registered</span>
+		</div>
+		<div class="textinput" style='display:none;'>
+			<span class="name" id="STA007">mydlink Account</span>
+			<span class="delimiter">:</span>
+			<span class="value"></span>
+		</div>		
+		<div class="gap"></div>
+	</div>
+	<div class="blackbox" id="wan_ethernet_block">
+		<h2 id="STA008">WAN</h2>
+		<div class="textinput">
+			<span class="name" id="STA009">Connection Type</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_wantype"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA010">Cable Status</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_wancable"></span>
+		</div>
+		<div class="textinput" id="wan_failover_block" style="display:none;">
+			<span class="name" id="STA011">WAN Failover Status</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_wan_failover"></span>
+		</div>    
+		<div class="textinput">
+			<span class="name" id="STA012">Network Status</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_networkstatus"></span>
+		</div>
+		<div class="textinput" id="st_wan_dhcp_action" style="display:none;">
+			<span class="name"></span>
+			<span class="delimiter"></span>
+			<span class="value">
+				<input type="button" id="st_wan_dhcp_renew" value="Renew" onClick="DHCP_Renew();"/>&nbsp;&nbsp;
+				<input type="button" id="st_wan_dhcp_release" value="Release" onClick="DHCP_Release();"/>  
+			</span>
+		</div> 
+		<div class="textinput" id="st_wan_ppp_action" style="display:none;">
+			<span class="name"></span>
+			<span class="delimiter"></span>
+			<span class="value">
+				<input type="button" id="st_wan_ppp_connect" value="Connect" onClick="PPP_Connect();"/>&nbsp;&nbsp;
+				<input type="button" id="st_wan_ppp_disconnect" value="Disconnect" onClick="PPP_Disconnect();"/>  
+			</span>
+		</div>    
+		<div class="textinput">
+			<span class="name" id="STA013">Connection Up Time</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_connection_uptime"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA014">MAC Address</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_wan_mac"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="lang_wan_ip">IP Address</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_wanipaddr"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA015">Subnet Mask</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_wannetmask"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="lang_wan_gw">Default Gateway</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_wangateway"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA016">Primary DNS Server</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_wanDNSserver"></span>
+		</div>
+		<div class="textinput" >
+			<span class="name" id="STA017">Secondary DNS Server</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_wanDNSserver2"></span>
+		</div>    
+		<div class="gap"></div>
+	</div>
+	<div class="blackbox" id="wan_ethernet_dslite_block" style="display:none">
+		<h2 id="STA018">WAN</h2>
+		<div class="textinput">
+			<span class="name" id="STA019">Connection Type</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_dslite_wantype"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA020">Cable Status</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_dslite_wancable"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA021">Network Status</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_dslite_networkstatus"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA022">Connection Up Time</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_dslite_connection_uptime"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA023">MAC Address</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_dslite_wan_mac"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA024">AFTR Address</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_aftrserver"></span>
+		</div>
+		<div class="textinput" >
+			<span class="name" id="STA025">DS-Lite DHCPv6 option</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_dslite_dhcp6opt"></span>
+		</div>    
+		<div class="gap"></div>
+	</div>
+	<div class="blackbox" id="wan_secondwan_block" style="display:none">
+		<h2 id="STA008">IPTV WAN</h2>
+		<div class="textinput">
+			<span class="name" id="STA009">Connection Type</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_secondwan_wantype"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA012">Network Status</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_secondwan_networkstatus"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="lang_wan_ip">IP Address</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_secondwan_wanipaddr"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA015">Subnet Mask</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_secondwan_wannetmask"></span>
+		</div>
+		<div class="gap"></div>
+	</div>
+	<div class="blackbox" id="lan_ethernet_block">
+		<h2 id="STA026">LAN</h2>
+		<div class="textinput">
+			<span class="name" id="STA027">MAC Address</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_lan_mac"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA028">IP Address</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_ip_address"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA029">Subnet Mask</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_netmask"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA030">DHCP Server</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_dhcpserver_enable"></span>
+		</div>
+		<div class="gap"></div>
+	</div>
+	<div class="blackbox" id="ethernet_block" style="display:none">
+		<h2 id="STA031">ETHERNET</h2>
+		<div class="textinput">
+			<span class="name" id="STA032">Connection Type</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="br_wantype"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA033">MAC Address</span>
+			<span class="delimiter">:</span>
+			<span class="value">c0:a0:bb:fd:8d:2c</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA034">IP Address</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="br_ipaddr"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA035">Subnet Mask</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="br_netmask"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA036">Default Gateway</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="br_gateway"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA037">Primary DNS Server</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="br_dns1"></span>
+		</div>
+		<div class="textinput" >
+			<span class="name" id="STA038">Secondary DNS Server</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="br_dns2"></span>
+		</div>    
+		<div class="gap"></div>
+	</div>
+	<div class="blackbox">
+		<h2 id="STA039">WIRELESS LAN</h2>
+		<div class="textinput">
+			<span class="name" id="STA040">Wireless Radio</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_wireless_radio"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA041">MAC Address</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_wireless_mac"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA042">802.11 Mode</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_80211mode"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA043">Channel Width</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_Channel_Width"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA044">Channel</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_Channel"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA045">Network Name (SSID)</span>
+			<span class="delimiter">:</span>
+			<pre style="font-family:Tahoma"><span class="value" id="st_SSID"></span></pre>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA046">Wi-Fi Protected Setup</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_WPS_status"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA047">Security</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_security"></span>
+		</div>
+		<div class="gap"></div>
+		<div class="gap" ></div>	
+		<div class="textinput" >
+			<span class="name" id="STA048">Guest Zone Wireless Radio</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="gz_st_wireless_radio"></span>
+		</div>
+		<div class="textinput" >
+			<span class="name" id="STA019">Guest Zone Network Name (SSID)</span>
+			<span class="delimiter">:</span>
+			<pre style="font-family:Tahoma"><span class="value" id="gz_st_SSID"></span></pre>
+		</div>
+		<!--
+		<div class="textinput">
+			<span class="name">Guest Zone Channel</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="gz_st_Channel"></span>
+		</div>
+		-->
+		<div class="textinput" >
+			<span class="name" id="STA050">Guest Zone Security</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="gz_st_security"></span>
+		</div>
+		<div class="gap"></div>
+	</div>	
+
+	<div class="blackbox" id="wlan2">
+		<h2 id="STA051">WIRELESS LAN2</h2>
+		<div class="textinput">
+			<span class="name" id="STA052">Wireless Radio</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_wireless_radio_Aband"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA053">MAC Address</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_wireless_mac_Aband"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA054">802.11 Mode</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_80211mode_Aband"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA055">Channel Width</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_Channel_Width_Aband"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA056">Channel</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_Channel_Aband"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA057">Network Name (SSID)</span>
+			<span class="delimiter">:</span>
+			<pre style="font-family:Tahoma"><span class="value" id="st_SSID_Aband"></span></pre>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA058">Wi-Fi Protected Setup</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_WPS_status_Aband"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA059">Security</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_security_Aband"></span>
+		</div>
+		<div class="gap"></div>
+		<div class="gap"></div>	
+		<div class="textinput">
+			<span class="name" id="STA060">Guest Zone Wireless Radio</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="gz_st_wireless_radio_Aband"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA061">Guest Zone Network Name (SSID)</span>
+			<span class="delimiter">:</span>
+			<pre style="font-family:Tahoma"><span class="value" id="gz_st_SSID_Aband"></span></pre>
+		</div>
+		<div class="textinput">
+			<span class="name" id="STA062">Guest Zone Security</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="gz_st_security_Aband"></span>
+		</div>
+		<div class="gap"></div>
+	</div>	
+
+	<div class="blackbox">
+		<h2 id="STA063">LAN COMPUTERS</h2>
+		<div class="centerline">
+			<table id="client_list" class="general" width="535px">
+				<tr>			
+					<th width="120px" id="STA064">MAC Address</th>
+					<th width="100px" id="STA065">IP Address</th>			
+					<th width="100px" id="STA066">Name(if any)</th>			
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="blackbox">
+		<h2 id="STA067">IGMP MULTICAST MEMBERSHIPS</h2>
+		<table id="igmp_groups" class="general" width="535px">
+				<tr>			
+					<th width="270px" id="STA068">IPv4 Multicast Group Address</th>
+				</tr>
+		</table>	
+		<table id="mld_groups" class="general" width="535px" >
+				<tr>			
+					<th width="270px" id="STA069">IPv6 Multicast Group Address</th>
+				</tr>
+		</table>
+	</div>
+	<!-- End of Page Dependent Part. -->
+</div>
+<div id="help_hint" class="tips">
+<!-- Start of Help Depedent Part. -->
+<strong id="STA070">Helpful Hints...</strong>
+<br/><br/>
+<p id="STA071">&nbsp;&#149;&nbsp;&nbsp;All of your LAN, Internet and WIRELESS 802.11 N connection details are displayed here.</p>
+<p id="STA072">&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpstatus#Device">More...</a></p>
+<!-- End of Help Dependent Part. -->

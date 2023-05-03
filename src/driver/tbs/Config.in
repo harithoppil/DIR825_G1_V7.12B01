@@ -1,0 +1,13 @@
+menuconfig DRIVERS_TBSMOD
+        bool 'Tbsmod'
+        default y
+        depends on DRIVERS
+        help
+					tbs module
+
+
+
+source driver/tbs/button/Config.in
+source driver/tbs/led/Config.in
+source driver/tbs/nfp_adapter/Config.in
+source driver/tbs/tbs_nfp/Config.in

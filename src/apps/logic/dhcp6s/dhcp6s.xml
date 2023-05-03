@@ -1,0 +1,35 @@
+<InternetGatewayDevice type="object">
+	<LANDevice type="object" Writable="0" CurNode="LANDeviceNumberOfEntries">
+		<i type="object">
+			<X_TWSZ-COM_IPv6LANHostConfigManagement type="object">
+				<AutoConfigurationAddress type="boolean">0</AutoConfigurationAddress>
+				<ServerType type="object">
+					<Stateless type="boolean">1</Stateless>
+					<StatefullDHCPv6 type="object">
+						<MinInterfaceID type="string">0</MinInterfaceID>
+						<MaxInterfaceID type="string">ff</MaxInterfaceID>
+						<DHCPv6LeaseTime type="int">14400</DHCPv6LeaseTime>
+						<DHCPv6ValidTime type="int">86400</DHCPv6ValidTime>
+						<IPv6DomainName type="string">gj.com</IPv6DomainName>
+					</StatefullDHCPv6>
+				</ServerType>
+			</X_TWSZ-COM_IPv6LANHostConfigManagement>
+			<Hosts type="object">
+				<HostNumberOfEntriesV6 type="unsignedInt" Writable="0">0</HostNumberOfEntriesV6>
+				<HostV6 type="object" Writable="0" CurNode="HostNumberOfEntriesV6">
+					<i type="object">
+						<IPAddress type="string" Writable="0"></IPAddress>
+						<AddressSource type="string" Writable="0"></AddressSource>
+						<LeaseTimeRemaining type="int[-1:]" Writable="0"></LeaseTimeRemaining>
+						<X_TWSZ-COM_LeaseTimeExpire type="unsignedInt" Standard="0" Writable="0"></X_TWSZ-COM_LeaseTimeExpire>
+						<X_TWSZ-COM_ClassIdentifier type="string" Standard="0" Writable="0"></X_TWSZ-COM_ClassIdentifier>
+						<MACAddress type="string" Writable="0"></MACAddress>
+						<HostName type="string" Writable="0"></HostName>
+						<Active type="boolean" Writable="0"></Active>
+						<Layer2Interface type="string" Writable="0"></Layer2Interface>
+					</i>
+				</HostV6>
+			</Hosts>
+		</i>
+	</LANDevice>
+</InternetGatewayDevice>

@@ -1,0 +1,366 @@
+<!-- Start of Page Depedent Part. -->
+
+<!-- Start of Stage Description -->
+<div id="stage_descv6" class="blackbox" style="display:;">
+	<h2 id="WIZIPV6001">WELCOME TO THE D-LINK IPv6 INTERNET CONNECTION SETUP WIZARD</h2>
+	<div><p class="strong" id="WIZIPV6002">
+		This wizard will guide you through a step-by-step process to configure your new D-Link router and connect to the IPv6 Internet.
+	</p></div>
+	<div>
+		<ul>
+			<li id="WIZIPV6003">Step 1: Configure your IPv6 Internet Connection</li>
+			<li id="WIZIPV6004">Step 2: Save Settings and Connect</li>			
+		</ul>
+	</div>
+	<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" id="WIZIPV6047" name="b_pre" value="Prev" onClick="OnClickPre();" disabled="true" />&nbsp;&nbsp;
+		<input type="button" id="WIZIPV6048" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" id="WIZIPV6049" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" id="WIZIPV6050" name="b_send" value="Connect" onClick="OnSubmit();" disabled="true" />&nbsp;&nbsp;
+	</div>
+	<div class="emptyline"></div>	
+</div>
+<!-- End of Stage Description -->
+<!-- Start of Stage Wan Detect -->
+<div id="stage_wan_detectv6" style="display:none;">
+	<div id="wan_detectv6" style="display:none;">
+		<div class="blackbox"> 
+			<h2 id="WIZIPV6005">Step 1: CONFIGURE YOUR IPv6 INTERNET CONNECTION</h2>
+			<div><p class="strong" id="WIZIPV6006">
+				Router is detecting your IPv6 Internet connection type, please wait ......
+			</p></div>
+			<div align="center">
+				<img src="/html/skin/wan_detect_process_bar.gif" width="300" height="30">
+			</div>
+			<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" id="WIZIPV6051" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+		<input type="button" id="WIZIPV6052" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" id="WIZIPV6053" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" id="WIZIPV6054" name="b_send" value="Connect" onClick="OnSubmit();" disabled="true" />&nbsp;&nbsp;
+	</div>
+	<div class="emptyline"></div>
+		</div>
+	</div>
+	<div id="wantypev6_unkown" style="display:none;">
+		<div class="blackbox"> 
+			<h2 id="WIZIPV6007">Step 1: CONFIGURE YOUR IPv6 INTERNET CONNECTION</h2>
+			<div><p class="strong" id="WIZIPV6008">
+				Router is unable to detect your IPv6 Internet connection type.
+			</p></div>
+			<div class="gap"></div>
+			<div class="centerline">
+				<input type="button" id="WIZIPV6055" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+				<input type="button" id="WIZIPV6056" value="Try again" onClick="WanDetectPre();" />&nbsp;&nbsp;
+				<input type="button" id="WIZIPV6057" value="Guide me through the IPv6 settings" onClick="OnClickNext();" />&nbsp;&nbsp;
+			</div>
+			<div class="gap"></div>	
+		</div>
+	</div>		
+</div>
+<!-- End of Stage Wan Detect -->
+<!-- Start of Stage Ethernet -->
+<div id="stage_etherv6" style="display:none;">
+	<div class="blackbox">
+		<h2 id="WIZIPV6009">Step 1: CONFIGURE YOUR IPv6 INTERNET CONNECTION</h2>
+		<div class="gap"></div>
+		<div><p class="strong" id="WIZIPV6010">
+			Please select your IPv6 Internet Connection type:
+		</p></div>
+		<div class="wiz-l1">
+			<input name="wanv6_mode" type="radio" value="PPPoE" checked onClick="OnChangeWanv6Type(this.value);"  />
+			<span id="WIZIPV6011">IPv6 over PPPoE</span>
+		</div>
+		<div class="wiz-l2" id="WIZIPV6012">
+			Choose this option if your IPv6 Internet connection requires a username and password to get online. Most DSL modems use this type of connection.
+		</div>
+		<div class="wiz-l1">
+			<input name="wanv6_mode" type="radio" value="STATIC" onClick="OnChangeWanv6Type(this.value);" />
+			<span id="WIZIPV6013">Static IPv6 address and Route</span>
+		</div>
+		<div class="wiz-l2" id="WIZIPV6014">
+			Choose this option if your Internet Setup Provider (ISP) provided you with IPv6 Address information that has to be manually configured.
+		</div>
+		<div class="wiz-l1">
+			<input name="wanv6_mode" type="radio" value="6RD" onClick="OnChangeWanv6Type(this.value);" />
+			<span id="WIZIPV6015">Tunneling Connection (6rd)</span>
+		</div>
+		<div class="wiz-l2" id="WIZIPV6016">
+			Choose this option if your Internet Setup Provider (ISP) provided you a IPv6 Internet Connection by using 6rd automatic tunneling mechanism.
+		</div>
+		<div class="emptyline"></div>
+		<div class="centerline">
+			<input type="button" id="WIZIPV6058" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+			<input type="button" id="WIZIPV6059" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+			<input type="button" id="WIZIPV6060" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+			<input type="button" id="WIZIPV6061" name="b_send" value="Connect" onClick="OnSubmit();" disabled="true" />&nbsp;&nbsp;
+		</div>
+		<div class="emptyline"></div>
+	</div>
+</div>
+<!-- End of Stage Ethernet -->
+<!-- Start of Stage Ethernet WAN Settings -->
+<div id="stage_ether_cfgv6" style="display:none;">
+	<input id="ppp4_timeout" type="hidden" />
+	<input id="ppp4_mode" type="hidden" />
+	<input id="ppp4_mtu" type="hidden" />
+	<input id="ipv4_mtu" type="hidden" />
+	
+	<!-- End of DHCP -->
+	<!-- Start of PPPoE -->
+	<div id="PPPoE">
+		<div class="blackbox">
+			<h2 id="WIZIPV6017">SET USERNAME AND PASSWORD CONNECTION (PPPoE)</h2>
+			<div><p class="strong" id="WIZIPV6018">
+				To set up this connection you will need to have a Username and Password from your IPv6 Internet Service Provider. If you do not have this information, please contact your ISP.
+			</p></div>
+			<div class="textinput">
+				<span class="name" id="WIZIPV6019">PPPoE Session</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input name="wiz_pppoe_sess_type" type="radio" value="dynamic" checked onChange="OnChangePPPoESessType();" />
+					<span id="WIZIPV6020">Share with IPv4</span>
+					<input name="wiz_pppoe_sess_type" type="radio" value="static" onChange="OnChangePPPoESessType();" />
+					<span id="WIZIPV6021">Create a new session</span>
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZIPV6022">User Name</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_pppoe_usr" type="text" size="20" maxlength="63" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZIPV6023">Password</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_pppoe_passwd" type="password" size="20" maxlength="63" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZIPV6024">Verify Password</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_pppoe_passwd2" type="password" size="20" maxlength="63" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZIPV6025">Service Name</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_pppoe_svc" type="text" size="20" maxlength="39" />
+					<span id="WIZIPV6026">(optional)</span>
+				</span>
+			</div>
+			<p id="WIZIPV6027">
+				Note: You may also need to provide a Service Name. If you do not have or know this information, please contact your ISP.
+			</p>
+			<div class="gap"></div>
+			<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" id="WIZIPV6062" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+		<input type="button" id="WIZIPV6063" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" id="WIZIPV6064" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" id="WIZIPV6065" name="b_send" value="Connect" onClick="OnSubmit();" disabled="true" />&nbsp;&nbsp;
+	</div>
+	<div class="emptyline"></div>
+			<div class="gap"></div>		
+		</div>
+	</div>
+	<!-- End of PPPoE -->
+	<!-- Start of STATIC -->
+	<div id="STATIC">
+		<div class="blackbox">
+			<h2 id="WIZIPV6028">SET STATIC IPv6 ADDRESS CONNECTION</h2>
+			<div><p class="strong" id="WIZIPV6029">
+				To set up this connection you will need to have a complete list of IPv6 information provided by your IPv6 Internet Service Provider. If you have a Static IPv6 connection and do not have this information, please contact your ISP.
+			</p></div>
+			<div class="textinput">
+				<span class="name" id="WIZIPV6030">Use Link-Local Address</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="usell" value="" type="checkbox" onClick="OnClickUsell();"/></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZIPV6031">IPv6 Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_static_wan_v6addr" type="text" size="42" maxlength="45" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZIPV6032">Subnet Prefix Length</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_static_pfxlen" type="text" size="4" maxlength="3" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZIPV6033">Default Gateway</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_static_gw" type="text" size="42" maxlength="45" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZIPV6034">Primary IPv6 DNS Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_static_pridns6" type="text" size="42" maxlength="45" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZIPV6035">Secondary IPv6 DNS Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_static_secdns6" type="text" size="42" maxlength="45" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZIPV6036">LAN IPv6 Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_static_lan_v6addr" type="text" size="42" maxlength="45" />
+					<span id="wiz_static_lan_pfxlen"></span>
+				</span>
+			</div>
+			<br>
+			<div class="gap"></div>
+			<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" id="WIZIPV6066" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+		<input type="button" id="WIZIPV6067" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" id="WIZIPV6068" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" id="WIZIPV6069" name="b_send" value="Connect" onClick="OnSubmit();" disabled="true" />&nbsp;&nbsp;
+	</div>
+	<div class="emptyline"></div>
+			<div class="gap"></div>		
+		</div>		
+
+	</div>
+	<!-- End of STATIC -->
+	<!-- Start of 6rd -->
+	<div id="6RD">
+		<div class="blackbox">
+			<h2 id="WIZIPV6037">SET UP 6rd TUNNELING CONNECTION</h2>
+			<div><p class="strong" id="WIZIPV6038">
+				To set up this 6rd tunneling connection you will need to have the following information from your IPv6 Internet Service Provider. If you do not have this information, please contact your ISP.
+			</p></div>
+			<div class="textinput">
+				<span class="name" id="WIZIPV6039">6rd IPv6 Prefix</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_6rd_prefix" type="text" size="20" maxlength="39" />	/
+					<input id="wiz_6rd_pfxlen" type="text" size="4" maxlength="3" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZIPV6040">IPv4 Address</span>
+				<span class="delimiter">:</span>
+				<span>
+					<input id="wiz_6rd_v4addr" type="text" size="15" maxlength="15" />
+				</span>
+				<span style="font-weight:bold;"><span id="WIZIPV6041">Mask Length
+				:</span>
+				<input id="wiz_6rd_v4addr_mask" type="text" size="3" maxlength="2" /></span>	
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZIPV6042">Assigned IPv6 Prefix</span>
+				<span class="delimiter">:</span>
+				<span class="value"><span id="wiz_6rd_v6addr"></span></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZIPV6043">6rd Border Relay IPv4 Address</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="wiz_6rd_relay" type="text" size="15" maxlength="15" /></span></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZIPV6044">IPv6 DNS Server</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="wiz_6rd_pridns6" type="text" size="42" maxlength="45" /></span>
+			</div>
+			<br>
+			<div class="gap"></div>
+			<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" id="WIZIPV6070" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+		<input type="button" id="WIZIPV6071" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" id="WIZIPV6072" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" id="WIZIPV6073" name="b_send" value="Connect" onClick="OnSubmit();" disabled="true" />&nbsp;&nbsp;
+	</div>
+	<div class="emptyline"></div>
+			<div class="gap"></div>		
+		</div>			
+	</div>
+
+</div>
+<!-- End of Stage Ethernet WAN Settings -->
+<!-- Start of Stage Finish -->
+<div id="stage_finishv6" class="blackbox" style="display:none;">
+	<h2 id="WIZIPV6045">SETUP COMPLETE!</h2>
+	<div><p class="strong" id="WIZIPV6046">
+		The IPv6 Internet Connection Setup Wizard has completed. Click the Connect button to save your settings and reboot the router.
+	</p></div>
+	<div class="gap"></div>
+	<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" id="WIZIPV6074" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+		<input type="button" id="WIZIPV6075" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" id="WIZIPV6076" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" id="WIZIPV6077" name="b_send" value="Connect" onClick="OnSubmit();" disabled="true" />&nbsp;&nbsp;
+	</div>
+	<div class="emptyline"></div>
+</div>
+<!-- End of Stage Finish -->
+
+<!-- End of Page Dependent Part. -->
+	
+	<!-- Start of Login Body -->
+	<div id="login" class="simplecontainer" style="display:none;">
+		<div class="simplebody">
+			<div class="orangebox">
+			    <h1>Login</h1>
+				<div class="message">Login to the router : </div>
+				<div class="loginbox">
+					<span class="name">User Name</span>
+					<span class="delimiter">:</span>
+					<span class="value">
+						<input type="text" id="loginusr" onkeydown="BODY.OnKeydown(event);" disabled />
+					</span>
+				</div>
+				<div class="loginbox">
+					<span class="name">Password</span>
+					<span class="delimiter">:</span>
+					<span class="value">
+						<input type="password" id="loginpwd" size="20" maxlength="15" onkeydown="BODY.OnKeydown(event);" />&nbsp;&nbsp;
+						<input type="button" id="noGAC" value="Login" onClick="BODY.LoginSubmit();" />
+					</span>
+				</div>
+				<div id="GAC" class="centerline">
+					<center>
+					<table width="260px" style="text-align:left;">
+					<tr>
+						<td colspan="2">
+							<strong>Enter the correct password above and then type the characters you see in the picture below.</strong>
+							<input type="text" id="captcha" class="uppercase" onkeydown="BODY.OnKeydown(event);" />
+						</td>
+					</tr>
+					<tr>
+						<td height="50px" width="190px" align="center"><span id="auth_img"></span></td>
+						<td><input type="button" onClick="BODY.RefreshCaptcha();" value="Regenerate" valign="middle" /></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center">
+							<input type="button" value="Login" onClick="BODY.LoginSubmit();" style="width:90px;" />
+						</td>
+					</tr>
+					</table>
+					</center>
+				</div>
+				<div class="emptyline"></div>
+			</div>
+		</div>
+	</div>
+	<!-- End of Login Body -->
+

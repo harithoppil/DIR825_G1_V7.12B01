@@ -1,0 +1,15 @@
+# libnetfilter_conntrack pkg-config file
+
+prefix=/home/zhangtianchuan/gpl_825/DIR825/build/tmpdist
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libnetfilter_conntrack
+Description: netfilter userspace conntrack access library
+URL: http://netfilter.org/projects/libnetfilter_conntrack/
+Version: 0.0.89
+Requires: libnfnetlink
+Conflicts:
+Libs: -L${libdir} -lnetfilter_conntrack
+Cflags: -I${includedir}

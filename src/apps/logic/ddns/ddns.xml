@@ -1,0 +1,24 @@
+
+<InternetGatewayDevice type="object">
+	<X_TWSZ-COM_DDNS type="object">
+		<i type="object">
+			<Enable type="boolean">0</Enable>
+			<Timeout type="unsignedInt[1:]">5000</Timeout>
+			<DDNSProvider type="string"> </DDNSProvider>
+			<Hostname type="string(64)">myhostname</Hostname>
+			<WANConnectionID type="string(256)"> </WANConnectionID>
+			<WANInterfaceState type="string" Writable="0" NeedSave="0">Disconnected</WANInterfaceState>
+			<Username type="string(64)">User</Username>
+			<Password type="string(64)">Pass</Password>
+			<Method type="string(16)" Writable="0">http</Method>
+			<CgiPath type="string(128)" Writable="0">/gnudip/cgi-bin/gdipupdt.cgi</CgiPath>
+			<DdnsHost type="string(256)">ns1.cammail.net</DdnsHost>
+			<Email type="string(64)">Email</Email>
+			<Key type="string(64)">Key</Key>
+			<DDNSState type="string" Writable="0">Unconfigure</DDNSState>
+			<DDNSEnableIpv6 type="boolean">0</DDNSEnableIpv6>
+			<DDNSHostNameIPv6 type="string(64)"></DDNSHostNameIPv6>
+			<DDNSIPv6 type="string" Writable="0"></DDNSIPv6>
+		</i>
+	</X_TWSZ-COM_DDNS>
+</InternetGatewayDevice>

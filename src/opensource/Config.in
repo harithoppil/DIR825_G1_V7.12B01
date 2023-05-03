@@ -1,0 +1,73 @@
+menuconfig OPENSOURCE
+        bool "Open Source"
+        default y
+
+#source src/opensource/xmlpaser/Config.in
+#source src/opensource/ated/Config.in
+source src/opensource/busybox/Config.in
+source src/opensource/brctl/Config.in
+#source src/opensource/bing/Config.in
+#source src/opensource/nbtscan/Config.in
+source src/opensource/openssl/Config.in
+source src/opensource/httpd/Config.in
+source src/opensource/ppp-pppoe/Config.in
+source src/opensource/dproxy/Config.in
+source src/opensource/iptables/Config.in
+#source src/opensource/ebtables/Config.in
+#source src/opensource/atm/Config.in
+#source src/opensource/gdb/Config.in
+source src/opensource/ethtool/Config.in
+#source src/opensource/nbns_listen/Config.in
+source src/opensource/udhcp/Config.in
+source src/opensource/dhcpv6/Config.in
+source src/opensource/radvd/Config.in
+source src/opensource/updatedd/Config.in
+#source src/opensource/updatedd_planet/Config.in
+source src/opensource/inadyn/Config.in
+#source src/opensource/peanuthull/Config.in
+source src/opensource/dhcpr/Config.in
+#source src/opensource/nbsmtp/Config.in
+source src/opensource/libnfnetlink/Config.in
+source src/opensource/libnetfilter_conntrack/Config.in
+source src/opensource/igmpproxy/Config.in
+source src/opensource/mld/Config.in
+source src/opensource/l2tpd/Config.in
+source src/opensource/openl2tp/Config.in
+source src/opensource/pptp/Config.in
+#source src/opensource/snmp/Config.in
+source src/opensource/iproute2/Config.in
+source src/opensource/dropbear/Config.in
+source src/opensource/zebra/Config.in
+source src/opensource/msntp/Config.in
+#source src/opensource/ping/Config.in
+#source src/opensource/bftpd/Config.in
+#source src/opensource/ftpd/Config.in
+#source src/opensource/utmproxy/Config.in
+#source src/opensource/autoFWupgrade/Config.in
+#source src/opensource/wget/Config.in
+#source src/opensource/ippd/Config.in
+#source src/opensource/samba/Config.in
+source src/opensource/upnp/Config.in
+#source src/opensource/hostapd-0.4.8/Config.in
+#source src/opensource/wpa_supplicant-0.5.5/Config.in
+source src/opensource/wireless_tools/Config.in
+source src/opensource/siproxd/Config.in
+source src/opensource/nanocom/Config.in
+source src/opensource/peanuthullclient/Config.in
+#source src/opensource/dlna/Config.in
+source src/opensource/libpng/Config.in
+source src/opensource/qrencode/Config.in
+menuconfig OPENSOURCE_DEBUGTOOLS 
+        bool "Debug Tools"
+        default n
+        depends OPENSOURCE
+        help
+        Debug Tools
+
+if OPENSOURCE_DEBUGTOOLS=y
+##source src/opensource/tcpdump/Config.in
+#source src/opensource/ttcp/Config.in
+#source src/opensource/sendip/Config.in
+#source src/opensource/gdb/Config.in
+#source src/opensource/strace/Config.in
+endif

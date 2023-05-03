@@ -1,0 +1,9 @@
+#####################
+config OPENSOURCE_NBNS 
+	bool 'nbns'
+	default y
+	depends OPENSOURCE
+  	help 
+      	nbns register listen demon
+
+

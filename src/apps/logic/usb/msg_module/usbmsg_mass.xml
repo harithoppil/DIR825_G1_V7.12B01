@@ -1,0 +1,10 @@
+
+<InternetGatewayDevice type="object">
+	<DeviceInfo type="object" Writable="0">
+		<X_CT-COM_Restore Standard="0" type="object">
+			<Enabled Standard="0" Writable="1" type="boolean">0</Enabled>
+		</X_CT-COM_Restore>
+	</DeviceInfo>
+	<X_TWSZ-COM_USBDevice type="object" Writable="0">
+	</X_TWSZ-COM_USBDevice>
+</InternetGatewayDevice>

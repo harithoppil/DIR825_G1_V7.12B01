@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<link rel="shortcut icon" href="/html/skin/favicon.gif" type="image/x-icon">	
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Pragma" content="No-cache" />
+<meta http-equiv="Content-Type" content="no-cache">
+<title>D-LINK SYSTEMS, INC. | WIRELESS ROUTER | HOME</title>	
+<link rel="stylesheet" type="text/css" href="/html/skin/general.css">
+<script type="text/javascript" src="/html/js/boot.js"></script>
+</head>
+<body class="mainbg" onload="uiload();">
+<div class="maincontainer">	
+	<div class="headercontainer">
+		<span class="product">
+			<span id="upconfig001">Product Page : </span>
+			<a target="_blank"id="pro_page" href="http://support.dlink.com"></a>
+		</span>
+		<span class="version">				
+			<span id="upconfig002">Firmware Version : </span>
+			<span class="value" id = "Span_FirmwareVersion"></span>
+		</span>
+		<span class="hwversion">
+			<span id="upconfig003">Hardware Version : </span>
+			<span class="value" id = "Span_HardwareVersion"></span>
+		</span>
+	</div><!-- logo picture -->
+	<div class="bannercontainer">
+		<span class="bannerhead">
+			<a href="http://www.dlink.com.tw"><img width="162" height="92" src="/html/skin/head_01.gif"></a> 
+		</span>
+		<span class="bannertail"><img src="/html/skin/head_03.gif"></span>
+		
+	</div><!-- logo menu -->	
+	<div class="simplecontainer" id="content">		
+		<div class="simplebody">					
+			<div class="orangebox">
+				<span id="message">
+				<h1 id="upconfig004">REBOOTING...</h1>
+				<div class="emptyline"></div>
+				<div class="centerline" id="result">LAN IP address or Netmask change will result in failure of accessing to this Router. If you changed the IP address of the AP,you should release and renew PC's IP address for the succedent configuraion.
+				</div>
+				<div class="emptyline"></div>
+				<div class="centerline" id="wait">
+				<span id="upconfig006">Waiting time :</span>
+				<span id="timer" style="color:red;">110</span>
+				<span id="upconfig007"> second(s)</span>
+				</div>
+				<div class="centerline" id="continue" style="display:none">
+				<input type="button" value="Continue" onclick="self.location='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_system';">
+				</div>
+				<div class="emptyline"></div>
+				</span>
+			</div>
+		</div><!-- mainbody -->
+	</div>	
+	<div class="footercontainer">
+		<span class="footermark"><img src="/html/skin/tail.gif"></span>
+	</div>
+</div>
+<div class="copyright" id="upconfig008">Copyright &copy; 2016 D-Link Corporation. All rights reserved.</div>
+	<form id="uiPostForm" method="post" action="webproc"></form>
+</body>
+</html>
+
+<script>
+
+var timerId;
+var seconds = 110;
+var Ip_addr;
+function Countdown()
+{
+	seconds--;
+	if(seconds > 0)
+	{
+		document.getElementById("timer").innerHTML = seconds;
+		setTimeout('Countdown()',1000);
+	}
+	else
+	{
+		clearTimeout(timerId);
+		top.location = "http://" + Ip_addr;
+	}
+}
+var  G_Language; 
+if(G_Language == null)
+{  
+  G_Language = "<? echo $var:language ?>";
+}
+var arrLang = [];
+arrLang['en_us'] = {
+    'upconfig001'      :       'Product Page : ',
+	'upconfig002'      :       'Firmware Version : ',
+	'upconfig003'      :       'Hardware Version : ',
+	'upconfig004'      :       'REBOOTING...',
+	'result' 			:       'Rebooting',
+	'upconfig006'      :       'Waiting time :',
+	'upconfig007'      :       'second(s)',
+	'upconfig008'      :       'Copyright &copy; 2016 D-Link Corporation. All rights reserved.'
+};
+arrLang['zh_tw'] = {
+	upconfig001 : '產品頁面:',
+	upconfig002 : '韌體版本:',
+	upconfig003 : '硬體版本:',
+	upconfig004 : '重新啟動中…',
+	result : '重新啟動中…',
+	upconfig006 : '等候時間:',
+	upconfig007 : '秒',
+	upconfig008 : 'Copyright &copy; 2016 D-Link Corporation. All rights reserved.'
+};
+arrLang['es'] = {
+	upconfig001 : 'Página del producto：',
+	upconfig002 : 'Versión del firmware：',
+	upconfig003 : 'Versión del hardware：',
+	upconfig004 : 'Reiniciando…',
+	result : 'Reiniciando…',
+	upconfig006 : 'Tiempo de espera:',
+	upconfig007 : 'segundo(s)',
+	upconfig008 : 'Copyright &copy; 2016 D-Link Corporation. All rights reserved.'
+};
+arrLang['pt'] = {
+	upconfig001 : 'Página do produto：',
+	upconfig002 : 'Versão de firmware：',
+	upconfig003 : 'Versão de firmware：',
+	upconfig004 : 'Reiniciar…',
+	result : 'Reiniciar…',
+	upconfig006 : 'Tempo de espera:',
+	upconfig007 : 'segundo(s)',
+	upconfig008 : 'Copyright &copy; 2016 D-Link Corporation. All rights reserved.'
+};
+function uiload()
+{
+	//chg_language(data_languages["upconfig"]);
+	var objLang = arrLang[G_Language];
+	for (var attr in objLang){
+		try{
+			document.getElementById(attr).innerHTML = objLang[attr];
+		} catch(E) {
+		}
+	}
+	if(G_display_info == "(null)" )	
+	{
+		var temp = G_dev_info.split("]]");
+		
+		var pro_page = temp[1].split(": ");
+		var firm_ver = temp[5].split(": ");
+		var hard_ver = temp[4].split(": ");
+		
+		document.getElementById("pro_page").innerHTML = pro_page[1];
+		document.getElementById("Span_FirmwareVersion").innerHTML = firm_ver[1];
+		document.getElementById("Span_HardwareVersion").innerHTML = hard_ver[1];
+		
+		var ip = temp[3].split(": ");
+		Ip_addr = ip[1];
+		
+		timerId = setTimeout('Countdown()',1000);
+	}
+	else
+	{
+		document.getElementById("h1").innerHTML = "Restore Invalid";
+		document.getElementById("result").innerHTML = G_display_info;
+		document.getElementById("wait").style.display = "none";
+		document.getElementById("continue").style.display = "";
+	}
+}
+</script>
+

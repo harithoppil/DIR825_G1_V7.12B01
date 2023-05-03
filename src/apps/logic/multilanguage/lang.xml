@@ -1,0 +1,39 @@
+<InternetGatewayDevice type="object">
+	<X_TWSZ-COM_Lang type="object">
+		<X_TWSZ-COM_LanguageAuto  type="string(6)" Writable="1">1</X_TWSZ-COM_LanguageAuto>
+		<X_TWSZ-COM_LangSwitchDesc  type="string(6)" Writable="1">0</X_TWSZ-COM_LangSwitchDesc>
+		<X_TWSZ-COM_LanguageSelect  type="string(6)" Writable="1">0</X_TWSZ-COM_LanguageSelect>
+		<X_TWSZ-COM_Languagewillset type="string(64)" Cache="1" Writable="1" Stat="1"></X_TWSZ-COM_Languagewillset>
+		<X_TWSZ-COM_BrowserSupported type="unsignedInt">0</X_TWSZ-COM_BrowserSupported>
+		<X_TWSZ-COM_BrowserSupportHistory type="unsignedInt">0</X_TWSZ-COM_BrowserSupportHistory>
+		<X_TWSZ-COM_Language type="string(64)" Writable="1">English</X_TWSZ-COM_Language>
+		<X_TWSZ-COM_GuiRegin type="string(64)" Writable="1">English</X_TWSZ-COM_GuiRegin>
+		<X_TWSZ-COM_UpdateStatus  type="string(6)" Writable="1"></X_TWSZ-COM_UpdateStatus>
+		<X_TWSZ-COM_LangPackUpdate type="string(6)" Writable="1">0</X_TWSZ-COM_LangPackUpdate>
+		<X_TWSZ-COM_ImageDownPercent type="string(6)" Writable="1">0</X_TWSZ-COM_ImageDownPercent>
+		<X_TWSZ-COM_FwShouldUpdate type="string(6)" Writable="1">0</X_TWSZ-COM_FwShouldUpdate>
+		<X_TWSZ-COM_ReleaseNoteFileOk  type="string(6)" Writable="1">0</X_TWSZ-COM_ReleaseNoteFileOk>
+		<X_TWSZ-COM_ImageUpgradeOpt type="string(64)" Cache="1" Writable="1">Detect</X_TWSZ-COM_ImageUpgradeOpt>
+		<X_TWSZ-COM_CurrentVersion type="string(64)" Cache="1" Writable="1">0</X_TWSZ-COM_CurrentVersion>
+		<X_TWSZ-COM_DetectedVersion type="string(64)" Cache="1" Writable="1">0</X_TWSZ-COM_DetectedVersion>
+		<X_TWSZ-COM_LangPackCurrentVersion type="string(64)" Cache="1" Writable="1">0</X_TWSZ-COM_LangPackCurrentVersion>
+		<X_TWSZ-COM_LangPackDetectedVersion type="string(64)" Cache="1" Writable="1">0</X_TWSZ-COM_LangPackDetectedVersion>
+		<X_TWSZ-AutoCheckVersion  type="string(6)" Writable="1"></X_TWSZ-AutoCheckVersion>
+		<X_TWSZ-COM_FW_URLS type="string(256)" Writable="1">0</X_TWSZ-COM_FW_URLS>
+		<X_TWSZ-COM_FW_URL_TODOWN type="string(256)" Cache="1" Writable="1">0</X_TWSZ-COM_FW_URL_TODOWN>
+		<X_TWSZ-COM_CURFW_DATE type="string(64)" Writable="1">Mar-24-2016T18:15:06</X_TWSZ-COM_CURFW_DATE>
+		<X_TWSZ-COM_NEWFW_DATE type="string(64)" Writable="1">Mar-24-2016T18:15:06</X_TWSZ-COM_NEWFW_DATE>
+		<X_TWSZ-COM_CURFW_MIN type="string(64)" Writable="1">00</X_TWSZ-COM_CURFW_MIN>
+		<X_TWSZ-COM_NEWFW_MIN type="string(64)" Writable="1">00</X_TWSZ-COM_NEWFW_MIN>
+		<X_TWSZ-COM_CURFW_MAJ type="string(64)" Writable="1">01</X_TWSZ-COM_CURFW_MAJ>
+		<X_TWSZ-COM_NEWFW_MAJ type="string(64)" Writable="1">02</X_TWSZ-COM_NEWFW_MAJ>
+		<X_TWSZ-COM_Local_Regions type="object">
+			<i type="object">
+				<Name type="string"></Name>
+				<Version type="string"></Version>
+				<isRotatingTable type="unsignedInt"></isRotatingTable>
+				<Sector type="string"></Sector>
+			</i>
+		</X_TWSZ-COM_Local_Regions>
+	</X_TWSZ-COM_Lang>
+</InternetGatewayDevice>

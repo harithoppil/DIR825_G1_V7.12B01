@@ -1,0 +1,95 @@
+﻿<div class="mainbody" id="mainbody">
+<div class="orangebox">
+<span id="Adv_network001">
+	<h1>Advanced Network Settings</h1>
+	<p>These options are for users that wish to change the LAN settings. We do not recommend changing these settings from factory default. Changing these settings may affect the behavior of your network. </p>
+</span>
+	<p>
+		<input type="button" onclick="uiSubmit();" value="Save Settings" modified="false" id="Adv_network002">
+		<input type="button" onclick="uiPageRefresh();" value="Don't Save Settings" modified="false" id="Adv_network003">
+	</p>
+</div>
+<div class="blackbox">
+	<h2 id="Adv_network004">UPNP</h2>
+	<p id="Adv_network005">Universal Plug and Play(UPnP) supports peer-to-peer Plug and Play functionality for network devices.</p>
+	<div class="textinput">
+		<span class="name" id="Adv_network006">Enable UPnP IGD</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="upnp" type="checkbox" value="" default="true" modified="false">
+		</span>
+	</div>
+	<div class="gap"></div>
+</div>
+<div class="blackbox">
+	<h2 id="Adv_network007">WAN Ping</h2>
+	<p id="Adv_network008">If you enable this feature, the WAN port of your router will respond to ping requests from the Internet that are sent to the WAN IP Address.</p>
+	<div class="textinput">
+		<span class="name" id="Adv_network009">Enable WAN Ping Response</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+		<input id="icmprsp" type="checkbox" value="" default="false" modified="false">
+		</span>
+	</div>
+	<br>
+	<div class="gap"></div>
+</div>
+<div class="blackbox">
+	<h2 id="Adv_network010">WAN Port Speed</h2>
+	<div class="textinput">
+		<span class="name" id="Adv_network011">WAN Port Speed</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+		<select id="wanspeed" default="2" modified="false">
+			<option value="10M" id="Adv_network012">10Mbps</option>
+			<option value="100M" id="Adv_network013">100Mbps</option>
+			<option value="1000M" id="Adv_network023">1000Mbps</option>
+			<option value="auto"id="Adv_network014">Auto 10/100/1000Mbps</option>
+		</select>
+		</span>
+	</div>
+	<div class="gap"></div>
+</div>
+<div class="blackbox">
+	<h2 id="Adv_network015">Multicast Streams</h2>
+	<div class="textinput">
+		<span class="name" id="Adv_network016">Enable Multicast Streams</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="mcast" type="checkbox" default="false" modified="false">
+		</span>
+	</div>
+	<div class="gap"></div>
+</div>
+<div class="blackbox">
+	<h2 id="Adv_network017">IPv6 Multicast Streams</h2>
+	<div class="textinput">
+		<span class="name" id="Adv_network018">Enable IPv6 Multicast Streams</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="mcast6" type="checkbox" default="false" modified="false">
+		</span>
+	</div>
+	<div class="gap"></div>
+</div>
+<p><input type="button" value="Save Settings" onclick="uiSubmit();" id="Adv_network019"/>
+<input type="button" value="Don't Save Settings" onclick="uiPageRefresh();" id="Adv_network020"/></p>
+<p>
+</div>
+<div id="help_hint" class="tips">
+<span id="Adv_network021">
+	<strong>Helpful Hints...</strong>
+	<br>
+	<br>
+	<p> •  UPnP helps other UPnP LAN hosts interoperate with the router. Leave the UPnP option enabled as long as the LAN has other UPnP applications.</p>
+	<p>
+	 •  For added security, it is recommended that you disable the
+	<strong>WAN Ping Response</strong>
+	option. Ping is often used by malicious Internet users to locate active networks or PCs.
+	</p>
+	<p> •  The WAN speed is usually detected automatically. If you are having problems connecting to the WAN, try selecting the speed manually.</p>
+	<p> •  If you are having trouble receiving video on demand type of service from the Internet, make sure the Multicast Stream option is enabled.</p>
+</span>	 
+	<p>&nbsp;&#149;&nbsp;&nbsp;<a href=
+	"/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpadv#Network"><span id="Adv_network022">More</span></a></p>
+	

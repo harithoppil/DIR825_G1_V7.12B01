@@ -1,0 +1,238 @@
+menuconfig VENDOR_RALINK
+  bool "Ralink Applications"
+  depends on VENDOR
+  default n
+
+config RALINK_RTDOT1XD_APP
+	bool 'Ralink rtdot1xd app'
+	default y
+	depends on VENDOR_RALINK
+	help
+		Ralink rtdot1xd app
+		
+config HW_NAT_APP
+	bool 'Ralink hw_nat app'
+	default y
+	depends on VENDOR_RALINK
+	help
+		hw_nat application
+
+config SWITCH_APP
+	bool 'Switch config app'
+	default y
+	depends on VENDOR_RALINK
+	help
+		switch application
+
+config REG_APP
+	bool 'Reg config app'
+	default n
+	depends on VENDOR_RALINK
+	help
+		reg application
+		
+config ETHPHY_APP
+	bool 'Ethphy config app'
+	default n
+	depends on VENDOR_RALINK
+	help
+		ethphy application
+
+config RALINK_TCCI_MODULE
+        bool 'Ralink tcci module'
+        default y
+        depends on VENDOR_RALINK
+        help
+                Ralink tcci module
+
+config RALINK_TCAPI
+	bool 'Ralink tciapi lib'
+	default y
+	depends on VENDOR_RALINK
+	help
+		Ralink TciApi lib for tcci
+
+config RALINK_TCCI
+	bool 'Ralink tcci'
+	default y
+	depends on VENDOR_RALINK && RALINK_TCAPI
+	help
+		Ralink tcci config tools
+
+config RALINK_ETHCMD
+        bool 'Ralink ethcmd'
+        default y
+        depends on VENDOR_RALINK
+        help
+                Ralink ethernet config tools
+
+config RALINK_CMD_CI
+        bool 'Ralink cmd ci'
+        default y
+        depends on VENDOR_RALINK
+        help
+                Ralink ethernet atm/adsl/wlan config tools
+
+config WAN2LAN
+	boolean "WAN to LAN"
+	default y
+	depends on VENDOR_RALINK
+
+config KCODES_NET_USB
+        bool 'Kcodes netusb'
+        default y
+        depends on VENDOR_RALINK
+        help
+                Support Kcodes net usb and samba
+
+config SITECOM_UTPROXY
+        bool 'utproxy'
+        default y
+        depends on VENDOR_RALINK
+        help
+                Support sitcom utproxy
+config SITECOM_AUTOUPGRADE
+        bool 'autoupgrade'
+        default y
+        depends on VENDOR_RALINK
+        help
+                Support sitcom autoupgrade
+
+config RALINK_BONDING_PCIE
+        bool 'Ralink bonding pcie module'
+        default n
+        depends on VENDOR_RALINK && MT751X
+        help
+                Ralink bonding pcie module
+
+config RALINK_QDMA_BUFMGR
+        bool 'Ralink QDMA buffer manger module'
+        default y
+        depends on VENDOR_RALINK && MT751X
+        help
+                Ralink QDMA buffer manger module
+
+config RALINK_FE_API
+        bool 'Ralink fe_api'
+        default y
+        depends on VENDOR_RALINK && MT751X
+        help
+				Ralink fe api
+
+config RALINK_MT7510_SAR
+        bool 'Ralink mt7510 sar module'
+        default y
+        depends on VENDOR_RALINK && MT751X && TC3162_ADSL
+        help
+				Ralink mt7510 sar module
+
+config RALINK_I2C
+        bool 'Ralink i2c module'
+        default n
+        depends on VENDOR_RALINK
+        help
+                Ralink i2c module
+
+choice
+    depends on RALINK_I2C
+    prompt "Select Soc type"
+    default RALINK_MT751X_I2C
+
+config RALINK_MT751X_I2C
+        bool 'MT751X i2c support'
+        help
+			Ralink mt7510 i2c module
+endchoice
+
+config RALINK_IGMP_SNOOPING
+        bool 'Ralink igmp snooping module'
+        default n
+        depends on VENDOR_RALINK
+        help
+			Ralink igmp snooping module
+
+choice
+    depends on RALINK_IGMP_SNOOPING
+    prompt "Select Soc type"
+    default RALINK_MT751X_IGMP_SNOOPING
+
+config RALINK_MT751X_IGMP_SNOOPING
+        bool 'MT751X igmp snooping module'
+        help
+			Ralink mt7510 igmp snooping module
+endchoice
+
+config RALINK_SMUX
+        bool 'Ralink smux module'
+        default n
+        depends on VENDOR_RALINK
+        help
+			Ralink igmp snooping module
+
+choice
+    depends on RALINK_SMUX
+    prompt "Select Soc type"
+    default RALINK_MT751X_SMUX
+
+config RALINK_MT751X_SMUX
+        bool 'MT751X smux module'
+        help
+			Ralink mt7510 smux module
+endchoice
+
+config RALINK_PORTBIND
+        bool 'Ralink portbind module'
+        default n
+        depends on VENDOR_RALINK
+        help
+			Ralink portbind module
+
+choice
+    depends on RALINK_PORTBIND
+    prompt "Select Soc type"
+    default RALINK_MT751X_PORTBIND
+
+config RALINK_MT751X_PORTBIND
+        bool 'MT751X portbind module'
+        help
+			Ralink mt7510 portbind module
+endchoice
+
+config RALINK_VLANTAG
+        bool 'Ralink vlantag module'
+        default n
+        depends on VENDOR_RALINK
+        help
+			Ralink vlantag module
+
+choice
+    depends on RALINK_VLANTAG
+    prompt "Select Soc type"
+    default RALINK_MT751X_VLANTAG
+
+config RALINK_MT751X_VLANTAG
+        bool 'MT751X vlantag module'
+        help
+			Ralink mt7510 vlantag module
+endchoice
+
+config RALINK_MT751X_RA_HWNAT
+        bool 'MT751X ra-hwnat module'
+        default y
+        depends on VENDOR_RALINK && MT751X
+        help
+			Ralink mt7510 ra-hwnat module
+
+config RALINK_MT751X_PTM
+        bool 'MT751X ptm module'
+        default y
+        depends on VENDOR_RALINK && MT751X
+        help
+			Ralink mt7510 ptm module
+
+config RALINK_ATED_APP
+        bool 'Ralink Ated app'
+        default y
+        depends on VENDOR_RALINK
+        help
+                Ralink Ated  app

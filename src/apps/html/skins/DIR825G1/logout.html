@@ -1,0 +1,159 @@
+﻿<?setvaronce var:language zh_cn?>
+<?setvaronce var:menu basic?>
+<?setvaronce var:page Bas_wansum?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<head>
+<link rel="shortcut icon" href="/html/skin/favicon.gif" type="image/x-icon">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache" />
+<title>D-LINK SYSTEMS, INC. | WIRELESS ROUTER | HOME</title>
+<link rel="stylesheet" type="text/css" href="/html/skin/general.css?v=<?echo $var:tbsversion?>">
+</head>
+<script type="text/javascript" src="/html/languages/<?echo $var:language?>/main.js"></script>
+<script type="text/javascript" src="/html/languages/<?echo $var:language?>/error.js"></script>
+<script type="text/javascript" src="/html/js/boot.js"></script>
+<script type="text/javascript">
+<!-- 
+/*---- Global variable define -----*/
+var G_Error	    = "<?error found?>"; 
+var G_Status	= "<?error status?>"; 
+var G_Error_Msg	= "<?error message?>";
+
+//系统支持的语言
+var G_SupportLang = "<?echo $var:sys_SupportLangs?>";
+//默认语言
+var G_DefaultLang = "<?echo $var:language?>";
+
+//get user info
+var G_UserInfo = new Array();
+var m = 0;
+<?objget :InternetGatewayDevice.X_TWSZ-COM_Authentication.UserList. "UserName Level"
+	`	G_UserInfo[m] = new Array();
+		G_UserInfo[m][0] = "$01"; //UserName
+		G_UserInfo[m][1] = "$02"; //Level
+		G_UserInfo[m][2] = "$00"; //Index
+		m++;
+`?>
+
+function uiOnload(){
+	chg_language(data_language);
+}
+function jumpToLoginPage()
+{
+	top.location = "/cgi-bin/webproc?getpage=html/main.html&var:menu=basic&var:page=Bas_wansum";
+}
+/* 
+对错误码的处理 
+错误码的格式:节点名=错误码
+*/
+function dealErrorMsg(arrayNode, errorMsg){
+	if (typeof errorMsg != 'string') 
+	    return;
+	    
+	//将错误信息一分为二：前段寻找错误码对应的节点；后段寻找错误码对应的提示；
+	var errorFragment = errorMsg.split('=');
+	var errorCode, errorString, leafNode;
+	
+	//寻找错误码对应的节点;
+	if (errorFragment != null && errorFragment.length > 0){
+		var _fragment = errorFragment[0].split('.');
+		leafNode = _fragment[_fragment.length - 1];
+		leafNode = arrayNode[leafNode];
+	}
+	    
+	//在获取错误码后，立即寻找相应的错误码。
+	if (errorFragment[1] != null){
+		errorCode = errorFragment[1].match(/^[0-9]{4}/)[0];
+	} else {
+		if (errorMsg.match(/^[0-9]{4}/) == null){
+            leafNode = arrayNode["result"];
+			
+			if($(leafNode)){
+				$(leafNode).innerHTML = errorMsg;				
+			}
+            return false;
+	    }
+	    errorCode = errorMsg.match(/^[0-9]{4}/)[0];
+	}
+	
+	if(UEcode[errorCode] !== undefined){
+		errorString = UEcode[errorCode];
+	} else if (SEcode[errorCode] !== undefined ) {
+		errorString = SEcode[errorCode];
+	} else {
+		errorString = SEcode[1000];
+	}
+	
+	//选择两种不同的错误提示方式：1、将错误准确打印在对应的输入框之后；2、对于未知错误，以告警框来提示；
+	if (leafNode != undefined){
+		$(leafNode).innerHTML = errorString;
+	} else {
+		alert(errorString + "!");
+	}
+}
+
+function dealWithError(){
+	if(G_Error != 1){
+		return false;
+	}
+	
+	var arrayHint = [];
+		
+	dealErrorMsg(arrayHint, G_Error_Msg);
+}
+
+window.onload = uiOnload;
+-->
+</script>
+
+<body class="mainbg">
+	
+	<div class="maincontainer">	
+		<div class="headercontainer">
+			<span class="product">
+				<span id = "DIV_ProductPage">Product Page : </span>
+				<a href="http://support.dlink.com" target="_blank"><?get :InternetGatewayDevice.DeviceInfo.ProductClass?></a>
+			</span>
+			<span class="version">			
+				<span id = "DIV_FirmwareVersion">Firmware Version : </span>
+				<span class="value"><?get :InternetGatewayDevice.DeviceInfo.SoftwareVersion?></span>
+			</span>
+			<span class="hwversion">
+				<span id = "DIV_HardwareVersion">Hardware Version : </span>
+				<span class="value" style="text-transform:uppercase;"><?get :InternetGatewayDevice.DeviceInfo.HardwareVersion?></span>
+			</span>
+		</div>                          <!--end of headercontainer(logo picture) -->
+		<div class="bannercontainer">
+			<span class="bannerhead"><a href="http://www.dlink.com.tw"><img src="/html/skin//head_01.gif" width="162" height="92"></a></span>
+			<span class="bannertail"><img src="/html/skin/head_03.gif"></span>
+		</div>                          <!--end of bannercontainer -->
+		<div id="mbox" class="simplecontainer" style="display: block;">
+			<div class="simplebody">
+				<div class="orangebox">
+					<span id="message">
+						<h1 id="lang_logout">Logout</h1>
+						<div class="emptyline"></div>
+						<div class="centerline" id="lang_logout_msg">You have successfully logged out.</div>
+						<div class="emptyline"></div>
+						<div class="centerline">
+							<input id="returntologin" type="button" onclick="jumpToLoginPage();" value="Return to login page">
+						</div>
+						<div class="emptyline"></div>
+					</span>
+				</div>
+			</div>
+		</div>                         <!--end of simplecontainer -->
+		<div class="footercontainer">
+			<span class="footermark"><img src="/html/skin/tail.gif"></span>
+		</div>                          <!--end of footercontainer -->
+	</div>                              <!--end of maincontainer -->
+
+<div class="copyright"><span id="DIV_Copyright">Copyright &copy; 2016 D-Link Corporation. All rights reserved.</span></div>
+
+<form name="uiPostForm" id="uiPostForm" method="post" action="webproc"></form>
+
+</body>
+</html>
+
+

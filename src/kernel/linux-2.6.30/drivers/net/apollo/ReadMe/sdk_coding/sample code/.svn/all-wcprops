@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/root/wireless/!svn/ver/70737/CPE/WiFi/TBS/RTL8197DN_DLink/trunk/src/kernel/linux-2.6.30/drivers/net/apollo/ReadMe/sdk_coding/sample%20code
+END
+reg_access.c
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/root/wireless/!svn/ver/70737/CPE/WiFi/TBS/RTL8197DN_DLink/trunk/src/kernel/linux-2.6.30/drivers/net/apollo/ReadMe/sdk_coding/sample%20code/reg_access.c
+END
+raw_driver_coding_guide.txt
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/root/wireless/!svn/ver/70737/CPE/WiFi/TBS/RTL8197DN_DLink/trunk/src/kernel/linux-2.6.30/drivers/net/apollo/ReadMe/sdk_coding/sample%20code/raw_driver_coding_guide.txt
+END
+table_access.c
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/root/wireless/!svn/ver/70737/CPE/WiFi/TBS/RTL8197DN_DLink/trunk/src/kernel/linux-2.6.30/drivers/net/apollo/ReadMe/sdk_coding/sample%20code/table_access.c
+END

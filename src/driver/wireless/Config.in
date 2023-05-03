@@ -1,0 +1,10 @@
+menuconfig DRIVERS_WLAN
+	bool 'Wireless drivers'
+	default n
+	depends on DRIVERS
+	help
+		Wireless device driver module
+
+source driver/wireless/atheros/Config.in
+source driver/wireless/ralink/Config.in
+source driver/wireless/realtek/Config.in

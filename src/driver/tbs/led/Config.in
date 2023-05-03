@@ -1,0 +1,68 @@
+menuconfig TBSMOD_LED
+	bool "TBS LED core framework support"
+	default y
+	depends on DRIVERS_TBSMOD
+	help
+	  TBS leds core for gpio leds.
+
+if TBSMOD_LED
+
+config NEW_LED
+	bool "LED Support"
+    	default y
+    	depends on TBSMOD_LED
+    	help
+      		This option enables support leds for the Realtek rtl8672
+
+comment "LED drivers"
+
+config LED_RTL8672
+	bool "LED support for the RTL8672"
+    	default y
+    	depends on TBSMOD_LED && RTL8672
+    	help
+      		This option enables support leds for the Realtek rtl8672
+
+config LED_RTL8676
+    	bool "LED support for the RTL8676"
+	default y
+	depends on TBSMOD_LED && RTL8676
+    	help
+      		This option enables support leds for the Realtek rtl8676
+
+config LED_RT65168
+    	bool "LED support for the RT65168"
+    	default y
+	depends on TBSMOD_LED && RT65168
+    	help
+      		This option enables support leds for the Ralink rt65168 vdsl
+
+config LED_RT63365
+    	bool "LED support for the RT63365"
+    	default y
+	depends on TBSMOD_LED && RT63365
+    	help
+      		This option enables support leds for the Ralink rt65168 vdsl
+
+config LED_RT63368
+    	bool "LED support for the RT63368"
+    	default y
+	depends on TBSMOD_LED && RT63368
+    	help
+      		This option enables support leds for the MTK rt63368
+
+config LED_MT7620
+    	bool "LED support for the MT7620"
+    	default y
+	depends on TBSMOD_LED && MT7620
+    	help
+      		This option enables support leds for the MTK mt7620
+
+config LED_MT751X
+    	bool "LED support for the MT751X"
+    	default y
+	depends on TBSMOD_LED && MT751X
+    	help
+      		This option enables support leds for the MTK mt751x
+
+endif

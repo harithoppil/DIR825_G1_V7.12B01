@@ -1,0 +1,1 @@
+char *g_szDefaultLang = "en_us";

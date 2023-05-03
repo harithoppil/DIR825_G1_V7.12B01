@@ -1,0 +1,146 @@
+﻿<html>
+<head>
+<link rel="shortcut icon" href="/html/skin/favicon.gif" type="image/x-icon">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Pragma" content="No-cache" />
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+<meta http-equiv="Expires" content="-1" />
+<title>Modify MAC</title>
+<style type="text/css">
+<!-- 
+body { font:14px Arial, Helvetica, sans-serif;}
+h3 { margin:0px;text-align:left;color:#003333;}
+td { text-align:left; padding:6px;}
+
+
+#shellform { clear:both;}
+#shellTb,
+#shellTb pre,
+#shellTb input,#content {
+  font-family: "MingLiU","SimSun","Courier New",monospace;
+  font-size: 16px;
+  color: white;
+  background-color: black;
+  border: 0px solid black;
+  overflow-x: hidden;
+}
+
+#shellTb input,
+#content {
+  overflow: hidden;
+}
+
+-->
+</style>
+<script type="text/javascript" src="/html/js/boot.js"></script>
+<script type="text/javascript" src="/html/js/ajax.js"></script>
+<script type="text/javascript">
+<!-- 
+var G_ReadMAC       = '<?get :InternetGatewayDevice.LANDevice.1.X_TWSZ-COM_MacAddress ?>';
+var G_ReadPwd       = '<?get :InternetGatewayDevice.LANDevice.1.WLANConfiguration.1.PreSharedKey.1.KeyPassphrase ?>';
+
+
+<? if eq 1 $var:mod_5GWIFI 
+`
+var G_Read5Pwd      = '<?get :InternetGatewayDevice.LANDevice.1.WLANConfiguration.5.PreSharedKey.1.KeyPassphrase ?>';
+`?>
+
+var G_ReadFactory   = '<?get :InternetGatewayDevice.DeviceInfo.X_TWSZ-COM_FactoryMode ?>';
+var G_SSID          = [];
+
+<?objget :InternetGatewayDevice.LANDevice.1.WLANConfiguration. "SSID"   
+` 
+	G_SSID.push('$01'); 
+	var G_SSID_$00 = "$01"
+`?>
+
+<?mget :InternetGatewayDevice.WANDevice.1.WANDSLInterfaceConfig. "Status UpstreamCurrRate DownstreamCurrRate"
+`	
+	var G_status 		= "$01";
+	var G_up_rate 		= "$02";
+	var G_down_rate 	= "$03";
+`?>
+
+
+window.onload = function ()
+{
+
+	setJSONValue({
+		'td_drdownstream' 	: G_status == "Disabled" ? '' : G_down_rate,
+		'td_drupstream' 		: G_status == "Disabled" ? '' : G_up_rate,
+		'INPUT_readmac'			: G_ReadMAC,
+		'INPUT_password'		: G_ReadPwd,
+<? if eq 1 $var:mod_5GWIFI 
+`
+		'INPUT_5password'   : G_Read5Pwd,
+		'INPUT_5gssid'      : G_SSID[4],
+`?>
+		'INPUT_factrory'		: G_ReadFactory,
+		'INPUT_ssid'			  : G_SSID[0]
+	});
+	
+}
+
+ -->
+</script>
+</head>
+
+<body>
+
+<div id="macDiv">
+	<table width="400" align="left">
+		<tr>
+			<td width="80">MAC</td>
+			<td>
+				<input type="text" id="INPUT_readmac"/>
+			</td>
+		</tr>
+		<tr>
+			<td width="80">Factory Mode</td>
+			<td>
+				<input type="text" id="INPUT_factrory"/>
+			</td>
+		</tr>
+		<tr>
+			<td width="100">2.4G SSID</td>
+			<td>
+				<input type="text" id="INPUT_ssid"/>
+			</td>
+		</tr>
+		<tr>
+			<td width="120">2.4G Password</td>
+			<td>
+				<input type="text" id="INPUT_password"/>
+			</td>
+		</tr>
+<? if eq 1 $var:mod_5GWIFI 
+`
+		<tr>
+			<td width="80">5G SSID</td>
+			<td>
+				<input type="text" id="INPUT_5gssid"/>
+			</td>
+		</tr>
+		<tr>
+			<td width="80">5G Password</td>
+			<td>
+				<input type="text" id="INPUT_5password"/>
+			</td>
+		</tr>
+`?>
+		<tr>
+			<td width="80">DownRate</td>
+			<td>
+				<input type="text" id="td_drdownstream"/>
+			</td>
+		</tr>
+		<tr>
+			<td width="80">UpRate</td>
+			<td>
+				<input type="text" id="td_drupstream"/>
+			</td>
+		</tr>
+	</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+﻿<div class="mainbody" id="mainbody">
+	<div class="orangebox">
+		<h1 id="PING001">Ping Test</h1>
+		<p id="PING002"> Ping Test sends "ping" packets to test a computer on the Internet. </p>
+	</div>
+	<div class="blackbox">
+		<h2 id="PING003">Ping Test</h2>
+		<div class="textinput">
+			<span class="name" id="PING004">Host Name or IP Address</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input id="dst" type="text" size="20" maxlength="63" default="" autocomplete="off" modified="false">
+				<input id="ping" type="button" onclick="OnClick_Ping();" value="Ping" modified="false">
+			</span>
+		</div>
+		<br>
+	</div>
+	<div class="blackbox">
+		<h2 id="PING005">IPv6 Ping Test</h2>
+		<div class="textinput">
+			<span class="name" id="PING006">Host Name or IPv6 Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+				<input id="dst_ipv6" type="text" size="20" maxlength="63" default="" autocomplete="off" modified="false">
+				<input id="ping_ipv6" type="button" onclick="OnClick_Ping_ipv6();" value="Ping" modified="false">
+			</span>
+		</div>
+		<br>
+	</div>
+	<div class="blackbox">
+		<h2 id="PING007">Ping Result</h2>
+		<p id="report" id="PING008"> Enter a host name or IP address above and click 'Ping' </p>
+		<div class="gap"></div>
+	</div>
+</div>
+<div id="help_hint" class="tips">
+	<strong id="PING009">Helpful Hints...</strong>
+	<br>
+	<br>
+	<p id="PING010">&nbsp;&#149;&nbsp;&nbsp;"Ping" checks whether a computer on the Internet is running and responding. Enter either the IP address of the target computer or enter its fully qualified domain name.</p>
+	<p id="PING011">&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helptool#SystemCheck">More...</a>
+	</p>

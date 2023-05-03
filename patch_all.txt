@@ -1,0 +1,63 @@
+﻿格式：
+| a      | b                    | c | d      | e | f                                                | g                                                                                                                          | h                     |
+说明：
+
+	a: 补丁编码：占6位，不足使用零补齐。
+	b: 补丁提交人姓名（汉语拼音）：占20位。
+	c: 补丁代码同步状态: Y - 已经同步，N - 不需要同步，E - 需要同步但没有同步，= - 主表默认状态
+	d: 补丁代码svn版本号，占6位，不足使用零补齐
+	e: 补丁代码svn路径
+	f: 补丁代码svn路径（除前缀部分）
+	g: 补丁描述（要求简短的语言描述）
+	h: 分支代码同步描述（主表不存在此项）
+	|：表格分界符
+
+
+约束：
+	1. 为方便阅读及使用g项之前的表格分解符必须对齐，统一格式，禁用tab键，使用空格键对齐
+	2. 为便于使用代码比对工具进行同步及分析此表而采用txt文档格式
+	3. 每个补丁占一行
+
+代码svn路径前缀：
+	A: http://10.28.105.100:800/root/wireless/CPE/WiFi/TBS
+	B: http://svn01-sz.gj.com:800/app/Plc/plc+wifi/TBS
+	C: http://10.28.105.100:800/root/wireless/CPE/WiFi/Ralink/MT7620A/
+	D: http://10.28.105.100:800/root/wireless/CPE/WiFi/Broadcom/BCM4708
+
+
+补丁列表：
+| a      | b                    | c | d      | e | f                                                | g                                                                        | h                     |
+
+| 000001 | sungeyu              | = | 057905 | A | RTL8196C_R2/customer_specific/RG3                | RTL方案：TBS平台共性问题，cookies漏洞导致向导页面混乱问题, 决快速设置向导无法设置isp,bas,sec参数值        |
+
+| 000002 | guanxingwang         | = | 059845 | A | RTL8196C_R2/customer_specific/RTL8196C_RUSSIA    | RTL方案：TBS平台共性问题，URL包含../路径时可以访问系统文件问题  各分支注意同时合入R2_BeamFiber的修改：60930     |
+
+| 000003 | wuxixing             | = | 010983 | B | 1T1R_6410                                        | QCA方案：产品/方案共性问题，解决HiFyRouter模式下，wan连接为Bridge时，vnet没有被加到br1中，导致两个以太网口不通的问题      |
+
+| 000004 | wuguoxiang           | = | 060696 | C | SDK_4_1_1_0/trunk/RT288x_SDK                     | MTK方案：产品/方案共性问题， 百兆11AC严重问题：自动化测试时出现panic死机. 涉及svn修改60696 60698    |
+
+| 000005 | guanxingwang         | = | 060511 | A | RTL8196C_R2/customer_specific/RTL8196C_RUSSIA    | RTL方案：TBS平台共性问题，频繁刷新向导状态界面导致内存泄露问题。 各分支需要检查CFG_GetNodeName函数调用后的释放逻辑       |
+
+| 000006 | sungeyu              | = | 060309 | A | RTL8196C_R2/customer_specific/R2_BeamFiber       | RTL方案：TBS平台共性问题，magicjac 语音设备拿不到IP的问题。 各分支需要参考修改检查dhcpd的配置变量config_kw_arr是否越界等 |
+
+| 000007 | sudenghai            | = | 060734 | A | MTK7620A_NG/trunk                                | MTK方案：TBS平台共性问题，偶现存在两个minihttpd，导致页面没法登陆。                                 |
+
+| 000008 | sungeyu              | = | 011266 | A | 2T2R_SitecomAP                                   | QCA方案：产品/方案共性问题，解决大负荷跑流ath0->port0时，switch无法收发包的问题                     |
+
+| 000009 | guanxingwang         | = | 061752 | A | MTK7620N_SiteCOM/trunk                           | MTK方案：TBS平台共性问题，插拔wan口网线导致lan侧PC组播视频无法自动恢复播放问题                      |
+
+| 000010 | fuhuoping            | = | 056908 | A | RTL8197D/trunk/                                  | RTL方案：TBS平台共性问题，解决dproxy异常重启的问题. 苹果电脑容易复现该问题，此问题影响用户上网体验，需要合入       |
+
+| 000011 | guanxingwang         | = | 061995 | A | MTK7620N_SiteCOM/trunk                           | MTK方案：产品/方案共性问题， 解决有线先播放组播后无线无法播放问题。 7620 带路由的一定要合入，其它芯片最好先验证下是否有同样问题      |
+
+| 000012 | guanxingwang         | = | 011390 | B | TBS-Mobile/trunk                                 | QCA方案：TBS平台共性问题， 修改bootloader压缩image头结构字符串大小，避免溢出。目前未表现出问题，但是还是合入安全些      |
+
+| 000013 | liukai               | = | 063187 | B | customer_specific/BCM47081_xunlei                | 共性问题：Dlink所有国内产品分支需要合入。在正常的PPPOE拨号流程里兼容星空极速拨号处理，解决部分地区拨号为加密的情况   |
+
+| 000014 | hefuhua              | = | 063998 | A | MTK7620N_SiteCOM/trunk                           | MTK方案：TBS平台共性问题，带MT7530千兆芯片的需要合入，其它switch也建议合入.偶现硬件开关重启时在启动过程中出现cpu0启动失败的情况，硬件重启复现两次'问题,由于Bootloader的网卡dma映射没有关闭导致.  |
+
+| 000015 | guangxingwang        | = | 064495 | A | RTL8196C_R2/customer_specific/RTL8196C_RUSSIA_39950   | RTL方案：TBS平台共性问题，先删除定时器后再制空，避免定时器回调函数参数为NULL异常，导致CPU0现象。问题概率性存在，请使用该灯位的TBS分支必需合入 |
+
+| 000016 | guangxingwang        | = | 064816 | A | /MTK7620A_DLink                                  | MTK方案：TBS平台共性问题，解决驱动中按键实例查找算法漏洞导致CPU0问题。目前其它分支不一定会触发，防止以后发生。请使用MTK的TBS分支必需合入，其它方案TBS平台各自确认 |
+
+| 000017 | sudenghai            | Y | 065136 | A | /MTK7620A_NG/trunk                               | MTK方案：产品/方案共性问题，解决TBS 7621 Boot中erase flash飞掉的问题，7620和7628未出现，但是需要合。请使用MTK方案的TBS分支必需合入|

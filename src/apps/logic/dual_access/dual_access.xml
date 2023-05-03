@@ -1,0 +1,19 @@
+
+<InternetGatewayDevice type="object">
+	<WANDevice type="object" Writable="0" CurNode="WANDeviceNumberOfEntries">
+		<i type="object">
+			<WANConnectionDevice type="object" MaxNode="MAXWANConnectionNumberOfEntries" CurNode="WANConnectionNumberOfEntries">
+				<i type="object">
+					<X_TWSZ-COM_DualAccessEnable type="string" Writable="1"></X_TWSZ-COM_DualAccessEnable>
+					<X_TWSZ-COM_DualAccessIPAddress type="string" Writable="1"></X_TWSZ-COM_DualAccessIPAddress>
+					<X_TWSZ-COM_DualAccessSubnetMask type="string" Writable="1"></X_TWSZ-COM_DualAccessSubnetMask>
+					<X_TWSZ-COM_DualAccessDefaultGateWay type="string" Writable="1"></X_TWSZ-COM_DualAccessDefaultGateWay>
+					<X_TWSZ-COM_DualAccessConnectionType type="string" Writable="1"></X_TWSZ-COM_DualAccessConnectionType>
+					<X_TWSZ-COM_DualAccessAddressType type="string" Writable="1"></X_TWSZ-COM_DualAccessAddressType>
+					<X_TWSZ-COM_DualAccessStatus type="string" Writable="0"></X_TWSZ-COM_DualAccessStatus>
+					<X_TWSZ-COM_DualAccessDNSServers type="string" Writable="0"></X_TWSZ-COM_DualAccessDNSServers>
+				</i>
+			</WANConnectionDevice>
+		</i>
+	</WANDevice>
+</InternetGatewayDevice>

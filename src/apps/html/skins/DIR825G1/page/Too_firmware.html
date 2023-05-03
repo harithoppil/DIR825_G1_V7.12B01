@@ -1,0 +1,132 @@
+﻿<div class="mainbody" id="mainbody">
+	<div class="orangebox">
+		<h1 id="FW001">Firmware Update</h1>
+		<p>
+			<span id="FW002">There may be new firmware for your router to improve functionality and performance.</span><br/>
+			<a href="http://support.dlink.com" target="_blank" style="color: #0000FF; text-decoration:underline;">
+			<span id="FW003">Click here to check for an upgrade on our support site.</span>
+			</a>
+		</p>
+		<p id="FW004">To upgrade the firmware, locate the upgrade file on the local hard drive with the Browse button. Once you have found the file to be used, click the Upload button to start the firmware upgrade.</p>
+		<p id="FW005">The language pack allows you to change the language of the user interface on the router. We suggest that you upgrade your current language pack if you upgrade the firmware. This ensures that any changes in the firmware are displayed correctly.</p>
+		<p id="FW006">To upgrade the language pack, locate the upgrade file on the local hard drive with the Browse button. Once you have found the file to be used, click the Upload button to start the language pack upgrade.</p>
+	</div>
+	<form id="uiPostForm" method="post" action="webproc"></form>
+	<div class="blackbox">
+		<h2 id="FW007">Firmware Information</h2>
+		<div class="textinput">
+			<span class="name" id="FW008">Current Firmware Version</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_fw">2.06</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="FW009">Current Firmware Time</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="fw_build_time"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="FW010">Check Online Now for Latest Firmware Version</span>
+			<span class="delimiter">:</span>
+			<span class="value"> <input type="button" id="chkfw_btn" value='Check Now' onclick="OnClickChkFW();" /> </span>
+			<br>
+		</div>
+		<br>
+		<br>
+		<p id="fw_message" style="text-align:center; font-weight:bold; display:none;"></P>
+	</div>
+	<div class="blackbox" id="div_ckfwver" style="display:none;">
+		<h2 id="FW011">Check Latest Firmware Version</h2>
+		<div class="textinput">
+			<span class="name" id="FW012">Latest Firmware Version</span>
+			<span class="delimiter">:</span>
+			<span class="value" id=latest_fw_ver></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="FW013">Latest Firmware Date</span>
+			<span class="delimiter">:</span>
+			<span class="value" id=latest_fw_date></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="FW014">Available Download Site</span>
+			<span class="delimiter">:</span>
+			<span class="value"><select id=fw_dl_locs size=1></select></span>
+		</div>
+		<div class="textinput">
+			<span class="name"></span>
+			<span class="delimiter"></span>
+			<span class="value"> <input type="button" id="FW0083" value='Download' onclick="OnClickDownloadFW();" /> </span>
+		</div>
+		<br>
+	</div>
+	<form name="firmForm" method="post" action="webupg" enctype="multipart/form-data" onSubmit="return upFirmwareProgress();">
+	<input type="hidden" value="" name="tokenid" id="tokenid1">
+	<div class="blackbox">
+		<h2 id="FW015">Firmware Upgrade</h2>
+		<p class="strong" style="color:red;" id="FW016">
+			Note: Some firmware upgrades reset the configuration options to the factory defaults. Before performing an upgrade, be sure to save the current configuration.
+		</p>
+		<p class="strong" style="color:blue;" id="FW017">
+			To upgrade the firmware, your PC must have a wired connection to the router. Enter the name of the firmware upgrade file, and click on the Upload button.
+		</p>
+		<div class="textinput">
+			<span class="name" id="FW018">Upload</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input type="file" name="firmware" id="firmware" size=40 />
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="FW019">Clear Config</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input type="checkbox" name="clearConfig" id="clearConfig"/>
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name">&nbsp;</span>
+			<span class="delimiter" style="width:200px;">&nbsp;</span>
+			<span class="value" style="width:120px;">
+				<input type="submit" name="btn" id="FW0082"  value="Upload" />
+			</span>
+		</div>
+		<div class="emptyline"></div>
+		<div class="gap"></div>
+	</div>
+	</form>
+	<form name="langForm" method="post" action="webupg" enctype="multipart/form-data" onSubmit="return upLangFileProgress();">
+	<input type="hidden" value="" name="tokenid" id="tokenid2">
+	<div class="blackbox"  >
+		<h2 id="FW020">Language Pack Upgrade</h2>
+		<!--<input type="hidden" name="ACTION" value="langupdate" />-->
+		<div class="textinput">
+			<span class="name" id="FW021">Upload</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input type="file" name="uploadLangFile" id="uploadLangFile" size=40 />
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name">&nbsp;</span>
+			<span class="delimiter" style="width:200px;">&nbsp;</span>
+			<span class="value" style="width:120px;">
+				<input type="submit" name="btn1" id="FW0081"  value="Upload" />
+				<input type="hidden" name="var:noredirect" value="1" />
+				<input type="hidden" name="var:menu" value="toolbox" />
+				<input type="hidden" name="var:page" value="Too_firmware" />
+				<input type="hidden" name="var:errorpage" value="Too_firmware" />
+				<input type="hidden" name="getpage" value="html/page/language_pack.html" />
+			</span>
+		</div>
+		<div class="emptyline"></div>
+		<div class="gap"></div>
+	</div>
+	</form>
+</div>
+<div id="help_hint" class="tips">
+<!-- Start of Help Depedent Part. -->
+<strong id="FW022">Helpful Hints...</strong>
+<br/><br/>
+<p id="FW023">&nbsp;&#149;&nbsp;&nbsp;<strong>Firmware Update</strong> are released periodically to improve the functionality of your router and also to add features. If you run into a problem with a specific feature of the router, check our support site by clicking on the <strong>Check Now</strong> and see if an updated version of firmware is available for your router.</p>
+<p id="FW024">&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helptool#Firmware">More...</a></p>
+
+<!-- End of Help Dependent Part. -->

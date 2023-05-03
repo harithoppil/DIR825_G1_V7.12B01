@@ -1,0 +1,40 @@
+<InternetGatewayDevice type="object">
+    <X_TWSZ-COM_IPTunnelNumberOfEntries type="unsignedInt" Writable="0">0</X_TWSZ-COM_IPTunnelNumberOfEntries>
+	<X_TWSZ-COM_IPTunnel type="object" CurNode="X_TWSZ-COM_IPTunnelNumberOfEntries">
+	    <i type="object">
+		    <Activated type="boolean">0</Activated>
+		    <TunnelName type="string"></TunnelName>
+			<TunnelCounter type="unsignedInt" Writable="0">0</TunnelCounter>
+			<Mode type="string"></Mode>
+			<AssociatedWanIfName type="string(256)"></AssociatedWanIfName>
+			<AssociatedLanIfName type="string(256)"></AssociatedLanIfName>
+			<ConnStatus type="string" Writable="0">Disconnected</ConnStatus>
+			<ConnectionTime type="string"></ConnectionTime>			
+			<Mechanism type="string"></Mechanism>
+			<Dynamic type="boolean">0</Dynamic>
+			<Prefix type="string"></Prefix>
+			<RemoteIpv4Address type="string(256)"></RemoteIpv4Address>	
+			<IPv4MaskLen type="unsignedInt">0</IPv4MaskLen>
+			<RemoteIpv6Address type="string(256)"></RemoteIpv6Address>	
+			<LocalIpv6Address type="string(256)"></LocalIpv6Address>			
+			<LocalIPv6PrefixLength type="string(256)"></LocalIPv6PrefixLength>			
+			<BorderRelayAddress type="string"></BorderRelayAddress>
+			<SubnetID type="string(256)"></SubnetID>	
+			<Select type="string"></Select>
+			<IPv6DNSServers type="string"></IPv6DNSServers>
+			<IPv6Address type="string"></IPv6Address>
+			<LinkLocalAddress type="string"></LinkLocalAddress>
+			<IPv6DNSEnabled type="boolean">1</IPv6DNSEnabled>
+			<IPv6DNSOverrideAllowed type="boolean">0</IPv6DNSOverrideAllowed>
+			<UsrIPv6DNSServers type="string"></UsrIPv6DNSServers>
+			<IPv6PrefixDelegationEnabled type="boolean">1</IPv6PrefixDelegationEnabled>
+			<IPv6SitePrefixInfo type="object">
+				<IPv6SitePrefix type="string" Writable="0"></IPv6SitePrefix>
+				<IPv6SitePrefixLength type="unsignedInt" Writable="0"></IPv6SitePrefixLength>
+				<PreferredLifeTime type="string" Writable="0"></PreferredLifeTime>
+				<ValidLifeTime type="string" Writable="0"></ValidLifeTime>
+				<PrefixStatus type="string" Writable="0">Invalid</PrefixStatus>
+			</IPv6SitePrefixInfo>
+		</i>
+	</X_TWSZ-COM_IPTunnel>
+</InternetGatewayDevice>

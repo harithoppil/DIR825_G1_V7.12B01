@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>  
+  <head>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<link rel="shortcut icon" href="/html/skin/favicon.gif" type="image/x-icon">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>D-LINK SYSTEMS, INC. | WIRELESS ROUTER | HOME</title>
+	<link rel="stylesheet" type="text/css" href="/html/skin/main.css?v=<?echo $var:tbsversion?>">
+	<link rel="stylesheet" type="text/css" href="/html/skin/general.css?v=<?echo $var:tbsversion?>">
+	<script type="text/javascript" src="/html/languages/<?echo $var:language?>/main.js"></script>
+	<script type="text/javascript" src="/html/js/boot.js?v=<?echo $var:tbsversion?>"></script>
+	<script type="text/javascript" src="/html/js/seboot.js?v=<?echo $var:tbsversion?>"></script>
+	<script type="text/javascript">
+	<? include html/js/global.js ?>
+	
+	<?mget :InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1. "IPInterfaceIPAddress"
+	`	G_IPAddress = "$01";
+	`?>
+
+      function login() 
+	  {
+			$H({
+			'obj-action':'auth',
+			'var:sys_Token' : G_SysToken,
+			':action'   :'otherlogout'
+			});
+		$('uiPostForm').submit();
+
+      }
+      function no_login()
+	  {
+			var lanip = G_IPAddress;
+			document.location.href = "http://" + lanip ;
+      }
+    </script>
+  </head>
+  
+<body class="mainbg" onload="chg_language(data_language);">	
+	<div class="maincontainer">	
+		<div class="headercontainer">
+			<span class="product">
+				<span id = "DIV_ProductPage">Product Page : </span>
+				<a href="http://support.dlink.com" target="_blank"><?get :InternetGatewayDevice.DeviceInfo.ProductClass?></a>
+			</span>
+			<span class="version" id = "Span_FirmwareVersion"><?get :InternetGatewayDevice.DeviceInfo.SoftwareVersion?></span>
+			<span class="version" id = "DIV_FirmwareVersion">Firmware Version : </span>
+			<span class="hwversion">
+				<span id = "DIV_HardwareVersion">Hardware Version : </span>
+				<span class="value" style="text-transform:uppercase;"><?get :InternetGatewayDevice.DeviceInfo.HardwareVersion?></span>
+			</span>
+		</div>
+	
+		<div class="bannercontainer">
+			<span class="bannerhead"><a href="http://www.dlink.com.tw"><img src="/html/skin//head_01.gif" width="162" height="92"></a></span>
+			<span class="bannertail"><img src="/html/skin/head_03.gif"></span>
+		</div>
+
+		<div class="simplecontainer">
+			<div class="simplebody">
+				<div class="orangebox">
+					<span id="message">
+						<h1></h1>
+						<div class="emptyline"></div>
+						<div class="centerline" id="lang_toomany">You are currently logged in from another device. There can be only one device logged in at a time. If you log in from this device, the other device will be logged out. Do you want to proceed?</div>
+						<div class="emptyline"></div>
+						<div class="centerline">
+							<input type="button" value = "Yes" onclick = "login();" id="lang_yes">
+							<input type="button" value = "No" onclick="no_login('<?echo $var:sessionid?>');return false;" id="lang_no">
+						</div>
+						<div class="emptyline"></div>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="footercontainer">
+			<span class="footermark"><img src="/html/skin/tail.gif"></span>
+		</div> 
+	</div> 
+	<form id="uiPostForm" method="post" action="webproc"></form>	 
+	<div class="copyright"><span id="DIV_Copyright">Copyright &copy; 2016 D-Link Corporation. All rights reserved.</span></div>
+</body>
+</html>

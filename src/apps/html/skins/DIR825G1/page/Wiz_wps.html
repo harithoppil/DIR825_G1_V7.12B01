@@ -1,0 +1,132 @@
+﻿<!-- show this if wps is disabled -->
+<div id="wiz_stage_wps_disabled" class="orangebox" style="display:none;">
+	<h1 id="BWPS001">Add Wireless Device with WPS</h1>
+	<div><p class="strong" id="BWPS002">
+		The WPS Function is currently set to disable. Please click &quot;Yes&quot; to enable it or &quot;No&quot; to exit the wizard.
+	</p>
+	</div>
+	<div class="gap"></div>
+	<div class="centerline">
+		<input name="b_yes" id="BWPS029" value="Yes" onclick="self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=advanced&var:page=Adv_wps';" type="button">
+		<input name="b_no" id="BWPS030" value="No" onclick="self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=basic&var:page=Bas_wlansum';" type="button">
+	</div>
+	<div class="gap"></div>
+</div>
+
+
+<!-- Start of Stage 1 -->
+<div id="wiz_stage_1" class="blackbox" style="display:none;">
+	<h2 id="BWPS003">Step 1: Select Configuration Method for your Wireless Network</h2>
+	<div><p class="strong" id="BWPS004">
+		Please select one of following configuration methods and click next to continue.
+	</p></div>
+	<div class="gap"></div>
+	<div class="wiz-l2">
+		<strong id="BWPS005">Auto</strong>
+		<input id="auto" name="wps" type="radio" value="auto" onClick="OnClickMode();" checked />
+		<span id="BWPS006">Select this option if your wireless device supports WPS (Wi-Fi Protected Setup)</span>
+	</div>
+	<div class="wiz-l2">
+		<strong id="BWPS007">Manual</strong>
+		<input name="wps" type="radio" value="manu" onClick="OnClickMode();" />
+		<span id="BWPS008">Select this option will display the current wireless settings for you to configure the wireless device manually</span>
+	</div>
+	<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" id="BWPS031" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+		<input type="button" id="BWPS032" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" id="BWPS033" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" id="BWPS034" name="b_send" value="Connect" onClick="OnSubmit();" />
+		<input type="button" id="BWPS035" name="b_stat" value="Wireless Status" onClick="self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=home&var:page=Hom_wlan_status';" />
+	</div>
+	<div class="emptyline"></div>
+</div>
+<!-- End of Stage 1 -->
+<!-- Start of Stage 2 -->
+<div id="wiz_stage_2_auto" class="blackbox" style="display:none;">
+	<h2 id="BWPS009">Step 2: Connect your Wireless Device</h2>
+	<div>
+		<p id="BWPS011">There are two ways to add wireless device to your wireless network:<br />
+			-PIN (Personal Identification Number)<br />
+			-PBC (Push Button Configuration)</p>
+	</div>
+	<div class="textinput">
+		<span class="name"><input id="pin" name="wps_method" type="radio" checked/> <span id="BWPS012">PIN</span></span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="pincode" type="text" size="20" maxlength="9" onClick="OnClickPINCode();" /></span>
+	</div>
+	<div>
+		<p id="BWPS013">please enter the PIN from your wireless device and click the below "Connect" Button within 120 seconds</p>
+	</div>
+	<div class="textinput">
+		<span class="name"><input id="pbc" name="wps_method" type="radio" /> <span id="BWPS014">PBC</span></span>
+		<span class="delimiter"></span>
+		<span class="value"></span>
+	</div>
+	<div>
+		<p id="BWPS015">please press the push button on your wireless device and click the below "Connect" Button within 120 seconds</p>
+	</div>
+	<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" id="BWPS036" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+		<input type="button" id="BWPS037" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" id="BWPS038" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" id="BWPS039" name="b_send" value="Connect" onClick="OnSubmit();"/>
+		<input type="button" id="BWPS040" name="b_stat" value="Wireless Status" onClick="self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=home&var:page=Hom_wlan_status';" />
+	</div>
+	<div class="emptyline"></div>
+</div>
+<div id="wiz_stage_2_manu" class="blackbox" style="display:none;">
+	<h2 id="BWPS016">Step 2: Connect your Wireless Device</h2>
+	<div>
+		<p class="strong" id="BWPS017">
+			Below is a detailed summary of your wireless security settings. Please print this page out, or write the information on a piece of paper, so you can configure the correct settings on your wireless client adapters.
+		</p>
+	</div>
+	<div id="div_2G_manual" style=" margin-left: 10px;">
+		<div class="textinput"><b><span id="frequency" ></span></b></div>
+		<pre style="font-family:Tahoma"><span id="BWPS018">SSID: </span><span id="ssid"></span></pre>
+		<div class="textinput"><span id="BWPS019">Security Mode: </span><span id="security"></span></div>
+		<div id="st_wep" class="textinput" style="display:none;"><span id="BWPS020">WEP Key </span><span id="wepkey"></span></div>
+		<div id="st_cipher" class="textinput" style="display:none;"><span id="BWPS021">Cipher Type: </span><span id="cipher"></span></div>
+		<div id="st_pskkey" class="textinput" style="display:none;"><span id="BWPS022">Pre-shared Key: </span><br><span id="pskkey" class="valueForWPS"></span></div>
+	</div>
+	<div class="gap"></div>
+	<div class="gap"></div>
+	<div class="gap"></div>
+	<div class="gap"></div>
+	<div id="div_5G_manual" name="div_5G_manual" style=" margin-left: 10px;">	
+		<div class="textinput"><b><span id="frequency_Aband"></span></b></div>
+		<pre style="font-family:Tahoma"><span id="BWPS023">SSID: </span><span id="ssid_Aband"></span></pre>
+		<div class="textinput"><span id="BWPS024">Security Mode: </span><span id="security_Aband"></span></div>
+		<div id="st_wep_Aband" class="textinput" style="display:none;"><span id="BWPS025">WEP Key</span> <span id="wepkey_Aband"></span></div>
+		<div id="st_cipher_Aband" class="textinput" style="display:none;"><span id="BWPS026">Cipher Type: </span><span id="cipher_Aband"></span></div>
+		<div id="st_pskkey_Aband" class="textinput" style="display:none;"><span id="BWPS027">Pre-shared Key: </span><br><span id="pskkey_Aband" class="valueForWPS"></span></div>
+	</div>		
+	<br>
+	<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" id="BWPS041" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+		<input type="button" id="BWPS042" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" id="BWPS043" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" id="BWPS044" name="b_send" value="Connect" onClick="OnSubmit();" />
+		<input type="button" id="BWPS045" name="b_stat" value="Wireless Status" onClick="self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=home&var:page=Hom_wlan_status';" />
+	</div>
+	<div class="emptyline"></div>
+</div>
+<!-- End of Stage 2 -->
+<!-- Message of Stage 2 -->
+<div id="wiz_stage_2_msg" class="blackbox" style="display:none;">
+	<h2  id="BWPS028">Step 2: Connect your Wireless Device</h2>
+	<div><p><span id="msg"></span></p></div>
+	<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" id="BWPS046" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+		<input type="button" id="BWPS047" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" id="BWPS048" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" id="BWPS049" name="b_send" value="Connect" onClick="OnSubmit();" />
+		<input type="button" id="BWPS050" name="b_stat" value="Wireless Status" onClick="self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=home&var:page=Hom_wlan_status';" />
+	</div>
+	<div class="emptyline"></div>
+</div>
+<!-- Message of Stage 2 -->

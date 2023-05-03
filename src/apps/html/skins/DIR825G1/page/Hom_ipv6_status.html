@@ -1,0 +1,150 @@
+﻿<div class="mainbody" id="mainbody">
+	<div class="orangebox">
+		<h1 id="HIS001">IPv6 Network Information</h1>
+		<p id="HIS002">
+			All of your IPv6 Internet and network connection details are displayed on this  
+		</p>
+	</div>
+	<div class="blackbox" id="ll_ipv6" style="display:none">
+		<h2 id="HIS003">IPv6 Connection Information</h2>
+		<div class="textinput">
+			<span class="name" id="HIS004">IPv6 Connection Type</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="ll_type"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="HIS005">IPv6 Default Gateway</span>
+			<span class="delimiter">:</span>
+		<span class="value" id="ll_gateway"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="HIS006">LAN IPv6 Link-Local Address</span>
+			<span class="delimiter">:</span>
+		<span class="value">
+				<span id="ll_lan_ll_address"></span>
+			<span id="ll_lan_ll_pl"></span>
+		</span>
+		</div>
+		<div class="textinput" style="display:none">
+			<span class="name" id="HIS007">DHCP-PD</span>
+			<span class="delimiter">:</span>
+		<span class="value">
+				<span id="ll_enable_pd"></span>
+		</span>
+		</div>
+		<div class="gap"></div>
+	</div>
+	 <div class="blackbox" id="ipv6" style="display:none">
+		<h2 id="HIS008">IPv6 Connection Information</h2>
+		<div class="textinput">
+			<span class="name" id="HIS009">IPv6 Connection Type</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="type"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="HIS010">Network Status</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="status"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="HIS011">Connection Up Time</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="st_connection_uptime"></span>
+		</div>
+		<div class="textinput" id="st_wan_dhcp6_action" style="display:none;">
+			<span class="name"></span>
+			<span class="delimiter"></span>
+			<span class="value">
+				<input type="button" id="st_wan_dhcp6_renew" value="Renew" onClick="DHCP6_Renew();"/>&nbsp;&nbsp;
+				<input type="button" id="st_wan_dhcp6_release" value="Release" onClick="DHCP6_Release();"/>  
+			</span>
+		</div> 
+		<div class="textinput" id="st_wan_ppp_action" style="display:none;">
+			<span class="name"></span>
+			<span class="delimiter"></span>
+			<span class="value">
+				<input type="button" id="st_wan_ppp_connect" value="Connect" onClick="PPP_Connect();"/>&nbsp;&nbsp;
+				<input type="button" id="st_wan_ppp_disconnect" value="Disconnect" onClick="PPP_Disconnect();"/>  
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="HIS012">WAN IPv6 Address</span>
+			<span class="delimiter">:</span>
+		<span class="value">
+				<span id="wan_address"></span>
+			<span id="wan_address_pl"></span>
+		</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="HIS013">IPv6 Default Gateway</span>
+			<span class="delimiter">:</span>
+		<span class="value" id="gateway"></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="HIS014">Primary IPv6 DNS Server</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="br_dns1"></span>
+		</div>
+		<div class="textinput" >
+			<span class="name" id="HIS015">Secondary IPv6 DNS Server</span>
+			<span class="delimiter">:</span>
+			<span class="value" id="br_dns2"></span>
+		</div>    
+		<div class="textinput">
+			<span class="name" id="HIS016">LAN IPv6 Link-Local Address</span>
+			<span class="delimiter">:</span>
+		<span class="value">
+				<span id="lan_ll_address"></span>
+			<span id="lan_ll_pl"></span>
+		</span>
+		</div>
+		<div class="textinput" id="ipv6_pd" style="display:">
+			<span class="name" id="HIS017">DHCP-PD</span>
+			<span class="delimiter">:</span>
+		<span class="value">
+				<span id="enable_pd"></span>
+		</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="HIS018">IPv6 Network assigned by DHCP-PD</span>
+			<span class="delimiter">:</span>
+		<span class="value">
+				<span id="pd_prefix"></span>
+			<span id="pd_pl"></span>
+		</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="HIS019">LAN IPv6 Address</span>
+			<span class="delimiter">:</span>
+		<span class="value">
+				<span id="lan_address"></span>
+			<span id="lan_pl"></span>
+		</span>
+		</div>
+		<div class="gap"></div>
+	</div>
+	<div class="blackbox" id="ipv6_client">
+		<h2 id="HIS020">LAN IPv6 Computers</h2>
+		<table id="client6_list" class="general">
+					<tr>
+							<th id="HIS021">IPv6 Address</th>
+							<th id="HIS022">Name(if any)</th>
+					</tr>
+		 </table>
+	</div>	
+	<div class="blackbox" id="ipv6_bridge" style="display:none">
+		<h2 id="HIS023">IPv6 Connection Information</h2>
+		<table height="100px" align="center">
+			<tr><td id="HIS024">Now is an Access Point Mode.</td></tr>
+		</table>
+	</div>
+
+<!-- End of Page Dependent Part. -->
+</div>
+<div id="help_hint" class="tips">
+<!-- Start of Help Depedent Part. -->
+<strong id="HIS025">Helpful Hints...</strong>
+<br/><br/>
+<p id="HIS026">&nbsp;&#149;&nbsp;&nbsp;All of your WAN and LAN connection details are displayed here.</p>
+<p id="HIS027">&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpstatus#IPv6">More...</a></p>
+<!-- End of Help Dependent Part. -->

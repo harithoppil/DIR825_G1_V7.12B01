@@ -1,0 +1,85 @@
+#!/bin/bash
+#The file use for Dlink-DIR816 Product GPL to package and compress codes.
+#Date: 2014/07/24
+#Written by zym
+
+if [ $# -ne 4 ]
+then
+ echo "================================================================================"
+ echo "ERROR: This script should have four parameters."
+ echo "First parameter is original directory name."
+ echo "Second parameter is toolchain source codes"
+ echo "Third parameter is version, for example: V1.0.0.1."
+ echo "FOURTH parameter is s or b, s is src and b is betasrc."
+ echo "For example: tarProduct "trunk" "toolschains" "V1.0.0.1" "s". Result: Dlink-DIR816_V1.0_GPL_v1.03_Worldwide.tar.bz2."
+ echo "================================================================================"
+ exit;
+fi
+
+
+tmp=Dlink-DIR816_"$3"_GPL_"$4"_Worldwide
+
+#if [ $4 = "s" ];then
+#	tmp="$tmp"src
+#elif [ $4 = "b" ];then
+#	tmp="$tmp"betasrc
+#else
+#	echo "$4 wrong, it should be s or b."
+#	exit -1
+#fi
+
+
+echo "*************************************************"
+
+echo "The Completed final name is $tmp. Are you make sure of it?(yes/no)"
+read choice
+if [ "$choice" = "yes" ] || [ "$choice" = "y" ];then
+		echo "                                                      "
+		echo "                                                      "
+		echo "                                                      "
+
+		echo "=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*="
+		echo "  Codes directory is Processed, please wait moment. "
+		echo "=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*="
+
+		echo "                                                      "
+		echo "                                                      "
+		echo "                                                      "
+	else
+		echo "quit!"
+		exit -1
+fi
+
+
+#Dlink-DIR816_V1.0_GPL_v1.03_Worldwide
+mv -iu $1 $tmp
+
+#Dlink-DIR816_V1.0_GPL_v1.03_Worldwide.tar.bz2
+tmpTar="$tmp".tar.bz2
+#echo $tmpTar
+tar -jcvf $tmpTar ./$tmp $2 README
+
+#Dlink-DIR816_V1.0_GPL_v1.03_Worldwide.tar.bz2.zip
+tmpTarZip="$tmpTar".zip
+zip -r $tmpTarZip $tmpTar
+
+	echo "                                                      "
+	echo "                                                      "
+	echo "tar and zip $tmpTarZip complete!"
+	echo "                                                      "
+	echo "                                                      "
+	echo "=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*="
+	echo "  Codes directory is Processed, please wait moment. "
+	echo "=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*="
+	echo "                                                      "
+	echo "                                                      "
+
+rm -rf $tmp
+rm -rf $tmpTar
+
+echo "#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#"
+echo "          Codes directory had Processed OK!          " 
+echo "#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#"
+
+
+

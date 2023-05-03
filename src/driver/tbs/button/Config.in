@@ -1,0 +1,78 @@
+menuconfig TBSMOD_BUTTON	
+	bool 'button'
+        default y
+        depends on DRIVERS_TBSMOD
+        help
+		button module
+
+choice
+	prompt "button module"
+	depends on TBSMOD_BUTTON
+
+config BUTTON_AMAZON_SE
+    	boolean "amazon_se"
+	depends on AMAZON_SE
+
+config	BUTTON_RT3052 
+	boolean "RT3052"
+	depends on RT3052
+
+config	BUTTON_VX180 
+	boolean "VX180"
+	depends on VX180
+
+config	BUTTON_RTL8672 
+	boolean "RTL8672"
+	depends on RTL8672
+	
+config	BUTTON_RTL8196C
+	boolean "RTL8196C"
+	depends on RTL8196C
+
+config	BUTTON_C1000
+	boolean "C1000"
+	depends on C1000
+
+config	BUTTON_C1000_INT
+	boolean "C1000_INT"
+	depends on C1000_INT
+
+config	BUTTON_BCM5358
+	boolean "BCM5358"
+	depends on BCM5358
+
+config	BUTTON_MV88F6560P
+	boolean "MV88f6560P"
+	depends on MV88f6560P
+
+config  BUTTON_RT65168
+	boolean "RT65168_VDSL"
+	depends on RT65168
+
+config  BUTTON_RT63365
+	boolean "RT63365_ADSL"
+	depends on RT63365
+
+config  BUTTON_RT63368
+	boolean "RT63368"
+	depends on RT63368
+
+config  BUTTON_MT7620
+	boolean "MT7620"
+	depends on MT7620
+
+config  BUTTON_MT751X
+	boolean "MT751X"
+	depends on MT751X
+endchoice
+
+config BUTTON_TRIGGER_TIMER
+	bool "Button trigger timer"
+	depends on TBSMOD_BUTTON
+	help
+	  This option enable button timer trigger function.
+	  If button device use interrupt,say N.
+	  If no interrupt, say Y.
+
+
+

@@ -1,0 +1,37 @@
+Copyright (C) 2015 T&W, Inc.  All Rights Reserved.
+
+_____________________________________________________________________________
+编译使用Linux 版本： Red Hat Enterprise Linux Server release 5 (Tikanga)
+
+以下是Dlink-DIR816项目中，关于GPL处理代码的脚本说明和执行步骤
+
+脚本主要处理情况是：
+将TBS apps应用层处理成可执行文件的形式提供给客户，屏蔽私有代码
+根据方案商的要求，将内核私有部分处理成.o文件提供给客户，屏蔽方案商的私有代码
+删除很多无用的目录和文件，包括无用的opensource代码
+也有部分修改了Makefile和Config.in文件等
+
+
+脚本的执行步骤：
+1、首先下载最新的代码，并将SDK_GPL_patch/GplMakeCode.tar.gz解压到最顶层目录
+tar jxvf SDK_GPL_patch/GplMakeCode.tar.bz2
+
+2、进入GplMakeCode,并执行脚本
+cd GplMakeCode
+sh GplMakeCodefile.sh
+
+期间会有一次机会选择编译哪些模块，或不编译哪些模块，脚本处理后，编译模块的结果将被固定，以后没得选择了（主要是apps）
+
+3、脚本处理后可以选择打包代码或是进行下面的编译
+脚本打包，也是利用脚本进行，因为按照Dlink-DIR816客户的要求，打包的名字挺有讲究
+
+回到上两层目录，脚本已经在哪里等待了
+cd ../../
+tarProduct "原来代码最顶层目录名" "工具链源码" "版本号" "最终版本或是测试版，发布版本为s，测试版为b"
+(For example: tarProduct "trunk" "toolchain codes" "V1.0" "v1.03" 例子是打包成硬件版本号V1.0，软件版本号是v1.03的版本(最终打包成
+Dlink-DIR816_V1.0_GPL_v1.03_Worldwide.tar.bz2.zip)
+
+
+4、或是选择编译代码，脚本处理完后，就和一般的编译一样了
+make prepare（默认已经是选择了Dlink-DIR816）
+make

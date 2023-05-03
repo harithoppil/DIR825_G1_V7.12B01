@@ -1,0 +1,98 @@
+
+menu "Button drivers"
+
+config TBS_BUTTON
+	bool "TBS Button Support"
+	help
+	  Say Y to enable TBS Button driver framwork.This allows monitor of supported
+	  buttons.
+
+
+comment "Button device"
+
+
+config BUTTON_AR7130
+	tristate "Button support for the AR7130"
+	depends on TBS_BUTTON && MACH_AR7100
+	help
+	  This option enables support for the buttons on AR7130.
+
+
+config BUTTON_AMAZON_SE
+	tristate "Button support for the Amazon-SE"
+	depends on TBS_BUTTON && AMAZON_SE
+	help
+	  This option enables support for the buttons on Infineon Amazon-SE.
+
+config BUTTON_RT3052
+	tristate "Button support for the RT3052"
+	depends on TBS_BUTTON && RALINK_RT3052
+	help
+	  This option enables support for the buttons on Ralink rt3052.
+
+config BUTTON_VX180
+	tristate "Button support for the VX180"
+	depends on TBS_BUTTON && FUSIV_VX180
+	help
+	  This option enables support for the buttons on IKANOS Vx180.
+
+config BUTTON_RTL8672
+	tristate "Button support for the RTL8672"
+	depends on TBS_BUTTON && RTL8672
+	help
+	  This option enables support for the buttons on Realtek RTL8672.
+
+config BUTTON_RTL8196C
+	tristate "Button support for the RTL8196C"
+	depends on TBS_BUTTON && RTL_8196C
+	help
+	  This option enables support for the buttons on Realtek RTL8196C.
+	  
+config BUTTON_RTL8196D
+	tristate "Button support for the RTL8196D"
+	depends on TBS_BUTTON && RTL_8196D
+	help
+	  This option enables support for the buttons on Realtek RTL8196D.	
+	  
+config BUTTON_RTL8196E
+	tristate "Button support for the RTL8196E"
+	depends on TBS_BUTTON && RTL_8196E
+	help
+	  This option enables support for the buttons on Realtek RTL8196E.
+	  
+config BUTTON_RTL8197D
+	tristate "Button support for the RTL8197D"
+	depends on TBS_BUTTON && RTL_8197D
+	help
+	  This option enables support for the buttons on Realtek RTL8197D.
+      
+config BUTTON_RTL8197DL
+    tristate "Button support for the RTL8197DL"
+    depends on TBS_BUTTON && RTL_8197DL
+    help
+      This option enables support for the buttons on Realtek RTL8197DL.
+
+config BUTTON_C1000
+	tristate "Button support for the C1000(poll mode)"
+	depends on TBS_BUTTON && ARCH_M83XXX
+	help
+	  This option enables support for the buttons on Mindspeed C1000.
+
+config BUTTON_C1000_INT
+	tristate "Button support for the C1000(interrupt mode)"
+	depends on TBS_BUTTON && ARCH_M83XXX
+	help
+	  This option enables support for the buttons on Mindspeed C1000.
+
+comment "Button option"
+
+config BUTTON_TRIGGER_TIMER
+	tristate "Button trigger timer"
+	depends on TBS_BUTTON
+	help
+	  This option enable button timer trigger function.
+	  If button device use interrupt,say N.
+	  If no interrupt, say Y.
+
+endmenu
+

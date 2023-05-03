@@ -1,0 +1,47 @@
+﻿<div class="blockquote">
+	
+	<table border="0" cellspacing="2">
+		<tr>
+			<td class="emphasize" id="lang_Led_test">Led Test</td>
+		</tr>
+		<tr>
+			<td colspan="4" id="led_test_on_p">Click the button below to test the led all on.</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="div_button">
+				<form name="led_all_on_f" id="led_all_on_f" method="post" action="webproc">
+					<input type="submit" id="led_all_on_i" name="led_all_on_i" value="Led On" />
+					<input type="hidden" name="obj-action" value="led_test_on" />			
+					<input type="hidden" name="var:menu" value="toolbox" />
+					<input type="hidden" name="var:page" value="led_test" />
+					<input type="hidden" name="var:errorpage" value="led_test" />
+				</form>
+		   </div>
+		   </td>
+		</tr>
+		
+		<tr>
+			<td colspan="4" id="led_test_on_p">Click the button below to test the led all off.</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="div_button">
+				<form name="led_all_off_f" id="led_all_off_f" method="post" action="webproc">
+					<input type="submit" id="led_all_off_i" name="led_all_off_i" value="Led Off" />
+					<input type="hidden" name="obj-action" value="led_test_off" />
+					<input type="hidden" name="var:menu" value="toolbox" />
+					<input type="hidden" name="var:page" value="led_test" />
+					<input type="hidden" name="var:errorpage" value="led_test" />
+				</form>
+		   </div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td style="height:15px" colspan="4"></td>
+		</tr>
+	</table>
+</div>
+
+

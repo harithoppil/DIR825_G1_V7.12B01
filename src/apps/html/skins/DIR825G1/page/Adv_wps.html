@@ -1,0 +1,86 @@
+﻿<div class="mainbody" id="mainbody">
+<div class="orangebox">
+<span id="adv_wps001">
+	<h1>Wi-Fi Protected Setup</h1>
+	<p>Wi-Fi Protected Setup is used to easily add devices to a network using a PIN or button press. Devices must support Wi-Fi Protected Setup in order to be configured by this method.</p>
+	<p>If the PIN changes, the new PIN will be used in following Wi-Fi Protected Setup process. Clicking on ''Don't Save Settings'' button will not reset the PIN.</p>
+	<p>However, if the new PIN is not saved, it will get lost when the device reboots or loses power.</p>
+</span>
+	<p><input type="button" value="Save Settings" onClick="uiSubmit();" id="adv_wps003" />
+	<input type="button" value="Don't Save Settings" onClick="uiPageRefresh();" id="adv_wps004"/></p>
+</div>
+<div class="blackbox">
+	<h2 id="adv_wps007">Wi-Fi Protected Setup</h2>
+	<div class="textinput">
+		<span class="name" id="adv_wps008">Enable</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="en_wps" type="checkbox" onClick="OnClickEnWPS();" /></span>
+	</div>
+
+	<div class="textinput">
+		<span class="name" id="adv_wps009">WiFi Protected Setup</span>
+		<span class="delimiter">:</span>
+		<span id="wifi_info_str" class="value"></span>
+	</div>
+	
+	<div class="textinput">
+		<span class="name" id="adv_wps010">Lock WPS-PIN Setup</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="lock_wifi_security" type="checkbox" /></span>
+	</div>	
+	
+	<div class="textinput" style='display:none;'>
+		<span class="name"></span>
+		<span class="delimiter"></span>
+		<span class="value">
+			<input id="reset_cfg" type="button" value="Reset to Unconfigured"
+				onClick="OnClickResetCfg();" />
+		</span>
+	</div>
+	<div class="emptyline"></div>
+</div>
+<div class="blackbox">
+	<h2 id="adv_wps011">PIN Settings</h2>
+	<div class="textinput">
+		<span class="name" id="adv_wps012">PIN</span>
+		<span class="delimiter">:</span>
+		<span id="pin" class="value"></span>
+	</div>
+	<div class="textinput">
+		<span class="name"></span>
+		<span class="delimiter"></span>
+		<span class="value">
+			<input id="reset_pin" type="button" value="Reset PIN to Default"
+				onClick="OnClickResetPIN();" />&nbsp;&nbsp;
+			<input id="gen_pin" type="button" value="Generate New PIN"
+				onClick="OnClickGenPIN();"/>
+		</span>
+	</div>
+	<div class="emptyline"></div>
+</div>
+<div class="blackbox">
+	<h2 id="adv_wps013">Add Wireless Station</h2>
+	<div class="textinput">
+		<span class="name"></span>
+		<span class="delimiter"></span>
+		<span class="value">
+			<input id="go_wps" type="button" value="Connect your Wireless Device" onClick="self.location.href='/cgi-bin/webproc?getpage=html/index_wiz.html&var:menu=advanced&var:page=Wiz_wps';"/>
+		</span>
+	</div>
+	<div class="emptyline"></div>
+</div>
+<p><input type="button" value="Save Settings" onclick="uiSubmit();" id="adv_wps005"/>
+	<input type="button" value="Don't Save Settings" onclick="uiPageRefresh();" id="adv_wps006"/></p>
+	
+</div>
+<div class="tips">
+	<span id="adv_wps014">
+	<strong>Helpful Hints...</strong>
+	<br/><br/>
+	<p>&nbsp;&#149;&nbsp;&nbsp;<strong>Enable</strong> if other wireless devices you wish to include in the local network support Wi-Fi Protected Setup.</p>
+	<p>&nbsp;&#149;&nbsp;&nbsp;Only &quot;Admin&quot; account can change security settings.</p>
+	<p>&nbsp;&#149;&nbsp;&nbsp;<strong>Lock WPS-PIN Setup</strong> Locking the WPS-PIN Method prevents the settings from being changed by any new external registrar using its PIN. Devices can still be added to the wireless network using Wi-Fi Protected Setup Push Button Configuration (WPS-PIN).</p>
+	<p>&nbsp;&#149;&nbsp;&nbsp;Click <strong>Connect your Wireless Device</strong> to use Wi-Fi Protected Setup to add wireless devices to the wireless network.</p>
+	</span>
+	<p>&nbsp;&#149;&nbsp;&nbsp;<a href=
+	"/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpadv#WPS"><span id = "adv_wps002">More</span></a></p>

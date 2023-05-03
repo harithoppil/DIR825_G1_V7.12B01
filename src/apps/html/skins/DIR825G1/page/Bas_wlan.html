@@ -1,0 +1,607 @@
+﻿<div class="mainbody" id="mainbody">
+<div class="orangebox">
+	<h1 id="BWLAN001" >Wireless Network</h1>
+	<p id="BWLAN002" >Use this section to configure the wireless settings for your D-Link router. Please note that changes made in this section may also need to be duplicated on your wireless client. </p>
+	<p id="BWLAN003" >To protect your privacy you can configure wireless security features. Securing your wireless network is important as it is used to protect the integrity of the information being transmitted. The router is capable of 4 types of wireless security; WEP, WPA only, WPA2 only, and WPA/WPA2 (auto-detect).</p>
+	<p><input type="button" id="BWLAN181" value="Save Settings" onClick="uiSubmit();" />
+	<input type="button" id="BWLAN182" value="Don't Save Settings" onClick="uiPageRefresh();" /></p>
+</div>
+
+<!-- ===================== 2.4Ghz, BG band ============================== -->
+<div id="div_24G" class="blackbox">
+	<h2 id="BWLAN004" >Wireless Network Settings</h2>
+	<div class="textinput">
+		<span class="name" id="BWLAN005" >Wireless Band</span>
+		<span class="delimiter">:</span>
+		<span class="value"><b id="BWLAN006">2.4GHz Band</b></span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="BWLAN007" >Enable Wireless</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="en_wifi" type="checkbox" onClick="OnClickEnWLAN('');" />
+			<select id="sch" class="narrow" style="width: 65px;">
+			</select>
+<input id="go2sch" type="button" value="New Schedule" onClick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules';" />
+
+		</span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="BWLAN008" >Wireless Network Name</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="ssid" type="text" size="20" maxlength="32" />
+			<span id="BWLAN009" >(Also called the SSID)</span>
+		</span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="BWLAN010" >802.11 Mode</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="wlan_mode" onChange="OnChangeWLMode('');">
+				<option value="b" id="BWLAN011" >802.11b only</option>
+				<option value="g" id="BWLAN012" >802.11g only</option>
+				<option value="n" id="BWLAN013" >802.11n only</option>
+				<option value="bg" id="BWLAN014" >Mixed 802.11g and 802.11b</option>
+				<option value="ng" id="BWLAN015" >Mixed 802.11n and 802.11g</option>
+				<option value="bgn" id="BWLAN016" >Mixed 802.11n, 802.11g and 802.11b</option>
+			</select>
+		</span>
+	</div>	
+	
+	<div class="textinput">
+		<span class="name" id="BWLAN017" >Enable Auto Channel Scan</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="auto_ch" type="checkbox" onClick="OnClickEnAutoChannel('');" /></span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="BWLAN018" >Wireless Channel</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="channel" onChange="OnChangeChannel('');">
+				<option value="1" id="BWLAN019" >2.412 GHz - CH 1</option>
+				<option value="2" id="BWLAN020" >2.417 GHz - CH 2</option>
+				<option value="3" id="BWLAN021" >2.422 GHz - CH 3</option>
+				<option value="4" id="BWLAN022" >2.427 GHz - CH 4</option>
+				<option value="5" id="BWLAN023" >2.432 GHz - CH 5</option>
+				<option value="6" id="BWLAN024" >2.437 GHz - CH 6</option>
+				<option value="7" id="BWLAN025" >2.442 GHz - CH 7</option>
+				<option value="8" id="BWLAN026" >2.447 GHz - CH 8</option>
+				<option value="9" id="BWLAN027" >2.452 GHz - CH 9</option>
+				<option value="10" id="BWLAN028" >2.457 GHz - CH 10</option>
+				<option value="11" id="BWLAN029" >2.462 GHz - CH 11</option>
+			</select>
+		</span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="BWLAN030" >Transmission Rate</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="txrate">
+				<option value="-1" id="BWLAN031" >Best (automatic)</option>
+			</select>
+			<span id="BWLAN032" >(Mbit/s)</span>
+		</span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="BWLAN033" >Channel Width</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="bw" onChange="OnChangeBandwidth('');">
+				<option value="20" id="BWLAN034" >20 MHz</option>
+				<option value="20O40" id="BWLAN035" >20/40 MHz(Auto)</option>
+			</select>
+		</span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="BWLAN036" >Visibility Status</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input type="radio" class="name" id="ssid_visible" 		name="invisible_type" value="1" 	onclick="" /> <label id="BWLAN037" >Visible</label>
+	        <input type="radio" class="name" id="ssid_invisible" 	name="invisible_type" value="0" onclick="" /> <label id="BWLAN038" >Invisible</label>
+		</span>
+	</div>
+	<div class="textinput" style="display:none;">
+		<span class="name" id="BWLAN039" >WMM Enable</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="en_wmm" type="checkbox" />
+			<span id="BWLAN040">(Wireless QoS)</span>
+		</span>
+	</div>
+	<div class="gap"></div>
+</div>
+<div class="blackbox">
+	<h2 id="BWLAN041" >Wireless Security Mode</h2>
+	<div class="textinput">
+		<span class="name"  id="BWLAN042" >Security Mode</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="security_type" onChange="OnChangeSecurityType('');">
+				<option value="none" id="BWLAN043" >None</option>
+				<option value="wep" id="BWLAN044" >WEP</option>
+				<option value="wpa_personal" id="BWLAN045" >WPA-Personal</option>
+				<option value="wpa_enterprise" id="BWLAN046" >WPA-Enterprise</option>
+			</select>
+		</span>
+	</div>
+	<div class="gap"></div>
+</div>
+<div id="wep" class="blackbox" style="display:none;">
+	<h2 id="BWLAN047">WEP</h2>
+	<p id="BWLAN048">WEP is the wireless encryption standard. To use it you must enter the same key(s) into the router and the wireless stations. For 64-bit keys you must enter 10 hex digits into each key box. For 128-bit keys you must enter 26 hex digits into each key box.  A hex digit is either a number from 0 to 9 or a letter from A to F. For the most secure use of WEP set the authentication type to &quot;Shared Key&quot; when WEP is enabled.</p>
+	<p id="BWLAN049">You may also enter any text string into a WEP key box, in which case it will be converted into a hexadecimal key using the ASCII values of the characters. A maximum of 5 text characters can be entered for 64-bit keys, and a maximum of 13 characters for 128-bit keys.</p>
+
+	<p id="BWLAN050">If you choose the WEP security option this device will <strong>ONLY</strong> operate in <strong>Legacy Wireless mode (802.11B/G)</strong>. This means you will <strong>NOT</strong> get 11N performance due to the fact that WEP is not supported by the Draft 11N specification.</p>
+		
+
+	<div class="textinput">
+		<span class="name" id="BWLAN051">WEP Key Length</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="wep_key_len" onChange="OnChangeWEPKey('');">
+				<option value="40-bit" id="BWLAN052">64 bit (10 hex digits)</option>
+				<option value="104-bit" id="BWLAN053">128 bit (26 hex digits)</option>
+			</select>
+			<span id="BWLAN054">(length applies to all keys)</span>
+		</span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="BWLAN055">Authentication</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="auth_type" onChange="OnChangeWEPAuth('');">
+				<!--<option value="OPEN">Open</option>-->
+				<option value="AutoAuthentication" id="BWLAN056">Both</option>
+				<option value="SharedAuthentication" id="BWLAN057">Shared Key</option>
+			</select>
+		</span>
+	</div>
+	<div class="textinput" style="display:none;">
+		<span class="name" id="BWLAN058">Default WEP Key</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="wep_def_key" onChange="OnChangeWEPKey('');">
+				<option value="1" id="BWLAN059">WEP Key 1</option>
+				<option value="2" id="BWLAN060">WEP Key 2</option>
+				<option value="3" id="BWLAN061">WEP Key 3</option>
+				<option value="4" id="BWLAN062">WEP Key 4</option>
+			</select>
+		</span>
+	</div>
+	<div id="wep_64" class="textinput">
+		<span class="name" id="BWLAN063">WEP Key 1</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="wep_64_1" name="wepkey_64" type="text" size="15" maxlength="10" />
+			<!--input id="wep_64_2" name="wepkey_64" type="text" size="15" maxlength="10" />
+			<input id="wep_64_3" name="wepkey_64" type="text" size="15" maxlength="10" />
+			<input id="wep_64_4" name="wepkey_64" type="text" size="15" maxlength="10" /-->
+		</span>
+	</div>
+	<div id="wep_128" class="textinput" style="display:none;">
+		<span class="name" id="BWLAN064">WEP Key 1</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="wep_128_1" name="wepkey_128" type="text" size="31" maxlength="26" />
+			<!--input id="wep_128_2" name="wepkey_128" type="text" size="31" maxlength="26" />
+			<input id="wep_128_3" name="wepkey_128" type="text" size="31" maxlength="26" />
+			<input id="wep_128_4" name="wepkey_128" type="text" size="31" maxlength="26" /-->
+		</span>
+	</div>
+	
+	<div class="gap"></div>
+</div>
+
+<div id="box_wpa" class="blackbox" style="display:none;">
+	<h2 id="BWLAN065">WPA</h2>
+	<p id="BWLAN066">Use <strong>WPA or WPA2</strong> mode to achieve a balance of strong security and best compatibility. This mode uses WPA for legacy clients while maintaining higher security with stations that are WPA2 capable. Also the strongest cipher that the client supports will be used. For best security, use <strong>WPA2 Only</strong> mode. This mode uses AES(CCMP) cipher and legacy stations are not allowed access with WPA security. For maximum compatibility, use <strong>WPA Only</strong>. This mode uses TKIP cipher. Some gaming and legacy devices work only in this mode.</p>
+	<p id="BWLAN067">To achieve better wireless performance use <strong>WPA2 Only</strong> security mode (or in other words AES cipher).</p>
+
+	<div class="textinput">
+		<span class="name" id="BWLAN068">WPA Mode</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="wpa_mode" onChange="OnChangeWPAMode('');">
+				<option value="WPA+2" id="BWLAN069">Auto(WPA or WPA2)</option>
+				<option value="WPA2" id="BWLAN070">WPA2 Only</option>
+				<!--option value="WPA" id="BWLAN071">WPA Only</option-->
+			</select>
+		</span>
+	</div>		
+	<div class="textinput">
+		<span class="name" id="BWLAN072">Cipher Type</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="cipher_type" onChange="OnChangeCipherType('');">
+				<option value="TKIP" id="BWLAN073">TKIP</option>
+				<option value="AES" id="BWLAN074">AES</option>
+				<option value="TKIP+AES" id="BWLAN075">TKIP and AES</option>
+			</select>
+		</span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="BWLAN076">Group Key Update Interval</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="wpa_grp_key_intrv" type="text" size="20" maxlength="10" /> <span id="BWLAN077">(seconds)</span>
+		</span>
+	</div>	
+	<div class="gap"></div>
+</div>
+
+<div id="box_wpa_personal" class="blackbox" style="display:none;">
+	<h2 id="BWLAN078">Pre-Shared Key</h2>
+	<p class="strong" id="BWLAN079">Enter an 8- to 63-character alphanumeric pass-phrase. For good security it should be of ample length and should not be a commonly known phrase.
+	</p>
+	<div class="textinput">
+		<span class="name" id="BWLAN080">Pre-Shared Key</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="wpa_psk_key" type="text" size="20" maxlength="64" />
+		</span>
+	</div>
+	<div class="gap"></div>
+	<div class="gap"></div>	
+	</div>
+
+
+<div id="box_wpa_enterprise" class="blackbox" style="display:none;">
+	<h2 id="BWLAN081">EAP (802.1x)</h2>
+	<p class="strong" id="BWLAN082"><strong>When WPA enterprise is enabled, the router uses EAP (802.1x) to authenticate clients via a remote RADIUS server.</strong></p>
+	<div class="textinput">
+		<span class="name" id="BWLAN083">RADIUS server IP Address</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="radius_srv_ip" type="text" size="15" maxlength="15" /></span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="BWLAN084">RADIUS server Port</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="radius_srv_port" type="text" size="5" maxlength="5" /></span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="BWLAN085">RADIUS server Shared Secret</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="radius_srv_sec" type="password" size="50" maxlength="64" /></span>
+	</div>
+
+	<div class="textinput">
+        <span class="delimiter"></span>
+        <span class="value"><input type="button" id="radius_adv" name="radius_adv" value="Advanced >>" onClick="OnClickRadiusAdvanced('');"></span>
+	</div>
+	
+	<div id="div_second_radius" name="div_second_radius" style="display:none;">
+		<div class="textinput">
+			<p class="strong" id="BWLAN086"><strong>Optional backup RADIUS server</strong></p>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BWLAN087">Second RADIUS server IP Address</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="radius_srv_ip_second" type="text" size="15" maxlength="15" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BWLAN088">Second RADIUS server Port</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="radius_srv_port_second" type="text" size="5" maxlength="5" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BWLAN089">Second RADIUS server Shared Secret</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="radius_srv_sec_second" type="password" size="50" maxlength="64" /></span>
+		</div>
+	</div>	
+	<div class="gap"></div>
+	<div class="gap"></div>
+</div>
+
+<!-- ===================== 5Ghz, A band ============================== -->
+<div id="div_5G">
+	<div class="blackbox">
+		<h2 id="BWLAN090">Wireless Network Settings</h2>
+		<div class="textinput">
+			<span class="name" id="BWLAN091">Wireless Band</span>
+			<span class="delimiter">:</span>
+			<span class="value"><b id="BWLAN092">5GHz Band</b></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BWLAN093">Enable Wireless</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input id="en_wifi_Aband" type="checkbox" onClick="OnClickEnWLAN('_Aband');" />
+				<select id="sch_Aband" class="narrow" style="width: 65px;">
+				</select>
+<input id="go2sch_Aband" type="button" value="New Schedule" onClick="javascript:self.location.href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules';" />
+
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BWLAN094">Wireless Network Name</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input id="ssid_Aband" type="text" size="20" maxlength="32" />
+				<span id="BWLAN095">(Also called the SSID)</span>
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BWLAN096">802.11 Mode</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<select id="wlan_mode_Aband" onChange="OnChangeWLMode('_Aband');">
+					<option value="a" id="BWLAN097">802.11a only</option>
+					<option value="5n" id="BWLAN098">802.11n only</option>
+					<!--<option value="ac">802.11ac only</option> -->
+					<option value="na" id="BWLAN099">Mixed 802.11a and 802.11n</option>
+					<option value="anac" id="BWLAN100">Mixed 802.11ac and 802.11n</option>
+					<option value="aanac" id="BWLAN101">Mixed 802.11ac, 802.11n and 802.11a</option>
+
+				</select>
+			</span>
+		</div>
+		
+		<div class="textinput">
+			<span class="name" id="BWLAN102">Enable Auto Channel Scan</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="auto_ch_Aband" type="checkbox" onClick="OnClickEnAutoChannel('_Aband');" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BWLAN103">Wireless Channel</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<select id="channel_Aband" onChange="OnChangeChannel('_Aband');">
+				<option value="36" id="BWLAN104">5.180 GHz - CH 36</option>
+				<option value="40" id="BWLAN105">5.200 GHz - CH 40</option>
+				<option value="44" id="BWLAN106">5.220 GHz - CH 44</option>
+				<option value="48" id="BWLAN107">5.240 GHz - CH 48</option>
+				<option value="149" id="BWLAN108">5.745 GHz - CH 149</option>
+				<option value="153" id="BWLAN109">5.765 GHz - CH 153</option>
+				<option value="157" id="BWLAN110">5.785 GHz - CH 157</option>
+				<option value="161" id="BWLAN111">5.805 GHz - CH 161</option>
+				<option value="165" id="BWLAN112">5.825 GHz - CH 165</option>
+			</select>
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BWLAN113">Transmission Rate</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<select id="txrate_Aband">
+					<option value="-1" id="BWLAN114">Best (automatic)</option>
+				</select>
+				<span id="BWLAN115">(Mbit/s)</span>
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BWLAN116">Channel Width</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<select id="bw_Aband" onChange="OnChangeBandwidth('_Aband');">
+					<option value="20" id="BWLAN117">20 MHz</option>
+					<option value="20O40" id="BWLAN118">20/40 MHz(Auto)</option>
+					<option value="20O40O80" id="BWLAN119">20/40/80 MHz(Auto)</option>
+				</select>
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BWLAN120">Visibility Status</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input type="radio" class="name" id="ssid_visible_Aband" 	name="invisible_type_Aband" value="1"  	/> <label id="BWLAN121">Visible</label>
+				<input type="radio" class="name" id="ssid_invisible_Aband" 	name="invisible_type_Aband" value="0" /> <label id="BWLAN122">Invisible</label>
+			</span>
+		</div>
+		<div class="textinput" style="display:none;">
+			<span class="name" id="BWLAN123">WMM Enable</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input id="en_wmm_Aband" type="checkbox" />
+				<span id="BWLAN124">(Wireless QoS)</span>
+			</span>
+		</div>
+		<div class="gap"></div>
+	</div>
+	<div class="blackbox">
+		<h2 id="BWLAN125">Wireless Security Mode</h2>
+		<div class="textinput">
+			<span class="name" id="BWLAN126">Security Mode</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<select id="security_type_Aband" onChange="OnChangeSecurityType('_Aband');">
+					<option value="none" id="BWLAN127">None</option>
+					<option value="wep" id="BWLAN128">WEP</option>
+					<option value="wpa_personal" id="BWLAN129">WPA-Personal</option>
+					<option value="wpa_enterprise" id="BWLAN130">WPA-Enterprise</option>
+				</select>
+			</span>
+		</div>
+		<div class="gap"></div>
+	</div>
+	<div id="wep_Aband" class="blackbox" style="display:none;">
+		<h2 id="BWLAN131">WEP</h2>
+		<p id="BWLAN132">WEP is the wireless encryption standard. To use it you must enter the same key(s) into the router and the wireless stations. For 64-bit keys you must enter 10 hex digits into each key box. For 128-bit keys you must enter 26 hex digits into each key box.  A hex digit is either a number from 0 to 9 or a letter from A to F. For the most secure use of WEP set the authentication type to &quot;Shared Key&quot; when WEP is enabled.</p>
+		<p id="BWLAN133">You may also enter any text string into a WEP key box, in which case it will be converted into a hexadecimal key using the ASCII values of the characters. A maximum of 5 text characters can be entered for 64-bit keys, and a maximum of 13 characters for 128-bit keys.</p>
+	
+		<p id="BWLAN134">If you choose the WEP security option this device will <strong>ONLY</strong> operate in <strong>Legacy Wireless mode (802.11B/G)</strong>. This means you will <strong>NOT</strong> get 11N performance due to the fact that WEP is not supported by the Draft 11N specification.</p>
+			
+	
+		<div class="textinput">
+			<span class="name" id="BWLAN135">WEP Key Length</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<select id="wep_key_len_Aband" onChange="OnChangeWEPKey('_Aband');">
+					<option value="40-bit" id="BWLAN136">64 bit (10 hex digits)</option>
+					<option value="104-bit" id="BWLAN137">128 bit (26 hex digits)</option>
+				</select>
+				<span id="BWLAN138">(length applies to all keys)</span>
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BWLAN139">Authentication</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<select id="auth_type_Aband" onChange="OnChangeWEPAuth('_Aband');">
+					<!--<option value="OPEN">Open</option>-->
+					<option value="AutoAuthentication" id="BWLAN140">Both</option>
+					<option value="SharedAuthentication" id="BWLAN141">Shared Key</option>
+				</select>
+			</span>
+		</div>	
+		<div class="textinput" style="display:none;">
+			<span class="name" id="BWLAN142">Default WEP Key</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<select id="wep_def_key_Aband" onChange="OnChangeWEPKey('_Aband');">
+					<option value="1" id="BWLAN143">WEP Key 1</option>
+					<option value="2" id="BWLAN144">WEP Key 2</option>
+					<option value="3" id="BWLAN145">WEP Key 3</option>
+					<option value="4" id="BWLAN146">WEP Key 4</option>
+				</select>
+			</span>
+		</div>
+		<div id="wep_64_Aband" class="textinput">
+			<span class="name" id="BWLAN147">WEP Key 1</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input id="wep_64_1_Aband" name="wepkey_64_Aband" type="text" size="15" maxlength="10" />
+				<!--input id="wep_64_2_Aband" name="wepkey_64_Aband" type="text" size="15" maxlength="10" />
+				<input id="wep_64_3_Aband" name="wepkey_64_Aband" type="text" size="15" maxlength="10" />
+				<input id="wep_64_4_Aband" name="wepkey_64_Aband" type="text" size="15" maxlength="10" /-->
+			</span>
+		</div>
+		<div id="wep_128_Aband" class="textinput" style="display:none;">
+			<span class="name" id="BWLAN148">WEP Key 1</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input id="wep_128_1_Aband" name="wepkey_128_Aband" type="text" size="31" maxlength="26" />
+				<!--input id="wep_128_2_Aband" name="wepkey_128_Aband" type="text" size="31" maxlength="26" />
+				<input id="wep_128_3_Aband" name="wepkey_128_Aband" type="text" size="31" maxlength="26" />
+				<input id="wep_128_4_Aband" name="wepkey_128_Aband" type="text" size="31" maxlength="26" /-->
+			</span>
+		</div>
+		
+		<div class="gap"></div>
+	</div>
+	
+	<div id="box_wpa_Aband" class="blackbox" style="display:none;">
+		<h2 id="BWLAN149">WPA</h2>
+		<p id="BWLAN150">Use <strong>WPA or WPA2</strong> mode to achieve a balance of strong security and best compatibility. This mode uses WPA for legacy clients while maintaining higher security with stations that are WPA2 capable. Also the strongest cipher that the client supports will be used. For best security, use <strong>WPA2 Only</strong> mode. This mode uses AES(CCMP) cipher and legacy stations are not allowed access with WPA security. For maximum compatibility, use <strong>WPA Only</strong>. This mode uses TKIP cipher. Some gaming and legacy devices work only in this mode.</p>
+		<p id="BWLAN151">To achieve better wireless performance use <strong>WPA2 Only</strong> security mode (or in other words AES cipher).</p>
+	
+		<div class="textinput">
+			<span class="name" id="BWLAN152">WPA Mode</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<select id="wpa_mode_Aband" onChange="OnChangeWPAMode('_Aband');">
+					<option value="WPA+2" id="BWLAN153">Auto(WPA or WPA2)</option>
+					<option value="WPA2" id="BWLAN154">WPA2 Only</option>
+					<!--option value="WPA" id="BWLAN155">WPA Only</option-->
+				</select>
+			</span>
+		</div>		
+		<div class="textinput">
+			<span class="name" id="BWLAN157">Cipher Type</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<select id="cipher_type_Aband" onChange="OnChangeCipherType('_Aband');">
+					<option value="TKIP" id="BWLAN158">TKIP</option>
+					<option value="AES" id="BWLAN159">AES</option>
+					<option value="TKIP+AES" id="BWLAN160">TKIP and AES</option>
+				</select>
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BWLAN161">Group Key Update Interval</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input id="wpa_grp_key_intrv_Aband" type="text" size="20" maxlength="10" /> <span id="BWLAN162">(seconds)</span>
+			</span>
+		</div>	
+		<div class="gap"></div>
+	</div>
+	
+	<div id="box_wpa_personal_Aband" class="blackbox" style="display:none;">
+		<h2 id="BWLAN163">Pre-Shared Key</h2>
+		<p class="strong" id="BWLAN164">Enter an 8- to 63-character alphanumeric pass-phrase. For good security it should be of ample length and should not be a commonly known phrase.
+		</p>
+		<div class="textinput">
+			<span class="name" id="BWLAN165">Pre-Shared Key</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input id="wpa_psk_key_Aband" type="text" size="20" maxlength="64" />
+			</span>
+		</div>
+		<div class="gap"></div>
+		<div class="gap"></div>	
+	</div>
+	
+	
+	<div id="box_wpa_enterprise_Aband" class="blackbox" style="display:none;">
+		<h2 id="BWLAN166">EAP (802.1x)</h2>
+		<p class="strong" id="BWLAN167"><strong>When WPA enterprise is enabled, the router uses EAP (802.1x) to authenticate clients via a remote RADIUS server.</strong></p>
+		<div class="textinput">
+			<span class="name" id="BWLAN168">RADIUS server IP Address</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="radius_srv_ip_Aband" type="text" size="15" maxlength="15" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BWLAN169">RADIUS server Port</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="radius_srv_port_Aband" type="text" size="5" maxlength="5" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BWLAN170">RADIUS server Shared Secret</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="radius_srv_sec_Aband" type="password" size="50" maxlength="64" /></span>
+		</div>
+	
+		<div class="textinput">
+	        <span class="delimiter"></span>
+	        <span class="value"><input type="button" id="radius_adv_Aband" name="radius_adv_Aband" value="Advanced >>" onClick="OnClickRadiusAdvanced('_Aband');"></span>
+		</div>
+		
+		<div id="div_second_radius_Aband" name="div_second_radius_Aband" style="display:none;">
+			<div class="textinput">
+				<p class="strong"><strong id="BWLAN171">Optional backup RADIUS server</strong></p>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWLAN172">Second RADIUS server IP Address</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="radius_srv_ip_second_Aband" type="text" size="15" maxlength="15" /></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWLAN173">Second RADIUS server Port</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="radius_srv_port_second_Aband" type="text" size="5" maxlength="5" /></span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="BWLAN174">Second RADIUS server Shared Secret</span>
+				<span class="delimiter">:</span>
+				<span class="value"><input id="radius_srv_sec_second_Aband" type="password" size="50" maxlength="64" /></span>
+			</div>
+		</div>	
+		<div class="gap"></div>
+		<div class="gap"></div>
+	</div>
+</div>
+
+<p><input type="button" id="BWLAN185" value="Save Settings" onClick="uiSubmit();" />
+<input type="button" id="BWLAN186" value="Don't Save Settings" onClick="uiPageRefresh();" /></p>
+
+</form>
+<div id="pad" style="display:none;">
+	
+</div>
+<!-- End of Page Dependent Part. -->
+		</div>
+		<div id="help_hint" class="tips">
+<!-- Start of Help Depedent Part. -->
+<strong id="BWLAN175">Helpful Hints...</strong>
+<br/><br/>
+<!--
+<p>&nbsp;&#149;&nbsp;&nbsp;Wi-Fi Protected Setup provides a more intuitive way of setting up wireless security between the router and the wireless client. Make sure the wireless card supports this feature or uses a certified Windows Vista driver in order to take advantage of this feature.</p>
+-->
+<p id="BWLAN176">&nbsp;&#149;&nbsp;&nbsp;Changing your Wireless Network Name is the first step in securing your wireless network.	We recommend that you change it to a familiar name that does not contain any personal information.</p>
+<p id="BWLAN177">&nbsp;&#149;&nbsp;&nbsp;Enable Auto Channel Selection let the router can select the best possible channel for your wireless network to operate on.</p>
+<p id="BWLAN178">&nbsp;&#149;&nbsp;&nbsp;Enabling Hidden Mode is another way to secure your network. With this option enabled, no wireless clients will be able to see your wireless network when they perform a scan to see what's available. In order for your wireless devices to connect to your router, you will need to manually enter the Wireless Network Name on each device.</p>
+<p id="BWLAN179">&nbsp;&#149;&nbsp;&nbsp;If you have enabled Wireless Security, make sure you write down the WEP Key or Passphrase that you have configured. You will need to enter this information on any wireless device that you connect to your wireless network.</p>
+<p id="BWLAN180">&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpsetup#Wireless">More...</a></p>
+<!-- End of Help Dependent Part. -->

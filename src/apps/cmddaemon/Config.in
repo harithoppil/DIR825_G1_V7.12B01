@@ -1,0 +1,8 @@
+config APPS_CMDDAEMON
+	bool 'CMMDAEMON'
+	default n
+	depends on APPS
+	help
+		used for applying cmds at bg
+
+

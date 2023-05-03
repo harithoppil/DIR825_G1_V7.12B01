@@ -1,0 +1,8 @@
+#####################
+config OPENSOURCE_NBSMTP
+	bool 'NBSMTP Server(nbsmtp)'
+	default y
+	depends OPENSOURCE
+  	help 
+		nbsmtp is a email server geared primarily toward embedded systems,
+		while striving to be fully functional and RFC compliant

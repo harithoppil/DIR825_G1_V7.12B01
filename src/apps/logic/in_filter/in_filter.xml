@@ -1,0 +1,17 @@
+<InternetGatewayDevice type="object">
+	<X_TWSZ-COM_INBOUND type="object">
+		<INBOUNDMAXNumberOfEntries type="unsignedInt" Writable="0">16</INBOUNDMAXNumberOfEntries>
+		<INBOUNDNumberOfEntries type="unsignedInt" Writable="0">0</INBOUNDNumberOfEntries>
+		<RuleList type="object" Writable="0" CurNode="INBOUNDNumberOfEntries" MaxNode="INBOUNDMAXNumberOfEntries">
+			<i type="object">
+				<Name type="string" Writable="0"></Name>
+				<IPRange type="string">0.0.0.0</IPRange>
+				<Action type="string">Allow</Action>
+				<Used type="unsignedInt">0</Used>
+				<SchedvsUsed type="unsignedInt">0</SchedvsUsed>
+				<SchedpfUsed type="unsignedInt">0</SchedpfUsed>
+				<SchedrmUsed type="unsignedInt">0</SchedrmUsed>
+			</i>
+		</RuleList>
+	</X_TWSZ-COM_INBOUND>
+</InternetGatewayDevice>

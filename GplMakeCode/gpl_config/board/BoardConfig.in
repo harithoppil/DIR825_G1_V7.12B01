@@ -1,0 +1,291 @@
+menu "Board Config"
+
+config DRAM_SIZE
+        int "DRAM SIZE(MB)"
+        default 32
+        help
+                 Board DRAM Size,use 16 bits.
+choice
+        prompt "Type of the sdram"
+        default SDRAM_TYPE_DEFAULT
+
+config SDRAM_TYPE_DEFAULT
+        bool "Default"
+        help
+            Choice the default sdram.
+
+config SDRAM_TYPE_5
+        bool "-5 SDRAM"
+        help
+            Choice the -5 sdram.
+endchoice
+
+config TEXT_BASE_BOOTSTART
+        hex "Uboot Text Base for stage 1"
+        default 0xBE220000
+        help
+            TEXT_BASE_BOOTSTART is used for uboot stage 1
+
+config TEXT_BASE
+        hex "Uboot Text Base for stage 2"
+        default 0x80400000
+        help
+            TEXT_BASE is used for uboot stage 2
+
+config DRAM_BASE
+	hex "Global DRAM base address"
+	default 0x80000000
+	help
+	    DRAM base address
+
+config FLASH_BASE
+	hex "Global Flash base address"
+	default 0xBD000000
+	help
+	    Flash base address
+
+config FLASH_ERASESIZE
+	int "Flash erasesize (KB)"
+	default "64"
+	help
+	    Flash sector size
+	    
+config JFFS2_PARTITION_SIZE
+	hex "JFFS2 Partition Size(Bytes)"
+	default 0x80000
+	depends on JFFS2_FS
+	help
+	    Flash JFFS2 Partition size
+
+menuconfig ROOTFS_SQUASHFS
+	boolean "Root squash filesystem support"
+	depends on SQUASHFS && KERNEL
+	default y
+	help
+		Use SQUASHFS target filesystem
+
+if ROOTFS_SQUASHFS=y
+
+choice   
+	prompt "Squash version"
+        default SQUASHFS_V_4_1
+
+config SQUASHFS_V_3_3
+        bool "SQUASHFS_V_3_3"
+        help
+            SQUASHFS version 3.3
+
+config SQUASHFS_V_3_4
+        bool "SQUASHFS_V_3_4"
+        help
+            SQUASHFS version 3.4
+
+config SQUASHFS_V_4_0
+        bool "SQUASHFS_V_4_0"
+        help
+            SQUASHFS version 4.0
+
+config SQUASHFS_V_4_1
+        bool "SQUASHFS_V_4_1"
+        help
+            SQUASHFS version 4.1
+
+endchoice
+
+config MKSQUASHFS_BLOCK 
+	int "Mksquashfs block size"
+	default "65536"
+	help
+	    Mksquashfs block size
+
+endif
+	    
+config BOARD_ID 
+	string "Board id"
+	default 0123456789
+	help
+	    System electronic signatures
+config SW_REGION 
+	string "Software Region"
+	default PR
+	help
+	    Software region(netgear auto-upgrade)
+
+config SW_MODEL
+	string "Software Model Name"
+	default Sitecom
+	help
+	    Software Model Name(netgear auto-upgrade)
+
+config SW_VERSION
+	string "Software Version"
+	default 1.0.6.2
+	help
+	    Software Version(netgear auto-upgrade)
+
+config PINANDOTHER_ENABLED
+	bool 'llconfig pinandother enabled'
+	default n
+	help
+	    Personalized parameters pin code and others
+
+config GENERATE_SSID_PASSPHRASE
+	bool "generate SSID and Passphrase"
+	default n
+	depends on PINANDOTHER_ENABLED
+	help
+	   Mexican generate SSID and Passphrase
+
+config FLASH_WRITE_PROTECT 
+	bool "Flash Support Write Protect"
+	default n
+	help
+	    flash write protect enable	   
+	    
+config SYSTEM_VERSION 
+	string "System version"
+	default R2
+	help
+	    System version
+
+choice
+	prompt "Sysconfig transfer mode"
+	default FLASH_TRANSFER 
+	
+config FLASH_TRANSFER
+	bool "Flash"
+	help
+	    When the sysconfig space is full,the available item will 
+	    use flash space to transfer.This mode is safe.
+
+config SDRAM_TRANSFER
+	bool "DRAM"
+	help
+	    When the sysconfig space is full,the available item will 
+	    use sdram space to transfer.This mode isn't safe, 
+	    because power is off when flash is erased, sysconifg would lose.
+
+endchoice
+
+
+config MAC_OUI 
+	string "Mac oui"
+	default "00:1E:E3"
+	help
+	    Mac oui value
+
+config LAN_MAC_ADDRESS_OFFSET 
+	int "LAN PORT MAC OFFSET"
+	default 0
+	help
+	    lan port mac
+	    
+config WAN_MAC_ADDRESS_OFFSET 
+	int "WAN PORT MAC OFFSET"
+	default 1
+	help
+	    wan port mac
+
+config WLAN_MAC_ADDRESS_OFFSET 
+	int "WLAN PORT MAC OFFSET"
+	default 2
+	help
+	    wlan port mac
+
+config USB_MAC_ADDRESS_OFFSET 
+	int "USB PORT MAC OFFSET"
+	default 3
+	help
+	    usb port mac
+config CUSTOMER_SITECOM
+        bool "CUSTOMER_SITECOM"
+        default n
+        help
+          For customer sitecom
+		
+endmenu
+
+menu "Product Config"
+
+config REPLACE_NODE_PREFIX
+	bool "Replace node prefix"
+	default "X_TWSZ-COM"
+	help
+	    Replace node prefix
+
+config PRODUCT_PREFIX
+	string "Product node prefix"
+	default "X_TWSZ-COM"
+	depends REPLACE_NODE_PREFIX
+	help
+	    Product node prefix
+
+
+config SSIDWITHMAC
+	bool "SSID with mac"
+	default n
+	help
+	    Replace node prefix
+
+config SSIDHEAD
+	string "The ssid header when you use SSID with mac suffix, and modify your first SSID to NULL in config.xml"
+	default "tongwei"
+	depends SSIDWITHMAC
+	help
+	    Product node prefix
+
+choice
+        prompt "Config selection"
+        default DEFAULT_CONFIG
+
+config DEFAULT_CONFIG
+        bool "Default Config"
+        help
+            Default Config.
+
+config STARHUB_CONFIG
+        bool "StarHub Config"
+        help
+            Config for StarHub
+
+endchoice
+
+menu "Sitecom series configuration options"
+
+config  SITECOM_WLR_N300
+        bool "Sitecom WLR-3100 N300"
+        default n
+        help
+            Set prodcut sitecom WLR-3100 N300
+
+config  SITECOM_WLR_AC750
+        bool "Sitecom WLR-5200 AC750"
+        default n
+        help
+            Set product sitecom WLR-5200 AC750
+
+config  MT7530_GE_SWITCH_CHIP
+        bool "MT7530 GE switch chip config"
+	depends SITECOM_WLR_AC750
+	default y
+        help
+             Config for switch chip.
+
+config  MT7610E_5G_CHIP
+        bool "MT7610E 5G chip config"
+	depends SITECOM_WLR_AC750
+	default y
+        help
+            Config for 5g wifi
+
+config  MT7612E_5G_CHIP
+        bool "MT7612E 5G chip config"
+	depends SITECOM_WLR_AC750
+	default n
+        help
+            Config for 5g wifi
+
+
+endmenu
+
+endmenu

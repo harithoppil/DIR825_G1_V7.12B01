@@ -1,0 +1,7 @@
+<InternetGatewayDevice>
+	<X_TWSZ-COM_DEFAULT_GW type="object" >
+		<GWIP type="string"></GWIP>
+		<UserInIf type="string"></UserInIf>
+		<Active type="string">AutoDeftGW</Active>
+	</X_TWSZ-COM_DEFAULT_GW>
+</InternetGatewayDevice>

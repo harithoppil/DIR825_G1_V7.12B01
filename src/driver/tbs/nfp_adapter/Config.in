@@ -1,0 +1,45 @@
+#menuconfig TBS_NFP_ADAPTER
+#        bool "TBS NFP Adapter"
+#        default y
+#	depends on DRIVER
+#	select IP_ROUTE_CACHE_NOTIFY
+#        ---help---
+#          Select this and you will be able to support Network Fast Processing Adapter
+
+menuconfig TBS_NFP_ADAPTER
+        
+        bool "TBS NFP Adapter"
+        default n
+        depends on DRIVERS_TBSMOD
+        select IP_ROUTE_CACHE_NOTIFY
+        ---help---
+          Select nfp type for this adapter
+
+	choice
+                prompt "NFP Type"
+                default TBS_NFP_TBS_ADAPTER
+                depends on TBS_NFP_ADAPTER
+
+                config TBS_NFP_TBS_ADAPTER
+                        bool 'TBS NFP'
+                        help
+                                use marvell NFP
+
+                config TBS_NFP_MARVELL_ADAPTER
+                        bool 'Marvell NFP'
+                        help
+                                use marvell NFP
+
+                config TBS_NFP_MINDSPEED_ADAPTER
+                        bool 'Mindspeed FPP'
+                        help
+                                use mindspeed FPP
+        
+	endchoice
+
+config NFP_ADAPTER_DEBUG
+        bool "NFP Adapter Debug"
+        default n
+        depends on TBS_NFP_ADAPTER
+        ---help---
+          Select this and you open debug for nfp_adapter and marvell_nfp_adapter modules

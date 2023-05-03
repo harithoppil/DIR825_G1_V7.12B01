@@ -1,0 +1,184 @@
+﻿<!-- Start of Stage 1 -->
+<div id="wiz_stage_1" class="blackbox">
+	<h2 id="WIZWLAN001">Step 1: Welcome TO THE D-LINK WIRELESS SECURITY SETUP WIZARD</h2>
+	<div><p class="strong" id="WIZWLAN002">
+		Give your network a name, using up to 32 characters.
+	</p></div>
+	<div class="gap"></div>
+	<div class="textinput">
+		<span name="fld_ssid_24" class="name" id="WIZWLAN003">Network Name (SSID) 2.4GHz</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="wiz_ssid" type="text" size="20" maxlength="32" />
+		</span>
+	</div>
+	<div id="div_ssid_A" name="div_ssid_A" class="textinput">
+		<span class="name" id="WIZWLAN004">Network Name (SSID) 5Ghz</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="wiz_ssid_Aband" type="text" size="20" maxlength="32" />
+		</span>
+	</div>
+	<br>
+	
+	<div class="gap"></div>	
+	<div class="wiz-l1" text-align="left">
+		<input type="radio" id="autokey" name="key" value="0" checked="checked" />
+		<span id="WIZWLAN005">Automatically assign a network key (Recommended)</span><br />
+	</div>
+	<div class="wiz-l2" id="WIZWLAN006">
+		To prevent outsiders from accessing your network, the router will automatically assign a security key (also called WEP or WPA) to your network.
+	</div>
+	<div class="gap"></div>
+	<div class="wiz-l1">
+		<input type="radio" id="manukey" name="key" value="1"/>
+		<span id="WIZWLAN007">Manually assign a network key</span><br />
+	</div>
+	<div class="wiz-l2" id="WIZWLAN008">
+		Use this options if you prefer to create our own key.
+	</div>
+	<div><p class="strong" id="WIZWLAN009">
+		Note: All D-Link wireless adapters currently support WPA.
+	</p></div>
+	<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" id="WIZWLAN037" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+		<input type="button" id="WIZWLAN038" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" id="WIZWLAN039" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" id="WIZWLAN040" name="b_send" value="Save" onClick="OnSubmit();" />&nbsp;&nbsp;
+	</div>
+	<div class="emptyline"></div>
+</div>
+<!-- End of Stage 1 -->
+<!-- Start of Stage 2 -->
+<div id="wiz_stage_2" class="blackbox" style="display:none;">
+	<h2 id="WIZWLAN010">Step 2: Set your Wireless Security Password</h2>
+	<div>
+		<p class="strong" id="WIZWLAN011">
+			You have selected your security level - you will need to set a wireless security password.
+		</p>
+		<p class="strong" id="WIZWLAN012">The WPA (Wi-Fi Protected Access) key must meet one of following guidelines:</p>
+		<p class="strong" id="WIZWLAN013">- Between 8 and 63 characters (A longer WPA key is more secure than a short one )</p>
+		<p class="strong" id="WIZWLAN014">- Exactly 64 characters using 0-9 and A-F</p>
+	</div>
+	
+	<div id="div_5g_sync" name="div_5g_sync">
+	<ul>
+		<input type="checkbox" id="set_5g_security_id" onclick="set_5g_security(this.checked)" checked="checked"/>
+			<span id="WIZWLAN015">Use the same Wireless Security Password on both 2.4GHz and 5GHz band</span>
+    </ul>
+	</div>
+	
+	<div class="textinput">
+		<span class="name" id="WIZWLAN016">Wireless Security Password</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="wiz_key" type="text" maxlength="64" /></span>
+	</div>
+	<div class="textinput" style="display:none;" id="wl_sec_Aband_div">
+		<span class="name" id="WIZWLAN017">Wireless Security Password</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="wiz_key_Aband" type="text" maxlength="64" /></span>
+	</div>	
+	
+	<div>
+		<p class="strong"id="WIZWLAN018">Note: You will need to enter the same password as keys in this step into your wireless clients in order to enable proper wireless communication.</p>
+	</div>
+	<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" id="WIZWLAN041" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+		<input type="button" id="WIZWLAN042" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" id="WIZWLAN043" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" id="WIZWLAN044" name="b_send" value="Save" onClick="OnSubmit();" />&nbsp;&nbsp;
+	</div>
+	<div class="emptyline"></div>
+</div>
+<!-- End of Stage 2 -->
+<!-- Start of Stage 3 -->
+<div id="wiz_stage_3" class="blackbox" style="display:none;">
+	<h2 id="WIZWLAN019">Setup Complete!</h2>
+	<div><p class="strong"id="WIZWLAN020">
+		Below is a detailed summary of your wireless security settings. Please print this page out, or write the information on a piece of paper, so you can configure the correct settings on your wireless client adapters.
+	</p></div>
+	<fieldset>
+	    <div class="emptyline"></div>
+		<div class="textinput">
+			<span class="name"id="WIZWLAN021">Wireless Band</span>
+			<span class="delimiter">:</span>
+			<span class="value"id="WIZWLAN022">2.4GHz Band</span>
+		</div>
+		<div class="gap"></div>
+		<div class="textinput">
+			<span class="name"id="WIZWLAN023">Wireless Network Name (SSID)</span>
+			<span class="delimiter">:</span>
+			<pre style="font-family:Tahoma"><span id="ssid" class="value"></span></pre>
+		</div>
+		<div class="gap"></div>
+		<div class="textinput">
+			<span class="name"id="WIZWLAN024">Security Mode</span>
+			<span class="delimiter">:</span>
+			<span class="value"id="WIZWLAN025">Auto (WPA or WPA2) - Personal</span>
+		</div>
+		<div class="gap"></div>
+		<div class="textinput">
+			<span class="name"id="WIZWLAN026">Cipher Type</span>
+			<span class="delimiter">:</span>
+			<span class="value"id="WIZWLAN027">TKIP and AES</span>
+		</div>
+		<div class="gap"></div>
+		<div class="textinput">
+			<span class="name"id="WIZWLAN028">Pre-Shared Key</span>
+			<span class="delimiter">:</span>
+			<span id="s_key" class="value"></span>
+			<span id="l_key" class="value" style="display:none;"></span>
+		</div>
+		<div class="emptyline"></div>
+		<!--<div id="l_key" class="centerline" style="display:none;"></div>-->
+	</fieldset>
+	
+	<fieldset id="div_summary_A" name="div_summary_A">
+	    <div class="emptyline"></div>
+		<div class="textinput">
+			<span class="name"id="WIZWLAN029">Wireless Band</span>
+			<span class="delimiter">:</span>
+			<span class="value"id="WIZWLAN030">5GHz Band</span>
+		</div>
+		<div class="gap"></div>
+		<div class="textinput">
+			<span class="name"id="WIZWLAN031">Wireless Network Name (SSID)</span>
+			<span class="delimiter">:</span>
+			<pre style="font-family:Tahoma"><span id="ssid_Aband" class="value"></span></pre>
+		</div>
+		<div class="gap"></div>
+		<div class="textinput">
+			<span class="name"id="WIZWLAN032">Security Mode</span>
+			<span class="delimiter">:</span>
+			<span class="value"id="WIZWLAN033">Auto (WPA or WPA2) - Personal</span>
+		</div>
+		<div class="gap"></div>
+		<div class="textinput">
+			<span class="name"id="WIZWLAN034">Cipher Type</span>
+			<span class="delimiter">:</span>
+			<span class="value"id="WIZWLAN035">TKIP and AES</span>
+		</div>
+		<div class="gap"></div>
+		<div class="textinput">
+			<span class="name"id="WIZWLAN036">Pre-Shared Key</span>
+			<span class="delimiter">:</span>
+			<span id="s_key_Aband" class="value"></span>
+			<span id="l_key_Aband" class="value" style="display:none;"></span>
+		</div>
+		<div class="emptyline"></div>
+		<!--
+		<div id="l_key_Aband" class="centerline" style="display:none;"></div>
+		-->
+	</fieldset>
+	
+	<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" id="WIZWLAN045" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+		<input type="button" id="WIZWLAN046" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" id="WIZWLAN047" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" id="WIZWLAN048" name="b_send" value="Save" onClick="OnSubmit();" />&nbsp;&nbsp;
+	</div>
+	<div class="emptyline"></div>
+</div>

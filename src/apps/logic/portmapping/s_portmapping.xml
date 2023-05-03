@@ -1,0 +1,24 @@
+
+<InternetGatewayDevice type="object">
+	<X_TWSZ-COM_PortMapping type="object">
+		<X_TWSZ-COM_MaxPortMappingEntries type="unsignedInt" Writable="0">24</X_TWSZ-COM_MaxPortMappingEntries>
+		<PortMappingNumberOfEntries type="unsignedInt" Writable="0">0</PortMappingNumberOfEntries>
+		<PortMapping type="object" MaxNode="X_TWSZ-COM_MaxPortMappingEntries" CurNode="PortMappingNumberOfEntries">
+			<i type="object">
+				<PortMappingEnabled type="boolean">0</PortMappingEnabled>
+				<PortMappingLeaseDuration type="unsignedInt">0</PortMappingLeaseDuration>
+				<RemoteHost type="string"></RemoteHost>
+				<X_TWSZ-COM_RemoteMask type="string">255.255.255.255</X_TWSZ-COM_RemoteMask>
+				<ExternalPort type="unsignedInt">0</ExternalPort>
+				<ExternalPortEndRange type="unsignedInt">0</ExternalPortEndRange>
+				<InternalPort type="unsignedInt">0</InternalPort>
+				<PortMappingProtocol type="string">TCP</PortMappingProtocol>
+				<InternalClient type="string(256)"></InternalClient>
+				<PortMappingDescription type="string(256)"></PortMappingDescription>
+				<PortMappingTime type="string">Always</PortMappingTime>
+				<X_TWSZ-COM_Weight type="string" Writable="0">0</X_TWSZ-COM_Weight>
+				<X_TWSZ-COM_InBoundFilter type="string"></X_TWSZ-COM_InBoundFilter>
+			</i>
+		</PortMapping>
+	</X_TWSZ-COM_PortMapping>
+</InternetGatewayDevice>

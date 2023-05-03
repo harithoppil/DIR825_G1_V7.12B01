@@ -1,0 +1,702 @@
+﻿<!-- Start of Stage Description -->
+<div id="stage_desc" class="blackbox" style="display:none;">
+	<h2 id="WIZ001">Welcome to the D-Link Internet Connection Setup Wizard</h2>
+	<div><p class="strong" id="WIZ002">
+		This wizard will guide you through a step-by-step process to configure your new D-Link router and connect to the Internet.
+	</p></div>
+	<div>
+		<ul>
+			<li id="WIZ003">Step 1: Set your Password</li>
+			<li id="WIZ004">Step 2: Select your Time Zone</li>
+			<li id="WIZ005">Step 3: Configure your Internet Connection</li>
+			<li id="WIZ006">Step 4: Save Settings and Connect</li>
+		</ul>
+	</div>
+	<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" id="WIZ007" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ008" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ009" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ010" name="b_send" value="Connect" onClick="OnSubmit();" disabled="true" />&nbsp;&nbsp;
+	</div>
+	<div class="emptyline"></div>
+</div>
+<!-- End of Stage Description -->
+<!-- Start of Stage Password -->
+<div id="stage_passwd" class="blackbox" style="display:none;">
+	<h2 id="WIZ011">Step 1: Set your Password</h2>
+	<div><p class="strong" id="WIZ012">
+		By default, your new D-Link Router does not have a password configured for administrator access to the Web-based configuration pages. To secure your new networking device, please set and verify a password below:
+	</p></div>
+	<div class="gap"></div>
+	<div class="textinput">
+		<span class="name" id="WIZ013">Password</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="wiz_passwd" type="password" size="20" maxlength="15" />
+		</span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="WIZ014">Verify Password</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="wiz_passwd2" type="password" size="20" maxlength="15" />
+		</span>
+	</div>
+	<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" id="WIZ015" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ016" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ017" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ018" name="b_send" value="Connect" onClick="OnSubmit();" disabled="true" />&nbsp;&nbsp;
+	</div>
+	<div class="emptyline"></div>
+</div>
+<!-- End of Stage Password -->
+<!-- Start of Stage Time Zone -->
+<div id="stage_tz" class="blackbox" style="display:none;">
+	<h2 id="WIZ019">Step 2: Select your Time Zone</h2>
+	<div><p class="strong" id="WIZ020">
+		Select the appropriate time zone for your location. This information is required to configure the time-based options for the router.
+	</p></div>
+	<div class="gap"></div>
+	<div class="textinput">
+		<span class="name" id="WIZ021">Time Zone</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="wiz_tz">
+				<option value="1" id="WIZ022">(GMT-12:00) International Date Line West</option>
+				<option value="2" id="WIZ023">(GMT-11:00) Midway Island</option>
+				<option value="3" id="WIZ024">(GMT-10:00) Hawaii</option>
+				<option value="4" id="WIZ025">(GMT-09:00) Alaska</option>
+				<option value="5" id="WIZ026">(GMT-08:00) Pacific Time (US & Canada), Tijuana</option>
+				<option value="6" id="WIZ027">(GMT-07:00) Arizona</option>
+				<option value="7" id="WIZ028">(GMT-07:00) Chihuahua, La Paz, Mazatlan</option>
+				<option value="8" id="WIZ029">(GMT-07:00) Mountain Time (US & Canada)</option>
+				<option value="9" id="WIZ030">(GMT-06:00) Central America</option>
+				<option value="10" id="WIZ031">(GMT-06:00) Central Time (US & Canada)</option>
+				<option value="11" id="WIZ032">(GMT-06:00) Guadalajara, Mexico City, Monterrey</option>
+				<option value="12" id="WIZ033">(GMT-06:00) Saskatchewan</option>
+				<option value="13" id="WIZ034">(GMT-05:00) Bogota, Lima, Quito,Indiana (East)</option>
+				<option value="14" id="WIZ035">(GMT-05:00) Eastern Time (US & Canada)</option>
+				<option value="15" id="WIZ036">(GMT-04:30) Caracas</option>
+				<option value="16" id="WIZ037">(GMT-04:00) Georgetown, La Paz</option>
+				<option value="17" id="WIZ038">(GMT-04:00) Atlantic Time (Canada)</option>
+				<option value="18" id="WIZ039">(GMT-04:00) Santiago</option>
+				<option value="19" id="WIZ040">(GMT-03:30) Newfoundland</option>
+				<option value="20" id="WIZ041">(GMT-03:00) Brasilia</option>
+				<option value="21" id="WIZ042">(GMT-03:00) Buenos Aires</option>
+				<option value="22" id="WIZ043">(GMT-03:00) Greenland</option>
+				<option value="23" id="WIZ044">(GMT-02:00) Mid-Atlantic</option>
+				<option value="24" id="WIZ045">(GMT-01:00) Azores</option>
+				<option value="25" id="WIZ046">(GMT-01:00) Cape Verde Is.</option>
+				<option value="26" id="WIZ047">(GMT) Casablanca, Monrovia</option>
+				<option value="27" id="WIZ048">(GMT) Greenwich Mean Time : Dublin, Edinburgh, Lisbon, London</option>
+				<option value="28" id="WIZ049">(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</option>
+				<option value="29" id="WIZ050">(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</option>
+				<option value="30" id="WIZ051">(GMT+01:00) Brussels, Copenhagen, Madrid, Paris</option>
+				<option value="31" id="WIZ052">(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb</option>
+				<option value="32" id="WIZ053">(GMT+01:00) West Central Africa</option>
+				<option value="33" id="WIZ054">(GMT+02:00) Athens, Istanbul, Minsk</option>
+				<option value="34" id="WIZ055">(GMT+02:00) Bucharest</option>
+				<option value="35" id="WIZ056">(GMT+02:00) Cairo</option>
+				<option value="36" id="WIZ057">(GMT+02:00) Harare, Pretoria</option>
+				<option value="37" id="WIZ058">(GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius</option>
+				<option value="38" id="WIZ059">(GMT+02:00) Jerusalem</option>
+				<option value="39" id="WIZ060">(GMT+03:00) Baghdad</option>
+				<option value="40" id="WIZ061">(GMT+03:00) Kuwait, Riyadh</option>
+				<option value="41" id="WIZ062">(GMT+03:00) Nairobi</option>
+				<option value="42" id="WIZ063">(GMT+03:30) Tehran</option>
+				<option value="43" id="WIZ064">(GMT+04:00) Abu Dhabi, Muscat</option>
+				<option value="44" id="WIZ065">(GMT+04:00) Baku, Tbilisi, Yerevan</option>
+				<option value="45" id="WIZ066">(GMT+04:00) Moscow, St. Petersburg, Volgograd</option>
+				<option value="46" id="WIZ067">(GMT+04:30) Kabul</option>
+				<option value="47" id="WIZ068">(GMT+05:00) Islamabad, Karachi, Tashkent</option>
+				<option value="48" id="WIZ069">(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</option>
+				<option value="49" id="WIZ070">(GMT+05:30) Sri Jayawardenepura</option>
+				<option value="50" id="WIZ071">(GMT+05:45) Kathmandu</option>
+				<option value="51" id="WIZ072">(GMT+06:00) Astana, Dhaka</option>
+				<option value="52" id="WIZ073">(GMT+06:00) Ekaterinburg</option>
+				<option value="53" id="WIZ074">(GMT+06:30) Rangoon</option>
+				<option value="54" id="WIZ075">(GMT+07:00) Almaty, Novosibirsk</option>
+				<option value="55" id="WIZ076">(GMT+07:00) Bangkok, Hanoi, Jakarta</option>
+				<option value="56" id="WIZ077">(GMT+08:00) Krasnoyarsk</option>
+				<option value="57" id="WIZ078">(GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi</option>
+				<option value="58" id="WIZ079">(GMT+08:00) Kuala Lumpur, Singapore</option>
+				<option value="59" id="WIZ080">(GMT+08:00) Perth</option>
+				<option value="60" id="WIZ081">(GMT+08:00) Taipei</option>
+				<option value="61" id="WIZ082">(GMT+08:00) Ulaan Bataar</option>
+				<option value="62" id="WIZ083">(GMT+09:00) Irkutsk</option>
+				<option value="63" id="WIZ084">(GMT+09:00) Osaka, Sapporo, Tokyo</option>
+				<option value="64" id="WIZ085">(GMT+09:00) Seoul</option>
+				<option value="65" id="WIZ086">(GMT+09:30) Adelaide</option>
+				<option value="66" id="WIZ087">(GMT+09:30) Darwin</option>
+				<option value="67" id="WIZ088">(GMT+10:00) Brisbane</option>
+				<option value="68" id="WIZ089">(GMT+10:00) Canberra, Melbourne, Sydney</option>
+				<option value="69" id="WIZ090">(GMT+10:00) Guam, Port Moresby</option>
+				<option value="70" id="WIZ091">(GMT+10:00) Hobart</option>
+				<option value="71" id="WIZ092">(GMT+10:00) Yakutsk</option>
+				<option value="72" id="WIZ093">(GMT+11:00) Solomon Is., New Caledonia</option>
+				<option value="73" id="WIZ094">(GMT+11:00) Vladivostok</option>
+				<option value="74" id="WIZ095">(GMT+12:00) Magadan</option>
+				<option value="75" id="WIZ096">(GMT+12:00) Auckland, Wellington</option>
+				<option value="76" id="WIZ097">(GMT+12:00) Fiji, Kamchatka, Marshall Is.</option>
+				<option value="77" id="WIZ098">(GMT+13:00) Nuku'alofa</option>
+				<option value="78" id="WIZ099">(GMT+13:00) Samoa</option>
+			</select>
+		</span>
+	</div>
+	<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" id="WIZ100" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ101" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ102" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ103" name="b_send" value="Connect" onClick="OnSubmit();" disabled="true" />&nbsp;&nbsp;
+	</div>
+	<div class="emptyline"></div>
+</div>
+<!-- End of Stage Time Zone -->
+<!-- Start of Stage Ethernet -->
+<div id="stage_ether" style="display:none;">
+	<div class="blackbox">
+		<h2 id="WIZ104">Step 3: Configure your Internet Connection</h2>
+		<div class="gap"></div>
+		<div><p class="strong" id="WIZ105">
+			Please select the Internet connection type below:
+		</p></div>
+		<div class="wiz-l1">
+			<input name="wan_mode" type="radio" value="DHCP" onClick="OnChangeWanType(this.value);"  checked/>
+			<span id="WIZ106">DHCP Connection (Dynamic IP Address)</span>
+		</div>
+		<div class="wiz-l2" id="WIZ107">
+			Choose this if your Internet connection automatically provides you with an IP Address. Most Cable Modems use this type of connection.
+		</div>
+		<div class="wiz-l1" style="display:none;">
+			<input name="wan_mode" type="radio" value="DHCPPLUS" onClick="OnChangeWanType(this.value);" />
+			DHCP Plus Connection (Dynamic IP Address)
+		</div>
+		<div class="wiz-l2" style="display:none;">
+			Choose this if your Internet connection automatically provides you with an IP Address. Most Cable Modems use this type of connection.
+		</div>
+		<div class="wiz-l1">
+			<input name="wan_mode" type="radio" value="PPPoE" onClick="OnChangeWanType(this.value);" />
+			<span id="WIZ198">Username / Password Connection (PPPoE)</span>
+		</div>
+		<div class="wiz-l2" id="WIZ108">
+			Choose this option if your Internet connection requires a username and password to get online. Most DSL modems use this type of connection.
+		</div>
+		<div class="wiz-l1">
+			<input name="wan_mode" type="radio" value="PPTP" onClick="OnChangeWanType(this.value);" />
+			<span id="WIZ109">Username / Password Connection (PPTP)</span>
+		</div>
+		<div class="wiz-l2" id="WIZ110">
+			Choose this option if your Internet connection requires a username and password to get online. Most DSL modems use this type of connection.
+		</div>
+		<div class="wiz-l1">
+			<input name="wan_mode" type="radio" value="L2TP" onClick="OnChangeWanType(this.value);" />
+			<span id="WIZ111">Username / Password Connection (L2TP)</span>
+		</div>
+		<div class="wiz-l2" id="WIZ112">
+			Choose this option if your Internet connection requires a username and password to get online. Most DSL modems use this type of connection.
+		</div>
+		<div class="wiz-l1">
+			<input name="wan_mode" type="radio" value="STATIC" onClick="OnChangeWanType(this.value);" />
+			<span id="WIZ113">Static IP Address Connection</span>
+		</div>
+		<div class="wiz-l2" id="WIZ114">
+			Choose this option if your Internet Setup Provider provided you with IP Address information that has to be manually configured.
+		</div>
+		<div class="wiz-l1" style="display:none;">
+			<input name="wan_mode" type="radio" value="R_PPTP" onClick="OnChangeWanType(this.value);" />
+			Russia PPTP (Dual Access)
+		</div>
+		<div class="wiz-l2" style="display:none;">
+			Choose this option if your Internet connection requires a username and password to get online as well as a static route to access the Internet Service Provider's internal network. Certain ISPs in Russia use this type of connection.
+		</div>
+		<div class="wiz-l1" style="display:none;">
+			<input name="wan_mode" type="radio" value="R_L2TP" onClick="OnChangeWanType(this.value);" />
+			Russia L2TP (Dual Access)
+		</div>
+		<div class="wiz-l2" style="display:none;">
+			Choose this option if your Internet connection requires a username and password to get online as well as a static route to access the Internet Service Provider's internal network. Certain ISPs in Russia use this type of connection.
+		</div>		
+		<div class="wiz-l1" style="display:none;">
+			<input name="wan_mode" type="radio" value="R_PPPoE" onClick="OnChangeWanType(this.value);" />
+			Russia PPPoE (Dual Access)
+		</div>
+		<div class="wiz-l2" style="display:none;">
+			Choose this option if your Internet connection requires a username and password to get online as well as a static route to access the Internet Service Provider's internal network. Certain ISPs in Russia use this type of connection.
+		</div>
+		<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" id="WIZ115" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ116" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ117" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ118" name="b_send" value="Connect" onClick="OnSubmit();" disabled="true" />&nbsp;&nbsp;
+	</div>
+	<div class="emptyline"></div>
+	</div>
+</div>
+<!-- End of Stage Ethernet -->
+<!-- Start of Stage Ethernet WAN Settings -->
+<div id="stage_ether_cfg" style="display:none;">
+	<input id="ppp4_timeout" type="hidden" />
+	<input id="ppp4_mode" type="hidden" />
+	<input id="ppp4_mtu" type="hidden" />
+	<input id="ipv4_mtu" type="hidden" />
+	<!-- Start of DHCP -->
+	<div id="DHCP">
+		<div class="blackbox">
+			<h2 id="WIZ0119">DHCP Connection (Dynamic IP Address)</h2>
+			<div><p class="strong" id="WIZ120">
+				To set up this connection, please make sure that you are connected to the D-Link Router with the PC that was originally connected to your broadband connection. If you are, then click the Clone MAC button to copy your computer's MAC Address to the D-Link Router.
+			</p></div>
+			<div class="textinput">
+				<span class="name" id="WIZ121">MAC Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_dhcp_mac" type="text" size="20" maxlength="17" />
+					<span id="WIZ122">(optional)</span>
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name"></span>
+				<span class="delimiter"></span>
+				<span class="value">
+					<input type="button" id="WIZ123" value="Clone Your PC's MAC Address" onClick="OnClickCloneMAC();" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZ124">Host Name</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_dhcp_host" type="text" size="25" maxlength="15" />
+				</span>
+			</div>
+			<div id="DHCPPLUS" style="display:none">
+				<div class="textinput">
+					<span class="name" id="WIZ125">Username</span>
+					<span class="delimiter">:</span>
+					<span class="value">
+						<input id="wiz_dhcpplus_user" type="text" size="25" maxlength="63" />
+					</span>
+				</div>
+				<div class="textinput">
+					<span class="name" id="WIZ126">Password</span>
+					<span class="delimiter">:</span>
+					<span class="value">
+						<input id="wiz_dhcpplus_pass" type="password" size="25" maxlength="63" />
+					</span>
+				</div>
+			</div>
+			<p id="WIZ127">
+				Note: You may also need to provide a Host Name.If you do not have or know this information, please contact your ISP.
+			</p>
+			<div class="gap"></div>
+		</div>
+		<div class="blackbox" style="margin-top:0px;">
+			<h2 id="WIZ128">DNS Settings</h2>			
+			<div class="textinput">
+				<span class="name" id="WIZ129">Primary DNS Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_dhcp_dns1" type="text" size="20" maxlength="15" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZ130">Secondary DNS Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_dhcp_dns2" type="text" size="20" maxlength="15" />
+					<span id="WIZ131">(optional)</span>
+				</span>
+			</div>
+			<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" id="WIZ132" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ133" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ134" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ135" name="b_send" value="Connect" onClick="OnSubmit();" disabled="true" />&nbsp;&nbsp;
+	</div>
+	<div class="emptyline"></div>
+		</div>
+
+	</div>
+	<!-- End of DHCP -->
+	<!-- Start of PPPoE -->
+	<div id="PPPoE">
+		<div class="blackbox">
+			<h2 id="WIZ136">Set Username and Password Connection (PPPoE)</h2>
+			<div><p class="strong" id="WIZ137">
+				To set up this connection you will need to have a Username and Password from your Internet Service Provider. If you do not have this information, please contact your ISP.
+			</p></div>
+			<div class="textinput" style="display:none;">
+				<span class="name" >Address Mode</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input name="wiz_pppoe_conn_mode" type="radio" value="dynamic" checked onChange="OnChangePPPoEMode();" />
+					Dynamic IP
+					<span class="value">
+					<input name="wiz_pppoe_conn_mode" type="radio" value="static" onChange="OnChangePPPoEMode();" />
+					Static IP
+				</span>
+				</span>
+			</div>
+			<div class="textinput" style="display:none;">
+				<span class="name">IP Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_pppoe_ipaddr" type="text" size="20" maxlength="15" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZ138">User Name</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_pppoe_usr" type="text" size="20" maxlength="63" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZ139">Password</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_pppoe_passwd" type="text" size="20" maxlength="63" />
+				</span>
+			</div>
+			<div class="textinput" style="display:none;">
+				<span class="name" id="WIZ003">Verify Password</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_pppoe_passwd2" type="password" size="20" maxlength="63" />
+				</span>
+			</div>
+			<div class="textinput" style="display:none;">
+				<span class="name" id="WIZ003">Service Name</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_pppoe_svc" type="text" size="20" maxlength="39" />
+					<span id="WIZ140">(optional)</span>
+				</span>
+			</div>
+			<div style="display:none;">
+			<p>
+				Note: You may also need to provide a Service Name. If you do not have or know this information, please contact your ISP.
+			</p>
+			</div>
+			<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" id="WIZ141" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ142" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ143" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ144" name="b_send" value="Connect" onClick="OnSubmit();" disabled="true" />&nbsp;&nbsp;
+	</div>
+	<div class="emptyline"></div>
+			<div class="gap"></div>
+		</div>
+		<div id="R_PPPoE" class="blackbox" style="display:none">
+			<h2>WAN Physical Settings</h2>
+			<div class="textinput">
+				<span class="name"></span>
+				<span class="delimiter"></span>
+				<span class="value">
+					<input name="wiz_rpppoe_conn_mode" type="radio" value="dynamic" checked onChange="OnChangeRussiaPPPoEMode();" />
+					Dynamic IP
+					<input name="wiz_rpppoe_conn_mode" type="radio" value="static" onChange="OnChangeRussiaPPPoEMode();" />
+					Static IP
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name">IP Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_rpppoe_ipaddr" type="text" size="20" maxlength="15" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name">Subnet Mask</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_rpppoe_mask" type="text" size="20" maxlength="15" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name">Gateway</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_rpppoe_gw" type="text" size="20" maxlength="15" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name">Primary DNS Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_rpppoe_dns1" type="text" size="20" maxlength="15" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name">Secondary DNS Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_rpppoe_dns2" type="text" size="20" maxlength="15" />
+					(optional)
+				</span>
+			</div>
+			<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+		<input type="button" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" name="b_send" value="Connect" onClick="OnSubmit();" disabled="true" />&nbsp;&nbsp;
+	</div>
+	<div class="emptyline"></div>
+		</div>
+	</div>
+	<!-- End of PPPoE -->
+	<!-- Start of PPTP -->
+	<div id="PPTP">
+		<div class="blackbox">
+			<h2 id="WIZ145">Set Username and Password Connection (PPTP)</h2>
+			<div><p class="strong" id="WIZ146">
+				To set up this connection you will need to have a Username and Password from your Internet Service Provider. You also need PPTP IP address. If you do not have this information, please contact your ISP.
+			</p></div>
+			<div class="textinput">
+				<span class="name" id="WIZ147">Address Mode</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input name="wiz_pptp_conn_mode" type="radio" value="dynamic" checked onClick="OnChangePPTPMode();" />
+					<span id="WIZ148">Dynamic IP</span>
+					<input name="wiz_pptp_conn_mode" type="radio" value="static" onClick="OnChangePPTPMode();" />
+					<span id="WIZ149">Static IP</span>
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZ150">PPTP IP Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_pptp_ipaddr" type="text" size="20" maxlength="15" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZ151">PPTP Subnet Mask</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_pptp_mask" type="text" size="20" maxlength="15" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZ152">PPTP Gateway IP Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_pptp_gw" type="text" size="20" maxlength="15" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZ153">PPTP Server IP Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_pptp_svr" type="text" size="20" maxlength="30" />
+					<span id="WIZ154">(may be same as gateway)</span>
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZ155">User Name</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_pptp_usr" type="text" size="20" maxlength="63" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZ156">Password</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_pptp_passwd" type="password" size="20" maxlength="63" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZ157">Verify Password</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_pptp_passwd2" type="password" size="20" maxlength="63" />
+				</span>
+			</div>
+			<div class="emptyline"></div>
+		</div>
+	</div>
+	<!-- End of PPTP -->
+	<!-- Start of L2TP -->
+	<div id="L2TP">
+		<div class="blackbox">
+			<h2 id="WIZ158">Set Username and Password Connection (L2TP)</h2>
+			<div><p class="strong" id="WIZ159">
+				To set up this connection you will need to have a Username and Password from your Internet Service Provider. You also need L2TP IP address. If you do not have this information, please contact your ISP.
+			</p></div>
+			<div class="textinput">
+				<span class="name" id="WIZ160">Address Mode</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input name="wiz_l2tp_conn_mode" type="radio" value="dynamic" checked onClick="OnChangeL2TPMode();" />
+					<span id="WIZ161">Dynamic IP</span>
+					<input name="wiz_l2tp_conn_mode" type="radio" value="static" onClick="OnChangeL2TPMode();" />
+					<span id="WIZ162">Static IP</span>
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZ163">L2TP IP Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_l2tp_ipaddr" type="text" size="20" maxlength="15" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZ164">L2TP Subnet Mask</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_l2tp_mask" type="text" size="20" maxlength="15" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZ165">L2TP Gateway IP Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_l2tp_gw" type="text" size="20" maxlength="15" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZ166">L2TP Server IP Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_l2tp_svr" type="text" size="20" maxlength="30" />
+					<span id="WIZ167">(may be same as gateway)</span>
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZ168">User Name</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_l2tp_usr" type="text" size="20" maxlength="63" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZ169">Password</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_l2tp_passwd" type="password" size="20" maxlength="63" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZ170">Verify Password</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_l2tp_passwd2" type="password" size="20" maxlength="63" />
+				</span>
+			</div>
+			<div class="emptyline"></div>
+		</div>
+	</div>
+	<!-- End of L2TP -->
+	<!-- Start of STATIC -->
+	<div id="STATIC">
+		<div class="blackbox">
+			<h2 id="WIZ171">Set Static IP Address Connection</h2>
+			<div><p class="strong" id="WIZ172">
+				To set up this connection you will need to have a complete list of IP information provided by your Internet Service Provider. If you have a Static IP connection and do not have this information, please contact your ISP.
+			</p></div>
+			<div class="textinput">
+				<span class="name" id="WIZ173">IP Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_static_ipaddr" type="text" size="20" maxlength="15" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZ174">Subnet Mask</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_static_mask" type="text" size="20" maxlength="15" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZ175">Default Gateway</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_static_gw" type="text" size="20" maxlength="15" />
+				</span>
+			</div>
+			<br>			
+		</div>			
+		<div class="blackbox" style="margin-top:0px;">
+			<h2 id="WIZ176">DNS Settings</h2>			
+			<div class="textinput">
+				<span class="name" id="WIZ177">Primary DNS Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_static_dns1" type="text" size="20" maxlength="15" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZ178">Secondary DNS Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="wiz_static_dns2" type="text" size="20" maxlength="15" />
+					<span id="WIZ179">(optional)</span>
+				</span>
+			</div>
+			<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" id="WIZ180" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ181" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ182" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ183" name="b_send" value="Connect" onClick="OnSubmit();" disabled="true" />&nbsp;&nbsp;
+	</div>
+	<div class="emptyline"></div>
+		</div>
+	</div>
+	<!-- End of STATIC -->
+	<div id="DNS">
+		<div class="blackbox" style="margin-top:0px;">
+			<h2 id="WIZ184">DNS Settings</h2>
+			<div class="textinput">
+				<span class="name" id="WIZ185">Primary DNS Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="dns1" type="text" size="20" maxlength="15" />
+				</span>
+			</div>
+			<div class="textinput">
+				<span class="name" id="WIZ186">Secondary DNS Address</span>
+				<span class="delimiter">:</span>
+				<span class="value">
+					<input id="dns2" type="text" size="20" maxlength="15" />
+					<span id="WIZ187">(optional)</span>
+				</span>
+			</div>			
+			<div class="gap"></div>
+			<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" id="WIZ188" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ189" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ190" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ191" name="b_send" value="Connect" onClick="OnSubmit();" disabled="true" />&nbsp;&nbsp;
+	</div>
+	<div class="emptyline"></div>
+			<div class="gap"></div>		
+		</div>	
+	</div>		
+</div>
+<!-- End of Stage Ethernet WAN Settings -->
+<!-- Start of Stage Finish -->
+<div id="stage_finish" class="blackbox" style="display:none;">
+	<h2 id="WIZ192">Setup Complete!</h2>
+	<div><p class="strong" id="WIZ193">
+		The Internet Connection Setup Wizard has completed. Click the Connect button to save your settings.
+	</p></div>
+	<div class="gap"></div>
+	<div class="emptyline"></div>
+	<div class="centerline">
+		<input type="button" id="WIZ194" name="b_pre" value="Prev" onClick="OnClickPre();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ195" name="b_next" value="Next" onClick="OnClickNext();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ196" name="b_exit" value="Cancel" onClick="OnClickCancel();" />&nbsp;&nbsp;
+		<input type="button" id="WIZ197" name="b_send" value="Connect" onClick="OnSubmit();" disabled="true" />&nbsp;&nbsp;
+	</div>
+	<div class="emptyline"></div>
+</div>

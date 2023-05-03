@@ -1,0 +1,3 @@
+menuconfig DRIVERS_TC3262 
+  bool "Ralink Applications"
+  default y 

@@ -1,0 +1,1364 @@
+<div class="mainbody" id="mainbody">
+<div class="orangebox">
+<span id="Adv_fw6001">
+	<h1>IPv6 FIREWALL</h1>
+	<p>The firewall settings section is an advance feature used to allow or deny traffic from passing through the device. It works in the same way as IP Filters with additional settings. You can create more detailed rules for the device.</p>
+</span>
+	<p>	<input type="button" value="Save Settings" onclick="uiSubmit();" id="Adv_fw6002"/>
+		<input type="button" value="Don't Save Settings" onclick="uiPageRefresh();" id="Adv_fw6003"/></p>
+</div>
+
+<div class="blackbox">
+	<h2 id="Adv_fw6004">IPv6 SIMPLE SECURITY</h2>
+	<div class="textinput">
+		<span class="name" id="Adv_fw6005">Enable IPv6 Simple Security</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="smp_security" type="checkbox"/></span>
+	</div>
+	<div class="gap"></div>
+</div>
+
+<div class="blackbox">
+    <h2 id="Adv_fw6006">20 -- IPv6 FIREWALL RULES</h2>
+    <p><span id="Adv_fw6007">Remaining number of rules that can be created</span>: <span id="rmd" style="color:red;"></span></p>
+    <p><span id="Adv_fw6008">Configure IPv6 Filtering below</span>:<br>
+		<select id="mode">
+			<option value="DISABLE" id="Adv_fw6009">Turn IPv6 Filtering OFF</option>
+			<option value="DROP" id="Adv_fw6010">Turn IPv6 Filtering ON and ALLOW rules listed</option>
+			<option value="ACCEPT" id="Adv_fw6011">Turn IPv6 Filtering ON and DENY rules listed</option>
+		</select>
+	</p>
+
+	<div class="centerline" align="center">
+		<table id="" class="general">
+		<tr>
+			<td width="25" rowspan="3" class="centered">
+				<input id="en_1" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="160px">
+				<span id="Adv_fw6012">Name</span><br>
+				<input id="dsc_1" type="text" style="width:150px" maxlength="31" />
+			</td>
+			<td class="left" width="200px">
+				<span id="Adv_fw6013">Schedule</span><br>
+			<select id="sch_1" class="narrow" style="width: 65px;">
+			</select>
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6014">Source</span>
+			</td>
+			<td>
+				<span id="Adv_fw6015">Interface</span><br>
+				<select id="src_inf_1">
+					<option value="LAN-4" id="Adv_fw6016">LAN</option>
+					<option value="WAN-4" id="Adv_fw6018">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6019">IP Address /PrefixLength</span><br>
+			<input id=src_startip_1 type="text" maxlength="39" style="width:193px"/>
+			<input id=src_prelen_1 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6020">Protocol</span><br>
+				<select id="pro_1" onchange="OnChangeProt(1)">
+					<option value="ALL" id="Adv_fw6021">ALL</option>
+					<option value="TCP">TCP</option>
+					<option value="UDP">UDP</option>
+					<option value="ICMPv6">ICMP</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6022">Dest</span>
+			</td>
+			<td>
+				<span id="Adv_fw6023">Interface</span><br>
+				<select id="dst_inf_1">
+					<option value="LAN-4" id="Adv_fw6024">LAN</option>
+					<option value="WAN-4" id="Adv_fw6025">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6026">IP Address /PrefixLength</span><br>
+			<input id=dst_startip_1 type="text" maxlength="39" style="width:193px"/>
+			<input id=dst_prelen_1 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6027">Port Range</span><br>
+				<input id="dst_startport_1" type="text"  maxlength="5" size="6"/>~
+				<input id="dst_endport_1" type="text" maxlength="5" size="6" />
+			</td>
+		</tr>
+
+		<tr>
+			<td width="25" rowspan="3" class="centered">
+				<input id="en_2" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="160px">
+				<span id="Adv_fw6028">Name</span><br>
+				<input id="dsc_2" type="text" style="width:150px" maxlength="31" />
+			</td>
+			<td class="left" width="200px">
+				<span id="Adv_fw6029">Schedule</span><br>
+			<select id="sch_2" class="narrow" style="width: 65px;">
+			</select>
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6030">Source</span>
+			</td>
+			<td>
+				<span id="Adv_fw6031">Interface</span><br>
+				<select id="src_inf_2">
+					<option value="LAN-4" id="Adv_fw6032">LAN</option>
+					<option value="WAN-4" id="Adv_fw6033">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6034">IP Address /PrefixLength</span><br>
+			<input id=src_startip_2 type="text" maxlength="39" style="width:193px"/>
+			<input id=src_prelen_2 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6035">Protocol</span><br>
+				<select id="pro_2" onchange="OnChangeProt(2)">
+					<option value="ALL" id="Adv_fw6036">ALL</option>
+					<option value="TCP">TCP</option>
+					<option value="UDP">UDP</option>
+					<option value="ICMPv6">ICMP</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6037">Dest</span>
+			</td>
+			<td>
+				<span id="Adv_fw6038">Interface</span><br>
+				<select id="dst_inf_2">
+					<option value="LAN-4" id="Adv_fw6039">LAN</option>
+					<option value="WAN-4" id="Adv_fw6040">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6041">IP Address /PrefixLength</span><br>
+			<input id=dst_startip_2 type="text" maxlength="39" style="width:193px"/>
+			<input id=dst_prelen_2 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6042">Port Range</span><br>
+				<input id="dst_startport_2" type="text"  maxlength="5" size="6"/>~
+				<input id="dst_endport_2" type="text" maxlength="5" size="6" />
+			</td>
+		</tr>
+
+		<tr>
+			<td width="25" rowspan="3" class="centered">
+				<input id="en_3" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="160px">
+				<span id="Adv_fw6043">Name</span><br>
+				<input id="dsc_3" type="text" style="width:150px" maxlength="31" />
+			</td>
+			<td class="left" width="200px">
+				<span id="Adv_fw6044">Schedule</span><br>
+			<select id="sch_3" class="narrow" style="width: 65px;">
+			</select>
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6045">Source</span>
+			</td>
+			<td>
+				<span id="Adv_fw6046">Interface</span><br>
+				<select id="src_inf_3">
+					<option value="LAN-4" id="Adv_fw6047">LAN</option>
+					<option value="WAN-4" id="Adv_fw6048">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6049">IP Address /PrefixLength</span><br>
+			<input id=src_startip_3 type="text" maxlength="39" style="width:193px"/>
+			<input id=src_prelen_3 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6050">Protocol</span><br>
+				<select id="pro_3" onchange="OnChangeProt(3)">
+					<option value="ALL" id="Adv_fw6051">ALL</option>
+					<option value="TCP">TCP</option>
+					<option value="UDP">UDP</option>
+					<option value="ICMPv6">ICMP</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6052">Dest</span>
+			</td>
+			<td>
+				<span id="Adv_fw6053">Interface</span><br>
+				<select id="dst_inf_3">
+					<option value="LAN-4" id="Adv_fw6054">LAN</option>
+					<option value="WAN-4" id="Adv_fw6055">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6056">IP Address /PrefixLength</span><br>
+			<input id=dst_startip_3 type="text" maxlength="39" style="width:193px"/>
+			<input id=dst_prelen_3 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6057">Port Range</span><br>
+				<input id="dst_startport_3" type="text"  maxlength="5" size="6"/>~
+				<input id="dst_endport_3" type="text" maxlength="5" size="6" />
+			</td>
+		</tr>
+
+		<tr>
+			<td width="25" rowspan="3" class="centered">
+				<input id="en_4" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="160px">
+				<span id="Adv_fw6058">Name</span><br>
+				<input id="dsc_4" type="text" style="width:150px" maxlength="31" />
+			</td>
+			<td class="left" width="200px">
+				<span id="Adv_fw6059">Schedule</span><br>
+			<select id="sch_4" class="narrow" style="width: 65px;">
+			</select>
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6060">Source</span>
+			</td>
+			<td>
+				<span id="Adv_fw6061">Interface</span><br>
+				<select id="src_inf_4">
+					<option value="LAN-4" id="Adv_fw6062">LAN</option>
+					<option value="WAN-4" id="Adv_fw6063">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6064">IP Address /PrefixLength</span><br>
+			<input id=src_startip_4 type="text" maxlength="39" style="width:193px"/>
+			<input id=src_prelen_4 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6065">Protocol</span><br>
+				<select id="pro_4" onchange="OnChangeProt(4)">
+					<option value="ALL" id="Adv_fw6066">ALL</option>
+					<option value="TCP">TCP</option>
+					<option value="UDP">UDP</option>
+					<option value="ICMPv6">ICMP</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6067">Dest</span>
+			</td>
+			<td>
+				<span id="Adv_fw6068">Interface</span><br>
+				<select id="dst_inf_4">
+					<option value="LAN-4" id="Adv_fw6069">LAN</option>
+					<option value="WAN-4" id="Adv_fw6070">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6071">IP Address /PrefixLength</span><br>
+			<input id=dst_startip_4 type="text" maxlength="39" style="width:193px"/>
+			<input id=dst_prelen_4 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6072">Port Range</span><br>
+				<input id="dst_startport_4" type="text"  maxlength="5" size="6"/>~
+				<input id="dst_endport_4" type="text" maxlength="5" size="6" />
+			</td>
+		</tr>
+
+		<tr>
+			<td width="25" rowspan="3" class="centered">
+				<input id="en_5" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="160px">
+				<span id="Adv_fw6073">Name</span><br>
+				<input id="dsc_5" type="text" style="width:150px" maxlength="31" />
+			</td>
+			<td class="left" width="200px">
+				<span id="Adv_fw6074">Schedule</span><br>
+			<select id="sch_5" class="narrow" style="width: 65px;">
+			</select>
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6075">Source</span>
+			</td>
+			<td>
+				<span id="Adv_fw6076">Interface</span><br>
+				<select id="src_inf_5">
+					<option value="LAN-4" id="Adv_fw6077">LAN</option>
+					<option value="WAN-4" id="Adv_fw6078">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6079">IP Address /PrefixLength</span><br>
+			<input id=src_startip_5 type="text" maxlength="39" style="width:193px"/>
+			<input id=src_prelen_5 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6080">Protocol</span><br>
+				<select id="pro_5" onchange="OnChangeProt(5)">
+					<option value="ALL" id="Adv_fw6081">ALL</option>
+					<option value="TCP">TCP</option>
+					<option value="UDP">UDP</option>
+					<option value="ICMPv6">ICMP</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6082">Dest</span>
+			</td>
+			<td>
+				<span id="Adv_fw6083">Interface</span><br>
+				<select id="dst_inf_5">
+					<option value="LAN-4" id="Adv_fw6084">LAN</option>
+					<option value="WAN-4" id="Adv_fw6085">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6086">IP Address /PrefixLength</span><br>
+			<input id=dst_startip_5 type="text" maxlength="39" style="width:193px"/>
+			<input id=dst_prelen_5 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6087">Port Range</span><br>
+				<input id="dst_startport_5" type="text"  maxlength="5" size="6"/>~
+				<input id="dst_endport_5" type="text" maxlength="5" size="6" />
+			</td>
+		</tr>
+
+		<tr>
+			<td width="25" rowspan="3" class="centered">
+				<input id="en_6" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="160px">
+				<span id="Adv_fw6088">Name</span><br>
+				<input id="dsc_6" type="text" style="width:150px" maxlength="31" />
+			</td>
+			<td class="left" width="200px">
+				<span id="Adv_fw6089">Schedule</span><br>
+			<select id="sch_6" class="narrow" style="width: 65px;">
+			</select>
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6090">Source</span>
+			</td>
+			<td>
+				<span id="Adv_fw6091">Interface</span><br>
+				<select id="src_inf_6">
+					<option value="LAN-4" id="Adv_fw6092">LAN</option>
+					<option value="WAN-4" id="Adv_fw6093">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6094">IP Address /PrefixLength</span><br>
+			<input id=src_startip_6 type="text" maxlength="39" style="width:193px"/>
+			<input id=src_prelen_6 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6095">Protocol</span><br>
+				<select id="pro_6" onchange="OnChangeProt(6)">
+					<option value="ALL" id="Adv_fw6096">ALL</option>
+					<option value="TCP">TCP</option>
+					<option value="UDP">UDP</option>
+					<option value="ICMPv6">ICMP</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6097">Dest</span>
+			</td>
+			<td>
+				<span id="Adv_fw6098">Interface</span><br>
+				<select id="dst_inf_6">
+					<option value="LAN-4" id="Adv_fw6099">LAN</option>
+					<option value="WAN-4" id="Adv_fw6100">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6101">IP Address /PrefixLength</span><br>
+			<input id=dst_startip_6 type="text" maxlength="39" style="width:193px"/>
+			<input id=dst_prelen_6 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6102">Port Range</span><br>
+				<input id="dst_startport_6" type="text"  maxlength="5" size="6"/>~
+				<input id="dst_endport_6" type="text" maxlength="5" size="6" />
+			</td>
+		</tr>
+
+		<tr>
+			<td width="25" rowspan="3" class="centered">
+				<input id="en_7" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="160px">
+				<span id="Adv_fw6103">Name</span><br>
+				<input id="dsc_7" type="text" style="width:150px" maxlength="31" />
+			</td>
+			<td class="left" width="200px">
+				<span id="Adv_fw6104">Schedule</span><br>
+			<select id="sch_7" class="narrow" style="width: 65px;">
+			</select>
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6105">Source</span>
+			</td>
+			<td>
+				<span id="Adv_fw6106">Interface</span><br>
+				<select id="src_inf_7">
+					<option value="LAN-4" id="Adv_fw6107">LAN</option>
+					<option value="WAN-4" id="Adv_fw6108">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6109">IP Address /PrefixLength</span><br>
+			<input id=src_startip_7 type="text" maxlength="39" style="width:193px"/>
+			<input id=src_prelen_7 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6110">Protocol</span><br>
+				<select id="pro_7" onchange="OnChangeProt(7)">
+					<option value="ALL" id="Adv_fw6111">ALL</option>
+					<option value="TCP">TCP</option>
+					<option value="UDP">UDP</option>
+					<option value="ICMPv6">ICMP</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6112">Dest</span>
+			</td>
+			<td>
+				<span id="Adv_fw6113">Interface</span><br>
+				<select id="dst_inf_7">
+					<option value="LAN-4" id="Adv_fw6114">LAN</option>
+					<option value="WAN-4" id="Adv_fw6115">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6116">IP Address /PrefixLength</span><br>
+			<input id=dst_startip_7 type="text" maxlength="39" style="width:193px"/>
+			<input id=dst_prelen_7 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6117">Port Range</span><br>
+				<input id="dst_startport_7" type="text"  maxlength="5" size="6"/>~
+				<input id="dst_endport_7" type="text" maxlength="5" size="6" />
+			</td>
+		</tr>
+
+		<tr>
+			<td width="25" rowspan="3" class="centered">
+				<input id="en_8" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="160px">
+				<span id="Adv_fw6118">Name</span><br>
+				<input id="dsc_8" type="text" style="width:150px" maxlength="31" />
+			</td>
+			<td class="left" width="200px">
+				<span id="Adv_fw6119">Schedule</span><br>
+			<select id="sch_8" class="narrow" style="width: 65px;">
+			</select>
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6120">Source</span>
+			</td>
+			<td>
+				<span id="Adv_fw6121">Interface</span><br>
+				<select id="src_inf_8">
+					<option value="LAN-4" id="Adv_fw6122">LAN</option>
+					<option value="WAN-4" id="Adv_fw6123">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6124">IP Address /PrefixLength</span><br>
+			<input id=src_startip_8 type="text" maxlength="39" style="width:193px"/>
+			<input id=src_prelen_8 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6125">Protocol</span><br>
+				<select id="pro_8" onchange="OnChangeProt(8)">
+					<option value="ALL" id="Adv_fw6126">ALL</option>
+					<option value="TCP">TCP</option>
+					<option value="UDP">UDP</option>
+					<option value="ICMPv6">ICMP</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6127">Dest</span>
+			</td>
+			<td>
+				<span id="Adv_fw6128">Interface</span><br>
+				<select id="dst_inf_8">
+					<option value="LAN-4" id="Adv_fw6129">LAN</option>
+					<option value="WAN-4" id="Adv_fw6130">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6131">IP Address /PrefixLength</span><br>
+			<input id=dst_startip_8 type="text" maxlength="39" style="width:193px"/>
+			<input id=dst_prelen_8 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6132">Port Range</span><br>
+				<input id="dst_startport_8" type="text"  maxlength="5" size="6"/>~
+				<input id="dst_endport_8" type="text" maxlength="5" size="6" />
+			</td>
+		</tr>
+
+		<tr>
+			<td width="25" rowspan="3" class="centered">
+				<input id="en_9" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="160px">
+				<span id="Adv_fw6133">Name</span><br>
+				<input id="dsc_9" type="text" style="width:150px" maxlength="31" />
+			</td>
+			<td class="left" width="200px">
+				<span id="Adv_fw6134">Schedule</span><br>
+			<select id="sch_9" class="narrow" style="width: 65px;">
+			</select>
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6135">Source</span>
+			</td>
+			<td>
+				<span id="Adv_fw6136">Interface</span><br>
+				<select id="src_inf_9">
+					<option value="LAN-4" id="Adv_fw6137">LAN</option>
+					<option value="WAN-4" id="Adv_fw6138">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6139">IP Address /PrefixLength</span><br>
+			<input id=src_startip_9 type="text" maxlength="39" style="width:193px"/>
+			<input id=src_prelen_9 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6140">Protocol</span><br>
+				<select id="pro_9" onchange="OnChangeProt(9)">
+					<option value="ALL" id="Adv_fw6141">ALL</option>
+					<option value="TCP">TCP</option>
+					<option value="UDP">UDP</option>
+					<option value="ICMPv6">ICMP</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6142">Dest</span>
+			</td>
+			<td>
+				<span id="Adv_fw6143">Interface</span><br>
+				<select id="dst_inf_9">
+					<option value="LAN-4" id="Adv_fw6144">LAN</option>
+					<option value="WAN-4" id="Adv_fw6145">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6146">IP Address /PrefixLength</span><br>
+			<input id=dst_startip_9 type="text" maxlength="39" style="width:193px"/>
+			<input id=dst_prelen_9 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6147">Port Range</span><br>
+				<input id="dst_startport_9" type="text"  maxlength="5" size="6"/>~
+				<input id="dst_endport_9" type="text" maxlength="5" size="6" />
+			</td>
+		</tr>
+
+		<tr>
+			<td width="25" rowspan="3" class="centered">
+				<input id="en_10" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="160px">
+				<span id="Adv_fw6148">Name</span><br>
+				<input id="dsc_10" type="text" style="width:150px" maxlength="31" />
+			</td>
+			<td class="left" width="200px">
+				<span id="Adv_fw6149">Schedule</span><br>
+			<select id="sch_10" class="narrow" style="width: 65px;">
+			</select>
+
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6150">Source</span>
+			</td>
+			<td>
+				<span id="Adv_fw6151">Interface</span><br>
+				<select id="src_inf_10">
+					<option value="LAN-4" id="Adv_fw6152">LAN</option>
+					<option value="WAN-4" id="Adv_fw6153">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6154">IP Address /PrefixLength</span><br>
+			<input id=src_startip_10 type="text" maxlength="39" style="width:193px"/>
+			<input id=src_prelen_10 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6155">Protocol</span><br>
+				<select id="pro_10" onchange="OnChangeProt(10)">
+					<option value="ALL" id="Adv_fw6156">ALL</option>
+					<option value="TCP">TCP</option>
+					<option value="UDP">UDP</option>
+					<option value="ICMPv6">ICMP</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6157">Dest</span>
+			</td>
+			<td>
+				<span id="Adv_fw6158">Interface</span><br>
+				<select id="dst_inf_10">
+					<option value="LAN-4" id="Adv_fw6159">LAN</option>
+					<option value="WAN-4" id="Adv_fw6160">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6161">IP Address /PrefixLength</span><br>
+			<input id=dst_startip_10 type="text" maxlength="39" style="width:193px"/>
+			<input id=dst_prelen_10 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6162">Port Range</span><br>
+				<input id="dst_startport_10" type="text"  maxlength="5" size="6"/>~
+				<input id="dst_endport_10" type="text" maxlength="5" size="6" />
+			</td>
+		</tr>
+
+		<tr>
+			<td width="25" rowspan="3" class="centered">
+				<input id="en_11" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="160px">
+				<span id="Adv_fw6163">Name</span><br>
+				<input id="dsc_11" type="text" style="width:150px" maxlength="31" />
+			</td>
+			<td class="left" width="200px">
+				<span id="Adv_fw6164">Schedule</span><br>
+			<select id="sch_11" class="narrow" style="width: 65px;">
+			</select>
+
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6165">Source</span>
+			</td>
+			<td>
+				<span id="Adv_fw6166">Interface</span><br>
+				<select id="src_inf_11">
+					<option value="LAN-4" id="Adv_fw6167">LAN</option>
+					<option value="WAN-4" id="Adv_fw6168">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6169">IP Address /PrefixLength</span><br>
+			<input id=src_startip_11 type="text" maxlength="39" style="width:193px"/>
+			<input id=src_prelen_11 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6170">Protocol</span><br>
+				<select id="pro_11" onchange="OnChangeProt(11)">
+					<option value="ALL" id="Adv_fw6171">ALL</option>
+					<option value="TCP">TCP</option>
+					<option value="UDP">UDP</option>
+					<option value="ICMPv6">ICMP</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6172">Dest</span>
+			</td>
+			<td>
+				<span id="Adv_fw6173">Interface</span><br>
+				<select id="dst_inf_11">
+					<option value="LAN-4" id="Adv_fw6174">LAN</option>
+					<option value="WAN-4" id="Adv_fw6175">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6176">IP Address /PrefixLength</span><br>
+			<input id=dst_startip_11 type="text" maxlength="39" style="width:193px"/>
+			<input id=dst_prelen_11 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6177">Port Range</span><br>
+				<input id="dst_startport_11" type="text"  maxlength="5" size="6"/>~
+				<input id="dst_endport_11" type="text" maxlength="5" size="6" />
+			</td>
+		</tr>
+
+		<tr>
+			<td width="25" rowspan="3" class="centered">
+				<input id="en_12" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="160px">
+				<span id="Adv_fw6178">Name</span><br>
+				<input id="dsc_12" type="text" style="width:150px" maxlength="31" />
+			</td>
+			<td class="left" width="200px">
+				<span id="Adv_fw6179">Schedule</span><br>
+			<select id="sch_12" class="narrow" style="width: 65px;">
+			</select>
+
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6180">Source</span>
+			</td>
+			<td>
+				<span id="Adv_fw6181">Interface</span><br>
+				<select id="src_inf_12">
+					<option value="LAN-4" id="Adv_fw6182">LAN</option>
+					<option value="WAN-4" id="Adv_fw6183">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6184">IP Address /PrefixLength</span><br>
+			<input id=src_startip_12 type="text" maxlength="39" style="width:193px"/>
+			<input id=src_prelen_12 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6185">Protocol</span><br>
+				<select id="pro_12" onchange="OnChangeProt(12)">
+					<option value="ALL" id="Adv_fw6186">ALL</option>
+					<option value="TCP">TCP</option>
+					<option value="UDP">UDP</option>
+					<option value="ICMPv6">ICMP</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6187">Dest</span>
+			</td>
+			<td>
+				<span id="Adv_fw6188">Interface</span><br>
+				<select id="dst_inf_12">
+					<option value="LAN-4" id="Adv_fw6189">LAN</option>
+					<option value="WAN-4" id="Adv_fw6190">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6191">IP Address /PrefixLength</span><br>
+			<input id=dst_startip_12 type="text" maxlength="39" style="width:193px"/>
+			<input id=dst_prelen_12 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6192">Port Range</span><br>
+				<input id="dst_startport_12" type="text"  maxlength="5" size="6"/>~
+				<input id="dst_endport_12" type="text" maxlength="5" size="6" />
+			</td>
+		</tr>
+
+		<tr>
+			<td width="25" rowspan="3" class="centered">
+				<input id="en_13" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="160px">
+				<span id="Adv_fw6193">Name</span><br>
+				<input id="dsc_13" type="text" style="width:150px" maxlength="31" />
+			</td>
+			<td class="left" width="200px">
+				<span id="Adv_fw6194">Schedule</span><br>
+			<select id="sch_13" class="narrow" style="width: 65px;">
+			</select>
+
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6195">Source</span>
+			</td>
+			<td>
+				<span id="Adv_fw6196">Interface</span><br>
+				<select id="src_inf_13">
+					<option value="LAN-4" id="Adv_fw6197">LAN</option>
+					<option value="WAN-4" id="Adv_fw6198">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6199">IP Address /PrefixLength</span><br>
+			<input id=src_startip_13 type="text" maxlength="39" style="width:193px"/>
+			<input id=src_prelen_13 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6200">Protocol</span><br>
+				<select id="pro_13" onchange="OnChangeProt(13)">
+					<option value="ALL" id="Adv_fw6201">ALL</option>
+					<option value="TCP">TCP</option>
+					<option value="UDP">UDP</option>
+					<option value="ICMPv6">ICMP</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6202">Dest</span>
+			</td>
+			<td>
+				<span id="Adv_fw6203">Interface</span><br>
+				<select id="dst_inf_13">
+					<option value="LAN-4" id="Adv_fw6204">LAN</option>
+					<option value="WAN-4" id="Adv_fw6205">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6206">IP Address /PrefixLength</span><br>
+			<input id=dst_startip_13 type="text" maxlength="39" style="width:193px"/>
+			<input id=dst_prelen_13 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6207">Port Range</span><br>
+				<input id="dst_startport_13" type="text"  maxlength="5" size="6"/>~
+				<input id="dst_endport_13" type="text" maxlength="5" size="6" />
+			</td>
+		</tr>
+
+		<tr>
+			<td width="25" rowspan="3" class="centered">
+				<input id="en_14" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="160px">
+				<span id="Adv_fw6208">Name</span><br>
+				<input id="dsc_14" type="text" style="width:150px" maxlength="31" />
+			</td>
+			<td class="left" width="200px">
+				<span id="Adv_fw6209">Schedule</span><br>
+			<select id="sch_14" class="narrow" style="width: 65px;">
+			</select>
+
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6210">Source</span>
+			</td>
+			<td>
+				<span id="Adv_fw6211">Interface</span><br>
+				<select id="src_inf_14">
+					<option value="LAN-4" id="Adv_fw6212">LAN</option>
+					<option value="WAN-4" id="Adv_fw6213">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6017">IP Address /PrefixLength</span><br>
+			<input id=src_startip_14 type="text" maxlength="39" style="width:193px"/>
+			<input id=src_prelen_14 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6214">Protocol</span><br>
+				<select id="pro_14" onchange="OnChangeProt(14)">
+					<option value="ALL" id="Adv_fw6215">ALL</option>
+					<option value="TCP">TCP</option>
+					<option value="UDP">UDP</option>
+					<option value="ICMPv6">ICMP</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6216">Dest</span>
+			</td>
+			<td>
+				<span id="Adv_fw6217">Interface</span><br>
+				<select id="dst_inf_14">
+					<option value="LAN-4" id="Adv_fw6218">LAN</option>
+					<option value="WAN-4" id="Adv_fw6219">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6220">IP Address /PrefixLength</span><br>
+			<input id=dst_startip_14 type="text" maxlength="39" style="width:193px"/>
+			<input id=dst_prelen_14 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6221">Port Range</span><br>
+				<input id="dst_startport_14" type="text"  maxlength="5" size="6"/>~
+				<input id="dst_endport_14" type="text" maxlength="5" size="6" />
+			</td>
+		</tr>
+
+		<tr>
+			<td width="25" rowspan="3" class="centered">
+				<input id="en_15" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="160px">
+				<span id="Adv_fw6222">Name</span><br>
+				<input id="dsc_15" type="text" style="width:150px" maxlength="31" />
+			</td>
+			<td class="left" width="200px">
+				<span id="Adv_fw6223">Schedule</span><br>
+			<select id="sch_15" class="narrow" style="width: 65px;">
+			</select>
+
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6224">Source</span>
+			</td>
+			<td>
+				<span id="Adv_fw6225">Interface</span><br>
+				<select id="src_inf_15">
+					<option value="LAN-4" id="Adv_fw6226">LAN</option>
+					<option value="WAN-4" id="Adv_fw6227">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6228">IP Address /PrefixLength</span><br>
+			<input id=src_startip_15 type="text" maxlength="39" style="width:193px"/>
+			<input id=src_prelen_15 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6229">Protocol</span><br>
+				<select id="pro_15" onchange="OnChangeProt(15)">
+					<option value="ALL" id="Adv_fw6230">ALL</option>
+					<option value="TCP">TCP</option>
+					<option value="UDP">UDP</option>
+					<option value="ICMPv6">ICMP</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6231">Dest</span>
+			</td>
+			<td>
+				<span id="Adv_fw6232">Interface</span><br>
+				<select id="dst_inf_15">
+					<option value="LAN-4" id="Adv_fw6233">LAN</option>
+					<option value="WAN-4" id="Adv_fw6234">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6235">IP Address /PrefixLength</span><br>
+			<input id=dst_startip_15 type="text" maxlength="39" style="width:193px"/>
+			<input id=dst_prelen_15 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6236">Port Range</span><br>
+				<input id="dst_startport_15" type="text"  maxlength="5" size="6"/>~
+				<input id="dst_endport_15" type="text" maxlength="5" size="6" />
+			</td>
+		</tr>
+
+		<tr>
+			<td width="25" rowspan="3" class="centered">
+				<input id="en_16" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="160px">
+				<span id="Adv_fw6237">Name</span><br>
+				<input id="dsc_16" type="text" style="width:150px" maxlength="31" />
+			</td>
+			<td class="left" width="200px">
+				<span id="Adv_fw6238">Schedule</span><br>
+			<select id="sch_16" class="narrow" style="width: 65px;">
+			</select>
+
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6239">Source</span>
+			</td>
+			<td>
+				<span id="Adv_fw6240">Interface</span><br>
+				<select id="src_inf_16">
+					<option value="LAN-4" id="Adv_fw6241">LAN</option>
+					<option value="WAN-4" id="Adv_fw6242">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6243">IP Address /PrefixLength</span><br>
+			<input id=src_startip_16 type="text" maxlength="39" style="width:193px"/>
+			<input id=src_prelen_16 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6244">Protocol</span><br>
+				<select id="pro_16" onchange="OnChangeProt(16)">
+					<option value="ALL" id="Adv_fw6245">ALL</option>
+					<option value="TCP">TCP</option>
+					<option value="UDP">UDP</option>
+					<option value="ICMPv6">ICMP</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6246">Dest</span>
+			</td>
+			<td>
+				<span id="Adv_fw6247">Interface</span><br>
+				<select id="dst_inf_16">
+					<option value="LAN-4" id="Adv_fw6248">LAN</option>
+					<option value="WAN-4" id="Adv_fw6249">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6250">IP Address /PrefixLength</span><br>
+			<input id=dst_startip_16 type="text" maxlength="39" style="width:193px"/>
+			<input id=dst_prelen_16 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6251">Port Range</span><br>
+				<input id="dst_startport_16" type="text"  maxlength="5" size="6"/>~
+				<input id="dst_endport_16" type="text" maxlength="5" size="6" />
+			</td>
+		</tr>
+
+		<tr>
+			<td width="25" rowspan="3" class="centered">
+				<input id="en_17" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="160px">
+				<span id="Adv_fw6252">Name</span><br>
+				<input id="dsc_17" type="text" style="width:150px" maxlength="31" />
+			</td>
+			<td class="left" width="200px">
+				<span id="Adv_fw6253">Schedule</span><br>
+			<select id="sch_17" class="narrow" style="width: 65px;">
+			</select>
+
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6254">Source</span>
+			</td>
+			<td>
+				<span id="Adv_fw6314">Interface</span><br>
+				<select id="src_inf_17">
+					<option value="LAN-4" id="Adv_fw6255">LAN</option>
+					<option value="WAN-4" id="Adv_fw6256">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6315">IP Address /PrefixLength</span><br>
+			<input id=src_startip_17 type="text" maxlength="39" style="width:193px"/>
+			<input id=src_prelen_17 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6257">Protocol</span><br>
+				<select id="pro_17" onchange="OnChangeProt(17)">
+					<option value="ALL" id="Adv_fw6258">ALL</option>
+					<option value="TCP">TCP</option>
+					<option value="UDP">UDP</option>
+					<option value="ICMPv6">ICMP</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6259">Dest</span>
+			</td>
+			<td>
+				<span id="Adv_fw6260">Interface</span><br>
+				<select id="dst_inf_17">
+					<option value="LAN-4" id="Adv_fw6261">LAN</option>
+					<option value="WAN-4" id="Adv_fw6262">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6263">IP Address /PrefixLength</span><br>
+			<input id=dst_startip_17 type="text" maxlength="39" style="width:193px"/>
+			<input id=dst_prelen_17 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6264">Port Range</span><br>
+				<input id="dst_startport_17" type="text"  maxlength="5" size="6"/>~
+				<input id="dst_endport_17" type="text" maxlength="5" size="6" />
+			</td>
+		</tr>
+
+		<tr>
+			<td width="25" rowspan="3" class="centered">
+				<input id="en_18" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="160px">
+				<span id="Adv_fw6265">Name</span><br>
+				<input id="dsc_18" type="text" style="width:150px" maxlength="31" />
+			</td>
+			<td class="left" width="200px">
+				<span id="Adv_fw6266">Schedule</span><br>
+			<select id="sch_18" class="narrow" style="width: 65px;">
+			</select>
+
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6267">Source</span>
+			</td>
+			<td>
+				<span id="Adv_fw6268">Interface</span><br>
+				<select id="src_inf_18">
+					<option value="LAN-4" id="Adv_fw6269">LAN</option>
+					<option value="WAN-4" id="Adv_fw6270">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6271">IP Address /PrefixLength</span><br>
+			<input id=src_startip_18 type="text" maxlength="39" style="width:193px"/>
+			<input id=src_prelen_18 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6272">Protocol</span><br>
+				<select id="pro_18" onchange="OnChangeProt(18)">
+					<option value="ALL" id="Adv_fw6273">ALL</option>
+					<option value="TCP">TCP</option>
+					<option value="UDP">UDP</option>
+					<option value="ICMPv6">ICMP</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6274">Dest</span>
+			</td>
+			<td>
+				<span id="Adv_fw6275">Interface</span><br>
+				<select id="dst_inf_18">
+					<option value="LAN-4" id="Adv_fw6276">LAN</option>
+					<option value="WAN-4" id="Adv_fw6277">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6278">IP Address /PrefixLength</span><br>
+			<input id=dst_startip_18 type="text" maxlength="39" style="width:193px"/>
+			<input id=dst_prelen_18 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6279">Port Range</span><br>
+				<input id="dst_startport_18" type="text"  maxlength="5" size="6"/>~
+				<input id="dst_endport_18" type="text" maxlength="5" size="6" />
+			</td>
+		</tr>
+
+		<tr>
+			<td width="25" rowspan="3" class="centered">
+				<input id="en_19" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="160px">
+				<span id="Adv_fw6280">Name</span><br>
+				<input id="dsc_19" type="text" style="width:150px" maxlength="31" />
+			</td>
+			<td class="left" width="200px">
+				<span id="Adv_fw6281">Schedule</span><br>
+			<select id="sch_19" class="narrow" style="width: 65px;">
+			</select>
+
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6282">Source</span>
+			</td>
+			<td>
+				<span id="Adv_fw6283">Interface</span><br>
+				<select id="src_inf_19">
+					<option value="LAN-4" id="Adv_fw6284">LAN</option>
+					<option value="WAN-4" id="Adv_fw6285">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6286">IP Address /PrefixLength</span><br>
+			<input id=src_startip_19 type="text" maxlength="39" style="width:193px"/>
+			<input id=src_prelen_19 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6287">Protocol</span><br>
+				<select id="pro_19" onchange="OnChangeProt(19)">
+					<option value="ALL" id="Adv_fw6288">ALL</option>
+					<option value="TCP">TCP</option>
+					<option value="UDP">UDP</option>
+					<option value="ICMPv6">ICMP</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6289">Dest</span>
+			</td>
+			<td>
+				<span id="Adv_fw6290">Interface</span><br>
+				<select id="dst_inf_19">
+					<option value="LAN-4" id="Adv_fw6291">LAN</option>
+					<option value="WAN-4" id="Adv_fw6292">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6293">IP Address /PrefixLength</span><br>
+			<input id=dst_startip_19 type="text" maxlength="39" style="width:193px"/>
+			<input id=dst_prelen_19 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6294">Port Range</span><br>
+				<input id="dst_startport_19" type="text"  maxlength="5" size="6"/>~
+				<input id="dst_endport_19" type="text" maxlength="5" size="6" />
+			</td>
+		</tr>
+
+		<tr>
+			<td width="25" rowspan="3" class="centered">
+				<input id="en_20" type="checkbox" />
+			</td>
+			<td class="left" colspan="2" width="160px">
+				<span id="Adv_fw6295">Name</span><br>
+				<input id="dsc_20" type="text" style="width:150px" maxlength="31" />
+			</td>
+			<td class="left" width="200px">
+				<span id="Adv_fw6296">Schedule</span><br>
+			<select id="sch_20" class="narrow" style="width: 65px;">
+			</select>
+
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6297">Source</span>
+			</td>
+			<td>
+				<span id="Adv_fw6298">Interface</span><br>
+				<select id="src_inf_20">
+					<option value="LAN-4" id="Adv_fw6299">LAN</option>
+					<option value="WAN-4" id="Adv_fw6300">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6301">IP Address /PrefixLength</span><br>
+			<input id=src_startip_20 type="text" maxlength="39" style="width:193px"/>
+			<input id=src_prelen_20 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6302">Protocol</span><br>
+				<select id="pro_20" onchange="OnChangeProt(20)">
+					<option value="ALL" id="Adv_fw6303">ALL</option>
+					<option value="TCP">TCP</option>
+					<option value="UDP">UDP</option>
+					<option value="ICMPv6">ICMP</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="centered">
+				<span id="Adv_fw6304">Dest</span>
+			</td>
+			<td>
+				<span id="Adv_fw6305">Interface</span><br>
+				<select id="dst_inf_20">
+					<option value="LAN-4" id="Adv_fw6306">LAN</option>
+					<option value="WAN-4" id="Adv_fw6307">WAN</option>
+				</select>
+			</td>
+			<td>
+			<span id="Adv_fw6308">IP Address /PrefixLength</span><br>
+			<input id=dst_startip_20 type="text" maxlength="39" style="width:193px"/>
+			<input id=dst_prelen_20 type="text" maxlength="35" style="width:93px"/>
+			</td>
+			<td class="left">
+				<span id="Adv_fw6309">Port Range</span><br>
+				<input id="dst_startport_20" type="text"  maxlength="5" size="6"/>~
+				<input id="dst_endport_20" type="text" maxlength="5" size="6" />
+			</td>
+		</tr>
+
+
+		</table>
+	</div>
+	<div class="gap"></div>
+</div>
+<p><input type="button" value="Save Settings" onclick="uiSubmit();" id="Adv_fw6310"/>
+<input type="button" value="Don't Save Settings" onclick="uiPageRefresh();" id="Adv_fw6311"/></p>
+
+</div>
+<div id="help_hint" class="tips">
+<span id="Adv_fw6312">
+<strong>Helpful Hints...</strong>
+<br/><br/>
+<p>&nbsp;&#149;&nbsp;&nbsp;For each rule you can create a name and control the drection of traffic. You can also allow or deny a range of IP Addresses,the protocol and a port range.
+</p>
+<p>&nbsp;&#149;&nbsp;&nbsp;In order to apply a schedule to a Firewall rule,your must first define a schedule on the <a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules">Tools -> Schedules</a> page. 
+</p>
+</span>
+<p>&nbsp;&#149;&nbsp;&nbsp;<a href=
+	"/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpadv#IPv6Firewall"><span id = "Adv_fw6313">More</span></a></p>

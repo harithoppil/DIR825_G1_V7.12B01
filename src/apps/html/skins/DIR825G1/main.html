@@ -1,0 +1,484 @@
+﻿<?setvaronce var:language zh_cn?>
+<?setvaronce var:menu basic?>
+<?setvaronce var:page Bas_wansum?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="shortcut icon" href="/html/skin/favicon.gif" type="image/x-icon">	
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache" />
+<title>D-LINK SYSTEMS, INC. | WIRELESS ROUTER | HOME</title>	
+<link rel="stylesheet" type="text/css" href="/html/skin/general.css?v=<?echo $var:tbsversion?>">
+</head>
+<script type="text/javascript" src="/html/languages/<?echo $var:language?>/main.js"></script>
+<script type="text/javascript" src="/html/js/AES.js"></script>
+<script type="text/javascript" src="/html/languages/<?echo $var:language?>/error.js"></script>
+<script type="text/javascript" src="/html/js/boot.js"></script>
+<script type="text/javascript">
+<!-- 
+/*---- Global variable define -----*/
+var G_Error	    = "<?error found?>"; 
+var G_Status	= "<?error status?>"; 
+var G_Error_Msg	= "<?error message?>";
+var G_SysToken  = "<?echo $var:sys_Token?>";
+//系统支持的语言
+var G_SupportLang = "<?echo $var:sys_SupportLangs?>";
+//默认语言
+var G_DefaultLang = "<?echo $var:language?>";
+
+//get user info
+var G_UserInfo = new Array();
+var m = 0;
+<?objget :InternetGatewayDevice.X_TWSZ-COM_Authentication.UserList. "UserName Level"
+	`	G_UserInfo[m] = new Array();
+		G_UserInfo[m][0] = "$01"; //UserName
+		G_UserInfo[m][1] = "$02"; //Level
+		G_UserInfo[m][2] = "$00"; //Index
+		m++;
+`?>
+var G_Enable = "<?get :InternetGatewayDevice.X_TWSZ-COM_Authentication.UserList.1.RandomEnable?>";
+//加载语言列表
+function createLangsOptions(){
+	var _text  = [], _value = [];
+	var split_lang = G_SupportLang.split(";");
+	for(var i = 0; i < split_lang.length; i++){
+		if(split_lang[i] == 'en_us'){
+			_text.push('English');
+		} else if(split_lang[i] == 'zh_cn'){
+			_text.push('简体中文');
+		}
+		_value.push(split_lang[i]);
+	}
+	$S('SELECT_Language', _text, _value);
+}
+
+function getNetwork(ip, submask){
+
+var c = new Array(4);
+var a = ip.split('.');
+var b = submask.split('.');
+
+c[0] = a[0]&b[0];
+c[1] = a[1]&b[1];
+c[2] = a[2]&b[2];
+c[3] = a[3]&b[3];
+
+var d = c[0] + '.' + c[1] + '.' + c[2] + '.' + c[3]; //
+return d;
+}
+
+	
+function uiOnload(){
+	//search language
+	//Cookie.Set('language',G_DefaultLang);
+	chg_language(data_language);
+	//create user option
+	//createUserOpt();
+	//creteUserList();
+	//createLangsOptions();
+	//$("SELECT_Language").value = G_DefaultLang;
+	/*var Psd = Cookie.Get('TBSPASSWORD');	
+	if(Psd){
+		Form.Checkbox('INPUT_Remember', '1');
+		$('INPUT_Psd').value = Psd;
+	}*/
+	if(G_Enable=='1')
+	{
+	 $("GAC").style.display="";
+	 $("submit").style.display="none";
+	 createCode();
+	}
+	else
+	{
+	$("submit").style.display="";
+	 $("GAC").style.display="none";	
+	}
+	$('INPUT_Psd').value="";
+	$('INPUT_Psd').focus();
+	if(G_Error=="1"&&G_Error_Msg=="result=12119007")
+	{
+		$('mbox').style.display="";
+		$('login').style.display="none";
+	}
+	//dealWithError();
+}
+//在全局 定义验证码 
+var codenum="";
+function createCode() 
+{ 
+ var codes = new Array(5);
+	var checkCode = document.getElementById("auth_img"); 
+	var selectChar = new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');//所有候选组成验证码的字符，当然也可以用中文的
+	var num =parseInt (Math.random() * 5); 
+	if(checkCode) 
+	{ 
+	checkCode.style.backgroundImage="url(/html/skin/"+num+".jpg)";
+	//checkCode.innerHTML = code; 
+	}
+	
+	var colors = new Array("Red","Green","Gray","Blue","Maroon","Aqua","Fuchsia","Lime","Olive","Silver");
+	 codenum="";
+	 for(var i=0;i < codes.length;i++)
+    {//获取随机验证码
+		var charIndex = Math.floor(Math.random()*36); 
+        codes[i] = selectChar[charIndex];
+		codenum+=codes[i];
+    }
+	for(var i=0;i<codes.length;i++)
+    {
+        var codeid=document.getElementById("code"+i); 
+		codeid.innerHTML=codes[i];
+        codeid.style.color = colors[Math.floor(Math.random()*10)];    //随机设置验证码颜色
+        
+    }
+
+}
+
+function validate () 
+{ 
+	var inputCode = document.getElementById("captcha").value; 
+	inputCode=inputCode.toLowerCase();
+	codenum=codenum.toLowerCase();
+	if(inputCode == "") 
+	{ 
+	alert(data_language.innerHTML.lang_gac_blank); 
+	return false;
+	} 
+	else if(inputCode != codenum)
+	{
+		$('mbox').style.display="";
+		$('login').style.display="none";
+		createCode();
+		$('captcha').value="";
+		$('INPUT_Psd').value="";
+		return false;
+	}
+	return true;
+}
+function returntologin()
+{
+	$('mbox').style.display="none";
+	$('login').style.display="";
+}
+
+function creteUserList(){
+	var _text = [];
+	for (var i = 0; i<G_UserInfo.length ; i++){
+		_text.push(G_UserInfo[i][0]);
+		$S('SELECT_UserName', _text, _text);
+	}
+}
+
+function createUserOpt(){
+
+         var _text = [], _value = [];
+         var formIp = ' echo var:sys_RemoteAddr';
+         var fromMask = '<?get :InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.SubnetMask?>';
+
+		<?setvaronce var:IPIntfNum <?get :InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterfaceNumberOfEntries?>?>
+		<? if lt 0 `<?echo $var:IPIntfNum?>`
+		` <?mget :InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1. "Enable IPInterfaceIPAddress IPInterfaceSubnetMask "
+		`       var Ip1En  = "$01"; 
+				var Ip1  = "$02";
+				var Mask1 = "$03";
+		`?>
+		`
+		`		var Ip1En  = "0"; 
+				var Ip1  = "0.0.0.0";
+				var Mask1 = "255.255.255.255";
+		`?>
+
+		var G_NextAddress = new Array();
+        var x = 0;
+
+		<?setvaronce var:IPIntfNum <?get :InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterfaceNumberOfEntries?>?>
+		<? if lt 1 `<?echo $var:IPIntfNum?>`
+		` <?objget :InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface. "Enable IPInterfaceIPAddress IPInterfaceSubnetMask "
+		`       G_NextAddress[x] = ["$00",
+		                            "$01",
+		                            "$02",
+		                            "$03"
+		                            ];
+		        x++;
+		`?>
+		`
+		`		G_NextAddress[x] = ["",
+		                            "",
+		                            "",
+		                            ""
+		                            ];
+		        x++;
+		`?>
+
+         var Ip6 = '<?get :InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1.X_TWSZ-COM_IPv6InterfaceAddress?>';
+
+         var fromNetwork = getNetwork(formIp,fromMask);
+
+         var IpRange1 = getNetwork(Ip1,Mask1);
+
+         if((G_NextAddress[0][0] != "")&&(G_NextAddress[1][2] != "")&&(G_NextAddress[1][3] != ""))
+         {
+             var IpRange2 = getNetwork(G_NextAddress[1][2],G_NextAddress[1][3]);
+         }
+         else
+         {
+             var IpRange2 = "0.0.0.0";
+         }
+         
+         var Ip6Link = Ip6.split(":",1);
+
+         var fromNetwork2 = getNetwork(formIp,Mask1);
+
+         if((fromNetwork == IpRange1) || (fromNetwork == IpRange2) || (fromNetwork2 == IpRange1) || (formIp.indexOf(Ip6Link)>-1)){
+
+              _text = [G_UserInfo[0][0]], _value = [G_UserInfo[0][0]];
+              if ('-' == '<?echo $var:sys_UserName?>')
+                  $('SELECT_UserName').value = G_UserInfo[0][0];
+              else
+                  $('SELECT_UserName').value = '<?echo $var:sys_UserName?>';
+         } else {
+              _text = [G_UserInfo[0][0]], _value = [G_UserInfo[0][0]];
+              if ('-' == '<?echo $var:sys_UserName?>')
+                  $('SELECT_UserName').value = G_UserInfo[0][0];
+              else
+                  $('SELECT_UserName').value = '<?echo $var:sys_UserName?>';
+         }
+
+         $S('SELECT_UserName', _text, _value);
+}
+
+
+function uipostLogin(){
+	/*
+	if($('INPUT_Psd').value == ''){
+		alert("password can't be empty!");
+		return false;
+	}
+	*/
+	
+	var Basepsw = $("INPUT_Psd").value;
+	if($("INPUT_Psd").value != "")
+	{
+		var token = G_SysToken;
+		token =token  + "B05CC245BFB8A28A83B4F8";
+		var pass = $("INPUT_Psd").value;
+		Basepsw= AES_Encrypt128(pass,token);
+	}
+	//record password
+	//recordPsd();
+	//record level
+    Cookie.Set('sys_UserName', $('SELECT_UserName').value);
+	//Cookie.Set('language', $("SELECT_Language").value);
+	if(G_Enable=='1')
+	{
+	 if(!validate())
+	 return false;
+	}
+	$H({
+		'getpage'   :'<?echo $var:page?>'.indexOf("Wiz")>-1?'html/index_wiz.html':'html/index.html',
+		'errorpage' :'html/main.html',
+		'var:menu'  :'<?echo $var:menu?>',
+		'var:page'  :'<?echo $var:page?>'=="version"?"Bas_wansum":"<?echo $var:page?>",
+		'obj-action':'auth',
+		':username' :G_UserInfo[0][0],
+		':password' :Basepsw,
+		'var:sys_Token' : G_SysToken,
+		':action'   :'login',
+		':sessionid':'<?echo $var:sessionid?>'
+	},true);
+	$('uiPostForm').submit();
+}
+
+function recordPsd(){
+	if(Form.Checkbox('INPUT_Remember')){ //checked = true;
+		Cookie.Set('TBSPASSWORD', $('INPUT_Psd').value, 720);
+	} else if(!Form.Checkbox('INPUT_Remember')){ //checked = false;
+		Cookie.Delete('TBSPASSWORD');
+	}
+}
+
+/* 更换main.html语言 */
+function onChgLang(){
+    //setCookie('language',$('SELECT_Language').value);
+	Cookie.Set('language', $("SELECT_Language").value);
+	document.location.href = '/cgi-bin/webproc';
+}
+
+/* 
+对错误码的处理 
+错误码的格式:节点名=错误码
+*/
+function dealErrorMsg(arrayNode, errorMsg){
+	if (typeof errorMsg != 'string') 
+	    return;
+	    
+	//将错误信息一分为二：前段寻找错误码对应的节点；后段寻找错误码对应的提示；
+	var errorFragment = errorMsg.split('=');
+	var errorCode, errorString, leafNode;
+	
+	//寻找错误码对应的节点;
+	if (errorFragment != null && errorFragment.length > 0){
+		var _fragment = errorFragment[0].split('.');
+		leafNode = _fragment[_fragment.length - 1];
+		leafNode = arrayNode[leafNode];
+	}
+	    
+	//在获取错误码后，立即寻找相应的错误码。
+	if (errorFragment[1] != null){
+		errorCode = errorFragment[1].match(/^[0-9]{4}/)[0];
+	} else {
+		if (errorMsg.match(/^[0-9]{4}/) == null){
+            leafNode = arrayNode["result"];
+			
+			if($(leafNode)){
+				$(leafNode).innerHTML = errorMsg;				
+			}
+            return false;
+	    }
+	    errorCode = errorMsg.match(/^[0-9]{4}/)[0];
+	}
+	
+	if(UEcode[errorCode] !== undefined){
+		errorString = UEcode[errorCode];
+	} else if (SEcode[errorCode] !== undefined ) {
+		errorString = SEcode[errorCode];
+	} else {
+		errorString = SEcode[1000];
+	}
+	
+	//选择两种不同的错误提示方式：1、将错误准确打印在对应的输入框之后；2、对于未知错误，以告警框来提示；
+	if (leafNode != undefined){
+		$(leafNode).innerHTML = errorString;
+	} else {
+		alert(errorString + "!");
+	}
+}
+
+//使node=id的节点文字和input与select属性的控件:灰显(bool=false)/回显(bool=true)
+function disCtrl(id, bool){
+	var element = $(id);
+	//var el = document.getElementById("id");
+	element.value = ('<?echo $var:sys_UserName?>'=='-'?G_UserInfo[0][0]:'<?echo $var:sys_UserName?>');
+	var _inut    = element.getElementsByTagName('INPUT');
+	var _select  = element.getElementsByTagName('SELECT');
+	
+	element.style.color = bool ? '#000000' : '#AAAAAA';
+	for(var i = 0, _len = _inut.length; i < _len; i++){
+		_inut[i].disabled = !bool;
+	}
+	
+	for(var j = 0, _len = _select.length; j < _len; j++){
+		_select[j].disabled = !bool;
+	}
+}
+
+function dealWithError(){
+	if(G_Error != 1){
+		return false;
+	}
+	
+	var arrayHint = [];
+		
+	dealErrorMsg(arrayHint, G_Error_Msg);
+}
+
+window.onload = uiOnload;
+-->
+</script>
+
+<body class="mainbg">
+	
+	<div class="maincontainer">	
+		<div class="headercontainer">
+			<span class="product">
+				<span id = "DIV_ProductPage">Product Page : </span>
+				<a href="http://support.dlink.com" target="_blank"><?get :InternetGatewayDevice.DeviceInfo.ProductClass?></a>
+			</span>
+			<span class="version">			
+				<span id = "DIV_FirmwareVersion">Firmware Version : </span>
+				<span class="value"><?get :InternetGatewayDevice.DeviceInfo.SoftwareVersion?></span>
+			</span>
+			<span class="hwversion">
+				<span id = "DIV_HardwareVersion">Hardware Version : </span>
+				<span class="value" style="text-transform:uppercase;"><?get :InternetGatewayDevice.DeviceInfo.HardwareVersion?></span>
+			</span>
+		</div>                          <!--end of headercontainer(logo picture) -->
+		<div class="bannercontainer">
+			<span class="bannerhead"><a href="http://www.dlink.com.tw"><img src="/html/skin/head_01.gif" width="162" height="92"></a></span>
+			<span class="bannertail"><img src="/html/skin/head_03.gif"></span>
+		</div>                          <!--end of bannercontainer -->
+		<div id="mbox" class="simplecontainer" style="display: none;">
+			<div class="simplebody">
+				<div class="orangebox">
+					<span id="message">
+						<h1 id="login_title">Login fail</h1>
+						<div class="emptyline"></div>
+						<div class="centerline" id="login_msg">User Name or Password is incorrect.</div>
+						<div class="emptyline"></div>
+						<div class="centerline">
+							<input id="tologin" type="button" onclick="returntologin();" value="Login Again">
+						</div>
+						<div class="emptyline"></div>
+					</span>
+				</div>
+			</div>
+		</div>                         <!--end of simplecontainer -->
+		<div id="login" class="simplecontainer" style="display: block;">
+			<div class="simplebody">
+				<div class="orangebox">
+					<h1><span id = "DIV_LogIn">Log In</span></h1>
+					<div class="message"><span id = "DIV_LogInfo">Log in to the router : </span></div>
+					<div class="loginbox">
+						<span class="name" id = "DIV_UserName">UserName</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input id="SELECT_UserName" type="text" disabled="" value = "Admin">
+						</span>
+					</div>
+					<div class="loginbox">
+						<span class="name" id = "DIV_Password">Password</span>
+						<span class="delimiter">:</span>
+						<span class="value">
+							<input type="password" id="INPUT_Psd" maxlength="15" size="20" onkeydown="if(event.keyCode==13)uipostLogin()">&nbsp;&nbsp;
+							<input type="submit" id="submit" value="login" onclick="uipostLogin()" style="display: inline;">
+						</span>
+					</div>
+					<div id="GAC" class="centerline" style="display:none;">
+						<center>
+							<table width="260px" style="text-align:left;">
+								<tr>
+									<td colspan="2">
+										<strong id="lang_gac_note">Enter the correct password above and then type the characters you see in the picture below.</strong>
+										<input type="text" id="captcha" class="uppercase"/>
+									</td>
+								</tr>
+								<tr>
+									<td height="50px" width="190px" align="center"><span id="auth_img" class="encode"><span id="code0"></span><span id="code1"></span><span id="code2"></span><span id="code3"></span><span id="code4"></span></span></td>
+									<td><input type="button" onClick="createCode();" value="Regenerate" valign="middle" id="regenerate" /></td>
+								</tr>
+								<tr>									
+									<td colspan="2" align="center">
+										<input type="button" value="Login" onClick="uipostLogin();" style="width:90px;" id="Login"/>
+									</td>
+								</tr>
+							</table>
+						</center>
+					</div>
+					<div class="emptyline"></div>       <!--留出一些空白-->
+				</div>                  <!--end of orangebox -->
+			</div>                      <!--end of simplebody -->
+		</div>                          <!--end of simplecontainer -->
+		<div class="footercontainer">
+			<span class="footermark"><img src="/html/skin/tail.gif"></span>
+		</div>                          <!--end of footercontainer -->
+	</div>                              <!--end of maincontainer -->
+
+<div class="copyright"><span id="DIV_Copyright">Copyright &copy; 2016 D-Link Corporation. All rights reserved.</span></div>
+
+<form name="uiPostForm" id="uiPostForm" method="post" action="webproc"></form>
+
+</body>
+</html>
+  
+  

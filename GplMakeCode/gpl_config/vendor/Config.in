@@ -1,0 +1,22 @@
+######################################
+#
+#
+######################################
+menuconfig VENDOR
+  bool "Vendor Applications"
+  default y
+
+#source src/vendor/atheros/Config.in
+
+#
+#TBS-TAG:by ouyangdi 2008-11-29
+#DESC:Ìí¼Óinfineon dsl API
+#
+#source src/vendor/infineon/Config.in
+#TBS-TAG:add ralink/802.1x 2009-1-4
+source src/vendor/ralink/Config.in
+
+#source src/vendor/ikanos/Config.in
+
+#source src/vendor/mindspeed/Config.in
+source src/vendor/realtek/Config.in

@@ -1,0 +1,139 @@
+<div class="mainbody" id="mainbody">
+<div class="orangebox">
+<span id="Adv_fw001">
+	<h1>FIREWALL & DMZ SETTINGS</h1>
+	<p>DMZ means "Demilitarized Zone". DMZ allows computers behind the router firewall to be accessible to Internet traffic.
+	Typically, your DMZ would contain Web servers, FTP servers and others.</p>
+</span>
+	<p>	<input type="button" value="Save Settings" onclick="uiSubmit();" id="Adv_fw002"/>
+		<input type="button" value="Don't Save Settings" onclick="uiPageRefresh();" id="Adv_fw003"/></p>
+</div>
+<div class="blackbox">
+	<h2 id="Adv_fw004">Firewall Settings</h2>
+	<div class="textinput">
+		<span class="name" id="Adv_fw005">Enable SPI</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="spi" type="checkbox"/></span>
+	</div>
+	<div class="gap"></div>
+</div>
+
+<div class="blackbox"  style="display:none">
+	<h2>NAT Endpoint Filtering</h2>
+	<div class="textinput">		
+		<span class="name"></span>
+		<span class="delimiter"></span>
+		<span class="value"><input id="udp_end" name="udptype" type="radio" value="UDP_END"  />Endpoint Independent</span>
+	</div>		
+	<div class="textinput">
+		<span class="name">UDP Endpoint Filtering</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="udp_add" name="udptype" type="radio" value="UDP_ADD"  />Address Restricted</span>
+	</div>	
+	<div class="textinput">
+		<span class="name"></span>
+		<span class="delimiter"></span>
+		<span class="value"><input id="udp_pna" name="udptype" type="radio" value="UDP_PNA"  />Port And Address Restricted</span>
+	</div>	
+
+	<div class="gap"></div>
+	<div class="textinput">
+		<span class="name"></span>
+		<span class="delimiter"></span>
+		<span class="value"><input id="tcp_end" name="tcptype" type="radio" value="TCP_END"  />Endpoint Independent</span>
+	</div>	
+	<div class="textinput">
+		<span class="name">TCP Endpoint Filtering</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="tcp_add" name="tcptype" type="radio" value="TCP_ADD"  />Address Restricted</span>
+	</div>
+	<div class="textinput">	
+		<span class="name"></span>
+		<span class="delimiter"></span>
+		<span class="value"><input id="tcp_pna" name="tcptype" type="radio" value="TCP_PNA"  />Port And Address Restricted</span>
+	</div>
+	<div class="gap"></div>
+</div>
+
+
+<div class="blackbox">
+	<h2 id="Adv_fw006">Anti-Spoof checking</h2>
+	<div class="textinput">
+		<span class="name" id="Adv_fw007">Enable anti-spoof checking</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input type="checkbox" id="anti_spoof_enable" /></span>
+	</div>
+	<div class="gap"></div>
+</div>
+
+<div class="blackbox">
+	<h2 id="Adv_fw008">DMZ Host</h2>
+	<span id="Adv_fw009">
+	<p>
+		The DMZ (Demilitarized Zone) option lets you set a single computer on your network outside of the router.
+		If you have a computer that cannot run Internet applications successfully from behind the router, then you can place the computer into the DMZ for unrestricted Internet access.
+	</p>
+	<p>
+		<strong>Note:</strong>
+		Putting a computer in the DMZ may expose that computer to a variety of security risks. Use of this option is only recommended as a last resort.
+	</p>
+	</span>
+	<div class="textinput">
+		<span class="name" id="Adv_fw010">Enable DMZ</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input type="checkbox" id="dmzenable" onclick="OnClickDMZEnable();"/></span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="Adv_fw011">DMZ IP Address</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="dmzhost" size="20" maxlength="15" value="0.0.0.0" type="text"/>
+			<input modified="ignore" id="dmzadd" value="<<" onclick="OnClickDMZAdd();" type="button"/>
+		</span>
+	</div>
+	<div class="textinput">
+		<span class="name"></span>
+		<span class="delimiter"></span>
+		<span class="value">
+			<select id="hostlist" modified="ignore" class="selectSty" style="width: 120px;">
+			</select>
+		</span>
+	</div>
+	<div class="gap"></div>
+</div>
+
+<div class="blackbox">
+	<h2 id="Adv_fw012">Application Level Gateway (ALG) Configuration</h2>
+	<div class="textinput">	
+		<span class="name" id="Adv_fw013">PPTP</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="pptp" type="checkbox"/></span>
+	</div>
+	<div class="textinput">	
+		<span class="name" id="Adv_fw014">IPSec (VPN)</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="ipsec" type="checkbox"/></span>
+	</div>	
+	<div class="textinput">	
+		<span class="name" id="Adv_fw015">RTSP</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="rtsp" type="checkbox"/></span>
+	</div>
+	<div class="textinput">	
+		<span class="name" id="Adv_fw016">SIP</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="sip" type="checkbox"/></span>
+	</div>	
+</div>
+<p><input type="button" value="Save Settings" onclick="uiSubmit();" id="Adv_fw019"/>
+<input type="button" value="Don't Save Settings" onclick="uiPageRefresh();" id="Adv_fw020"/></p>
+
+</div>
+<div id="WINFO011" class="tips">
+<span id="Adv_fw017">
+	<strong>Helpful Hints...</strong>
+	<br/><br/>
+	<p>&nbsp;&#149;&nbsp;&nbsp;<strong>DMZ:</strong><br/>Only enable the DMZ option as a last resort. If you are having trouble using an application from a computer behind the router, first try opening ports associated with the application in the Advanced Port Forwarding section.</p>
+</span>
+	<p>&nbsp;&#149;&nbsp;&nbsp;<a href=
+	"/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpadv#Firewall"><span id = "Adv_fw018">More</span></a></p>

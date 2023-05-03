@@ -1,0 +1,69 @@
+
+<InternetGatewayDevice type="object">
+	<WANDevice type="object" Writable="0" CurNode="WANDeviceNumberOfEntries">
+		<i type="object">
+			<WANConnectionDevice type="object" MaxNode="MAXWANConnectionNumberOfEntries" CurNode="WANConnectionNumberOfEntries">
+				<i type="object">
+					<WANPPPConnectionNumberOfEntries type="unsignedInt" Writable="0">0</WANPPPConnectionNumberOfEntries>
+					<MaxPPPConnectionNumberOfEntries type="unsignedInt" Writable="0">1</MaxPPPConnectionNumberOfEntries>
+					<WANPPPConnection type="object" CurNode="WANPPPConnectionNumberOfEntries" MaxNode="MaxPPPConnectionNumberOfEntries">
+						<i type="object">
+							<Enable type="boolean">0</Enable>
+							<ConnectionStatus type="string" Writable="0">Unconfigured</ConnectionStatus>
+							<ConnectionTime type="string" Writable="0">0</ConnectionTime>
+							<ConnectionType type="string">IP_Routed</ConnectionType>
+							<X_TWSZ-COM_ConnectionAction type="string" Cache="1"  Standard="0">Disconnect</X_TWSZ-COM_ConnectionAction>
+							<Name type="string(256)"></Name>
+							<X_TWSZ-COM_ConnectedDeviceName type="string" Writable="0" Standard="0"></X_TWSZ-COM_ConnectedDeviceName>
+							<LastConnectionError type="string" Writable="0">ERROR_NONE</LastConnectionError>
+							<Username type="string(64)">user</Username>
+							<Password type="string(64)">user</Password>
+							<X_TWSZ-COM_ModemBaud type="string(64)">460800</X_TWSZ-COM_ModemBaud>
+							<X_TWSZ-COM_FlageChangeWan type="boolean" Writable="0">1</X_TWSZ-COM_FlageChangeWan>
+							<PPPAuthenticationProtocol type="string" Writable="0">Auto</PPPAuthenticationProtocol>
+							<X_TWSZ-COM_AuthProtocol type="string" Writable="0">Auto</X_TWSZ-COM_AuthProtocol>
+							<ExternalIPAddress type="string" Writable="0"></ExternalIPAddress>
+							<RemoteIPAddress type="string" Writable="0"></RemoteIPAddress>
+							<LocalNetMask type="string" Writable="0"></LocalNetMask>
+							<MaxMRUSize type="unsignedInt">1492</MaxMRUSize>
+							<MaxMTUSize type="unsignedInt">1400</MaxMTUSize>
+							<IdleDelayTime type="unsignedInt">60</IdleDelayTime>
+							<ConnectionTrigger type="string">AlwaysOn</ConnectionTrigger>
+							<PPPLCPEcho type="unsignedInt" Writable="0">60</PPPLCPEcho>
+							<PPPLCPEchoRetry type="unsignedInt" Writable="0">10</PPPLCPEchoRetry>
+							<PPPoEACName type="string(256)"></PPPoEACName>
+							<PPPoEServiceName type="string(256)"></PPPoEServiceName>
+							<X_TWSZ-COM_PppoeRetryNum type="unsignedInt">0</X_TWSZ-COM_PppoeRetryNum>
+							<X_TWSZ-COM_StaticIPAddress type="string"></X_TWSZ-COM_StaticIPAddress>
+							<IdleDisconnectTime type="unsignedInt">60</IdleDisconnectTime>
+							<X_TWSZ-COM_ProtocolType type="string">IPv4</X_TWSZ-COM_ProtocolType>
+							<X_TWSZ-COM_ConnectionMode type="string" Writable="0">PPP</X_TWSZ-COM_ConnectionMode>
+							<X_TWSZ-COM_ProxyEnable type="boolean">0</X_TWSZ-COM_ProxyEnable>
+							<X_TWSZ-COM_ProxyDevName type="string"></X_TWSZ-COM_ProxyDevName>
+							<Reset type="boolean">0</Reset>
+							<PossibleConnectionTypes type="string" Writable="0"></PossibleConnectionTypes>
+							<DefaultGateway type="string" Writable="0"></DefaultGateway>
+							<PPPoESessionID type="unsignedint[1:]" Writable="0"></PPPoESessionID>
+							<Uptime type="unsignedint" Writable="0"></Uptime>
+							<RSIPAvailable type="boolean" Writable="0"></RSIPAvailable>
+							<TransportType type="string" Writable="0"></TransportType>
+							<X_TWSZ-COM_ScheduleListName type="string">AlwaysOn</X_TWSZ-COM_ScheduleListName>
+							<PPPTunnelId type="unsignedInt"></PPPTunnelId>
+							<Stats type="object" Writable="0">
+								<EthernetBytesSent type="unsignedInt" Writable="0">0</EthernetBytesSent>
+								<EthernetBytesReceived type="unsignedInt" Writable="0">0</EthernetBytesReceived>
+								<EthernetPacketsSent type="unsignedInt" Writable="0">0</EthernetPacketsSent>
+								<EthernetPacketsReceived type="unsignedInt" Writable="0">0</EthernetPacketsReceived>
+								<EthernetErrorsSent type="unsignedInt" Writable="0">0</EthernetErrorsSent>
+								<EthernetErrorsReceived type="unsignedInt" Writable="0">0</EthernetErrorsReceived>
+								<EthernetDiscardPacketsSent type="unsignedInt" Writable="0">0</EthernetDiscardPacketsSent>
+								<EthernetDiscardPacketsReceived type="unsignedInt" Writable="0">0</EthernetDiscardPacketsReceived>
+							</Stats>
+							<Backup3G type="string" Writable="1">1</Backup3G>
+						</i>
+					</WANPPPConnection>
+				</i>
+			</WANConnectionDevice>
+		</i>
+	</WANDevice>
+</InternetGatewayDevice>

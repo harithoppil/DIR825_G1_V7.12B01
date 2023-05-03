@@ -1,0 +1,110 @@
+﻿<?setvaronce var:menu home?>
+<?setvaronce var:page Hom_status?>
+<?setvaronce var:subpage 0?>
+<?setvaronce var:errorpage 0?>
+<?setvaronce var:style skin?>
+<?setvaronce var:language en_us?>
+<?setvaronce var:tbsversion trunkr3636?>
+<? if eq 0 $var:subpage
+`	<? setvar var:realpage $var:page?>
+	<?if eq 1 <?error found?>
+	`	<?setvar var:realpage $var:errorpage?>`
+	?>
+`
+`	<? if eq 0 <?error found?>
+	`	<?setvar var:realpage $var:subpage?>`
+	`	<?setvar var:realpage $var:errorpage?>
+	`?>
+`?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="shortcut icon" href="/html/skin/favicon.gif" type="image/x-icon">	
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Pragma" content="No-cache" />
+<meta http-equiv="Content-Type" content="no-cache">
+<title>D-LINK SYSTEMS, INC. | WIRELESS ROUTER | HOME</title>	
+<link rel="stylesheet" type="text/css" href="/html/skin/general.css?v=<?echo $var:tbsversion?>">
+<script type="text/javascript" src="/html/languages/<?echo $var:language?>/languages.js?v=<?echo $var:tbsversion?>"></script>
+<script type="text/javascript" src="/html/languages/<?echo $var:language?>/error.js?v=<?echo $var:tbsversion?>"></script>
+<script type="text/javascript" src="/html/js/ajax.js?v=<?echo $var:tbsversion?>"></script>
+<script type="text/javascript" src="/html/js/boot.js?v=<?echo $var:tbsversion?>"></script>
+<script type="text/javascript" src="/html/js/seboot.js?v=<?echo $var:tbsversion?>"></script>
+<script type="text/javascript">
+//<![CDATA[
+<? include html/js/global.js ?>
+<? include html/page/<?echo $var:realpage?>.js ?>
+var myTime = setTimeout("Timeout()", 10*60000);   
+function Timeout() {
+     document.location.href='/cgi-bin/webproc?getpage=html/logout.html&var:menu=basic&var:page=Bas_wansum';   
+} 
+//]]>
+</script>
+</head>
+
+<!--body style="visibility:hidden;"-->
+<body class="mainbg">
+<div class="maincontainer">	
+	<div class="headercontainer">
+		<span class="product">
+			<span id = "TOPM015">Product Page : </span>
+			<a target="_blank" href="http://support.dlink.com"><?get :InternetGatewayDevice.DeviceInfo.ProductClass?></a>
+		</span>
+		<span class="version">				
+			<span id = "TOPM017">Firmware Version : </span>
+			<span class="value" id = "Span_FirmwareVersion"><?get :InternetGatewayDevice.DeviceInfo.SoftwareVersion?></span>
+		</span>
+		<span class="hwversion">
+			<span id = "TOPM016">Hardware Version : </span>
+			<span class="value"><?get :InternetGatewayDevice.DeviceInfo.HardwareVersion?></span>
+		</span>
+	</div><!-- logo picture -->
+	<div class="bannercontainer">
+		<span class="bannerhead">
+			<a href="http://www.dlink.com.tw"><img width="162" height="92" src="/html/skin/head_01.gif"></a> 
+		</span>
+		<span class="bannertail"><img src="/html/skin/head_03.gif"></span>
+		<!--span class="logout">
+			<a href="#" onclick="uiLogout('<?echo $var:sessionid?>')" id="lang_logout">Logout</a>
+		</span-->
+	</div><!-- logo menu -->
+	<div style="display: block;" class="topmenucontainer" id="menu"><div class="modelname">DIR-825</div>
+		<div>
+			<a class="<?if eq `$var:menu` `basic` `label`?>" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=basic&var:page=Bas_wansum"><span id = "TOPM009">Setup</span></a>
+			<!--a class="<?if eq `$var:menu` `24gwlan` `label`?>" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=24gwlan&var:page=24G_basic"><span id = "TOPM010">Wireless 2.4G</span></a>
+			<a class="<?if eq `$var:menu` `5gwlan` `label`?>" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=5gwlan&var:page=5G_basic"><span id = "TOPM018">Wireless 5G</span></a-->
+			<a class="<?if eq `$var:menu` `advanced` `label`?>" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=advanced&var:page=Adv_virtual"><span id = "TOPM011">Advanced</span></a>
+			<a class="<?if eq `$var:menu` `toolbox` `label`?>" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_password"><span id = "TOPM012">TOOLS</span></a>
+			<a class="<?if eq `$var:menu` `home` `label`?>" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=home&var:page=Hom_status"><span id = "TOPM013">Status</span></a>
+			<a class="<?if eq `$var:menu` `help` `label`?>" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpmenu"><span id = "TOPM014">SUPPORT</span></a>
+		</div>
+	</div>
+	<div class="complexcontainer" id="content">
+		<div class="leftmenu">
+			<ul><? include html/menu.html ?></ul>
+		</div><!-- leftmenu -->				
+			<? include html/page/<?echo $var:realpage?>.html ?>
+		</div><!-- mainbody -->	
+	</div>
+	<div id="mbox" class="simplecontainer" style="display:none;">
+		<div class="simplebody">
+			<div class="orangebox">
+				<span id="message">
+					<h1 id="lang_saving">Saving</h1>
+					<div class="emptyline"></div>
+					<div class="centerline" id="lang_take_effect">The settings are being saved and are taking effect.</div>
+					<div class="emptyline"></div>
+					<div class="centerline" id="lang_waiting">Please wait ...</div>
+					<div class="emptyline"></div>			
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="footercontainer">
+		<span class="footermark"><img src="/html/skin/tail.gif"></span>
+	</div>	
+</div>
+<div class="copyright"><span id="TOPM019">Copyright &copy; 2016 D-Link Corporation. All rights reserved.</span></div>
+	<form id="uiPostForm" method="post" action="webproc"></form>
+</body>
+</html>

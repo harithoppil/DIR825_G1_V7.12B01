@@ -1,0 +1,17 @@
+
+<InternetGatewayDevice type="object">
+	<X_TWSZ-COM_SNMPAgent type="object" Writable="0">
+		<Enable type="boolean" Writable="1">0</Enable>
+		<Status type="int[0:3]" Writable="0">0</Status>
+		<ROCommunity type="string(127)" Writable="1">public</ROCommunity>
+		<RWCommunity type="string(127)" Writable="1">private</RWCommunity>
+		<TrapHost type="string(63)" Writable="1"></TrapHost>
+		<TrapCommunity type="string(63)" Writable="1">public</TrapCommunity>
+		<TrapVersion type="int[1:3]" Writable="1">2</TrapVersion>
+		<PollInterval type="unsignedInt" Writable="1">5</PollInterval>
+		<CPUDuration type="unsignedInt" Writable="1">60</CPUDuration>
+		<CPUThreshold type="unsignedInt" Writable="1">98</CPUThreshold>
+		<MemDuration type="unsignedInt" Writable="1">60</MemDuration>
+		<MemThreshold type="unsignedInt" Writable="1">98</MemThreshold>
+	</X_TWSZ-COM_SNMPAgent>
+</InternetGatewayDevice>

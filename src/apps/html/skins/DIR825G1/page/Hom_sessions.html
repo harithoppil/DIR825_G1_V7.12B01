@@ -1,0 +1,42 @@
+﻿<div class="mainbody" id="mainbody">
+	<div class="orangebox">
+		<h1 id="HSS001">Internet Sessions</h1>
+		<p id="HSS002">
+			This page displays Source and Destination sessions passing through the device.
+		</p>
+		<p><input type="button"  id="HSS003" value="Refresh" onClick="Refresh();" /></p>
+	</div>
+	<div class="blackbox">
+		<div class="centerline" align="center">
+			<div class="textinput">
+				<span class="name" id="loading"></span>
+			</div>				
+			<div id="sess_list"></div>					
+		</div>
+		<div class="gap"></div>
+	</div>
+	<form name="uiShowSession" id="uiShowSession" method="post" action="webupg">
+		<input type="hidden" value="" name="tokenid" id="tokenid">
+		<input type="hidden" name="name" value="sessionView" />
+	</form>
+	<div class="div_black" style="display:none;">
+	    <table class="td_table" id="td_modelLogLevel">
+			<tr>
+				<textarea name="textarea" cols="76" rows="20" readonly="readonly" id="INPUT_SessionText"></textarea>
+			</tr>
+		</table>
+	 </div>											
+	<br>
+	<br>
+	<br> 											
+	<br> 											
+	<br>
+	<!-- End of Page Dependent Part. -->
+</div>
+<div id="help_hint" class="tips">
+<!-- Start of Help Depedent Part. -->
+<strong id="HSS004">Helpful Hints...</strong>
+<br/><br/>
+<p id="HSS005">&nbsp;&#149;&nbsp;&nbsp;This is a list of all active conversations between WAN computers and LAN computers.</p>
+<p id="HSS006">&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpstatus#Sessions">More...</a></p>
+<!-- End of Help Dependent Part. -->

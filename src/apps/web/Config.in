@@ -1,0 +1,26 @@
+###################################################
+choice
+	prompt "HTTP Auth"
+	default APPS_WEB_COMMON
+	depends on APPS_WEB
+
+	config APPS_WEB_COMMON
+		boolean "Common"
+		select APPS_LOGIC_LOGOUT
+		help
+			We use tbs authentication as default auth.
+
+	config APPS_LOGIC_LOGOUT
+    	bool "Logout page"
+    	depends on APPS_WEB_COMMON
+    	help
+        	if use tbs authentication , will show a logout page.
+
+
+	config APPS_WEB_BASIC
+		boolean "Basic"
+		help
+			HTTP Basic authentication as default auth.
+
+endchoice
+####################################################

@@ -1,0 +1,16 @@
+Copyright (C) 2011 T&W, Inc.  All Rights Reserved.
+
+_____________________________________________________________________________
+
+  toolchain-buildroot-gcc342.tar.gz is Cross-compiler tool chain source codes.
+  
+  Sitecom-wlr3100_V1.0_betasrc or Sitecom-wlr3100_V1.0_src is product codes 
+  directory.
+
+_____________________________________________________________________________
+
+	cd /opt/
+	tar -zxvf toolchain-buildroot-gcc342.tar.gz
+	
+
+

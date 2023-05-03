@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<link rel="shortcut icon" href="/favicon.ico" >	
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Pragma" content="No-cache" />
+<meta http-equiv="Content-Type" content="no-cache">
+<title>D-LINK SYSTEMS, INC. | WIRELESS ROUTER | HOME</title>	
+<link rel="stylesheet" type="text/css" href="/html/skin/general.css?v=<?echo $var:tbsversion?>">
+<script type="text/javascript" src="/html/js/ajax.js?v=<?echo $var:tbsversion?>"></script>
+<script type="text/javascript" src="/html/js/boot.js?v=<?echo $var:tbsversion?>"></script>
+<script type="text/javascript" src="/html/js/seboot.js?v=<?echo $var:tbsversion?>"></script>
+<script type="text/javascript">
+
+</script>
+</head>
+
+<!--body style="visibility:hidden;"-->
+<body class="mainbg" onload="uiload();">
+<div class="maincontainer">	
+	<div class="headercontainer">
+		<span class="product">
+			<span id = "lang_update005">Product Page : </span>
+			<a target="_blank" href="http://support.dlink.com"id="product"><?get :InternetGatewayDevice.DeviceInfo.ProductClass?></a>
+		</span>
+		<span class="version">				
+			<span id = "lang_update006">Firmware Version : </span>
+			<span class="value" id = "Span_FirmwareVersion"><?get :InternetGatewayDevice.DeviceInfo.SoftwareVersion?></span>
+		</span>
+		<span class="hwversion">
+			<span id = "lang_update007">Hardware Version : </span>
+			<span class="value" id="hard_version"><?get :InternetGatewayDevice.DeviceInfo.HardwareVersion?></span>
+		</span>
+	</div><!-- logo picture -->
+	<div class="bannercontainer">
+		<span class="bannerhead">
+			<a href="http://www.dlink.com.tw"><img width="162" height="92" src="/html/skin/head_01.gif"></a> 
+		</span>
+		<span class="bannertail"><img src="/html/skin/head_03.gif"></span>
+		<!--span class="logout">
+			<a href="#" onclick="uiLogout('<?echo $var:sessionid?>')" id="lang_logout">Logout</a>
+		</span-->
+	</div><!-- logo menu -->	
+	<div class="simplecontainer" id="content">		
+		<div class="simplebody">					
+			<div class="orangebox">
+				<span id="message">
+				<h1 id="head">Clear Language Pack</h1>
+				<div class="emptyline"></div>
+				<div class="centerline" id="msg">Clearing the language pack ...</div>
+				<div class="emptyline"></div>
+				<div class="centerline">
+				<a id="back" href="/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_system">Click here to return to the previous page.</a>
+				</div>
+				<div class="emptyline"></div>
+				</span>
+			</div>
+		</div><!-- mainbody -->
+	</div>	
+	<div class="footercontainer">
+		<span class="footermark"><img src="/html/skin/tail.gif"></span>
+	</div>
+</div>
+<div class="copyright"><span id="lang_update008">Copyright &copy; 2016 D-Link Corporation. All rights reserved.</span></div>
+	<form id="uiPostForm" method="post" action="webproc"></form>
+</body>
+</html>
+
+<script>
+var clear_status = "<?get :InternetGatewayDevice.X_TWSZ-COM_Lang.X_TWSZ-COM_UpdateStatus ?>";
+var G_UpLangRst = -1;
+var G_Action = "none";
+var  G_Language; 
+if(G_Language == null)
+{  
+  G_Language = "<? echo $var:language ?>";
+}
+var arrLang = [];
+arrLang['en_us'] = {
+    'head'      :       'Clear Language Pack',
+	'msg'      :       'Clearing the language pack ...',
+	'lang_update001'      :       'Language Pack Clear Success',
+	'lang_update002'      :       'Language Pack Clear Fail',
+	'lang_update003'      :       'Language Pack Upload Success',
+	'lang_update004'      :       'Language Pack Upload Fail',
+	'lang_update005'      :       'Product Page : ',
+	'lang_update006'      :       'Firmware Version : ',
+	'lang_update007'      :       'Hardware Version : ',
+	'lang_update008'      :       'Copyright &copy; 2016 D-Link Corporation. All rights reserved.',
+	'back'      :       'Click here to return to the previous page.'
+};
+arrLang['zh_tw'] = {
+	head : '清除語言包',
+	msg : '清除語言包中 …',
+	lang_update001 : '語言包清除成功',
+	lang_update002 : '語言包清除失敗',
+	lang_update003 : '語言包更新成功',
+	lang_update004 : '語言包上傳失敗',
+	lang_update005 : '產品頁面:',
+	lang_update006 : '韌體版本:',
+	lang_update007 : '硬體版本:',
+	lang_update008 : 'Copyright &copy; 2016 D-Link Corporation. All rights reserved.',
+	back : '請點選此處來返回至前一頁。'
+};
+arrLang['es'] = {
+	head : 'Limpiar paquete de idiomas',
+	msg : 'Borrando el paquete de idioma ...',
+	lang_update001 : 'Limpieza de paquete de idiomas realizado com éxito.',
+	lang_update002 : 'Limpieza de paquete de idiomas ha fallado.',
+	lang_update003 : 'Transferencia de paquete de idiomas realizado com éxito.',
+	lang_update004 : 'Error al cargar el paquete de idioma',
+	lang_update005 : 'Página del producto：',
+	lang_update006 : 'Versión del firmware：',
+	lang_update007 : 'Versión del hardware：',
+	lang_update008 : 'Copyright &copy; 2016 D-Link Corporation. All rights reserved.',
+	back : 'Haga clic aquí para volver a la página anterior.'
+};
+arrLang['pt'] = {
+	head : 'Apagar pacote de idioma',
+	msg : 'A limpar o pacote de idioma ...',
+	lang_update001 : 'Limpeza de pacote de idiomas realizado com sucesso.',
+	lang_update002 : 'Limpeza de pacote de idiomas falhou.',
+	lang_update003 : 'Transferência de pacote de idiomas realizado com sucesso.',
+	lang_update004 : 'Falha no Carregamento do Pacote de Idiomas.',
+	lang_update005 : 'Página do produto：',
+	lang_update006 : 'Versão de firmware：',
+	lang_update007 : 'Versão de hardware:',
+	lang_update008 : 'Copyright &copy; 2016 D-Link Corporation. All rights reserved.',
+	back : 'Clique aqui para retornar à página anterior.'
+};
+function uiload()
+{
+	//chg_language(data_languages["language_pack"]);
+	var objLang = arrLang[G_Language];
+	for (var attr in objLang){
+		try{
+			document.getElementById(attr).innerHTML = objLang[attr];
+		} catch(E) {
+		}
+	}
+	if(G_Action == "none")//clear
+	{
+        if(G_Language=="pt")	
+		{
+			$("head").innerHTML = arrLang["pt"]["head"];
+			if(clear_status == "273")
+				$("msg").innerHTML = arrLang["pt"]["lang_update001"];
+			else
+				$("msg").innerHTML = arrLang["pt"]["lang_update002"];
+		}
+		else if(G_Language=="zh_tw")	
+		{
+			$("head").innerHTML = arrLang["zh_tw"]["head"];
+			if(clear_status == "273")
+				$("msg").innerHTML = arrLang["zh_tw"]["lang_update001"];
+			else
+				$("msg").innerHTML = arrLang["zh_tw"]["lang_update002"];
+		}
+		else if(G_Language=="es")	
+		{
+			$("head").innerHTML = arrLang["es"]["head"];
+			if(clear_status == "273")
+				$("msg").innerHTML = arrLang["es"]["lang_update001"];
+			else
+				$("msg").innerHTML = arrLang["es"]["lang_update002"];
+		}
+		else
+		{
+			$("head").innerHTML = arrLang["en_us"]["head"];
+			if(clear_status == "273")
+				$("msg").innerHTML = arrLang["en_us"]["lang_update001"];
+			else
+				$("msg").innerHTML = arrLang["en_us"]["lang_update002"];
+		}
+		document.getElementById("back").href = "/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_system"; 
+	}
+	else if(G_Action == "uplang")//up
+	{	
+		var temp = G_dev_info.split("]]");
+		
+		var pro_page = temp[1].split(": ");
+		var firm_ver = temp[5].split(": ");
+		var hard_ver = temp[4].split(": ");
+		
+		$("product").innerHTML = pro_page[1];
+		$("hard_version").innerHTML = hard_ver[1];
+		$("Span_FirmwareVersion").innerHTML = firm_ver[1];
+		if(G_Language=="pt")	
+		{
+			if(G_UpLangRst == "0")
+			{
+				$("head").innerHTML = arrLang["pt"]["lang_update003"];
+				$("msg").innerHTML = arrLang["pt"]["lang_update003"];
+			}
+			else
+			{
+				$("head").innerHTML = arrLang["pt"]["lang_update004"];
+				$("msg").innerHTML = arrLang["pt"]["lang_update004"];
+			}
+		}
+		else if(G_Language=="es")	
+		{
+			if(G_UpLangRst == "0")
+			{
+				$("head").innerHTML = arrLang["es"]["lang_update003"];
+				$("msg").innerHTML = arrLang["es"]["lang_update003"];
+			}
+			else
+			{
+				$("head").innerHTML = arrLang["es"]["lang_update004"];
+				$("msg").innerHTML = arrLang["es"]["lang_update004"];
+			}
+		}
+		else if(G_Language=="zh_tw")	
+		{
+			if(G_UpLangRst == "0")
+			{
+				$("head").innerHTML = arrLang["zh_tw"]["lang_update003"];
+				$("msg").innerHTML = arrLang["zh_tw"]["lang_update003"];
+			}
+			else
+			{
+				$("head").innerHTML = arrLang["zh_tw"]["lang_update004"];
+				$("msg").innerHTML = arrLang["zh_tw"]["lang_update004"];
+			}
+		}
+		else
+		{
+			if(G_UpLangRst == "0")
+			{
+				$("head").innerHTML = arrLang["en_us"]["lang_update003"];
+				$("msg").innerHTML = arrLang["en_us"]["lang_update003"];
+			}
+			else
+			{
+				$("head").innerHTML = arrLang["en_us"]["lang_update004"];
+				$("msg").innerHTML = arrLang["en_us"]["lang_update004"];
+			}
+		}
+		document.getElementById("back").href = "/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_firmware"; 
+	}
+	
+}
+</script>
+

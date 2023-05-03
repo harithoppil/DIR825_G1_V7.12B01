@@ -1,0 +1,717 @@
+﻿<div class="mainbody" id="mainbody">
+<div class="orangebox">
+<span id="Adv_rt001">
+    <h1>Routing</h1>
+    <p>The Routing option allows you to define static routes to specific destinations. </p>
+</span>
+	<p>	
+		<input type="button" value="Save Settings" onclick="uiSubmit();" id="Adv_rt002"/>
+		<input type="button" value="Don't Save Settings" onclick="uiPageRefresh();" id="Adv_rt003"/>
+	</p>
+    </div>
+    <div class="blackbox">
+		<h2 id="Adv_rt004">32 -- ROUTE LIST</h2>
+		<p><span id="Adv_rt005">Remaining number of rules that can be created</span>: <span id="rmd" style="color:red;"></span></p>
+		<div class="centerline" align="center">
+			<table id="" class="general" width=525>
+			<tr class="centerline">
+				<td width="20px" class=c_tb>&nbsp;</td>
+				<td class=c_tb>&nbsp;</td>
+				<td class=c_tb>&nbsp;</td>
+				<td width="50px" class=c_tb><strong id="Adv_rt006">Metric</strong></td>
+				<td width="160px" class=c_tb><strong id="Adv_rt007">Interface</strong></td>
+			</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_1">
+		<input type="hidden" id="uid_1" value="1"/>	
+	</td>
+	<td><span id="Adv_rt008">Name</span><br/><input type=text id="name_1" size=16 maxlength=15></td>
+	<td><span id="Adv_rt009">Destination IP</span><br/><input type=text id="dstip_1" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_1" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_1" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt010">Netmask</span><br/><input type=text id="netmask_1" size=16 maxlength=15></td>
+	<td><span id="Adv_rt011">Gateway</span><br/><input type=text id="gateway_1" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_2">
+		<input type="hidden" id="uid_2" value="2"/>	
+	</td>
+	<td><span id="Adv_rt012">Name</span><br/><input type=text id="name_2" size=16 maxlength=15></td>
+	<td><span id="Adv_rt013">Destination IP</span><br/><input type=text id="dstip_2" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_2" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_2" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt014">Netmask</span><br/><input type=text id="netmask_2" size=16 maxlength=15></td>
+	<td><span id="Adv_rt015">Gateway</span><br/><input type=text id="gateway_2" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_3">
+		<input type="hidden" id="uid_3" value="3"/>	
+	</td>
+	<td><span id="Adv_rt016">Name</span><br/><input type=text id="name_3" size=16 maxlength=15></td>
+	<td><span id="Adv_rt017">Destination IP</span><br/><input type=text id="dstip_3" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_3" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_3" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt018">Netmask</span><br/><input type=text id="netmask_3" size=16 maxlength=15></td>
+	<td><span id="Adv_rt019">Gateway</span><br/><input type=text id="gateway_3" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_4">
+		<input type="hidden" id="uid_4" value="4"/>	
+	</td>
+	<td><span id="Adv_rt020">Name</span><br/><input type=text id="name_4" size=16 maxlength=15></td>
+	<td><span id="Adv_rt021">Destination IP</span><br/><input type=text id="dstip_4" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_4" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_4" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt022">Netmask</span><br/><input type=text id="netmask_4" size=16 maxlength=15></td>
+	<td><span id="Adv_rt023">Gateway</span><br/><input type=text id="gateway_4" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_5">
+		<input type="hidden" id="uid_5" value="5"/>	
+	</td>
+	<td><span id="Adv_rt024">Name</span><br/><input type=text id="name_5" size=16 maxlength=15></td>
+	<td><span id="Adv_rt025">Destination IP</span><br/><input type=text id="dstip_5" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_5" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_5" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt026">Netmask</span><br/><input type=text id="netmask_5" size=16 maxlength=15></td>
+	<td><span id="Adv_rt027">Gateway</span><br/><input type=text id="gateway_5" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_6">
+		<input type="hidden" id="uid_6" value="6"/>	
+	</td>
+	<td><span id="Adv_rt028">Name</span><br/><input type=text id="name_6" size=16 maxlength=15></td>
+	<td><span id="Adv_rt029">Destination IP</span><br/><input type=text id="dstip_6" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_6" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_6" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt030">Netmask</span><br/><input type=text id="netmask_6" size=16 maxlength=15></td>
+	<td><span id="Adv_rt031">Gateway</span><br/><input type=text id="gateway_6" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_7">
+		<input type="hidden" id="uid_7" value="7"/>	
+	</td>
+	<td><span id="Adv_rt032">Name</span><br/><input type=text id="name_7" size=16 maxlength=15></td>
+	<td><span id="Adv_rt033">Destination IP</span><br/><input type=text id="dstip_7" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_7" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_7" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt034">Netmask</span><br/><input type=text id="netmask_7" size=16 maxlength=15></td>
+	<td><span id="Adv_rt035">Gateway</span><br/><input type=text id="gateway_7" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_8">
+		<input type="hidden" id="uid_8" value="8"/>	
+	</td>
+	<td><span id="Adv_rt036">Name</span><br/><input type=text id="name_8" size=16 maxlength=15></td>
+	<td><span id="Adv_rt037">Destination IP</span><br/><input type=text id="dstip_8" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_8" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_8" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt038">Netmask</span><br/><input type=text id="netmask_8" size=16 maxlength=15></td>
+	<td><span id="Adv_rt039">Gateway</span><br/><input type=text id="gateway_8" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_9">
+		<input type="hidden" id="uid_9" value="9"/>	
+	</td>
+	<td><span id="Adv_rt040">Name</span><br/><input type=text id="name_9" size=16 maxlength=15></td>
+	<td><span id="Adv_rt041">Destination IP</span><br/><input type=text id="dstip_9" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_9" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_9" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt042">Netmask</span><br/><input type=text id="netmask_9" size=16 maxlength=15></td>
+	<td><span id="Adv_rt043">Gateway</span><br/><input type=text id="gateway_9" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_10">
+		<input type="hidden" id="uid_10" value="10"/>	
+	</td>
+	<td><span id="Adv_rt044">Name</span><br/><input type=text id="name_10" size=16 maxlength=15></td>
+	<td><span id="Adv_rt045">Destination IP</span><br/><input type=text id="dstip_10" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_10" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_10" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt046">Netmask</span><br/><input type=text id="netmask_10" size=16 maxlength=15></td>
+	<td><span id="Adv_rt047">Gateway</span><br/><input type=text id="gateway_10" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_11">
+		<input type="hidden" id="uid_11" value="11"/>	
+	</td>
+	<td><span id="Adv_rt048">Name</span><br/><input type=text id="name_11" size=16 maxlength=15></td>
+	<td><span id="Adv_rt049">Destination IP</span><br/><input type=text id="dstip_11" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_11" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_11" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt050">Netmask</span><br/><input type=text id="netmask_11" size=16 maxlength=15></td>
+	<td><span id="Adv_rt051">Gateway</span><br/><input type=text id="gateway_11" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_12">
+		<input type="hidden" id="uid_12" value="12"/>	
+	</td>
+	<td><span id="Adv_rt052">Name</span><br/><input type=text id="name_12" size=16 maxlength=15></td>
+	<td><span id="Adv_rt053">Destination IP</span><br/><input type=text id="dstip_12" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_12" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_12" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt054">Netmask</span><br/><input type=text id="netmask_12" size=16 maxlength=15></td>
+	<td><span id="Adv_rt055">Gateway</span><br/><input type=text id="gateway_12" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_13">
+		<input type="hidden" id="uid_13" value="13"/>	
+	</td>
+	<td><span id="Adv_rt056">Name</span><br/><input type=text id="name_13" size=16 maxlength=15></td>
+	<td><span id="Adv_rt057">Destination IP</span><br/><input type=text id="dstip_13" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_13" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_13" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt058">Netmask</span><br/><input type=text id="netmask_13" size=16 maxlength=15></td>
+	<td><span id="Adv_rt059">Gateway</span><br/><input type=text id="gateway_13" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_14">
+		<input type="hidden" id="uid_14" value="14"/>	
+	</td>
+	<td><span id="Adv_rt060">Name</span><br/><input type=text id="name_14" size=16 maxlength=15></td>
+	<td><span id="Adv_rt061">Destination IP</span><br/><input type=text id="dstip_14" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_14" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_14" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt062">Netmask</span><br/><input type=text id="netmask_14" size=16 maxlength=15></td>
+	<td><span id="Adv_rt063">Gateway</span><br/><input type=text id="gateway_14" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_15">
+		<input type="hidden" id="uid_15" value="15"/>	
+	</td>
+	<td><span id="Adv_rt064">Name</span><br/><input type=text id="name_15" size=16 maxlength=15></td>
+	<td><span id="Adv_rt065">Destination IP</span><br/><input type=text id="dstip_15" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_15" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_15" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt066">Netmask</span><br/><input type=text id="netmask_15" size=16 maxlength=15></td>
+	<td><span id="Adv_rt067">Gateway</span><br/><input type=text id="gateway_15" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_16">
+		<input type="hidden" id="uid_16" value="16"/>	
+	</td>
+	<td><span id="Adv_rt068">Name</span><br/><input type=text id="name_16" size=16 maxlength=15></td>
+	<td><span id="Adv_rt069">Destination IP</span><br/><input type=text id="dstip_16" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_16" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_16" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt070">Netmask</span><br/><input type=text id="netmask_16" size=16 maxlength=15></td>
+	<td><span id="Adv_rt071">Gateway</span><br/><input type=text id="gateway_16" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_17">
+		<input type="hidden" id="uid_17" value="17"/>	
+	</td>
+	<td><span id="Adv_rt072">Name</span><br/><input type=text id="name_17" size=16 maxlength=15></td>
+	<td><span id="Adv_rt073">Destination IP</span><br/><input type=text id="dstip_17" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_17" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_17" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt074">Netmask</span><br/><input type=text id="netmask_17" size=16 maxlength=15></td>
+	<td><span id="Adv_rt075">Gateway</span><br/><input type=text id="gateway_17" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_18">
+		<input type="hidden" id="uid_18" value="18"/>	
+	</td>
+	<td><span id="Adv_rt076">Name</span><br/><input type=text id="name_18" size=16 maxlength=15></td>
+	<td><span id="Adv_rt077">Destination IP</span><br/><input type=text id="dstip_18" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_18" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_18" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt078">Netmask</span><br/><input type=text id="netmask_18" size=16 maxlength=15></td>
+	<td><span id="Adv_rt079">Gateway</span><br/><input type=text id="gateway_18" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_19">
+		<input type="hidden" id="uid_19" value="19"/>	
+	</td>
+	<td><span id="Adv_rt080">Name</span><br/><input type=text id="name_19" size=16 maxlength=15></td>
+	<td><span id="Adv_rt081">Destination IP</span><br/><input type=text id="dstip_19" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_19" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_19" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt082">Netmask</span><br/><input type=text id="netmask_19" size=16 maxlength=15></td>
+	<td><span id="Adv_rt083">Gateway</span><br/><input type=text id="gateway_19" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_20">
+		<input type="hidden" id="uid_20" value="20"/>	
+	</td>
+	<td><span id="Adv_rt084">Name</span><br/><input type=text id="name_20" size=16 maxlength=15></td>
+	<td><span id="Adv_rt085">Destination IP</span><br/><input type=text id="dstip_20" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_20" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_20" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt086">Netmask</span><br/><input type=text id="netmask_20" size=16 maxlength=15></td>
+	<td><span id="Adv_rt087">Gateway</span><br/><input type=text id="gateway_20" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_21">
+		<input type="hidden" id="uid_21" value="21"/>	
+	</td>
+	<td><span id="Adv_rt088">Name</span><br/><input type=text id="name_21" size=16 maxlength=15></td>
+	<td><span id="Adv_rt089">Destination IP</span><br/><input type=text id="dstip_21" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_21" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_21" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt090">Netmask</span><br/><input type=text id="netmask_21" size=16 maxlength=15></td>
+	<td><span id="Adv_rt091">Gateway</span><br/><input type=text id="gateway_21" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_22">
+		<input type="hidden" id="uid_22" value="22"/>	
+	</td>
+	<td><span id="Adv_rt092">Name</span><br/><input type=text id="name_22" size=16 maxlength=15></td>
+	<td><span id="Adv_rt093">Destination IP</span><br/><input type=text id="dstip_22" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_22" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_22" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt094">Netmask</span><br/><input type=text id="netmask_22" size=16 maxlength=15></td>
+	<td><span id="Adv_rt095">Gateway</span><br/><input type=text id="gateway_22" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_23">
+		<input type="hidden" id="uid_23" value="23"/>	
+	</td>
+	<td><span id="Adv_rt096">Name</span><br/><input type=text id="name_23" size=16 maxlength=15></td>
+	<td><span id="Adv_rt097">Destination IP</span><br/><input type=text id="dstip_23" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_23" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_23" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt098">Netmask</span><br/><input type=text id="netmask_23" size=16 maxlength=15></td>
+	<td><span id="Adv_rt099">Gateway</span><br/><input type=text id="gateway_23" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_24">
+		<input type="hidden" id="uid_24" value="24"/>	
+	</td>
+	<td><span id="Adv_rt100">Name</span><br/><input type=text id="name_24" size=16 maxlength=15></td>
+	<td><span id="Adv_rt101">Destination IP</span><br/><input type=text id="dstip_24" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_24" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_24" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt102">Netmask</span><br/><input type=text id="netmask_24" size=16 maxlength=15></td>
+	<td><span id="Adv_rt103">Gateway</span><br/><input type=text id="gateway_24" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_25">
+		<input type="hidden" id="uid_25" value="25"/>	
+	</td>
+	<td><span id="Adv_rt104">Name</span><br/><input type=text id="name_25" size=16 maxlength=15></td>
+	<td><span id="Adv_rt105">Destination IP</span><br/><input type=text id="dstip_25" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_25" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_25" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt106">Netmask</span><br/><input type=text id="netmask_25" size=16 maxlength=15></td>
+	<td><span id="Adv_rt107">Gateway</span><br/><input type=text id="gateway_25" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_26">
+		<input type="hidden" id="uid_26" value="26"/>	
+	</td>
+	<td><span id="Adv_rt108">Name</span><br/><input type=text id="name_26" size=16 maxlength=15></td>
+	<td><span id="Adv_rt109">Destination IP</span><br/><input type=text id="dstip_26" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_26" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_26" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt110">Netmask</span><br/><input type=text id="netmask_26" size=16 maxlength=15></td>
+	<td><span id="Adv_rt111">Gateway</span><br/><input type=text id="gateway_26" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_27">
+		<input type="hidden" id="uid_27" value="27"/>	
+	</td>
+	<td><span id="Adv_rt112">Name</span><br/><input type=text id="name_27" size=16 maxlength=15></td>
+	<td><span id="Adv_rt113">Destination IP</span><br/><input type=text id="dstip_27" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_27" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_27" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt114">Netmask</span><br/><input type=text id="netmask_27" size=16 maxlength=15></td>
+	<td><span id="Adv_rt115">Gateway</span><br/><input type=text id="gateway_27" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_28">
+		<input type="hidden" id="uid_28" value="28"/>	
+	</td>
+	<td><span id="Adv_rt116">Name</span><br/><input type=text id="name_28" size=16 maxlength=15></td>
+	<td><span id="Adv_rt117">Destination IP</span><br/><input type=text id="dstip_28" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_28" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_28" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt118">Netmask</span><br/><input type=text id="netmask_28" size=16 maxlength=15></td>
+	<td><span id="Adv_rt119">Gateway</span><br/><input type=text id="gateway_28" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_29">
+		<input type="hidden" id="uid_29" value="29"/>	
+	</td>
+	<td><span id="Adv_rt120">Name</span><br/><input type=text id="name_29" size=16 maxlength=15></td>
+	<td><span id="Adv_rt121">Destination IP</span><br/><input type=text id="dstip_29" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_29" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_29" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt122">Netmask</span><br/><input type=text id="netmask_29" size=16 maxlength=15></td>
+	<td><span id="Adv_rt123">Gateway</span><br/><input type=text id="gateway_29" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_30">
+		<input type="hidden" id="uid_30" value="30"/>	
+	</td>
+	<td><span id="Adv_rt124">Name</span><br/><input type=text id="name_30" size=16 maxlength=15></td>
+	<td><span id="Adv_rt125">Destination IP</span><br/><input type=text id="dstip_30" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_30" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_30" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt126">Netmask</span><br/><input type=text id="netmask_30" size=16 maxlength=15></td>
+	<td><span id="Adv_rt127">Gateway</span><br/><input type=text id="gateway_30" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_31">
+		<input type="hidden" id="uid_31" value="31"/>	
+	</td>
+	<td><span id="Adv_rt128">Name</span><br/><input type=text id="name_31" size=16 maxlength=15></td>
+	<td><span id="Adv_rt129">Destination IP</span><br/><input type=text id="dstip_31" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_31" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_31" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt130">Netmask</span><br/><input type=text id="netmask_31" size=16 maxlength=15></td>
+	<td><span id="Adv_rt131">Gateway</span><br/><input type=text id="gateway_31" size=16 maxlength=15></td>
+</tr>
+
+<tr>
+	<td class="centered" rowspan="2">
+		<input type=checkbox id="enable_32">
+		<input type="hidden" id="uid_32" value="32"/>	
+	</td>
+	<td><span id="Adv_rt132">Name</span><br/><input type=text id="name_32" size=16 maxlength=15></td>
+	<td><span id="Adv_rt133">Destination IP</span><br/><input type=text id="dstip_32" size=16 maxlength=15></td>
+	<td class="centered" rowspan="2"><input type=text id="metric_32" size=3 maxlength=3></td>
+	
+	<td class="centered" rowspan="2">
+		<select id="inf_32" style="width: 150px;">
+			
+<option value="WAN-1">WAN ()</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><span id="Adv_rt134">Netmask</span><br/><input type=text id="netmask_32" size=16 maxlength=15></td>
+	<td><span id="Adv_rt135">Gateway</span><br/><input type=text id="gateway_32" size=16 maxlength=15></td>
+</tr>
+
+
+			</table>
+		</div>
+	<div class="gap"></div>
+	</div>
+<p><input type="button" value="Save Settings" onclick="uiSubmit();" id="Adv_rt136"/>
+<input type="button" value="Don't Save Settings" onclick="uiPageRefresh();" id="Adv_rt137"/></p>
+
+</div>
+<div id="WINFO011" class="tips">
+<span id="Adv_rt138">
+	<strong>Helpful Hints...</strong>
+	<br/><br/>
+	<p>&nbsp;&#149;&nbsp;&nbsp;<strong>Enable:</strong><br/>Specifies whether the entry will be enabled or disabled.</p>
+	<p>&nbsp;&#149;&nbsp;&nbsp;<strong>Interface:</strong><br/>Specifies the interface -- WAN -- that the IP packet must use to transit out of the router, when this route is used.</p>
+	<p>&nbsp;&#149;&nbsp;&nbsp;<strong>Destination IP:</strong><br/>The IP address of packets that will take this route.</p>
+	<p>&nbsp;&#149;&nbsp;&nbsp;<strong>Netmask:</strong><br/>One bit in the mask specifies which bits of the IP address must match.</p>
+	<p>&nbsp;&#149;&nbsp;&nbsp;<strong>Gateway:</strong><br/>The gateway IP address is the IP address of the router, if any, used to reach the specified destination.</p>
+</span>
+	<p>&nbsp;&#149;&nbsp;&nbsp;<a href=
+	"/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpadv#Routing"><span id = "Adv_rt139">More</span></a></p>

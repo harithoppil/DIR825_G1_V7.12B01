@@ -1,0 +1,133 @@
+.TH nbsmtprc 5 "3 May 2005" Unix "nbSMTP Configuration file"
+.SH NAME
+nbsmtprc \- The no-brainer SMTP configuration file
+.SH DESCRIPTION
+.PP
+Please note that this file is only read when no \fB-n\fP or \fB-N\fP
+options are passed to nbSMTP.
+.PP
+The nbsmtprc file consists of a series of option pairs. Each line
+may contain one of those pairs. keys and values are separated by using
+the equal sign (\(lq\fB=\fP\(rq).
+.PP
+The pound sign (\(lq\fB#\fP\(rq) is the \(lqcomment\(rq characer. All
+text after that sign will be ignored.
+.SH OPTIONS
+.PP
+One or more of these options may be used:
+
+.TP
+.B relayhost
+.nf
+Type: string
+Default: (none)
+.fi
+.IP
+This is the host to relay messages to. No default value. Required.
+
+.TP
+.B fromaddr
+.nf
+Type: string
+Default: (none)
+.fi
+.IP
+This is the address to send in MAIL FROM command. No default value. Required.
+
+.TP
+.B domain
+.nf
+Type: string
+Default: machine's hostname
+.fi
+.IP
+Name to send in the HELO/EHLO greeting command. Defaults to the machine's
+local hostname.
+
+.TP
+.B auth_user
+.nf
+Type: string
+Default: (none)
+.fi
+.IP
+SASL User name. No default value.
+
+.TP
+.B auth_pass
+.nf
+Type: string
+Default: (none)
+.fi
+.IP
+SASL Password. No default value.
+
+.TP
+.B auth_mech
+.nf
+Type: string
+Default: plain ( AUTH PLAIN )
+.fi
+.IP
+SASL Mechanism to use. Defaults to 'plain' (AUTH PLAIN). If set to 'login', AUTH LOGIN
+will be used. If set to 'crammd5' and compiled with --enable-ssl, AUTH CRAM-MD5 will
+be used.
+
+.TP
+.B port
+.nf
+Type: int
+Default: 25 - 465
+.fi
+.IP
+Port to use to connect the relayhost. Defaults to 25 if no port is specified or if
+use_starttls is specified. Defaults to 465 if use_tls is True and use_starttls is
+False.
+
+.TP
+.B use_tls
+.nf
+Type: boolean
+Default: False
+.fi
+.IP
+Whether to use TLS to connect. Possible values are True or False. Defaults to False
+but if use_starttls is set to True, use_tls will be set to True.
+
+.TP
+.B use_starttls
+.nf
+Type: boolean
+Default: False
+.fi
+.IP
+Whether to use STARTTLS command. Possible values are True or False. Defaults to
+False. When set to True, use_tls is automatically set to True.
+
+.TP
+.B debug
+.nf
+Type: int
+Default: 0
+.fi
+.IP
+Whether to activate debug messages. If set to 1 LOG_DEBUG messages will be sent to 
+syslog. If set to 2, messages will be printed to STDERR, but no message will be sent
+to syslog, useful when testing.  The default value (\fB0\fP) will generate just the
+needed messages and send them to syslog. If you set this to \fB>2\fP passwords won't
+be masked when printing to STDERR. They'll be masked if they are sent to syslog.
+
+.SH SEE ALSO
+.PP
+.BR nbsmtp(8)
+.PP
+nbSMTP Home Page: http://nbsmtp.ferdyx.org
+.SH BUGS
+.PP
+Please report bugs to <nbsmtp@ferdyx.org>
+.SH AUTHORS
+.PP
+Fernando J. Pereda <ferdy@ferdyx.org>
+.PP
+Ricardo Cervera Navarro <ricardo@zonasiete.org>
+.B (Retired)

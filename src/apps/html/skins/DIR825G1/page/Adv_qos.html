@@ -1,0 +1,2088 @@
+﻿<div class="mainbody" id="mainbody">
+	<div class="orangebox">
+	<span id="Adv_qos001">
+		<h1>QoS SETTINGS</h1>
+		<p>
+			Use this section to configure D-Link's QoS Engine powered by QoS Engine Technology. This QoS Engine improves your online gaming experience by ensuring that your game traffic is prioritized over other network traffic, such as FTP or Web.For best performance, use the Automatic Classification option to automatically set the priority for your applications.
+		</p>
+	</span>
+		<p><input type="button" value="Save Settings" onclick="uiSubmit();" id="Adv_qos002"/>
+			<input type="button" value="Don't Save Settings" onclick="uiPageRefresh();" id="Adv_qos003"/></p>
+	</div>
+	<div class="blackbox">
+		<h2 id="Adv_qos004">QoS Setup</h2>
+		<div class="textinput">
+			<span class="name" id="Adv_qos005">Enable QoS</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input type="checkbox" id="en_qos" onclick="OnClickQOSEnable();" /></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="Adv_qos006">Uplink Speed</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input id="upstream" type="text" size=6 maxlength=7>
+				kbps <span>&nbsp;&lt;&lt;&nbsp;</span>
+				<select id="select_upstream" modified="ignore" onchange="OnChangeQOSUpstream();">
+					<option value="0" selected id="Adv_qos007">Select Transmission Rate</option>
+					<option value="128">128k</option>	
+					<option value="256">256k</option>
+					<option value="384">384k</option>
+					<option value="512">512k</option>
+					<option value="1024">1M</option>
+					<option value="2048">2M</option>
+					<option value="3072">3M</option>
+					<option value="5120">5M</option>
+					<option value="10240">10M</option>
+					<option value="20480">20M</option>
+				</select>
+			</span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="Adv_qos008">Downlink Speed</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input id="downstream" type="text" size=6 maxlength=7>
+				kbps <span>&nbsp;&lt;&lt;&nbsp;</span>
+				<select id="select_downstream" modified="ignore" onchange="OnChangeQOSDownstream();">
+					<option value="0" selected id="Adv_qos009">Select Transmission Rate</option>
+					<option value="1024">1M</option>
+					<option value="2048">2M</option>
+					<option value="3072">3M</option>
+					<option value="8192">8M</option>
+					<option value="10240">10M</option>
+					<option value="12288">12M</option>
+					<option value="16384">16M</option>
+					<option value="40960">40M</option>
+					<option value="51200">50M</option>
+					<option value="102400">100M</option>
+				</select>
+			</span>
+		</div>
+		<div class="textinput" >
+			<span class="name" id="Adv_qos010">Queue Type</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<input id="Qtype_SPQ" name="qtype" type="radio" value="SP" onclick="OnClickQtype(this.value);" /><span id="Adv_qos011">Strict Priority Queue</span>
+				<input id="Qtype_WFQ" name="qtype" type="radio" value="WRR" onclick="OnClickQtype(this.value);" /><span id="Adv_qos012">Weighted Fair Queue</span>
+			</span>
+		</div>
+		<div class="gap"></div>
+		<table id="queue_table" class="general" >
+			<tr height="26">
+				<th id="Adv_qos013">Queue ID</th>
+				<th id="priority" ></th>
+			</tr>
+			<tr height="26">
+				<td class="centered">1</td>
+				<td class="centered" id="priority1"><input id="priority_dsc1" type="text" size="3" maxlength="3" />%</td>
+			</tr>			
+			<tr height="26">
+				<td class="centered">2</td>
+				<td class="centered" id="priority2"><input id="priority_dsc2" type="text" size="3" maxlength="3" />%</td>
+			</tr>	
+			<tr height="26">
+				<td class="centered">3</td>
+				<td class="centered" id="priority3"><input id="priority_dsc3" type="text" size="3" maxlength="3" />%</td>
+			</tr>
+			<tr height="26">
+				<td class="centered">4</td>
+				<td class="centered" id="priority4"><input id="priority_dsc4" type="text" size="3" maxlength="3" />%</td>
+			</tr>
+		</table>
+		<div class="gap"></div>
+	</div>
+	<div class="blackbox">
+		<h2 id="Adv_qos014">32 -- ADD Classification RULE</h2>
+		<table align="center">
+		<tr>
+			<td align="right"><span id="Adv_qos015">Enable</span>&nbsp;:</td>
+			<td><input id="en" type="checkbox" /></td>
+		</tr>
+		<tr>
+			<td align="right"><span id="Adv_qos016">Name</span>&nbsp;:</td>
+			<td><input type="text" id="desc" size="20" maxlength="31" ></td>
+		</tr>
+		<tr>
+			<td align="right"><span id="Adv_qos017">Queue ID</span>&nbsp;:</td>
+			<td>
+				<select id="select_pri">
+					<option value="3" id="Adv_qos018">1 - Highest</option>
+					<option value="4" id="Adv_qos019">2 - Higher</option>
+					<option value="5" id="Adv_qos020">3 - Normal</option>
+					<option value="6" id="Adv_qos021">4 - Best Effort</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td align="right"><span id="Adv_qos022">Protocol</span>&nbsp;:</td>
+			<td>
+				<select id="select_pro" onclick="">
+					<option value="0" id="Adv_qos023">ALL</option>
+					<option value="6" id="Adv_qos024">TCP</option>
+					<option value="17" id="Adv_qos025">UDP</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td align="right"><span id="Adv_qos026">Classify</span>&nbsp;:</td>
+			<td>
+				<select id="select_classify" onclick="">
+					<option value="LAN" id="Adv_qos027">Upstream</option>
+					<option value="WAN" id="Adv_qos028">Downstream</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td align="right"><span id="Adv_qos029">Source IP Range</span>&nbsp;:</td>
+			<td>
+				<span id="Adv_qos030">Source IP Start</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span id="Adv_qos031">Source IP End</span>&nbsp;
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>				
+				<input id="src_startip" type="text" maxlength="15" size="27" />  <span id="Adv_qos032">to</span> 
+				<input id="src_endip" type="text" maxlength="15" size="27" />
+			</td>
+		</tr>
+		<tr>
+			<td align="right"><span id="Adv_qos033">Application Port</span>&nbsp;:</td>
+			<td>
+				<select id="select_app_port" onchange="onChgAPP(this.value)">
+					<option value="app" id="Adv_qos034">Application Name</option>
+					<option value="sip">SIP</option>
+					<option value="h323">H.323</option>
+					<option value="mgcp">MGCP</option>
+					<option value="snmp">SNMP</option>
+					<option value="dns">DNS</option>
+					<option value="dhcp">DHCP</option>
+					<option value="rip">RIP</option>
+					<option value="rstp">RSTP</option>
+					<option value="rtcp">RTCP</option>
+					<option value="rtp">RTP</option>
+				</select> >> 
+				<input id="app_port_start" type="text" maxlength="15" size="15" />  <span id="Adv_qos035">to</span> 
+				<input id="app_port_end" type="text" maxlength="15" size="15" />
+			</td>
+		</tr>	
+		<tr>
+			<td align="right"><span id="Adv_qos036">Destination IP Range</span>&nbsp;:</td>
+			<td>
+				<span id="Adv_qos037">Destination IP Start</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span id="Adv_qos038">Destination IP End</span>&nbsp;
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>				
+				<input id="dst_startip" type="text" maxlength="15" size="27" />  <span id="Adv_qos039">to</span> 
+				<input id="dst_endip" type="text" maxlength="15" size="27" />
+			</td>
+		</tr>		
+		</table>	
+		<div class="centerline">
+			<input type="button" id="qossubmit" value="Add" onclick="uiAdd();">
+			<input type="button" id="qoscancel" value="Cancel" onclick="uiPageRefresh();">
+		</div>
+	</div>
+	<div class="blackbox">
+		<h2 id="Adv_qos040">Classification Rules</h2>
+		<table id="qostable" class="general">
+			<tr>
+				<th width="10px" id="Adv_qos041">Enable</th>
+				<th width="10px" id="Adv_qos042">Name</th>
+				<th width="15px" id="Adv_qos043">Queue ID</th>
+				<th width="20px" id="Adv_qos044">Protocol</th>
+				<th width="15px" id="Adv_qos045">Classify</th>
+				<th width="20px" id="Adv_qos046">Source IP Range</th>
+				<th width="20px" id="Adv_qos047">Application Port</th>
+				<th width="20px" id="Adv_qos048">Destination IP Range</th>
+				<th width="5px"> </th>
+				<th width="5px"> </th>
+			</tr>
+		</table>
+		<div class="gap"></div>
+	</div>
+	<div class="blackbox" style="display:none;">
+		<h2>32 -- Classification Rules</h2>
+		<p>Remaining number of rules that can be created: <span id="rmd" style="color:red;"></span></p>
+		<table id="qos_table" class="general">
+			<col width="10px"></col>
+			<col width="70px"></col>
+			<col width="70px"></col>
+			<col width="70px"></col>
+					<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_1" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_1" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_1">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_1" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_1" onclick="OnChangeProt(1)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_1" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_1" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_1" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(1)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_1" onclick="OnChangeAppPort(1)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_1" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_1" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_2" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_2" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_2">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_2" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_2" onclick="OnChangeProt(2)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_2" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_2" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_2" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(2)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_2" onclick="OnChangeAppPort(2)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_2" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_2" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_3" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_3" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_3">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_3" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_3" onclick="OnChangeProt(3)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_3" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_3" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_3" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(3)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_3" onclick="OnChangeAppPort(3)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_3" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_3" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_4" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_4" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_4">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_4" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_4" onclick="OnChangeProt(4)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_4" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_4" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_4" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(4)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_4" onclick="OnChangeAppPort(4)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_4" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_4" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_5" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_5" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_5">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_5" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_5" onclick="OnChangeProt(5)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_5" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_5" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_5" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(5)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_5" onclick="OnChangeAppPort(5)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_5" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_5" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_6" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_6" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_6">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_6" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_6" onclick="OnChangeProt(6)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_6" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_6" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_6" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(6)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_6" onclick="OnChangeAppPort(6)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_6" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_6" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_7" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_7" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_7">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_7" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_7" onclick="OnChangeProt(7)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_7" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_7" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_7" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(7)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_7" onclick="OnChangeAppPort(7)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_7" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_7" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_8" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_8" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_8">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_8" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_8" onclick="OnChangeProt(8)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_8" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_8" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_8" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(8)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_8" onclick="OnChangeAppPort(8)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_8" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_8" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_9" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_9" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_9">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_9" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_9" onclick="OnChangeProt(9)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_9" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_9" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_9" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(9)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_9" onclick="OnChangeAppPort(9)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_9" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_9" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_10" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_10" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_10">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_10" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_10" onclick="OnChangeProt(10)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_10" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_10" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_10" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(10)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_10" onclick="OnChangeAppPort(10)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_10" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_10" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_11" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_11" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_11">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_11" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_11" onclick="OnChangeProt(11)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_11" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_11" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_11" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(11)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_11" onclick="OnChangeAppPort(11)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_11" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_11" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_12" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_12" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_12">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_12" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_12" onclick="OnChangeProt(12)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_12" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_12" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_12" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(12)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_12" onclick="OnChangeAppPort(12)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_12" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_12" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_13" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_13" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_13">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_13" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_13" onclick="OnChangeProt(13)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_13" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_13" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_13" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(13)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_13" onclick="OnChangeAppPort(13)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_13" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_13" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_14" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_14" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_14">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_14" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_14" onclick="OnChangeProt(14)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_14" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_14" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_14" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(14)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_14" onclick="OnChangeAppPort(14)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_14" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_14" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_15" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_15" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_15">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_15" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_15" onclick="OnChangeProt(15)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_15" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_15" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_15" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(15)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_15" onclick="OnChangeAppPort(15)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_15" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_15" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_16" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_16" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_16">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_16" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_16" onclick="OnChangeProt(16)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_16" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_16" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_16" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(16)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_16" onclick="OnChangeAppPort(16)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_16" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_16" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_17" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_17" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_17">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_17" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_17" onclick="OnChangeProt(17)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_17" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_17" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_17" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(17)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_17" onclick="OnChangeAppPort(17)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_17" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_17" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_18" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_18" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_18">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_18" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_18" onclick="OnChangeProt(18)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_18" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_18" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_18" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(18)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_18" onclick="OnChangeAppPort(18)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_18" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_18" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_19" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_19" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_19">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_19" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_19" onclick="OnChangeProt(19)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_19" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_19" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_19" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(19)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_19" onclick="OnChangeAppPort(19)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_19" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_19" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_20" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_20" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_20">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_20" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_20" onclick="OnChangeProt(20)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_20" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_20" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_20" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(20)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_20" onclick="OnChangeAppPort(20)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_20" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_20" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_21" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_21" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_21">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_21" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_21" onclick="OnChangeProt(21)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_21" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_21" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_21" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(21)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_21" onclick="OnChangeAppPort(21)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_21" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_21" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_22" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_22" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_22">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_22" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_22" onclick="OnChangeProt(22)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_22" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_22" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_22" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(22)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_22" onclick="OnChangeAppPort(22)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_22" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_22" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_23" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_23" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_23">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_23" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_23" onclick="OnChangeProt(23)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_23" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_23" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_23" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(23)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_23" onclick="OnChangeAppPort(23)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_23" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_23" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_24" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_24" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_24">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_24" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_24" onclick="OnChangeProt(24)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_24" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_24" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_24" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(24)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_24" onclick="OnChangeAppPort(24)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_24" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_24" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_25" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_25" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_25">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_25" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_25" onclick="OnChangeProt(25)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_25" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_25" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_25" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(25)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_25" onclick="OnChangeAppPort(25)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_25" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_25" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_26" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_26" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_26">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_26" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_26" onclick="OnChangeProt(26)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_26" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_26" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_26" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(26)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_26" onclick="OnChangeAppPort(26)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_26" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_26" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_27" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_27" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_27">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_27" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_27" onclick="OnChangeProt(27)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_27" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_27" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_27" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(27)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_27" onclick="OnChangeAppPort(27)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_27" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_27" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_28" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_28" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_28">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_28" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_28" onclick="OnChangeProt(28)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_28" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_28" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_28" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(28)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_28" onclick="OnChangeAppPort(28)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_28" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_28" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_29" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_29" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_29">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_29" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_29" onclick="OnChangeProt(29)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_29" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_29" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_29" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(29)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_29" onclick="OnChangeAppPort(29)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_29" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_29" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_30" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_30" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_30">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_30" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_30" onclick="OnChangeProt(30)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_30" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_30" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_30" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(30)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_30" onclick="OnChangeAppPort(30)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_30" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_30" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_31" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_31" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_31">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_31" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_31" onclick="OnChangeProt(31)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_31" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_31" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_31" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(31)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_31" onclick="OnChangeAppPort(31)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_31" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_31" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+							<tr>
+				<td rowspan="3" class="centered">
+					<input id="en_32" type="checkbox" />
+				</td>
+				<td>
+					Name<br>
+					<input id="dsc_32" type="text" size="20" maxlength="31" />
+				</td>
+				<td>
+					Queue ID<br>
+					<select id="pri_32">
+						<option value="VO">1 - Highest</option>
+						<option value="VI">2 - Higher</option>
+						<option value="BG">3 - Normal</option>
+						<option value="BE">4 - Best Effort</option>
+					</select>
+				</td>
+				<td>
+					Protocol<br>
+					<input id="pro_32" type="text" size=6 maxlength=6>
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_pro_32" onclick="OnChangeProt(32)">
+						<option value="ALL">ALL</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>			
+			</tr>
+			<tr>
+				<td colspan="2">
+					Source IP Range<br>
+					<input id="src_startip_32" type="text" maxlength="15" size="27" />  to 
+					<input id="src_endip_32" type="text" maxlength="15" size="27" />
+				</td>
+				<td rowspan="2">
+					Application Port<br>
+					<input id="app_port_32" type="text" size=15 maxlength=15 onkeyup="OnChangeAppPortInput(32)" />
+					<span>&nbsp;&lt;&lt;&nbsp;</span>
+					<select id="select_app_port_32" onclick="OnChangeAppPort(32)">
+						<option value="ALL">ALL</option>
+						<option value="YOUTUBE">YOUTUBE</option>
+						<option value="VOICE">VOICE</option>
+						<option value="HTTP_AUDIO">HTTP_AUDIO</option>
+						<option value="HTTP_VIDEO">HTTP_VIDEO</option>
+						<option value="HTTP_DOWNLOAD">HTTP_DOWNLOAD</option>
+						<option value="HTTP">HTTP</option>
+						<option value="FTP">FTP</option>
+						<option value="P2P">P2P</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Destination IP Range<br>
+					<input id="dst_startip_32" type="text" maxlength="15" size="27" />  to 
+					<input id="dst_endip_32" type="text" maxlength="15" size="27" />
+				</td>
+			</tr>
+					
+		</table>
+	</div>
+
+	<p><input type="button" value="Save Settings" onclick="uiSubmit();" id="Adv_qos049"/>
+	<input type="button" value="Don't Save Settings" onclick="uiPageRefresh();" id="Adv_qos050"/></p>
+
+	<!-- End of Page Dependent Part. -->
+</div>
+<div id="help_hint" class="tips">
+<!-- Start of Help Depedent Part. -->
+<span id="Adv_qos051">
+<strong>Helpful Hints...</strong>
+<br/><br/>
+<p>&nbsp;&#149;&nbsp;&nbsp;Some experimentation and performance measurement may be required to converge on the optimal value.</p>
+</span>
+<p>&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpadv#QoS"><span id="Adv_qos052">More</span>...</a></p>
+<!-- End of Help Dependent Part. -->

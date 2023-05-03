@@ -1,0 +1,80 @@
+<div class="mainbody" id="mainbody">
+<div class="orangebox"> 
+	<h1 id="BIPV6LOCAL001">IPv6 LOCAL CONNECTIVITY SETTINGS</h1>
+		<p id="BIPV6LOCAL002">
+			Use this section to configure Unique Local IPv6 Unicast Address (ULA) settings for your router.
+			ULA is intended for local communications and not expected to be routable on the global Internet.
+		</p>
+		<p>
+			<input type="button" id="BIPV6LOCAL011" value="Save Settings" onclick="OnSubmit();" />
+			<input type="button" id="BIPV6LOCAL012" value="Don't Save Settings" onclick="uiPageRefresh();" />
+		</p>
+</div>
+<!-- IPV6 orangebox END-->
+<!-- IPV6 ULA SETTINGS -->
+<div class="blackbox" id="bbox_ula" style="display:none">
+	<div id="box_ula_title" style="display:none">
+		<h2 id="BIPV6LOCAL003">IPv6 ULA SETTINGS</h2>
+	</div>
+	<div id="box_ula_body" style="display:none">
+		<div class="textinput">
+			<span class="name" id="BIPV6LOCAL004">Enable ULA</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="en_ula" value="" type="checkbox" onClick="OnClickEnableUla();"/></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6LOCAL005">Use default ULA prefix</span>
+			<span class="delimiter">:</span>
+			<span class="value"><input id="use_default_ula" value="" type="checkbox" onClick="OnClickUseDefault();"/></span>
+		</div>
+		<div class="textinput">
+			<span class="name" id="BIPV6LOCAL006">ULA Prefix</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<span id="ula_span" style="display:none">
+				<span><input id="ula_prefix" type="text" size="42" maxlength="45" /></span>
+				<span id="ula_prefix_pl"></span>
+				</span>
+			</span>
+		</div>
+	</div>
+	<div class="gap"></div>
+</div>
+<!-- IPV6 ULA SETTINGS END -->
+<!-- Current IPv6 ULA SETTINGS -->
+<div class="blackbox">
+	<div id="box_cula_title" style="display:none"> 
+		<h2 id="BIPV6LOCAL007">Current IPv6 ULA SETTINGS</h2>
+	</div>
+	<div id="box_cula_prefix_body" style="display:none">
+		<div class="textinput">
+			<span class="name" id="BIPV6LOCAL008">Current ULA Prefix</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<span id="cula_prefix"></span>	
+				<span id="cula_prefix_pl"></span>
+			</span>
+		</div>
+	</div>
+	<div id="box_cula_addr_body" style="display:none">
+		<div class="textinput">
+			<span class="name" id="BIPV6LOCAL009">LAN IPv6 ULA</span>
+			<span class="delimiter">:</span>
+			<span class="value">
+				<span id="cula_addr"></span>	
+				<span id="cula_addr_pl"></span>
+			</span>
+		</div>
+	</div>
+	<div class="gap"></div>
+</div>
+<!-- Current IPv6 ULA SETTINGS END -->
+<div class="gap"></div>
+<p><input type="button" id="BIPV6LOCAL013" value="Save Settings" onclick="OnSubmit();" />
+	<input type="button" id="BIPV6LOCAL014" value="Don't Save Settings" onclick="uiPageRefresh();" /></p>
+</div>
+<div id="BIPV6LOCAL010" class="tips">
+	<strong>Helpful Hints...</strong>
+	<br/><br/>
+	<p>&nbsp;&#149;&nbsp;&nbsp;ULA is useful for Local IPv6 communications, If you would like to enable it,click Enable ULA. By default ULA is disabled.</p>
+	<p>&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpsetup#IPv6"><span id = "lang_wanbind">More</span></a></p>

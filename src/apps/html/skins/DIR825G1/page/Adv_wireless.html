@@ -1,0 +1,206 @@
+﻿<div class="mainbody" id="mainbody">
+<div class="orangebox">
+<span id="Adv_wireless000">
+	<h1>Advanced Wireless settings</h1>
+	<p>These options are for users that wish to change the behavior of their 802.11n wireless radio from the standard settings. We do not recommend changing these settings from the factory defaults. Incorrect settings may impact the performance of your wireless radio. The default settings should provide the best wireless radio performance in most environments.</p>
+</span>
+	<p><input type="button" value="Save Settings" onClick="uiSubmit();" id="Adv_wireless001" />
+	<input type="button" value="Don't Save Settings" onClick="uiPageRefresh();" id="Adv_wireless002" /></p>
+</div>
+<!-- ===================== 2.4Ghz, BG band ============================== -->
+<div class="blackbox">
+	<h2 id="Adv_wireless003" >Advanced Wireless Settings</h2>
+	
+	<div class="textinput">
+		<span class="name" id="Adv_wireless004" >Wireless Band</span>
+		<span class="delimiter">:</span>
+		<span class="value"><b id="Adv_wireless005" >2.4GHz Band</b></span>
+	</div>
+	
+	<div class="textinput">
+		<span class="name" id="Adv_wireless006" >Transmit Power</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="tx_power">
+				<option value="100" id="Adv_wireless007" >High</option>
+				<option value="50" id="Adv_wireless008" >Medium</option>
+				<option value="25" id="Adv_wireless009" >Low</option>
+			</select>
+		</span>
+	</div>
+	<div class="textinput" style="display:none;">
+		<span class="name">Beacon period</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="beacon" type="text" size="4" maxlength="4" />
+			(msec, range: 20~1000, default: 100)
+		</span>
+	</div>
+	<div class="textinput" style="display:none;">
+		<span class="name">RTS Threshold</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="rts" type="text" size="4" maxlength="4" />
+			(range: 256~2346, default: 2346)
+		</span>
+	</div>
+	<div class="textinput" style="display:none;">
+		<span class="name">Fragmentation</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="frag" type="text" size="4" maxlength="4" />
+			(range: 1500~2346, default: 2346, even number only)
+		</span>
+	</div>
+	<div class="textinput" style="display:none;">
+		<span class="name">DTIM interval</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="dtim" type="text" size="4" maxlength="3" />
+			(range: 1~255, default: 1)
+		</span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="Adv_wireless010" >WLAN Partition</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="wlan_partition" type="checkbox" />
+		</span>
+	</div>		
+	<div class="textinput" style="display:none;">
+		<span class="name">Preamble Type</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="preamble" name="preamble" type="radio" value="short" />Short Preamble
+			<input id="preamble" name="preamble" type="radio" value="long" />Long Preamble
+		</span>
+	</div>
+
+	<div class="textinput">
+		<span class="name" id="Adv_wireless011" >WMM Enable</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="en_wmm" type="checkbox" />
+		</span>
+	</div>	
+	<div class="textinput" style="display:none;">
+		<span class="name">Short GI</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="sgi" type="checkbox" /></span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="Adv_wireless012" >HT 20/40 Coexistence</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input type="radio" class="name" id="coexist_enable" 		name="coexist_type" value="1" 	/> <label id="Adv_wireless013" >Enable</label>
+	        <input type="radio" class="name" id="coexist_disable" 		name="coexist_type" value="0" /> <label id="Adv_wireless014" >Disable</label>
+		</span>
+	</div>	
+	<div class="gap"></div>
+</div>
+
+<!-- ===================== 5Ghz, A band ============================== -->
+<div class="blackbox" >
+	<h2 id="Adv_wireless015" >Advanced Wireless Settings</h2>
+	
+	<div class="textinput">
+		<span class="name" id="Adv_wireless016" >Wireless Band</span>
+		<span class="delimiter">:</span>
+		<span class="value"><b id="Adv_wireless017" >5GHz Band</b></span>
+	</div>
+	
+	<div class="textinput">
+		<span class="name" id="Adv_wireless018" >Transmit Power</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<select id="tx_power_Aband">
+				<option value="100" id="Adv_wireless019" >High</option>
+				<option value="50" id="Adv_wireless020" >Medium</option>
+				<option value="25" id="Adv_wireless021" >Low</option>
+			</select>
+		</span>
+	</div>
+	<div class="textinput" style="display:none;">
+		<span class="name">Beacon period</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="beacon_Aband" type="text" size="4" maxlength="4" />
+			(msec, range: 20~1000, default: 100)
+		</span>
+	</div>
+	<div class="textinput" style="display:none;">
+		<span class="name">RTS Threshold</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="rts_Aband" type="text" size="4" maxlength="4" />
+			(range: 256~2346, default: 2346)
+		</span>
+	</div>
+	<div class="textinput" style="display:none;">
+		<span class="name">Fragmentation</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="frag_Aband" type="text" size="4" maxlength="4" />
+			(range: 1500~2346, default: 2346, even number only)
+		</span>
+	</div>
+	<div class="textinput" style="display:none;">
+		<span class="name">DTIM interval</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="dtim_Aband" type="text" size="4" maxlength="3" />
+			(range: 1~255, default: 1)
+		</span>
+	</div>
+	<div class="textinput">
+		<span class="name" id="Adv_wireless022" >WLAN Partition</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="wlan_partition_Aband" type="checkbox" />
+		</span>
+	</div>		
+	<div class="textinput" style="display:none;">
+		<span class="name">Preamble Type</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="preamble_Aband" name="preamble_Aband" type="radio" value="short" />Short Preamble
+			<input id="preamble_Aband" name="preamble_Aband" type="radio" value="long" />Long Preamble
+		</span>
+	</div>
+
+	<div class="textinput">
+		<span class="name" id="Adv_wireless023" >WMM Enable</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input id="en_wmm_Aband" type="checkbox" />
+		</span>
+	</div>	
+	<div class="textinput" style="display:none;">
+		<span class="name">Short GI</span>
+		<span class="delimiter">:</span>
+		<span class="value"><input id="sgi_Aband" type="checkbox" /></span>
+	</div>
+	<div class="textinput" style="display:none;">
+		<span class="name">HT 20/40 Coexistence</span>
+		<span class="delimiter">:</span>
+		<span class="value">
+			<input type="radio" class="name" id="coexist_enable_Aband" 		name="coexist_type_Aband" value="enable" /> <label>Enable</label>
+	        <input type="radio" class="name" id="coexist_disable_Aband" 	name="coexist_type_Aband" value="disable"/> <label>Disable</label>
+		</span>
+	</div>	
+	
+	<div class="gap"></div>
+</div>
+
+<p><input type="button" value="Save Settings" onclick="uiSubmit();" id="Adv_wireless024" />
+	<input type="button" value="Don't Save Settings" onclick="uiPageRefresh();" id="Adv_wireless025" /></p>
+</div>
+<div class="tips">
+	<span id="Adv_wireless027" >
+	<strong>Helpful Hints...</strong>
+	<br/><br/>
+	<p>&nbsp;&#149;&nbsp;&nbsp;It is recommended that you leave these parameters with their default values. Adjusting them could limit the performance of your wireless network.</p>
+	<p>&nbsp;&#149;&nbsp;&nbsp;Enabling <strong>WMM</strong> can help control latency and jitter when transmitting multimedia content over a wireless connection.</p>
+	</span>
+	<p>&nbsp;&#149;&nbsp;&nbsp;<a href=
+	"/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpadv#Wireless"><span id="Adv_wireless026" >More</span></a></p>

@@ -1,0 +1,201 @@
+<!-- config -->
+<style type="text/css">
+dt
+{
+	font-weight: bold;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 15px;
+}
+dd
+{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+dd p
+{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+dd dl
+{
+	margin-left: 15px;
+}
+
+.help_example dl
+{
+	background-color: #DFDFDF;
+	padding: 0 0 0 4px;
+	border: gray;
+	border-width: 1px;
+	border-style: solid;
+	margin-left:15px;
+	margin-right:15px;
+}
+.help_example  dt
+{
+	margin-left:0px;
+}
+.help_example dd
+{
+	margin-left:0px;
+}
+dd .help_example dl
+{
+	margin-left: 0;
+}
+.help_example dl dl
+{
+	border: 0;
+	margin-right:15px;
+}
+
+.box_alert
+{
+	color: #CC0000;
+	background-color: transparent;
+	font-weight: bold;
+}
+code
+{
+	font-family: "Letter Gothic MT", "Lucida Console", "Courier New", Courier, monospace;
+	font-weight: bold;
+}
+span.button_ref
+{
+	color: #111111;
+	background-color: #99CCEE;
+	font-size: 9px;
+	font-weight: bold;
+	white-space: nowrap;
+	line-height: 12px;
+	margin: 0 2px;
+	padding: 0px 4px;
+}
+}
+</style>
+<div class="menubody">
+	<div class="orangebox">
+		<h1 id = "lang_status_help1">Status Help</h1>
+			<ul>
+				<li><a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpstatus#Device"><span id = "lang_status_help2">Device Info</span></a></li>
+				<li><a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpstatus#Logs"><span id = "lang_status_help3">Logs</span></a></li>
+				<li><a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpstatus#Statistics"><span id = "lang_status_help4">Statistics</span></a></li>
+				<li class="SecLevel diagnostics"><a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpstatus#Sessions"><span id = "lang_status_help5">Internet Sessions</span></a></li>
+				<li><a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpstatus#Wireless"><span id = "lang_status_help6">Wireless</span></a></li>
+				<li><a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpstatus#Routingv4"><span id = "lang_status_help7">Routing</span></a></li>
+				<li><a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpstatus#IPv6"><span id = "lang_status_help8">IPv6</span></a></li>
+				<li class="SecLevel diagnostics"><a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpstatus#Routing"><span id = "lang_status_help9">IPv6 Routing</span></a></li>
+			</ul>
+	</div>
+	
+	<div class = "blackbox" id="lang_status_help10">
+		<h2><a name = "Device">Device Info</a></h2>
+		<p>This page displays the current information for the router. The page will show the version of the firmware currently loaded in the device. </p>
+		<dl>
+			<dt>LAN (Local Area Network)</dt>
+			<dd>This displays the MAC Address of the Ethernet LAN interface, the IP Address and Subnet Mask of the LAN interface, and whether or not the router's built-in DHCP server is Enabled or Disabled.</dd>
+			<dt>WAN (Wide Area Network)</dt>
+			<dd>This displays the MAC Address of the WAN interface, as well as the IP Address, Subnet Mask, Default Gateway, and DNS server information that the router has obtained from your ISP. It will also display the connection type (Dynamic, Static, or PPPoE) that is used establish a connection with your ISP. If the router is configured for Dynamic, then there will be buttons for releasing and renewing the IP Address assigned to the WAN interface. If the router is configured for PPPoE, there will be buttons for connecting and disconnecting the PPPoE session.</dd>
+			<dt>Wireless LAN</dt>
+			<dd>This displays the SSID, Channel, and whether or not Encryption is enabled on the Wireless interface.</dd>
+			
+			<dt>Lan Computers</dt>
+			<dd>This area of the screen continually updates to show all DHCP enabled computers and devices connected to the LAN side of your router. If the DHCP Client (i.e. a computer configured to 'Automatically obtain an address') supplies a Host Name then that will also be shown. However, any computer or device that has a static IP address would not show its host name.</dd>
+			<dt>IGMP Multicast memberships</dt>
+			<dd>If IGMP is enabled, this area of the screen shows all multicast groups of which any LAN devices are members.</dd>				
+		</dl>
+	</div>
+	
+	<div class = "blackbox" id="lang_status_help11">
+		<h2><a name="Logs">Logs</a></h2>
+		<p>You can save the log file to a local drive which can later be used to send to a network administrator for troubleshooting.</p>
+		<dl>
+			<dt>Save</dt>
+			<dd>Click this button to save the log entries to a text file.</dd>
+		</dl>
+		<p>The router keeps a running log of events and activities occurring on it at all times. The log will display up to 400 recent system logs, 50 firewall and security logs, and 50 router status logs. Newer log activities will overwrite the older logs.</p>
+		<dl>
+			<dt>First Page</dt>
+			<dd>Click this button to go to the first page of the log.</dd>
+			<dt>Last Page</dt>
+			<dd>Click this button to go to the last page of the log.</dd>
+			<dt>Previous</dt>
+			<dd>Moves back one log page.</dd>
+			<dt>Next</dt>
+			<dd>Moves forward one log page.</dd>
+			<dt>Clear</dt>
+			<dd>Clears the logs completely.</dd>
+			<dt>Log Type</dt>
+			<dd>Select the type of information you would like the DIR-825 to log.</dd>
+			<dt>Log Level</dt>
+			<dd>Select the level of information you would like the DIR-825 to log.</dd>
+			<dt>Link To Email Log Setting</dt>
+			<dd>If you provided email information, clicking the <strong>Link To Email Log Setting</strong> button sends the router log to the configured email address.</dd>
+		</dl>
+	</div>
+	
+	<div class = "blackbox" id="lang_status_help12">
+		<h2><a name = "Statistics">Statistics</a></h2>	
+		<p>The router keeps statistic of the data traffic that it handles. You are able to view the amount of packets that the router has Received and Transmitted on the Internet (WAN), LAN, and Wireless interfaces.</p>
+		<dl>
+			<dt>Refresh</dt>
+			<dd>Click this button to update the counters.</dd>
+		<!--<dt>Reset</dt>
+			<dd>Click this button to clear the counters. The traffic counter will reset when the device is rebooted.</dd>
+		-->
+		</dl>
+	</div>
+	
+	<div class = "blackbox" id="lang_status_help13">
+		<h2><a name = "Sessions">Internet Sessions</a></h2>
+		<p>Internet Session display Source and Destination sessions passing through the router.</p>
+		<dl>
+			<dt>IP Address</dt>
+			<dd>The source IP address of where the sessions are originated from.</dd>
+			<dt>TCP Sessions</dt>
+			<dd>This shows the number of TCP sessions are being sent from the source IP address.</dd>
+			<dt>UDP Sessions</dt>
+			<dd>This shows the number of UDP sessions are being sent from the source IP address.</dd>
+		</dl>
+	</div>
+	
+	<div class = "blackbox" id="lang_status_help14">
+		<h2><a name = "Wireless">Wireless</a></h2>
+		<p>Use this page in order to view how many wireless clients have associated with the router. This page shows the MAC address of each associated client, and the mode they are connecting in (802.11a or 802.11b or 802.11g or 802.11n).</p>
+	</div>
+	
+	<div class = "blackbox" id="lang_status_help15">
+		<h2><a name = "Routingv4">Routing</a></h2>	
+		<p>The Routing Status menu shows information about the routes that have been enabled on your router. The list will display the destination IP address, gateway IP address, subnet mask, metric and interface for each route.</p>
+	</div>
+
+	<div class = "blackbox" id="lang_status_help16">
+		<h2><a name = "IPv6">IPv6</a></h2>
+		<p>This page displays your IPv6 internet and network connection details.</p>
+		<dt><strong>IPv6 Connection Information</strong></dt>	
+		<dd>
+			<dl>
+				<dt>IPv6 Connection Type</dt>
+				<dd>The type of IPv6 connection.</dd>
+				<dt>LAN IPv6 Link-Local Address</dt>
+				<dd>The LAN IPv6 Link-Local Address.</dd>			
+			</dl>
+		</dd>
+		<dt><strong>LAN IPv6 Computers</strong></dt>
+		<dd>
+			<dl>
+				<dt>Name</dt>
+				<dd>The name of the connected computer.</dd>
+				<dt>IPv6 Address</dt>
+				<dd>The IPv6 address of the connected computer.</dd>			
+			</dl>
+		</dd>	
+	</div>
+	
+	<div class = "blackbox" id="lang_status_help17">
+		<h2><a name = "Routing">IPv6 Routing</a></h2>	
+		<p>This page displays IPv6 routing details configured for your router.</p>
+	</div>

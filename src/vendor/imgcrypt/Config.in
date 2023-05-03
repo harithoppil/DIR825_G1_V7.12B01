@@ -1,0 +1,7 @@
+
+config VENDOR_IMGCRYPT
+    bool 'IMGCRYPT'
+    depends VENDOR
+    default n 
+    help
+       For RTK Firmware Encryption

@@ -1,0 +1,136 @@
+#!/bin/sh
+#Make the "build" directory
+#if [ ! -f .config ]; then
+#	echo "Please make menuconfig first"
+#	exit -1;
+#fi
+#ConfigLine=`grep "^CONFIG_HW_.*=y$" .config`
+#ARCH=`expr match "$ConfigLine" "CONFIG_HW_\(.*\)=y"`
+function SelectProduct
+{
+  index=1;
+  echo "*************************************************"
+  #echo "* Please select a product:"
+  cd product
+  find *  -maxdepth 0 -type d > .productlist 
+  while read ProductName; do
+    cd $ProductName
+    profile_index=0;
+    
+    find * -maxdepth 0  -type d | grep -v "init.d" > .profilelist
+    while read ProfileName; do
+     echo "* $index: $ProductName $ProfileName"
+     eval VAR$index='$ProductName'
+     eval VAR_Profile$index='$ProfileName'
+     index=`expr $index + 1`
+     profile_index=`expr $profile_index + 1`
+    done < .profilelist
+    rm -f .profilelist
+    
+#    if [ $profile_index -eq 0 ];then
+     echo "* $index: $ProductName"
+     eval VAR$index='$ProductName'
+     eval VAR_Profile$index=
+    index=`expr $index + 1` 
+#    fi
+
+    cd ..
+  done < .productlist
+  rm -f .productlist
+  echo "*************************************************"
+  #read item;
+  if [ $index -gt 2 ];then
+  	item=2
+  else
+  	item=1
+  fi
+  eval "Product=\"\$VAR$item\""
+  eval "Profile=\"\$VAR_Profile$item\""
+  if [ "-${Profile}" == "-" ];then
+   eval "CurProfile=$Product"
+  else
+   eval "CurProfile=${Product}__${Profile}"
+  fi
+  cd ..
+}
+
+OLDPWD=${PWD}
+if [ "-${ROOTDIR}" == "-" ]; then
+  echo "Please set environ variable ROOTDIR"
+  exit 1
+fi
+
+cd ${ROOTDIR}
+if [ "-$1" = "-" ]; then
+SelectProduct
+else
+CurProfile=$1
+Product=${CurProfile%%__*}
+Profile=${CurProfile##*__}
+if [ -$Profile = -$Product ]; then
+  Profile=
+fi
+fi
+
+export PRODUCT=$Product
+export PROFILE=$Profile
+export CURPROFILE=$CurProfile
+
+echo "Prepare $CurProfile ..."
+
+#if [ ! -f product/${Product}/arch.mk ]; then
+#  echo "The product/${Product}/arch.mk not exists";
+#  exit 1;
+#fi
+
+if [ -d build.${CurProfile} ]; then
+  #echo "The Profile \"${CurProfile}\"'s directory had been existed,do you want clean it?(yes/no)"
+  if [ "-$1" = "-" ]; then
+    #read choice
+    choice=yes
+  else
+    choice=yes
+  fi
+  if [ "$choice" = "yes" ]; then
+	  echo "Cleaing ${CurProfile} ..."
+	  rm -rf build.${CurProfile}
+  else
+	exit 0;
+  fi
+fi
+
+mkdir -p build.${CurProfile}
+rm -rf build
+ln -s ${ROOTDIR}/build.${CurProfile} build
+
+#将产品名称保存在.product文件中供BaseVar.mk文件引用
+echo "PRODUCT="$Product > build/.product
+
+echo "Making Symbolic Link for PRODUCT...."
+mkdir -p build/product
+#先把PRODUCT下的文件链接过来，再链接PROFILE目录文件进行覆盖
+for i in `find product/${Product} -maxdepth 1 -type f`; do
+    ln -s ${ROOTDIR}/${i} build/product/`basename ${i}`
+done
+if [ "-${Profile}" != "-" ];then
+    for i in `ls product/${Product}/${Profile}`; do
+        ln -sf ${ROOTDIR}/product/${Product}/${Profile}/${i} build/product/${i}
+    done
+fi
+
+#组合KERNEL_DIR
+ln -s ${ROOTDIR}/build/product/arch.mk build/arch.mk
+TBS_KERNEL_VERSION=linux-2.6.36.x
+source build/arch.mk
+KERNEL_DIR=${BUILDDIR}/kernel/${TBS_KERNEL_VERSION}
+
+cp build/product/defconfig build/.config
+mkdir build/tmpdist
+
+echo "Making Symbolic Link ...."
+sh ${ROOTDIR}/tools/mksymlink src/ build/
+ln -s ${ROOTDIR}/build/product/product.c ${KERNEL_DIR}/drivers/product/product.c
+ln -s ${ROOTDIR}/build/product/app_btn_cfg.c build/apps/ssap/button/app_btn_cfg.c
+mkdir build/romfs
+mkdir build/romfs/rootfs
+

@@ -1,0 +1,444 @@
+<!-- config -->
+<style type="text/css">
+dt
+{
+	font-weight: bold;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 15px;
+}
+dd
+{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+dd p
+{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+dd dl
+{
+	margin-left: 15px;
+}
+
+.help_example dl
+{
+	background-color: #DFDFDF;
+	padding: 0 0 0 4px;
+	border: gray;
+	border-width: 1px;
+	border-style: solid;
+	margin-left:15px;
+	margin-right:15px;
+}
+.help_example  dt
+{
+	margin-left:0px;
+}
+.help_example dd
+{
+	margin-left:0px;
+}
+dd .help_example dl
+{
+	margin-left: 0;
+}
+.help_example dl dl
+{
+	border: 0;
+	margin-right:15px;
+}
+
+.box_alert
+{
+	color: #CC0000;
+	background-color: transparent;
+	font-weight: bold;
+}
+code
+{
+	font-family: "Letter Gothic MT", "Lucida Console", "Courier New", Courier, monospace;
+	font-weight: bold;
+}
+span.button_ref
+{
+	color: #111111;
+	background-color: #99CCEE;
+	font-size: 9px;
+	font-weight: bold;
+	white-space: nowrap;
+	line-height: 12px;
+	margin: 0 2px;
+	padding: 0px 4px;
+}
+}
+</style>
+<div class="menubody">
+	<div class="orangebox">
+		<h1 id = "lang_setup_help1">Setup Help</h1>
+			<ul>				
+				<li><a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpsetup#Internet"><span id = "lang_setup_help2">Internet</span></a></li>
+				<li><a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpsetup#Wireless"><span id = "lang_setup_help3">Wireless Settings</span></a></li>
+				<li><a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpsetup#Network"><span id = "lang_setup_help4">Network Settings</span></a></li>
+				<li><a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpsetup#Storage"><span id = "lang_setup_help_web_access">Storage</span></a></li>
+				<li><a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpsetup#IPv6"><span id = "lang_setup_help5">IPv6</span></a></li>
+			</ul>
+	</div>
+	
+	<div class = "blackbox" id = "lang_setup_help6">
+		<h2><a name="Internet">Internet</a></h2>
+		<p>If you are configuring the device for the first time, we recommend that you click on the Internet Connection Setup Wizard, and follow the instructions on the screen. If you wish to modify or configure the device settings manually, click Manual Internet Connection Setup.</p>
+		<dl>
+			<dt>Internet Connection Setup Wizard</dt>
+			<dd>Click this button to have the router walk you through a few simple steps to help you connect your router to the Internet.</dd>
+			<dt>Manual Internet Connection Setup</dt>
+			<dd>Choose this option if you would like to input the settings needed to connect your router to the Internet manually.
+				<dl>
+					<dt  style="display:none;">Access Point Mode</dt>
+					<dd  style="display:none;">Enable "Access Point Mode" will make the device function like a wireless AP. All the NAT functions will be disabled except settings related to the wireless connection.</dd>
+					<dt  style="display:none;">Bridge Mode</dt>
+					<dd  style="display:none;">Enable "Bridge Mode" will make the device function like a wireless AP. All the NAT functions will be disabled except settings related to the wireless connection.</dd>				
+					<dt>Internet Connection Type </dt>
+					<dd>The Internet Connection Settings are used to connect the router to the Internet. Any information that needs to be entered on this page will be provided to you by your ISP and often times referred to as "public settings". Please select the appropriate option for your specific ISP. If you are unsure of which option to select, please contact your ISP.
+						<dl>
+							<dt>Static IP Address</dt>
+							<dd>Select this option if your ISP (Internet Service Provider) has provided you with an IP address, Subnet Mask, Default Gateway, and a DNS server address. Enter this information in the appropriate fields. If you are unsure of what to enter in these fields, please contact your ISP.</dd>
+							<dt>Dynamic IP Address</dt>
+							<dd>Select this option if your ISP (Internet Service Provider) provides you with an IP address automatically. Cable modem providers typically use dynamic assignment of IP Addresses.
+								<dl>
+								<p><strong>Host Name</strong> (optional)<br/>The Host Name field is optional but may be required by some Internet Service Providers. The default host name is dlinkrouter.</p>
+								<p><strong>Use Unicasting</strong> (optional)<br/>This option is normally turned off, and should remain off as long as the WAN-side DHCP server correctly provides an IP address to the router. However, if the router cannot obtain an IP address from the DHCP server, the DHCP server may be one that works better with unicast responses. In this case, turn the unicasting option on, and observe whether the router can obtain an IP address. In this mode, the router accepts unicast responses from the DHCP server instead of broadcast responses.</p>
+								<p><strong>MAC Address</strong> (optional)<br/>The MAC (Media Access Control) Address field is required by some Internet Service Providers (ISP). The default MAC address is set to the MAC address of the WAN interface on the router. You can use the &quot;Clone MAC Address&quot; button to automatically copy the MAC address of the Ethernet Card installed in the computer used to configure the device. It is only necessary to fill in the field if required by your ISP.</p>
+								<p><strong>Primary DNS Address</strong><br/>Enter the Primary DNS (Domain Name Service) server IP address provided to you by your ISP.</p>
+								<p><strong>Secondary DNS Address</strong> (optional)<br/>If you were given a secondary DNS server IP address from your ISP, enter it in this field.</p>
+								<p><strong>MTU</strong><br/>MTU (Maximum Transmission/Transfer Unit) is the largest packet size that can be sent over a network. Messages larger than the MTU are divided into smaller packets. 1500 is the default value for this option. Changing this number may adversely affect the performance of your router. Only change this number if instructed to by one of our Technical Support Representatives or by your ISP.</p>
+								</dl>
+							</dd>
+							<dt>PPPoE</dt>
+							<dd>Select this option if your ISP requires you to use a PPPoE (Point to Point Protocol over Ethernet) connection. DSL providers typically use this option. Select Dynamic PPPoE to obtain an IP address automatically for your PPPoE connection (used by majority of PPPoE connections). Select Static PPPoE to use a static IP address for your PPPoE connection.
+								<dl>
+								<p><strong>User Name</strong><br/>Enter your PPPoE username.</p>
+								<p><strong>Password</strong><br/>Enter your PPPoE password.</p>
+								<p><strong>Service Name</strong> (optional)<br/>If your ISP uses a service name for the PPPoE connection, enter the service name here.</p>
+								<p><strong>IP Address</strong><br/>This option is only available for Static PPPoE. Enter in the static IP address for the PPPoE connection.</p>
+								<p><strong>MAC Address</strong> (optional)<br/>The MAC (Media Access Control) Address field is required by some Internet Service Providers (ISP). The default MAC address is set to be the MAC address of the WAN interface on the router. You can use the &quot;Clone MAC Address&quot; button to automatically copy the MAC address of the Ethernet Card installed in the computer that is being used to configure the device. It is only necessary to fill in this field if required by your ISP.</p>
+								<p><strong>Primary DNS Address</strong><br/>Primary DNS (Domain Name System) server IP address, which may be provided by your ISP. You should only need to enter this information if you selected Static PPPoE. If Dynamic PPPoE is chosen, leave this field at its default value as your ISP will provide you this information automatically.</p>
+								<p><strong>Secondary DNS Address</strong> (optional)<br/>If you were given a secondary DNS server IP address from your ISP, enter it in this field.</p>
+								<p><strong>Maximum Idle time</strong><br/>The amount of inactivity time (in minutes) before the device will disconnect your PPPoE session. Enter a Maximum Idle Time (in minutes) to define a maximum period of time for which the Internet connection is maintained during inactivity. If the connection is inactive for longer than the defined Maximum Idle Time, then the connection will be dropped. This option only applies to the Connect-on-demand Connection mode.</p>
+								<p><strong>MTU</strong><br/>MTU (Maximum Transmission/Transfer Unit) is the largest packet size that can be sent over a network. Messages larger than the MTU are divided into smaller packets. 1492 is the default value for this option. Changing this number may adversely affect the performance of your router. Only change this number if instructed to by one of our Technical Support Representatives or by your ISP.</p>
+								<p><strong>Connect mode select</strong><br/>Select Always-on if you would like the router to never disconnect the PPPoE session or you can use the drop down menu to select a previously defined schedule or click the <strong>New Schedule</strong> button to add a new schedule. Select Manual if you would like to control when the router is connected and disconnected from the Internet. The Connect-on-demand option allows the router to establish a connection to the Internet only when a device on your network tries to access a resource on the Internet.</p>
+								</dl>
+							</dd>
+							<dt>PPTP</dt>
+							<dd>Select this option if your ISP uses a PPTP (Point to Point Tunneling Protocol) connection and has assigned you a username and password in order to access the Internet. Select Dynamic PPTP to obtain an IP address automatically for your PPTP connection. Select Static PPTP to use a static IP address for your PPTP connection.
+								<dl>
+								<p><strong>IP Address</strong><br/>Enter the IP address that your ISP has assigned to you.</p>
+								<p><strong>Subnet Mask</strong><br/>Enter the Subnet Mask that your ISP has assigned to you.</p>
+								<p><strong>Gateway</strong><br/>Enter the Gateway IP address assigned to you by your ISP.</p>
+								<p><strong>DNS</strong><br/>Enter the DNS address assigned to you by your ISP.</p>
+								<p><strong>Server IP</strong><br/>Enter the IP address of the server, which will be provided by your ISP, that you will be connecting to.</p>
+								<p><strong>Username</strong><br/>Enter your PPTP Username.</p>
+								<p><strong>Password</strong><br/>Enter your PPTP Password.</p>
+								<p><strong>Maximum Idle time</strong><br/>The amount of time of inactivity before the device will disconnect your PPTP session. Enter a Maximum Idle Time (in minutes) to define a maximum period of time for which the Internet connection is maintained during inactivity. If the connection is inactive for longer than the specified Maximum Idle Time, the connection will be dropped. This option only applies to the Connect-on-demand Connection mode.</p>
+								<p><strong>MTU</strong><br/>MTU (Maximum Transmission/Transfer Unit) is the largest packet size that can be sent over a network. Messages larger than the MTU are divided into smaller packets. 1400 is the default value for this option. Changing this number may adversely affect the performance of your router. Only change this number if instructed to by one of our Technical Support Representatives or by your ISP.</p>
+								<p><strong>Connect mode select</strong><br/>Select Always-on if you would like the router to never disconnect the PPTP session or you can use the drop down menu to select a previously defined schedule or click the <strong>New Schedule</strong> button to add a new schedule. Select Manual if you would like to control when the router is connected and disconnected from the Internet. The Connect-on-demand option allows the router to establish a connection to the Internet only when a device on your network tries to access a resource on the Internet.</p>
+								<p><strong>MAC Address</strong> (optional)<br/>The MAC (Media Access Control) Address field is required by some Internet Service Providers (ISP). The default MAC address is set to the MAC address of the WAN interface on the router. You can use the &quot;Clone MAC Address&quot; button to automatically copy the MAC address of the Ethernet Card installed in the computer used to configure the device. It is only necessary to fill in the field if required by your ISP.</p>
+								</dl>
+							</dd>
+							<dt>L2TP</dt>
+							<dd>Select this option if your ISP uses a L2TP (Layer 2 Tunneling Protocol) connection and has assigned you a username and password in order to access the Internet. Select Dynamic L2TP to obtain an IP address automatically for your L2TP connection. Select Static L2TP to use a static IP address for your L2TP connection.
+								<dl>
+								<p><strong>IP Address</strong><br/>Enter the IP address that your ISP has assigned to you.</p>
+								<p><strong>Subnet Mask</strong><br/>Enter the Subnet Mask that your ISP has assigned to you.</p>
+								<p><strong>Gateway</strong><br/>Enter the Gateway IP address assigned to you by your ISP.</p>
+								<p><strong>DNS</strong><br/>Enter the DNS address assigned to you by your ISP.</p>
+								<p><strong>Server IP</strong><br/>Enter the IP address of the server, which will be provided by your ISP, that you will be connecting to.</p>
+								<p><strong>L2TP Username</strong><br/>Enter your L2TP Username.</p>
+								<p><strong>Password</strong><br/>Enter your L2TP Password.</p>
+								<p><strong>Maximum Idle time</strong><br/>The amount of inactivity time (in minutes) before the device will disconnect your L2TP session. Enter a Maximum Idle Time (in minutes) to define a maximum period of time for which the Internet connection is maintained during inactivity. If the connection is inactive for longer than the defined Maximum Idle Time, then the connection will be dropped. This option only applies to the Connect-on-demand Connection mode.</p>
+								<p><strong>MTU</strong><br/>MTU (Maximum Transmission/Transfer Unit) is the largest packet size that can be sent over a network. Messages larger than the MTU are divided into smaller packets. 1400 is the default value for this option. Changing this number may adversely affect the performance of your router. Only change this number if instructed to by one of our Technical Support Representatives or by your ISP.</p>
+								<p><strong>Connect mode select</strong><br/>Select Always-on if you would like the router to never disconnect the L2TP session or you can use the drop down menu to select a previously defined schedule or click the <strong>New Schedule</strong> button to add a new schedule. Select Manual if you would like to control when the router is connected and disconnected from the Internet. The Connect-on-demand option allows the router to establish a connection to the Internet only when a device on your network tries to access a resource on the Internet.</p>
+								<p><strong>MAC Address</strong> (optional)<br/>The MAC (Media Access Control) Address field is required by some Internet Service Providers (ISP). The default MAC address is set to the MAC address of the WAN interface on the router. You can use the &quot;Clone MAC Address&quot; button to automatically copy the MAC address of the Ethernet Card installed in the computer used to configure the device. It is only necessary to fill in the field if required by your ISP.</p>							
+								</dl>
+							</dd>
+							<dt style="display:none;">
+								Russian PPTP (Dual Access)
+							</dt>
+							<dd style="display:none;">To configure a Russian PPTP Internet connection, configure as previously described for PPTP connections. </dd>
+							<dt style="display:none;">
+								Russian PPPoE (Dual Access)
+							</dt>
+							<dd style="display:none;">Some PPPoE connections use a static IP route to the ISP in addition to the global IP settings for the connection. This requires an added step to define IP settings for the physical WAN port. To configure a Russian PPPoE Internet connection, configure as previously described for PPPoE connections and add the physical WAN IP settings as instructed by your ISP. </dd>
+							<dt style="display:none;">
+								Russian L2TP (Dual Access)
+							</dt>
+							<dd style="display:none;">To configure a Russian L2TP Internet connection, configure as previously described for L2TP connections. </dd>				
+							<dt>
+								DS-Lite
+							</dt>
+							<dd>Dual-stack lite enables a broadband service provider to share IPv4 addresses among customers by combining two well-known technologies: IP in IP (IPv4-in-IPv6) and NAT.</dd>
+							<dl>
+							<p><strong>DS-Lite DHCPv6 Option</strong><br/>Use this option to get the AFTR IPv6 automatically.</p>
+							<p><strong>Manual Configuration</strong><br/>Use this option if your ISP provide the AFTR IPv6 address.</p>
+							</dl>
+						</dl>
+					</dd>
+				</dl>
+			</dd>
+		</dl>
+	</div>
+		
+	<div class = "blackbox" id = "lang_setup_help7">
+		<h2><a name="Wireless">Wireless Settings</a></h2>
+		<p>The Wireless Setup page contains the settings for the (Access Point) Portion of the router. This page allows you to customize your wireless network or configure the router to fit an existing wireless network that you may already have setup.</p>
+		<dl>
+			<!--
+			<dt>Wi-Fi Protected Setup (Also called WCN 2.0 in Windows Vista)</dt>
+			<dd>This feature provides users a more intuitive way of setting up wireless security. It is available in two formats: PIN number and Push button. Enter the PIN number that comes with the device in the wireless card utility or Windows Vista's wireless client utility if the wireless card has a certified Windows Vista driver to automatically set up wireless security between the router and the client. The wireless card will have to support Wi-Fi Protected Setup in either format in order to take advantage of this feature.</dd>
+			-->
+			<dt>Wireless Network Name</dt>
+			<dd>Also known as the SSID (Service Set Identifier), this is the name of your Wireless Local Area Network (WLAN). This can be easily changed to establish a new wireless network or to add the router to an existing wireless network.</dd>
+			<dt>Schedule</dt>
+			<dd>Select a schedule for when the service will be enabled.
+			If you do not see the schedule you need in the list of schedules, go to the <a href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'> Tools --> Schedules</a> screen and create a new schedule.</dd>			
+			<dt>802.11 Mode</dt>
+			<dd>If all of the wireless devices you want to connect with this router can connect in the same transmission mode, you can improve performance slightly by choosing the appropriate "Only" mode. If you have some devices that use a different transmission mode, choose the appropriate "Mixed" mode.</dd>
+			<dt>Enable Auto Channel Selection</dt>
+			<dd>Enable Auto Channel Selection let the router can select the best possible channel for your wireless network to operate on.</dd>		
+			<dt>Wireless Channel</dt>
+			<dd>Indicates which channel the router is operating on. By default the channel is set to auto. This can be changed to fit the channel setting for an existing wireless network or to customize your new wireless network. Click the Enable Auto Scan checkbox to have the router automatically select the channel that it will operate on. This option is recommended because the router will choose the channel with the least amount of interference.</dd>
+			<dt>Transmission (TX) Rates</dt>
+			<dd>Select the basic transfer rates based on the speed of wireless adapters on the WLAN (wireless local area network).</dd>
+			<dt>Channel Width</dt>
+			<dd>The "Auto 20/40 MHz" option is usually best. The other options are available for special circumstances.</dd>		
+			<dt>Visibility Status</dt>
+			<dd>The Invisible option allows you to hide your wireless network. When this option is set to Visible, your wireless network 
+							name is broadcast to anyone within the range of your signal. If you are not using encryption then they could connect to 
+							your network. When Invisible mode is enabled, you must enter the Wireless Network Name (SSID) on the client manually to 
+							connect to the network.</dd>
+			<dt>Wireless Security Mode</dt>
+			<dd>Securing your wireless network is important as it is used to protect the integrity of the information being transmitted. The router is capable of 4 types of wireless security; WEP, WPA only, WPA2 only, and WPA/WPA2 (auto-detect).
+				<dl>
+					<dt>WEP</dt>
+					<dd>Wired Equivalent Protocol (WEP) is a wireless security protocol for Wireless Local Area Networks (WLAN). WEP provides security by encrypting the data that is sent over the WLAN. The router supports 2 levels of WEP Encryption: 64-bit and 128-bit. WEP is disabled by default. The WEP setting can be changed to fit an existing wireless network or to customize your wireless network.
+						<dl>
+							<dt>Authentication</dt>
+							<dd>Authentication is a process by which the router verifies the identity of a network device that is attempting to join the wireless network. There are two types authentication for this device when using WEP.</dd>
+							<dl>
+								<dt>Both</dt>
+								<dd>Select Open System or Shared Key for authentication automatically.</dd>
+								<dt>Shared Key</dt>
+								<dd>Select this option to require any wireless device attempting to communicate with the router to provide the encryption key needed to access the network before they are allowed to communicate with the router.</dd>
+							</dl>
+							<dt>WEP Key</dt>
+							<dd>WEP Key 1 allow you to easily change wireless encryption settings to maintain a secure network. Simply select the specific key to be used for encrypting wireless data on the network.</dd>
+						</dl>
+					</dd>
+					<dt>WPA-Personal and WPA-Enterprise</dt>
+					<dd>Both of these options select some variant of Wi-Fi Protected Access (WPA) -- security standards published by the Wi-Fi Alliance. The <strong>WPA Mode</strong> further refines the variant that the router should employ.
+					</dd>					
+					<dt>WPA Mode: </dt>
+					<dd>WPA is the older standard; select this option if the clients that will be used with the router 
+									only support the older standard. WPA2 is the newer implementation of the stronger IEEE 802.11i security standard. 
+									With the "WPA2" option, the router tries WPA2 first, but falls back to WPA if the client only supports WPA. 
+									With the "WPA2 Only" option, the router associates only with clients that also support WPA2 security.</dd>
+					<dt>Group Key Update Interval:</dt>
+					<dd>The amount of time before the group key used for broadcast and multicast data is changed.</dd>
+					<dl>
+						<dt>WPA-Personal</dt>
+						<dd>This is what your wireless clients will need in order to communicate with your router, When PSK is selected enter 8-63 alphanumeric characters. Be sure to write this Passphrase down as you will need to enter it on any other wireless devices you are trying to add to your network.</dd>
+							<dl>
+								<dt>Pre-Shared Key:</dt>
+								<dd>The key is entered as a pass-phrase of up to 63 alphanumeric characters in ASCII (American Standard Code for 
+										Information Interchange) format at both ends of the wireless connection. It cannot be shorter than eight characters, 
+										although for proper security it needs to be of ample length and should not be a commonly known phrase. This phrase is 
+										used to generate session keys that are unique for each wireless client.</dd>
+							</dl>
+					</dl>
+					<dl>
+						<dt>WPA-Enterprise</dt>
+						<dd>This option works with a RADIUS Server to authenticate wireless clients. Wireless clients should have established 
+										the necessary credentials before attempting to authenticate to the Server through this Gateway. Furthermore, it 
+										may be necessary to configure the RADIUS Server to allow this Gateway to authenticate users.</dd>
+							<dl>
+								<dt>RADIUS Server IP Address:</dt>
+								<dd>The IP address of the authentication server.</dd>
+								<dt>RADIUS Server Port:</dt>
+								<dd>The port number used to connect to the authentication server.</dd>
+								<dt>RADIUS Server Shared Secret:</dt>
+								<dd>A pass-phrase that must match with the authentication server.</dd>
+								<dt>Advanced:</dt>
+									<dl>
+										<dt>Optional Backup RADIUS Server:</dt>
+										<dd>This option enables configuration of an optional second RADIUS server. A second RADIUS server can be 
+											used as backup for the primary RADIUS server. The second RADIUS server is consulted only when the primary server 
+											is not available or not responding. The fields <strong>Second RADIUS Server IP Address, RADIUS Server Port, Second 
+											RADIUS server Shared Secret</strong> provide the corresponding parameters for the second RADIUS 
+											Server.</dd>											
+									</dl>
+							</dl>		
+					</dl>
+				</dl>
+			</dd>
+		</dl>       
+	</div>	
+	
+	<div class = "blackbox" id = "lang_setup_help8">
+		<h2><a name="Network">Network Settings</a></h2>
+		<dl>
+			<dt>LAN Setup</dt>
+			<dd>These are the settings of the LAN (Local Area Network) interface for the device. These settings may be referred to as "private settings". You may change the LAN IP address if needed. The LAN IP address is private to your internal network and cannot be seen on the Internet. The default IP address is 192.168.0.1 with a subnet mask of 255.255.255.0.
+				<dl>
+				<p><strong>IP Address</strong><br/>IP address of the router, default is 192.168.0.1.</p>
+				<p><strong>Subnet Mask</strong><br/>Subnet Mask of the router, default is 255.255.255.0.</p>
+				<p><strong>Host Name</strong><br/>The default host name is dlinkrouter.</p>		
+				<p><strong>Local Domain Name</strong> (optional)<br/>Enter in the local domain name for your network.</p>
+				<p><strong>DNS Relay</strong><br/>When DNS Relay is enabled, DHCP clients of the router will be assigned the router's LAN IP address as their DNS server. All DNS requests that the router receives will be forwarded to your ISPs DNS servers. When DNS relay is disabled, all DHCP clients of the router will be assigned the ISP's DNS server.</p>
+				</dl>
+			</dd>
+			<dt>DHCP Server</dt>
+			<dd>DHCP stands for Dynamic Host Control Protocol. The DHCP server assigns IP addresses to devices on the network that request them. These devices must be set to "Obtain the IP address automatically". By default, the DHCP Server is enabled on the router. The DHCP address pool contains the range of IP addresses that will automatically be assigned to the clients on the network.
+				<dl>
+					<dt>Starting IP address</dt>
+					<dd>The starting IP address for the DHCP server's IP assignment.</dd>
+					<dt>Ending IP address</dt>
+					<dd>The ending IP address for the DHCP server's IP assignment.</dd>
+					<dt>Lease Time</dt>
+					<dd>The length of time in minutes for the IP lease.</dd>
+					<dt>Always Broadcast</dt>
+					<dd>If all the computers on the LAN successfully obtain their IP addresses from the router's DHCP server as expected, this option can remain disabled. However, if one of the computers on the LAN fails to obtain an IP address from the router's DHCP server, it may have an old DHCP client that incorrectly turns off the broadcast flag of DHCP packets. Enabling this option will cause the router to always broadcast its responses to all clients, thereby working around the problem, at the cost of increased broadcast traffic on the LAN.</dd>
+					<!--<dt>NetBIOS Announcement</dt>
+					<dd>Check this box to allow the DHCP Server to offer NetBIOS configuration settings to the LAN hosts. NetBIOS allow LAN hosts to discover all other computers within the network, e.g. within Network Neighbourhood.</dd>
+					<dt>Learn NetBIOS from WAN</dt>
+					<dd>If NetBIOS announcement is swicthed on, switching this setting on causes WINS information to be learned from the WAN side, if available. Turn this setting off to configure manually.</dd>
+					<dt>Primary WINS Server IP address</dt>
+					<dd>Configure the IP address of the preferred WINS server. WINS Servers store information regarding network hosts, allowing hosts to 'register' themselves as well as discover other available hosts, e.g. for use in Network Neighbourhood. This setting has no effect if the 'Learn NetBIOS information from WAN' is activated.</dd>
+					<dt>Secondary WINS Server IP address</dt>
+					<dd>Configure the IP address of the backup WINS server, if any. This setting has no effect if the 'Learn NetBIOS information from WAN' is activated.</dd>
+					<dt>NetBIOS Scope</dt>
+					<dd>This is an advanced setting and is normally left blank. This allows the configuration of a NetBIOS 'domain' name under which network hosts operate. This setting has no effect if the 'Learn NetBIOS information from WAN' is activated.</dd>
+					<dt>NetBIOS Registration mode</dt>
+					<dd>Indicates how network hosts are to perform NetBIOS name registration and discovery.
+									H-Node, this indicates a Hybrid-State of operation. First WINS servers are tried, if any, followed by local network broadcast. This is generally the preferred mode if you have configured WINS servers.
+									M-Node (default), this indicates a Mixed-Mode of operation. First Broadcast operation is performed to register hosts and discover other hosts, if broadcast operation fails, WINS servers are tried, if any. This mode favours broadcast operation which may be preferred if WINS servers are reachable by a slow network link and the majority of network services such as servers and printers are local to the LAN.
+									P-Node, this indicates to use WINS servers ONLY. This setting is useful to force all NetBIOS operation to the configured WINS servers. You must have configured at least the primary WINS server IP to point to a working WINS server.
+									B-Node, this indicates to use local network broadcast ONLY. This setting is useful where there are no WINS servers available, however, it is preferred you try M-Node operation first.
+									This setting has no effect if the 'Learn NetBIOS information from WAN' is activated.</dd>
+					-->
+				</dl>	
+			</dd>
+			<dd>Dynamic DHCP client computers connected to the unit will have their information displayed in the Dynamic DHCP Client Table. The table will show the Host Name, IP Address, MAC Address, and Expired Time of the DHCP lease for each client computer.</dd>
+			<dt>Add/Edit DHCP Reservation</dt>
+			<dd>This option lets you reserve IP addresses, and assign the same IP address to the network device with the specified MAC address any time it requests an IP address. This is almost the same as when a device has a static IP address except that the device must still request an IP address from the D-Link router. The D-Link router will provide the device the same IP address every time. DHCP Reservations are helpful for server computers on the local network that are hosting applications such as Web and FTP. Servers on your network should either use a static IP address or use this option.
+				<dl>	
+					<dt>Computer Name</dt>
+					<dd>You can assign a name for each computer that is given a reserved IP address. This may help you keep track of which computers are assigned this way. Example: GameServer.</dd>
+					<dt>IP Address</dt>
+					<dd>The LAN address that you want to reserve.</dd>
+					<dt>MAC Address</dt>
+					<dd>To input the MAC address of your system, enter it in manually or connect to the D-Link router's Web-Management interface from the system and click the Copy Your PC's MAC Address button.</dd>
+					<dd>A MAC address is usually located on a sticker on the bottom of a network device. The MAC address is comprised of twelve digits. Each pair of hexadecimal digits are separated by colons such as 00:0D:88:11:22:33. If your network device is a computer and the network card is already located inside the computer, you can connect to the D-Link router from the computer and click the Copy Your PC's MAC Address button to enter the MAC address.</dd>
+				</dl>	
+			</dd>
+			<dt>DHCP Reservations List</dt>		
+			<dd>This shows clients that you have specified to have reserved DHCP addresses. An entry can be changed by clicking the Edit icon, or deleted by clicking the Delete icon. When you click the Edit icon, the item is highlighted, and the 'Edit DHCP Reservation' section is activated for editing.</dd>
+			<dt>Number of Dynamic DHCP Clients</dt>		
+			<dd>In this section you can see what LAN devices are currently leasing IP addresses.</dd>	
+		</dl>
+	</div>
+	
+	<div class="blackbox" id="lang_setup_help10">
+		<h2><a name="Storage">Storage</a></h2>
+		<p>USB storage device using the Samba file sharing protocol. To use this feature, check the Enable SAMBA checkbox, then use the root account to manage access to your storage devices.</p>
+		<dl>
+			<dt><strong>WINDOWS FILE SHARING</strong></dt>
+			<dd>You can check checkbox <strong>Enable SAMBA</strong> if you want to enable samba server.</dd>
+			<dt><strong>User Creation</strong></dt>
+			<dd>User creation and modification section support to modify password. </dd>	
+		<dl>
+	</div>
+	<div class = "blackbox" id = "lang_setup_help9">
+		<h2><a name="IPv6">IPv6</a></h2>
+		<dl>
+			<dt><strong>IPv6</strong></dt>
+			<dd>The IPv6 (Internet Protocol version 6) section is where you configure your IPv6 Connection type.
+			</dd>
+		</dl>
+		<dl>
+			<dt><strong>IPv6 Connection Type </strong></dt>
+			<dd>
+				There are several connection types to choose from: Link-local Only, Static IPv6, Autoconfiguration(SLAAC/DHCPv6), PPPoE, IPv6 in IPv4 Tunnel, 6to4 and 6rd.
+				If you are unsure of your connection method, please contact your IPv6 Internet Service Provider. Note: If using the PPPoE option, you will need to ensure that any PPPoE client software on your computers has been removed or disabled.
+				<dl>
+					<p>	<dt><strong>Link-local Only </strong></dt>
+					<dd>The Link-local address is used by nodes and routers when communicating with neighboring nodes on the same link. This mode enables IPv6-capable devices to communicate with each other on the LAN side.</dd></p>
+					<p>	<dt><strong>Static IPv6 Mode </strong></dt>
+					<dd>This mode is used when your ISP provides you with a set IPv6 addresses that does not change. The IPv6 information is manually entered in your IPv6 configuration settings. You must enter the IPv6 address, Subnet Prefix Length, Default Gateway, Primary DNS Server, and Secondary DNS Server. Your ISP provides you with all this information. </dd></p>
+					<p><dt><strong>Autoconfiguration(SLAAC/DHCPv6)</strong></dt>
+					<dt><strong>SLAAC</strong></dt>	
+					<dd>IPv6 hosts can configure themselves automatically when connected to a routed IPv6 network using the Neighbor Discovery Protocol via Internet Control Message Protocol version 6(ICMPv6) router discovery messages. When first connected to a network, a host sends a link-local router solicitation multicast request for its configuration parameters; if configured suitably, routers respond to such a request with a router advertisement packet that contains network-layer configuration parameters.</dd>
+					<dd>If IPv6 stateless address autoconfiguration is unsuitable for an application, a network may use stateful configuration with the Dynamic Host Configuration Protocol version 6(DHCPv6) or hosts may be configured statically.</dd>		
+					<dt><strong>DHCPv6 Mode </strong></dt>
+					<dd>This is a method of connection where the ISP assigns your IPv6 address when your router requests one from the ISP's server. Some ISP's require you to make some settings on your side before your router can connect to the IPv6 Internet. </dd></p>
+					<p> <dt><strong>PPPoE </strong></dt>
+					<dd>Select this option if your ISP requires you to use a PPPoE (Point to Point Protocol over Ethernet) connection to IPv6 Internet. DSL providers typically use this option. This method of connection requires you to enter a <strong>Username</strong> and <strong>Password</strong> (provided by your Internet Service Provider) to gain access to the IPv6 Internet. The supported authentication protocols are PAP and CHAP.</dd>
+					<dt><strong>Dynamic IP:</strong></dt>
+					<dd>Select this option if the ISP's servers assign the router's WAN IPv6 address upon establishing a connection.</dd>
+					<dt><strong>Static IP:</strong></dt>
+					<dd>If your ISP has assigned a fixed IPv6 address, select this option. The ISP provides the value for the <strong>IPv6 Address</strong>.</dd>
+					<dt><strong>Service Name:</strong></dt>
+					<dd>Some ISP's may require that you enter a Service Name. Only enter a Service Name if your ISP requires one.</dd>
+					</p>
+					<p>	<dt><strong>IPv6 in IPv4 Tunnel Mode </strong></dt>
+					<dd>IPv6 in IPv4 tunneling encapsulate of IPv6 packets in IPv4 packets so that IPv6 packets can be sent over an IPv4 infrastructure.</dd> </p>
+					<p> <dt><strong>6to4 Mode</strong></dt>				
+					<dd>6to4 is an IPv6 address assignment and automatic tunneling technology that used to provide unicast IPv6 connectivity between IPv6 sites and hosts across the IPv4 Internet.</dd>
+					<dd>The following options apply to all WAN modes.</dd>
+					<dd>Primary DNS Server, Secondary DNS Server: Enter the IPv6 addresses of the DNS Servers. Leave the field for the secondary server empty if not used.</dd></p>
+					<p>	<dt><strong>6rd Mode</strong></dt>
+					<dd>6rd is a mechanism to facilitate IPv6 rapid deployment across IPv4 infrastructures of Internet service providers (ISPs). It is derived from 6to4, a preexisting mechanism to transfer IPv6 packets over the IPv4 network, with the significant change that it operates entirely within the end-user's ISP's network, thus avoiding the major architectural problems inherent in the original design of 6to4.</dd> </p>
+				</dl>
+			</dd>
+		</dl>		
+		<dl>
+			<dt><strong>LAN IPv6 ADDRESS SETTINGS </strong></dt>
+			<dd>These are the settings of the LAN (Local Area Network) IPv6 interface for the router. The router's LAN IPv6 Address configuration is based on the IPv6 Address and Subnet assigned by your ISP. (A subnet with prefix /64 is supported in LAN.)
+			</dd>
+		</dl>
+		<dl>
+			<dt><strong>LAN ADDRESS AUTOCONFIGURATION SETTINGS </strong></dt>
+			<dd>Use this section to set up IPv6 Autoconfiguration to assign an IPv6 address to the computers on your local network. A Stateless and a Stateful Autoconfiguration method are provided.
+				<dl>
+					<dt><strong>Enable Autoconfiguration </strong></dt>
+					<dd>RDNSS (Recursive DNS Server) is a new IPv6 Router Advertisement option to allow IPv6 routers to advertise DNS recursive server addresses to IPv6 hosts.
+					</dd>				
+					<dd>These two values (from and to) define a range of IPv6 addresses that the DHCPv6 Server uses when assigning addresses to computers and devices on your Local Area Network. Any addresses that are outside this range are not managed by the DHCPv6 Server. However, these could be used for manually configuring devices or devices that cannot use DHCPv6 to automatically obtain network address details. 
+					</dd>
+					<dd>Stateless DHCP with SLAAC is a common LAN Deployment model in which DHCPv6 is used to advertise DNS and domain name and IPv6 prefixes are assigned using classic SLAAC (Stateless Address Auto-Configuration).
+					</dd>				
+					<dd>When you select Stateful (DHCPv6), the following options are displayed.
+					</dd>
+					<dd>The computers (and other devices) connected to your LAN also need to have their TCP/IP configuration set to "DHCPv6" or "Obtain an IPv6 address automatically".
+					</dd>						
+				</dl>
+				<dl>
+					<dt><strong>IPv6 Address Range (DHCPv6)</strong></dt>
+					<dd>
+						Once your D-Link router is properly configured and this option is enabled, the router will manage the IPv6 addresses and other network configuration information for computers and other devices connected to your Local Area Network. There is no need for you to do this yourself.
+					</dd>
+					<dd>
+						It is possible for a computer or device that is manually configured to have an IPv6 address that does reside within this range.
+					</dd>
+				</dl>
+				<dl>
+					<dt><strong>IPv6 Address Lifetime </strong></dt>
+					<dd>
+						The amount of time that a computer may have an IPv6 address before it is required to renew the lease.
+					</dd>
+				</dl>
+			</dd>
+		</dl>
+	</div>

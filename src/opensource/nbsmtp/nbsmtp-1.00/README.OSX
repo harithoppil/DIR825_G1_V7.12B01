@@ -1,0 +1,40 @@
+nbSMTP OSX Module
+=================
+
+The OSX module is only available since nbSMTP 0.98.
+
+The OSX module allows setting different configs depending on the
+network location. To enable this module you will have to:
+
+1) Compile nbSMTP with --enable-osx if you haven't done so
+2) Create the ~/.nbsmtp/ directory
+3) Create config files with the same name of your network locations
+4) Create a file named default which will be read when there is no specific
+	config for the current location.
+
+For example:
+
+~/
+ |- .nbsmtp/
+	   |- Home
+	   |- Work
+	   |- Beach
+	   |- default
+
+And there you are.
+
+
+Though I use actively this module every day it may not work with 'extrange'
+file names. If you try it and segfaults send an email to nbsmtp@ferdyx.org
+with the exact name of your location and I'll try to fix it.
+
+Another feature is the ability to use growlnotify in case configure founds it.
+If you have Growl [ http://www.growl.info ] installed, go and grab a copy of its
+growlnotify example app; compile it and put it in your path. Configure should
+find it and activate support for the osx_notify call. It works for me but it
+may not work for you, if it doesn't drop me a line [ nbsmtp@ferdyx.org ].
+
+Please note this module is still EXPERIMENTAL ( but it works great for me ).
+
+Cheers
+	Ferdy

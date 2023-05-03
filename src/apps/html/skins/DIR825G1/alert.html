@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>  
+  <head>
+	<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<link rel="shortcut icon" href="/html/skin/favicon.gif" type="image/x-icon">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>D-LINK SYSTEMS, INC. | WIRELESS ROUTER | HOME</title>
+	<link rel="stylesheet" type="text/css" href="/html/skin/main.css?v=<?echo $var:tbsversion?>">
+	<link rel="stylesheet" type="text/css" href="/html/skin/general.css?v=<?echo $var:tbsversion?>">
+	<script type="text/javascript" src="/html/languages/<?echo $var:language?>/main.js"></script>
+	<script type="text/javascript" src="/html/js/ajax.js"></script>
+	<script type="text/javascript" src="/html/js/boot.js?v=<?echo $var:tbsversion?>"></script>
+	<script type="text/javascript" src="/html/js/seboot.js?v=<?echo $var:tbsversion?>"></script>
+	<script type="text/javascript">
+	<? include html/js/global.js ?>	
+var showIpVar = "<?get InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.IPInterface.1.IPInterfaceIPAddress?>";
+var newInterfaceIP = "<?get :InternetGatewayDevice.X_TWSZ-COM_Authentication.NewInterfaceIP?>";
+var showdomainVar = "<?get :InternetGatewayDevice.LANDevice.1.LANHostConfigManagement.DomainName?>";
+function uiOnload()
+{
+	chg_language(data_language);
+	supplyValue('showIp',showIpVar);
+	supplyValue('showIp2',showIpVar);
+	showdomainVar=showdomainVar==""?"dlinkrouter.local":showdomainVar;
+	supplyValue('showdomain',showdomainVar);
+	document.getElementById('ip').setAttribute("href","http://"+showIpVar);
+	document.getElementById('domain').setAttribute("href","http://"+showdomainVar);
+	if(newInterfaceIP!='')
+	{
+		var _url = "/cgi-bin/webproc?getpage=html/page/portforwd.ajax.js&var:page=*";
+		var ajax = Ajax.getInstance(_url, "", 0, dealwithip ,null_errorfunc);
+		$('tokenid').value=G_SysToken;
+		ajax.post($('uiPostSetVar'));
+		//$("uiPostSetVar").submit();
+	}		
+}
+
+function uiSubmit()
+{
+	window.top.close();
+}
+
+function dealwithip(_text){
+
+	try{
+		eval(_text);
+	} 
+	catch (ex){
+		return false;
+	}
+	
+	if(G_Error == '1')
+	{
+		dealWithError();
+
+	}
+	else
+	{
+		//
+	} 
+
+
+}
+
+function null_errorfunc()
+{
+	return true;
+}
+
+function dealWithError(){
+	 if (G_Error != 1){
+		 return false; 
+	}
+	
+	var arrayHint = [];
+	dealErrorMsg(arrayHint, G_Error_Msg);
+}
+addListeners(uiOnload,dealWithError);
+    </script>
+  </head>
+  
+<body class="mainbg">	
+	<div class="maincontainer">	
+		<div class="headercontainer">
+			<span class="product">
+				<span id = "DIV_ProductPage">Product Page : </span>
+				<a href="http://support.dlink.com" target="_blank"><?get :InternetGatewayDevice.DeviceInfo.ProductClass?></a>
+			</span>
+			<span class="version" id = "Span_FirmwareVersion"><?get :InternetGatewayDevice.DeviceInfo.SoftwareVersion?></span>
+			<span class="version" id = "DIV_FirmwareVersion">Firmware Version : </span>
+			<span class="hwversion">
+				<span id = "DIV_HardwareVersion">Hardware Version : </span>
+				<span class="value" style="text-transform:uppercase;"><?get :InternetGatewayDevice.DeviceInfo.HardwareVersion?></span>
+			</span>
+		</div>
+	
+		<div class="bannercontainer">
+			<span class="bannerhead"><a href="http://www.dlink.com.tw"><img src="/html/skin//head_01.gif" width="162" height="92"></a></span>
+			<span class="bannertail"><img src="/html/skin/head_03.gif"></span>
+		</div>
+
+		<div class="simplecontainer">
+			<div class="simplebody">
+				<div class="orangebox">
+					<span id="message">
+						<h1 id="h1_title">Important notice:</h1>
+						<table border="0" cellpadding="3" cellspacing="0"  width="162">	
+							<tr>
+								<td><p><span id="showInfo1">In order to avoid your network provider and the IP address conflict, the router\'s IP address has been updated to </span><b><span id="showIp"></span></b>.</p></td>
+							</tr>
+							<tr>
+								<td><p><span id="showInfo2">When you set the webpage next time, you should use </span><b><a href="" id ="ip"><span id="showIp2"></span></a></b><span id="showInfo3"> or </span><b><a href="" id ="domain"><span id="showdomain"></span></a></b>.</p></td>
+							</tr>
+							<tr>
+								<td><p id="showInfo4">You must update the router settings and IP address of all IP address related services, such as port mapping and IP address reservations.</p></td>
+							</tr>
+							<tr>
+								<form id="uiPostSetVar" method="post" action="webproc">
+									<input type="hidden" name="obj-action" value="set">
+									<input type="hidden" name="var:page" value="alert">
+									<input type="hidden" value="" name="var:sys_Token" id="tokenid">
+									<input type="hidden" value="ok" name="ajax">
+									<input type="hidden" name=":InternetGatewayDevice.X_TWSZ-COM_Authentication.NewInterfaceIP" value="">
+								</form>
+							</tr>
+						 </table>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="footercontainer">
+			<span class="footermark"><img src="/html/skin/tail.gif"></span>
+		</div> 
+	</div> 
+	<form id="uiPostForm" method="post" action="webproc"></form>	 
+	<div class="copyright"><span id="DIV_Copyright">Copyright &copy; 2016 D-Link Corporation. All rights reserved.</span></div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+Copyright (C) 2011 T&W, Inc.  All Rights Reserved.
+
+Installation instructions for installing toolchains about realtek 8196c
+_____________________________________________________________________________
+
+  Before you build the firmware image, you should make sure had installed the tbs_toolchains.
+  If you had installed the toolchains, you can skip.
+
+_____________________________________________________________________________
+
+INSTALL TOOLCHAINS
+	
+	cp toolchain-buildroot-gcc342.tar.gz /opt
+	cd /opt
+	tar -zxvf toolchain-buildroot-gcc342.tar.gz
+	rm -rf /opt/toolchain-buildroot-gcc342.tar.gz
+
+_____________________________________________________________________________
+
+
+
+
+
+

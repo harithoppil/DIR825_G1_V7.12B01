@@ -1,0 +1,935 @@
+﻿<div class="mainbody" id="mainbody">
+	<div class="orangebox">
+	<span id="Adv_app001">
+		<h1>Application Rules</h1>
+		<p>
+			The Application Rules option is used to open single or multiple ports in your firewall when the router senses data sent to the Internet on an outgoing "Trigger" port or port range. Special Application rules apply to all computers on your internal network.
+		</p>
+	</span>
+		<p><input type="button" value="Save Settings" onclick="uiSubmit();" id="Adv_app002"/>
+			<input type="button" value="Don't Save Settings" onclick="uiPageRefresh();" id="Adv_app003"/></p>
+	</div>
+	<div class="blackbox">
+		<h2 id="Adv_app004">24 -- Application Rules </h2>
+		<p><span id="Adv_app005">Remaining number of rules that can be created</span>: <span id="rmd" style="color:red;"></span></p>
+		<div class="centerline" align="center">
+			<table id="" class="general">
+			<tr>
+				<th width="20px">&nbsp;</th>
+				<th width="101px">&nbsp;</th>
+				<th width="165px">&nbsp;</th>
+				<th width="60px"  style="text-align:center" id="Adv_app006">Port</th>
+				<th width="102px" style="text-align:center" id="Adv_app007">Traffic Type</th>
+				<th width="65px"  style="text-align:center" id="Adv_app008">Schedule</th>
+			</tr>
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_1" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app009">Name<br /></span><input id="name_1" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app010">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('1');" modified="ignore" />
+					<span id="span_app_1"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app011">Trigger<br /></span><input id="priport_1" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_1">
+						<option value="TCP/UDP" id="Adv_app012">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_1" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app013">Firewall <br /></span><input id="pubport_1" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_1">
+							<option value="TCP/UDP" id="Adv_app014">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_2" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app015">Name<br /></span><input id="name_2" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app016">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('2');" modified="ignore" />
+					<span id="span_app_2"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app017">Trigger<br /></span><input id="priport_2" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_2">
+						<option value="TCP/UDP" id="Adv_app018">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_2" class="narrow" style="width: 65px;">
+					</select>
+
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app019">Firewall <br /></span><input id="pubport_2" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_2">
+							<option value="TCP/UDP" id="Adv_app020">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_3" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app021">Name<br /></span><input id="name_3" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app022">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('3');" modified="ignore" />
+					<span id="span_app_3"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app023">Trigger<br /></span><input id="priport_3" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_3">
+						<option value="TCP/UDP" id="Adv_app024">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_3" class="narrow" style="width: 65px;">
+					</select>
+
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app025">Firewall <br /></span><input id="pubport_3" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_3">
+							<option value="TCP/UDP" id="Adv_app026">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_4" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app027">Name<br /></span><input id="name_4" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app028">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('4');" modified="ignore" />
+					<span id="span_app_4"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app029">Trigger<br /></span><input id="priport_4" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_4">
+						<option value="TCP/UDP" id="Adv_app030">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_4" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app031">Firewall <br /></span><input id="pubport_4" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_4">
+							<option value="TCP/UDP" id="Adv_app032">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_5" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app033">Name<br /></span><input id="name_5" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app034">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('5');" modified="ignore" />
+					<span id="span_app_5"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app035">Trigger<br /></span><input id="priport_5" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_5">
+						<option value="TCP/UDP" id="Adv_app036">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_5" class="narrow" style="width: 65px;">
+					</select>
+
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app037">Firewall <br /></span><input id="pubport_5" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_5">
+							<option value="TCP/UDP" id="Adv_app038">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_6" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app039">Name<br /></span><input id="name_6" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app040">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('6');" modified="ignore" />
+					<span id="span_app_6"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app041">Trigger<br /></span><input id="priport_6" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_6">
+						<option value="TCP/UDP" id="Adv_app042">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_6" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app043">Firewall <br /></span><input id="pubport_6" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_6">
+							<option value="TCP/UDP" id="Adv_app044">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_7" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app045">Name<br /></span><input id="name_7" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app046">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('7');" modified="ignore" />
+					<span id="span_app_7"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app047">Trigger<br /></span><input id="priport_7" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_7">
+						<option value="TCP/UDP" id="Adv_app048">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_7" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app049">Firewall <br /></span><input id="pubport_7" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_7">
+							<option value="TCP/UDP" id="Adv_app050">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_8" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app051">Name<br /></span><input id="name_8" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app052">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('8');" modified="ignore" />
+					<span id="span_app_8"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app053">Trigger<br /></span><input id="priport_8" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_8">
+						<option value="TCP/UDP" id="Adv_app054">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_8" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app055">Firewall <br /></span><input id="pubport_8" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_8">
+							<option value="TCP/UDP" id="Adv_app056">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_9" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app057">Name<br /></span><input id="name_9" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app058">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('9');" modified="ignore" />
+					<span id="span_app_9"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app059">Trigger<br /></span><input id="priport_9" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_9">
+						<option value="TCP/UDP" id="Adv_app060">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_9" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app061">Firewall <br /></span><input id="pubport_9" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_9">
+							<option value="TCP/UDP" id="Adv_app062">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_10" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app063">Name<br /></span><input id="name_10" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app064">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('10');" modified="ignore" />
+					<span id="span_app_10"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app065">Trigger<br /></span><input id="priport_10" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_10">
+						<option value="TCP/UDP" id="Adv_app066">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_10" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app067">Firewall <br /></span><input id="pubport_10" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_10">
+							<option value="TCP/UDP" id="Adv_app068">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_11" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app069">Name<br /></span><input id="name_11" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app070">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('11');" modified="ignore" />
+					<span id="span_app_11"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app071">Trigger<br /></span><input id="priport_11" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_11">
+						<option value="TCP/UDP" id="Adv_app072">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_11" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app073">Firewall <br /></span><input id="pubport_11" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_11">
+							<option value="TCP/UDP" id="Adv_app074">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_12" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app075">Name<br /></span><input id="name_12" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app076">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('12');" modified="ignore" />
+					<span id="span_app_12"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app077">Trigger<br /></span><input id="priport_12" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_12">
+						<option value="TCP/UDP" id="Adv_app078">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_12" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app079">Firewall <br /></span><input id="pubport_12" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_12">
+							<option value="TCP/UDP" id="Adv_app080">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_13" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app081">Name<br /></span><input id="name_13" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app082">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('13');" modified="ignore" />
+					<span id="span_app_13"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app083">Trigger<br /></span><input id="priport_13" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_13">
+						<option value="TCP/UDP" id="Adv_app084">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_13" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app085">Firewall <br /></span><input id="pubport_13" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_13">
+							<option value="TCP/UDP" id="Adv_app086">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_14" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app087">Name<br /></span><input id="name_14" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app088">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('14');" modified="ignore" />
+					<span id="span_app_14"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app089">Trigger<br /></span><input id="priport_14" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_14">
+						<option value="TCP/UDP" id="Adv_app090">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_14" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app091">Firewall <br /></span><input id="pubport_14" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_14">
+							<option value="TCP/UDP" id="Adv_app092">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_15" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app093">Name<br /></span><input id="name_15" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app094">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('15');" modified="ignore" />
+					<span id="span_app_15"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app095">Trigger<br /></span><input id="priport_15" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_15">
+						<option value="TCP/UDP" id="Adv_app096">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_15" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app097">Firewall <br /></span><input id="pubport_15" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_15">
+							<option value="TCP/UDP" id="Adv_app098">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_16" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app099">Name<br /></span><input id="name_16" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app100">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('16');" modified="ignore" />
+					<span id="span_app_16"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app101">Trigger<br /></span><input id="priport_16" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_16">
+						<option value="TCP/UDP" id="Adv_app102">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_16" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app103">Firewall <br /></span><input id="pubport_16" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_16">
+							<option value="TCP/UDP" id="Adv_app104">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_17" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app105">Name<br /></span><input id="name_17" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app106">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('17');" modified="ignore" />
+					<span id="span_app_17"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app107">Trigger<br /></span><input id="priport_17" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_17">
+						<option value="TCP/UDP" id="Adv_app108">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_17" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app109">Firewall <br /></span><input id="pubport_17" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_17">
+							<option value="TCP/UDP" id="Adv_app110">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_18" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app111">Name<br /></span><input id="name_18" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app112">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('18');" modified="ignore" />
+					<span id="span_app_18"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app113">Trigger<br /></span><input id="priport_18" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_18">
+						<option value="TCP/UDP" id="Adv_app114">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_18" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app115">Firewall <br /></span><input id="pubport_18" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_18">
+							<option value="TCP/UDP" id="Adv_app116">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_19" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app117">Name<br /></span><input id="name_19" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app118">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('19');" modified="ignore" />
+					<span id="span_app_19"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app119">Trigger<br /></span><input id="priport_19" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_19">
+						<option value="TCP/UDP" id="Adv_app120">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_19" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app121">Firewall <br /></span><input id="pubport_19" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_19">
+							<option value="TCP/UDP" id="Adv_app122">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_20" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app123">Name<br /></span><input id="name_20" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app124">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('20');" modified="ignore" />
+					<span id="span_app_20"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app125">Trigger<br /></span><input id="priport_20" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_20">
+						<option value="TCP/UDP" id="Adv_app126">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_20" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app127">Firewall <br /></span><input id="pubport_20" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_20">
+							<option value="TCP/UDP" id="Adv_app128">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_21" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app129">Name<br /></span><input id="name_21" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app130">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('21');" modified="ignore" />
+					<span id="span_app_21"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app131">Trigger<br /></span><input id="priport_21" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_21">
+						<option value="TCP/UDP" id="Adv_app132">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_21" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app133">Firewall <br /></span><input id="pubport_21" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_21">
+							<option value="TCP/UDP" id="Adv_app134">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_22" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app135">Name<br /></span><input id="name_22" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app136">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('22');" modified="ignore" />
+					<span id="span_app_22"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app137">Trigger<br /></span><input id="priport_22" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_22">
+						<option value="TCP/UDP" id="Adv_app138">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_22" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app139">Firewall <br /></span><input id="pubport_22" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_22">
+							<option value="TCP/UDP" id="Adv_app140">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_23" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app141">Name<br /></span><input id="name_23" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app142">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('23');" modified="ignore" />
+					<span id="span_app_23"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app143">Trigger<br /></span><input id="priport_23" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_23">
+						<option value="TCP/UDP" id="Adv_app144">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_23" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app145">Firewall <br /></span><input id="pubport_23" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_23">
+							<option value="TCP/UDP" id="Adv_app146">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+			
+			<tr>
+				<td rowspan="2" class="centered">
+					<input id="en_24" type="checkbox" />
+				</td>
+				<td rowspan="2" class="centered"><span id="Adv_app147">Name<br /></span><input id="name_24" type="text" size="13" maxlength="15" /></td>
+				<td class="centered" rowspan="2">
+					<span id="Adv_app148">Application<br /></span>
+					<input type="button" value="<<" class="arrow" onclick="OnClickAppArrow('24');" modified="ignore" />
+					<span id="span_app_24"></span>
+				</td>
+				
+				<td class="centered"><span id="Adv_app149">Trigger<br /></span><input id="priport_24" type="text" size="6" maxlength="11" /></td>
+				<td class="centered"><!--Protocol<br />-->
+					<select id="pripro_24">
+						<option value="TCP/UDP" id="Adv_app150">All</option>
+						<option value="TCP">TCP</option>
+						<option value="UDP">UDP</option>
+					</select>
+				</td>
+				<td class="centered" rowspan="2"><!--Schedule<br />-->
+					<select id="sch_24" class="narrow" style="width: 65px;">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="centered"><span id="Adv_app151">Firewall <br /></span><input id="pubport_24" type="text" size="6" maxlength="60" /></td>
+				<td class="centered"><!--Protocol<br/>-->
+					<select id="pubpro_24">
+							<option value="TCP/UDP" id="Adv_app152">All</option>
+							<option value="TCP">TCP</option>
+							<option value="UDP">UDP</option>
+					</select>
+				</td>
+			</tr>
+			
+
+
+			</table>
+		</div>
+		<div class="gap"></div>
+	</div>
+	<p><input type="button" value="Save Settings" onclick="uiSubmit();" id="Adv_app153"/>
+	<input type="button" value="Don't Save Settings" onclick="uiPageRefresh();" id="Adv_app154"/></p>
+	<!-- End of Page Dependent Part. -->
+</div>
+<div id="help_hint" class="tips">
+<!-- Start of Help Depedent Part. -->
+<span id="Adv_app155">
+<strong>Helpful Hints...</strong>
+<br/><br/>
+<p>&nbsp;&#149;&nbsp;&nbsp;Use this feature if you are trying to execute one of the listed network applications and it is not communicating as expected.</p>
+<p>&nbsp;&#149;&nbsp;&nbsp;Use the <strong>Application Name</strong> drop-down menu to view a list of pre-defined applications that you can select from. If you select one of the pre-defined applications, click the arrow button next to the drop-down menu to fill out the appropriate fields.</p>
+<p>&nbsp;&#149;&nbsp;&nbsp;Select a schedule for when the service will be enabled. If you do not see the schedule you need in the list of schedules, go to the <a href='/cgi-bin/webproc?getpage=html/index.html&var:menu=toolbox&var:page=Too_schedules'>Tools -> Schedules</a> screen and create a new schedule.</p>
+</span>
+<p>&nbsp;&#149;&nbsp;&nbsp;<a href="/cgi-bin/webproc?getpage=html/index.html&var:menu=help&var:page=helpadv#App"><span id="Adv_app156">More</span>...</a></p>
+<!-- End of Help Dependent Part. -->

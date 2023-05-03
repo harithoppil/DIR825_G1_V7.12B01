@@ -1,0 +1,5 @@
+<InternetGatewayDevice type="object">
+	<X_SITCOM-COM_CLOUD type="object">
+		<Enable type="boolean">1</Enable>		
+	</X_SITCOM-COM_CLOUD>
+</InternetGatewayDevice>

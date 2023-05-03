@@ -1,0 +1,16 @@
+<InternetGatewayDevice type="object">
+	<X_TWSZ-COM_MLD type="object" Writable="0">
+		<Snooping type="object">
+			<Enable type="boolean">0</Enable>
+		</Snooping>
+		<Proxy type="object">
+			<Enable type="boolean">0</Enable>
+			<AssociatedWANConnection type="string" Writable="1"></AssociatedWANConnection>
+			<Version type="unsignedInt">1</Version>
+	  		<Enable_FastLeaving type="unsignedInt">0</Enable_FastLeaving>
+	  		<GQ_Interval type="unsignedInt">125</GQ_Interval>
+	  		<GQ_Response_Interval type="unsignedInt">100</GQ_Response_Interval>
+	  		<LQ_Interval type="unsignedInt">1</LQ_Interval>
+		</Proxy>
+	</X_TWSZ-COM_MLD>
+</InternetGatewayDevice>
